@@ -7,7 +7,7 @@ import kidsImg from '../../assets/mec-early-years-student.jpg';
 import primaryImg from '../../assets/junior1.jpg';
 import juniorImg from '../../assets/upper.jpg';
 import seniorImg from '../../assets/senior.jpg';
-import alumniImg from '../../assets/alumni.jpg';
+import alumniImg from '../../assets/mec-alumni-leader.jpg';
 
 import '../../css/student-journey.css';
 
