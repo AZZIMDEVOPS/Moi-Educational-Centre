@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import kidsImg from '../../assets/kids.jpg';
+import kidsImg from '../../assets/mec-early-years-student.jpg';
 import primaryImg from '../../assets/junior1.jpg';
 import juniorImg from '../../assets/upper.jpg';
 import seniorImg from '../../assets/senior.jpg';
