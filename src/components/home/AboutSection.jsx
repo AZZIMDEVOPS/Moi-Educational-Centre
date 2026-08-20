@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import CountUp from "react-countup";
 import aboutImg from "../../assets/about2.jpg";
 import "../../css/about-v3.css";
 
@@ -26,33 +25,6 @@ const HIGHLIGHTS = [
     desc: "Nurturing resilience, integrity, and lifelong leadership skills."
   }
 ];
-
-const TIMELINE = [
-  { year: "1986", label: "Founded" },
-  { year: "1990s", label: "Academic Growth" },
-  { year: "2010s", label: "Curriculum Expansion" },
-  { year: "2020s", label: "Innovation & Tech" },
-  { year: "Today", label: "40 Years of Excellence" }
-];
-
-const STATS = [
-  { value: 40, suffix: "+", label: "Years of Excellence" },
-  { value: 2500, suffix: "+", label: "Alumni" },
-  { value: 2, suffix: "", label: "World-Class Curriculums" },
-  { value: 100, suffix: "%", label: "Holistic Education" }
-];
-
-// Helper to keep CountUp out of loops
-const StatItem = ({ stat }) => {
-  return (
-    <div className="about-stat">
-      <h3>
-        <CountUp end={stat.value} suffix={stat.suffix} enableScrollSpy scrollSpyOnce />
-      </h3>
-      <p>{stat.label}</p>
-    </div>
-  );
-};
 
 const AboutSection = () => {
   return (
@@ -124,25 +96,6 @@ const AboutSection = () => {
               </div>
             </div>
 
-          </div>
-
-          {/* Interactive Statistics */}
-          <div className="about-stats global-reveal">
-            {STATS.map((stat, idx) => (
-              <StatItem key={idx} stat={stat} />
-            ))}
-          </div>
-
-          {/* Timeline Accent */}
-          <div className="about-timeline global-reveal">
-            <div className="about-tl-line" />
-            {TIMELINE.map((point, idx) => (
-              <div className="about-tl-item" key={idx}>
-                <div className="about-tl-year">{point.year}</div>
-                <div className="about-tl-dot" />
-                <div className="about-tl-label">{point.label}</div>
-              </div>
-            ))}
           </div>
 
         </div>
