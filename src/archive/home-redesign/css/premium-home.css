@@ -1,0 +1,178 @@
+/* =============================================================================
+   MEC PREMIUM HOME — Master Layout
+   Cinematic 40-Year Celebration Experience
+   ============================================================================= */
+
+/* IMPORT STATEMENT */
+/* NOTE: Import premium-global.css in main App.css or index.css */
+
+/* SPACER SECTIONS */
+.spacer-section {
+  height: 80px;
+  background: linear-gradient(180deg, #1a1a2e 0%, #0d0010 100%);
+}
+
+/* INNER ROW - Consistent WidthS */
+.inner-row {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+}
+
+/* SMOOTH SCROLL BEHAVIOR */
+html {
+  scroll-behavior: smooth;
+}
+
+/* SECTION SPACING */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+/* TYPOGRAPHY DEFAULTS */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* BUTTON DEFAULTS */
+button {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+}
+
+/* LINK DEFAULTS */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* SCROLLBAR STYLING */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0010;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8e44ad 0%, #d946ef 100%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6d28d9 0%, #a855f7 100%);
+}
+
+/* RESPONSIVE UTILITIES */
+@media (max-width: 1400px) {
+  .inner-row {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner-row {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner-row {
+    padding: 0 15px;
+  }
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleInCenter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 30px rgba(142, 68, 173, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(217, 70, 239, 0.5);
+  }
+}
+
+/* PERFORMANCE OPTIMIZATIONS */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* FOCUS STYLES */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #d946ef;
+  outline-offset: 2px;
+}
+
+/* PLACEHOLDER COLORS */
+::placeholder {
+  color: rgba(199, 125, 255, 0.5);
+}
+
+/* SELECTION COLOR */
+::selection {
+  background: #8e44ad;
+  color: #fff;
+}

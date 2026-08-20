@@ -1,0 +1,358 @@
+/* =============================================================
+   MEC GLOBAL NAVIGATION — Premium Floating Mega Menu
+   ============================================================= */
+
+@import url('./design-tokens.css');
+
+/* ─── 1. Floating Container ─────────────────────────────── */
+.mec-header {
+  position: fixed;
+  top: 16px; left: 0; right: 0;
+  z-index: 1000;
+  display: flex; justify-content: center;
+  pointer-events: none; /* Let clicks pass through empty areas */
+}
+
+.header-inner {
+  pointer-events: auto;
+  width: 92%; max-width: 1440px;
+  height: 72px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 22px;
+  padding: 0 clamp(16px, 2vw, 32px);
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scrolled State */
+.mec-header.scrolled .header-inner {
+  height: 64px;
+  background: linear-gradient(135deg, rgba(10, 20, 60, 0.95) 0%, rgba(40, 20, 90, 0.95) 50%, rgba(80, 30, 160, 0.95) 100%);
+     
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(108, 43, 217, 0.2);
+}
+
+
+/* ─── 2. Logo Area ──────────────────────────────────────── */
+.mec-logo {
+  display: flex; align-items: center; gap: 12px; text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.mec-header.scrolled .mec-logo { transform: scale(0.9); }
+.mec-logo img { width: 44px; height: 44px; object-fit: contain; }
+.mec-logo-text { display: flex; flex-direction: column; }
+.mec-logo-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(11px, 0.95vw, 14px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+}
+.mec-logo-tagline { font-family: var(--font-body); font-size: 10px; font-weight: 700; color: #D8B4FE; text-transform: uppercase; letter-spacing: 0.12em; margin-top: 2px; }
+
+
+/* ─── 3. Navigation Links ───────────────────────────────── */
+.mec-nav {
+  display: flex; align-items: center; gap: clamp(12px, 1.5vw, 36px);
+  height: 100%;
+}
+.mec-nav-item {
+  position: relative; height: 100%; display: flex; align-items: center;
+}
+.mec-nav-link {
+  font-family: var(--font-body); font-size: clamp(13px, 1vw, 15px); font-weight: 600; color: #fff;
+  text-decoration: none; display: flex; align-items: center; gap: 6px;
+  position: relative; padding: 8px 0; transition: color 0.3s ease, transform 0.3s ease;
+  background: transparent; border: none; cursor: pointer; outline: none;
+  white-space: nowrap;
+}
+.mec-nav-arrow { transition: transform 0.3s ease; opacity: 0.7; }
+
+/* Animated Underline */
+.mec-nav-link::after {
+  content: ''; position: absolute; bottom: 2px; left: 50%; right: 50%; height: 2px;
+  background: #A855F7; border-radius: 2px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mec-nav-link:hover, .mec-nav-item.is-open .mec-nav-link {
+  color: #D8B4FE; transform: translateY(-2px);
+}
+.mec-nav-item.is-open .mec-nav-arrow { transform: rotate(180deg); }
+.mec-nav-link:hover::after, .mec-nav-item.is-open .mec-nav-link::after {
+  left: 0; right: 0; box-shadow: 0 0 10px #A855F7;
+}
+
+/* Active State Pill */
+.mec-nav-link.active {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+  padding: 6px 14px; border-radius: 999px;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+}
+.mec-nav-link.active::after { display: none; }
+
+
+/* ─── 4. Premium Mega Menus (State-Controlled Persistence) ─── */
+.mec-mega-menu {
+  position: absolute; 
+  top: 100%; 
+  left: 50%; 
+  transform: translateX(-50%) translateY(12px);
+  margin-top: 12px;
+  width: max-content; 
+  min-width: 620px;
+  background: rgba(10, 15, 35, 0.96);    
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.15); 
+  border-radius: 24px;
+  padding: 28px; 
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), 0 0 40px rgba(108, 43, 217, 0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+  opacity: 0; 
+  visibility: hidden; 
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s ease;
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 32px;
+}
+
+/* Zero Gap Bridge */
+.mec-mega-menu::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
+
+/* Open State controlled via JS state attribute and class */
+.mec-nav-item.is-open .mec-mega-menu,
+.mec-mega-menu[data-open="true"] {
+  opacity: 1; 
+  visibility: visible; 
+  pointer-events: auto; 
+  transform: translateX(-50%) translateY(0);
+}
+
+.edu-mega-menu {
+  min-width: 720px;
+}
+.admissions-mega-menu {
+  min-width: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mega-column h4 {
+  font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 700; color: #A855F7;
+  margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px;
+}
+.mega-link-list { display: flex; flex-direction: column; gap: 12px; }
+.mega-link {
+  font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,0.8); text-decoration: none;
+  transition: all 0.2s ease; display: inline-block;
+}
+.mega-link:hover { color: #fff; transform: translateX(6px); }
+
+/* Structural Submenu Links Alignment */
+.mega-icon-link {
+  display: flex; 
+  align-items: flex-start;
+  gap: 16px; 
+  padding: 12px 14px; 
+  border-radius: 14px; 
+  text-decoration: none;
+  transition: all 0.25s ease; 
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+.mega-icon-link:hover {
+  background: rgba(168, 85, 247, 0.12); 
+  transform: translateX(4px);
+}
+.mega-icon-link::before {
+  content: ''; 
+  position: absolute; 
+  left: 0; 
+  top: 10px; 
+  bottom: 10px; 
+  width: 3px;
+  background: #A855F7; 
+  border-radius: 4px; 
+  opacity: 0; 
+  transition: opacity 0.25s ease;
+}
+.mega-icon-link:hover::before { opacity: 1; }
+.mega-icon {
+  width: 40px; 
+  height: 40px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  background: rgba(255,255,255,0.06); 
+  border: 1px solid rgba(255,255,255,0.12); 
+  border-radius: 12px;
+  color: #3B82F6; 
+  font-size: 18px; 
+  transition: all 0.3s ease; 
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.mega-icon-link:hover .mega-icon {
+  background: rgba(168,85,247,0.25); 
+  border-color: rgba(168,85,247,0.5); 
+  color: #D8B4FE;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+}
+.mega-text { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 4px; 
+  flex: 1;
+  text-align: left;
+}
+.mega-title { 
+  font-family: var(--font-body); 
+  font-size: 15px; 
+  font-weight: 700; 
+  color: #fff;
+  line-height: 1.2;
+}
+.mega-desc { 
+  font-family: var(--font-body); 
+  font-size: 12px; 
+  color: rgba(255,255,255,0.65); 
+  line-height: 1.45; 
+}
+
+/* Featured Card in Mega Menu */
+.mega-featured {
+  position: relative; border-radius: 16px; overflow: hidden; height: 100%; min-height: 200px;
+  display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; text-decoration: none;
+}
+.mega-featured img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.mega-featured-overlay {
+  position: absolute; inset: 0; background: linear-gradient(to top, rgba(108,43,217,0.9), transparent);
+}
+.mega-featured:hover img { transform: scale(1.08); }
+.mega-featured h5 { position: relative; z-index: 10; font-family: 'Poppins', sans-serif; font-size: 22px; color: #fff; margin-bottom: 8px; }
+.mega-featured p { position: relative; z-index: 10; font-family: var(--font-body); font-size: 13px; color: rgba(255,255,255,0.8); }
+
+
+/* ─── 5. Actions Container ──────────────────────────────── */
+.mec-actions {
+  display: flex; align-items: center; gap: 8px;
+}
+
+/* Glass Icon Container */
+.mec-icon-group {
+  display: flex; align-items: center; gap: 4px; padding: 4px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 999px;
+}
+.mec-icon-btn {
+  width: 40px; height: 40px; border-radius: 50%; border: none; background: transparent;
+  display: flex; align-items: center; justify-content: center; color: #fff; cursor: pointer;
+  transition: all 0.3s ease; position: relative;
+}
+.mec-icon-btn:hover {
+  background: rgba(255,255,255,0.1); box-shadow: 0 0 15px rgba(255,255,255,0.2); transform: scale(1.05);
+}
+
+/* Language Dropdown */
+.lang-dropdown { position: relative; }
+.lang-toggle {
+  display: flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px;
+  background: transparent; border: none; color: #fff; font-family: var(--font-body); font-size: 13px; font-weight: 700; cursor: pointer;
+}
+
+/* Expanding Search */
+.search-container { display: flex; align-items: center; }
+.search-input {
+  width: 0; padding: 0; border: none; background: transparent; color: #fff;
+  font-family: var(--font-body); font-size: 14px; outline: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+}
+.search-container.active .search-input {
+  width: 160px; padding: 0 12px; opacity: 1;
+}
+
+/* Apply Now Pill */
+.nav-apply-btn {
+  height: clamp(40px, 4vw, 48px); padding: 0 clamp(16px, 1.5vw, 28px); border-radius: 999px; text-decoration: none;
+  background: linear-gradient(135deg, #6C2BD9 0%, #0F3D91 100%);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--font-body); font-size: clamp(12px, 1vw, 14px); font-weight: 700; color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 20px rgba(108, 43, 217, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); margin-left: clamp(6px, 1vw, 12px);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.nav-apply-btn:hover {
+  transform: translateY(-3px); box-shadow: 0 12px 30px rgba(108, 43, 217, 0.6);
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* Mobile Toggle */
+.mec-mobile-toggle {
+  display: none; width: 44px; height: 44px; border: none; background: transparent; color: #fff; font-size: 24px; cursor: pointer;
+}
+
+
+/* ─── 6. Mobile Slide-Over Menu ─────────────────────────── */
+.mobile-menu-overlay {
+  position: fixed; inset: 0; background: rgba(5, 8, 22, 0.98);   
+  z-index: 2000; display: flex; flex-direction: column;
+  opacity: 0; visibility: hidden; transition: all 0.4s ease;
+}
+.mobile-menu-overlay.open { opacity: 1; visibility: visible; }
+
+.mobile-header {
+  display: flex; justify-content: space-between; align-items: center; padding: 24px 32px;
+}
+.close-menu-btn { width: 44px; height: 44px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+
+.mobile-nav {
+  flex: 1; padding: 0 32px; overflow-y: auto;
+}
+.mob-nav-item { border-bottom: 1px solid rgba(255,255,255,0.1); }
+.mob-nav-btn {
+  width: 100%; text-align: left; background: transparent; border: none; padding: 24px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700; color: #fff;
+}
+.mob-sub-menu { display: none; padding-bottom: 24px; }
+.mob-nav-item.open .mob-sub-menu { display: flex; flex-direction: column; gap: 16px; }
+.mob-sub-link { font-family: var(--font-body); font-size: 16px; color: rgba(255,255,255,0.7); text-decoration: none; }
+
+.mobile-footer {
+  padding: 32px; background: rgba(255,255,255,0.03); border-top: 1px solid rgba(255,255,255,0.1);
+}
+.mobile-apply {
+  display: flex; align-items: center; justify-content: center; width: 100%; height: 56px;
+  background: linear-gradient(135deg, #6C2BD9, #3B82F6); border-radius: 999px;
+  font-family: var(--font-body); font-size: 16px; font-weight: 700; color: #fff; text-decoration: none;
+}
+
+
+/* ─── Responsive Adjustments ────────────────────────────── */
+@media (max-width: 1200px) {
+  .mec-nav { display: none; }
+  .header-inner { padding: 0 24px; }
+  .mec-mobile-toggle { display: flex; align-items: center; justify-content: center; margin-left: 12px; }
+}
+@media (max-width: 640px) {
+  .header-inner { width: 96%; }
+  .nav-apply-btn { display: none; }
+  .mec-logo-tagline { display: none; }
+}

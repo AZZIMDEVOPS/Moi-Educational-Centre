@@ -1,0 +1,215 @@
+/* =============================================================================
+   MEC PREMIUM CINEMATIC REDESIGN v2
+   40 Years of Excellence - Futuristic Campus Experience
+   ============================================================================= */
+
+/* ROOT VARIABLES */
+:root {
+  --primary: #8e44ad;
+  --primary-light: #c77dff;
+  --primary-dark: #6d28d9;
+  --deep-purple: #4c1d95;
+  --ultra-deep: #2e132e;
+  --magenta: #d946ef;
+  --magenta-dark: #a855f7;
+  --silver: #e8e8e8;
+  --dark-bg: #0d0010;
+  --dark-bg-secondary: #1a1a2e;
+  
+  --gradient-luxury: linear-gradient(135deg, #4c1d95 0%, #8e44ad 50%, #6d28d9 100%);
+  --gradient-primary: linear-gradient(135deg, #8e44ad 0%, #d946ef 100%);
+  
+  --glow-primary: 0 0 40px rgba(142, 68, 173, 0.6);
+  --glow-magenta: 0 0 50px rgba(217, 70, 239, 0.5);
+  --glow-premium: 0 0 60px rgba(142, 68, 173, 0.4), 0 0 30px rgba(217, 70, 239, 0.3);
+}
+
+/* SMOOTH SCROLL & BASE */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--dark-bg);
+  color: #fff;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+/* GLASS MORPHISM UTILITY */
+.glass {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-premium {
+  background: rgba(142, 68, 173, 0.08) !important;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(217, 70, 239, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(142, 68, 173, 0.15);
+}
+
+/* PREMIUM ANIMATIONS */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: var(--glow-premium); }
+  50% { box-shadow: 0 0 80px rgba(217, 70, 239, 0.6), 0 0 40px rgba(142, 68, 173, 0.5); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes rotateSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translate(0, 100px);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx), -100vh);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* PREMIUM BUTTON STYLES */
+.btn-premium {
+  position: relative;
+  padding: 16px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.btn-primary-glow {
+  background: var(--gradient-primary);
+  color: #fff;
+  box-shadow: 0 0 30px rgba(142, 68, 173, 0.4);
+}
+
+.btn-primary-glow:hover {
+  box-shadow: var(--glow-premium);
+  transform: translateY(-4px);
+}
+
+.btn-primary-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.btn-outline-premium {
+  background: transparent;
+  border: 2px solid var(--primary-light);
+  color: var(--primary-light);
+}
+
+.btn-outline-premium:hover {
+  background: rgba(142, 68, 173, 0.2);
+  box-shadow: var(--glow-primary);
+}
+
+/* SCROLL INDICATOR */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--primary-light);
+  fill: none;
+  stroke-width: 2;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(10px); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .btn-premium {
+    padding: 14px 32px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-premium {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+  }
+}

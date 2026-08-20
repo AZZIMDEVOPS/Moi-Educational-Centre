@@ -1,0 +1,210 @@
+.news-hero{
+     padding: 80px 0;
+}
+
+.news-intro{
+     width: 800px;
+     margin: auto;
+     text-align: center;
+}
+
+.news-hero h1{
+      font-size: 65px;
+      font-weight: 600;
+}
+.news-intro p{
+    font-size: 20px;
+    color: rgb(50,50,50);
+    width: 90%;
+    margin: 10px auto;
+    line-height: 1.5;
+}
+
+.news-body-strip{
+    margin-top: 40px;
+    position: relative;;
+}
+
+.purple-strip{
+      height: 300px;
+      background: var(--bg-color);
+      position: absolute;
+      width: 100%;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+      z-index: 5;
+      display: none;
+}
+
+.news-body-row{
+       position: relative;
+       z-index: 10;
+       width: 100%;
+       min-height: 400px;
+       margin: auto;
+      border-top: 1px solid rgba(220, 220, 220, 0.277);
+}
+
+.news-body-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: none;
+}
+
+.news-body-header h3{
+     font-size: 45px;
+     font-weight: 550;
+     color: whitesmoke;
+}
+
+.news-body-header select{
+       width: 200px;
+       height: 55px;
+       border: none;
+       font-family: var(--regular-font);
+       font-size: 16px;
+       padding: 0 20px;
+       border-radius: 55px;
+       -webkit-border-radius: 55px;
+       -moz-border-radius: 55px;
+       -ms-border-radius: 55px;
+       -o-border-radius: 55px;
+}
+
+.news-body-group{
+    display: grid;
+    margin-top: 50px;
+    gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.loader-box{
+      display: flex;
+     justify-content: center;
+    padding-top: 30px;
+}
+.single-article-loader{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px
+}
+.single-article-loader h3{
+      font-size: 16px;
+      font-weight: 400;
+      color: rgb(80, 80, 80);
+}
+.spin-loader {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #f1e3f497;
+    border-bottom-color: var(--main-color);
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+/* Single Article page */
+.single-article-page{
+       padding: 40px 0px 100px 0px
+}
+.single-article-content{
+      min-height: 80vh;
+}
+.intro-image{
+      max-height: 700px;
+      border-radius: 20px;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      -ms-border-radius: 20px;
+      -o-border-radius: 20px;
+      margin-bottom: 20px;
+}
+.single-article-title,
+.single-article-body{
+       width: 90%;
+       margin: auto
+}
+
+.single-article-title h3{
+     font-size: 15px;
+     text-transform: uppercase;
+     font-weight: 400;
+     color: var(--main-color);
+     margin-bottom: 10px;
+}
+.single-article-title h2{
+      font-size: 55px;
+      margin-bottom: 20px;
+      font-weight: 600;
+}
+.single-article-title h4,
+.single-article-body h3{
+      font-size: 25px;
+      font-weight: 550;
+      margin-bottom: 10px;
+}
+.single-article-body p{
+      font-size: 19px;
+      font-weight: 300;
+      color: rgb(60, 60, 60);
+      line-height: 1.5;
+      margin-bottom: 10px;
+}
+.single-article-body h4{
+      font-size: 20px;
+      margin-bottom: 5px;
+      font-weight: 450;
+}
+.single-article-body ul{
+      width: 95%;
+      margin: auto;
+      list-style: disc;
+}
+.single-article-body ul li{
+       font-size: 18px;
+      font-weight: 300;
+      color: rgb(60, 60, 60);
+      line-height: 1.5;
+      margin-bottom: 10px;
+}
+.body-block p{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+}
+.body-block p span{
+      display: flex;
+      color: var(--main-color);;
+}
+
+
+@media(max-width: 1090px){
+      .news-intro,
+      .news-body-row{
+            width: 100%;
+      }
+}
+
+@media(max-width: 768px){
+       .news-body-group{
+            grid-template-columns: 1fr;
+       }
+
+       .news-hero h1{
+             font-size: 50px;
+       }
+}

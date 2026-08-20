@@ -1,0 +1,167 @@
+/* =============================================================
+   MEC ADMISSIONS V2 — Premium Presentation
+   ============================================================= */
+
+@import url('./design-tokens.css');
+
+.admissions-page-v2 {
+  background: #050816;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ─── 1. Premium Hero ───────────────────────────────────── */
+.adm-hero {
+  position: relative; width: 100%; height: 100vh; min-height: 700px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.adm-hero-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.5) saturate(1.2); transform: scale(1.1);
+}
+.adm-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,1,24,0.9) 0%, rgba(15,61,145,0.7) 100%);
+  z-index: 1;
+}
+.adm-hero-content {
+  position: relative; z-index: 10; text-align: center;
+  max-width: 900px; padding: 0 var(--padding-x);
+}
+.adm-badge {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px;
+  background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3);
+    border-radius: 999px; font-size: 13px; font-weight: bold;
+  color: #D8B4FE; margin-bottom: 24px; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.adm-hero-title {
+  font-family: 'Poppins', sans-serif; font-size: clamp(48px, 6vw, 84px);
+  font-weight: 800; color: #fff; line-height: 1.1; margin: 0 0 24px;
+}
+.adm-hero-sub {
+  font-family: var(--font-body); font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.85);
+  line-height: 1.7; max-width: 800px; margin: 0 auto 40px;
+}
+.adm-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+/* ─── 2. Interactive Timeline ────────────────────────────── */
+.adm-timeline-section {
+  padding: 120px var(--padding-x); background: #050816; position: relative;
+}
+.adm-section-title {
+  font-family: 'Poppins', sans-serif; font-size: 40px; color: #fff; text-align: center; margin-bottom: 80px;
+}
+.adm-timeline-container {
+  max-width: 1000px; margin: 0 auto; position: relative;
+}
+.adm-timeline-line {
+  position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+  background: rgba(255,255,255,0.05); transform: translateX(-50%);
+}
+.adm-timeline-fill {
+  position: absolute; left: 0; top: 0; width: 100%; height: 0%;
+  background: linear-gradient(180deg, #A855F7 0%, #3B82F6 100%);
+  box-shadow: 0 0 20px rgba(168,85,247,0.5);
+}
+.adm-timeline-step {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 60px; position: relative; width: 100%;
+  opacity: 0.5; transition: 0.5s ease;
+}
+.adm-timeline-step:last-child { margin-bottom: 0; }
+.adm-timeline-step.is-active { opacity: 1; }
+
+.adm-timeline-content {
+  width: 45%; background: rgba(255,255,255,0.02);  
+  padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.4s ease;
+}
+.adm-timeline-step.is-active .adm-timeline-content {
+  background: rgba(255,255,255,0.04); border-color: rgba(168,85,247,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.adm-timeline-step:nth-child(even) .adm-timeline-content { margin-left: auto; }
+.adm-timeline-step:nth-child(odd) .adm-timeline-content { margin-right: auto; }
+
+.adm-timeline-icon {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 56px; height: 56px; background: #050816; border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: rgba(255,255,255,0.5); z-index: 2; transition: 0.5s ease;
+}
+.adm-timeline-step.is-active .adm-timeline-icon {
+  border-color: #A855F7; color: #fff; box-shadow: 0 0 20px rgba(168,85,247,0.4); background: #6C2BD9;
+}
+.adm-timeline-content h3 { font-size: 24px; color: #fff; margin-bottom: 16px; }
+.adm-timeline-content p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+.adm-timeline-content a { color: #A855F7; text-decoration: none; font-weight: bold; }
+
+@media (max-width: 768px) {
+  .adm-timeline-line { left: 30px; }
+  .adm-timeline-icon { left: 30px; }
+  .adm-timeline-content { width: calc(100% - 80px); margin-left: 80px !important; }
+}
+
+/* ─── 3. Requirements Cards ──────────────────────────────── */
+.adm-req-section {
+  padding: 100px var(--padding-x); background: #0A0118; border-top: 1px solid rgba(255,255,255,0.05);
+}
+.adm-req-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto;
+}
+.adm-req-card {
+  background: rgba(255,255,255,0.02); padding: 32px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px;
+  transition: 0.3s ease;
+}
+.adm-req-card:hover { transform: translateY(-5px); border-color: rgba(59,130,246,0.3); background: rgba(255,255,255,0.04); }
+.adm-req-icon { font-size: 32px; color: #3B82F6; }
+.adm-req-card h4 { font-size: 18px; color: #fff; margin: 0; }
+
+/* ─── 4. FAQ Accordion ───────────────────────────────────── */
+.adm-faq-section {
+  padding: 100px var(--padding-x); background: #050816;
+}
+.adm-faq-container { max-width: 800px; margin: 0 auto; }
+.adm-faq-item {
+  border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 16px;
+}
+.adm-faq-question {
+  width: 100%; background: none; border: none; padding: 24px 0; color: #fff; font-size: 18px; font-weight: 600;
+  text-align: left; display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+}
+.adm-faq-answer {
+  padding-bottom: 24px; color: rgba(255,255,255,0.7); line-height: 1.7; font-size: 16px; display: none;
+}
+.adm-faq-item.is-open .adm-faq-answer { display: block; }
+.adm-faq-item.is-open .adm-faq-question { color: #A855F7; }
+
+/* ─── Floating Actions ───────────────────────────────────── */
+.adm-floating-actions {
+  position: fixed; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 100;
+}
+.adm-float-btn {
+  width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 24px; color: #fff; text-decoration: none; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.adm-float-whatsapp { background: #25D366; }
+.adm-float-call { background: #6C2BD9; }
+.adm-float-btn:hover { transform: scale(1.1); }
+
+/* Overriding AdmissionForm Styles */
+.admission-form-container {
+  background: rgba(255,255,255,0.02) !important; border: 1px solid rgba(255,255,255,0.05) !important;
+  border-radius: 32px !important;   padding: 60px !important;
+  max-width: 1000px !important; margin: 100px auto !important;
+}
+.admission-form-container input, .admission-form-container select {
+  background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #fff !important; padding: 16px !important; border-radius: 12px !important;
+}
+.admission-form-container input:focus, .admission-form-container select:focus {
+  border-color: #A855F7 !important; background: rgba(255,255,255,0.08) !important;
+}
+.submit-btn-admission {
+  background: linear-gradient(135deg, #6C2BD9 0%, #3B82F6 100%) !important; border: none !important;
+  padding: 18px 40px !important; border-radius: 12px !important; font-size: 16px !important; font-weight: bold !important;
+}

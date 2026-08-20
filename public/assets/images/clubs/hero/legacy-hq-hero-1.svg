@@ -1,0 +1,50 @@
+<svg width="1920" height="1440" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1920" height="1440" fill="#2e132e"/>
+  
+  <!-- Gradient overlay -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8e44ad;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#5a2d7d;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1440" fill="url(#grad1)"/>
+  
+  <!-- Building structure -->
+  <g opacity="0.3">
+    <rect x="400" y="300" width="1120" height="800" fill="none" stroke="#ffffff" stroke-width="4"/>
+    <rect x="500" y="400" width="200" height="200" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <rect x="900" y="400" width="200" height="200" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <rect x="1300" y="400" width="200" height="200" fill="none" stroke="#ffffff" stroke-width="2"/>
+  </g>
+  
+  <!-- People icons representing leadership -->
+  <g opacity="0.4">
+    <!-- Leader -->
+    <circle cx="600" cy="250" r="35" fill="#8b00ff"/>
+    <rect x="575" y="295" width="50" height="100" fill="#8b00ff"/>
+    
+    <!-- Team member 1 -->
+    <circle cx="960" cy="280" r="32" fill="#d946ef"/>
+    <rect x="938" y="320" width="44" height="90" fill="#d946ef"/>
+    
+    <!-- Team member 2 -->
+    <circle cx="1320" cy="270" r="32" fill="#8b00ff"/>
+    <rect x="1298" y="310" width="44" height="90" fill="#8b00ff"/>
+    
+    <!-- Team member 3 -->
+    <circle cx="500" cy="600" r="30" fill="#d946ef"/>
+    <circle cx="1400" cy="650" r="30" fill="#8b00ff"/>
+  </g>
+  
+  <!-- Connecting lines representing unity -->
+  <g opacity="0.2">
+    <line x1="600" y1="285" x2="960" y2="312" stroke="#ffffff" stroke-width="2"/>
+    <line x1="960" y1="312" x2="1320" y2="302" stroke="#ffffff" stroke-width="2"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="960" y="1100" font-size="72" font-weight="bold" text-anchor="middle" fill="#ffffff" font-family="Arial">Legacy HQ</text>
+  <text x="960" y="1180" font-size="32" text-anchor="middle" fill="#d946ef" font-family="Arial">Leadership · Community · Impact</text>
+</svg>

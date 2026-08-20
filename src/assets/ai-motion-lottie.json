@@ -1,0 +1,32 @@
+
+// Replace with actual Lottie JSON if needed
+{
+  "v": "5.7.4",
+  "fr": 30,
+  "ip": 0,
+  "op": 60,
+  "w": 120,
+  "h": 120,
+  "nm": "AI Motion",
+  "ddd": 0,
+  "assets": [],
+  "layers": [
+    {
+      "ty": 4,
+      "nm": "Circle",
+      "shapes": [
+        {
+          "ty": "el",
+          "p": {"a": 0, "k": [60, 60]},
+          "s": {"a": 0, "k": [100, 100]},
+          "c": {"a": 0, "k": true}
+        },
+        {
+          "ty": "st",
+          "c": {"a": 0, "k": [0.466, 0.125, 0.913, 1]},
+          "w": {"a": 0, "k": 8}
+        }
+      ]
+    }
+  ]
+}

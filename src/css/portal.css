@@ -1,0 +1,408 @@
+/* =============================================================
+   MEC LEARNER PORTAL — Complete Student Experience Design System
+   Brand Palette: #7720E9 · #0F3D91 · #10B981 · #050816 · #F8FAFC
+   ============================================================= */
+
+/* Portal Hero Slider */
+.portal-hero {
+  position: relative;
+  height: 48vh;
+  min-height: 380px;
+  overflow: hidden;
+  background: #050816;
+}
+
+.portal-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.portal-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.portal-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.45);
+}
+
+.portal-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFFFFF;
+  z-index: 10;
+  width: 90%;
+  max-width: 840px;
+}
+
+.portal-hero-content h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: #FFFFFF;
+}
+
+.portal-hero-content p {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  opacity: 0.9;
+  max-width: 620px;
+  margin: 0 auto;
+  color: #E2E8F0;
+}
+
+/* Sub-Menu Bar */
+.portal-submenu-wrapper {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  position: sticky;
+  top: 72px;
+  z-index: 90;
+  padding: 12px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.portal-submenu {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  list-style: none;
+  padding: 0 16px;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.portal-submenu-item button, .portal-submenu-item a {
+  text-decoration: none;
+  color: #475569;
+  font-weight: 600;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.portal-submenu-item button:hover, .portal-submenu-item a:hover {
+  color: #7720E9;
+  background: #F3E8FF;
+}
+
+.portal-submenu-item button.active, .portal-submenu-item a.active {
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #7720E9 0%, #123CFF 100%);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(119, 32, 233, 0.3);
+}
+
+/* ─── LEARNER PORTAL CORE LAYOUT ─────────────────────────── */
+.student-portal-wrapper {
+  background: #F8FAFC;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+/* Student Hero Welcome Header */
+.student-welcome-banner {
+  background: linear-gradient(135deg, #050816 0%, #12052C 50%, #0F3D91 100%);
+  border-radius: 24px;
+  padding: 32px;
+  color: #FFFFFF;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(5, 8, 22, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.student-welcome-banner::after {
+  content: '';
+  position: absolute;
+  right: -50px;
+  top: -50px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.student-profile-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.student-avatar-lg {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #A855F7;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+.student-profile-meta h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.student-meta-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.student-badge-pill {
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #E2E8F0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ─── QUICK METRICS SUMMARY CARDS ───────────────────────── */
+.student-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.student-metric-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.student-metric-card:hover {
+  transform: translateY(-3px);
+  border-color: #7720E9;
+  box-shadow: 0 12px 30px rgba(119, 32, 233, 0.12);
+}
+
+.student-card-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.student-card-icon-wrap.purple { background: #F3E8FF; color: #7720E9; }
+.student-card-icon-wrap.emerald { background: #D1FAE5; color: #10B981; }
+.student-card-icon-wrap.blue { background: #DBEAFE; color: #2563EB; }
+.student-card-icon-wrap.amber { background: #FEF3C7; color: #D97706; }
+.student-card-icon-wrap.rose { background: #FFE4E6; color: #E11D48; }
+
+.student-metric-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.student-metric-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 2px;
+}
+
+.student-metric-sub {
+  font-size: 11px;
+  color: #64748B;
+}
+
+/* ─── QUICK ACTIONS ROW ─────────────────────────────────── */
+.student-quick-actions-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.student-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.student-action-btn:hover {
+  background: #7720E9;
+  color: #FFFFFF;
+  border-color: #7720E9;
+  box-shadow: 0 6px 18px rgba(119, 32, 233, 0.3);
+}
+
+/* ─── STUDENT SECTION CARD CONTAINER ────────────────────── */
+.student-section-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  margin-bottom: 32px;
+}
+
+.student-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.student-section-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-section-icon {
+  font-size: 22px;
+  color: #7720E9;
+}
+
+.student-section-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.student-section-sub {
+  font-size: 13px;
+  color: #64748B;
+}
+
+/* ─── TIMETABLE CURRENT LESSON HIGHLIGHT ────────────────── */
+.current-lesson-box {
+  background: linear-gradient(135deg, #7720E9 0%, #0F3D91 100%);
+  color: #FFFFFF;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(119, 32, 233, 0.25);
+}
+
+.current-lesson-tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+/* ─── ACHIEVEMENTS BADGE GRID ────────────────────────────── */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.achievement-card {
+  background: linear-gradient(135deg, #F8FAFC 0%, #FFFFFF 100%);
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.achievement-card:hover {
+  transform: translateY(-4px);
+  border-color: #F59E0B;
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15);
+}
+
+.achievement-badge-pill {
+  display: inline-block;
+  background: #FEF3C7;
+  color: #D97706;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .student-welcome-banner {
+    padding: 20px;
+  }
+  .student-profile-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .student-avatar-lg {
+    width: 64px;
+    height: 64px;
+  }
+  .student-profile-meta h1 {
+    font-size: 20px;
+  }
+  .student-section-card {
+    padding: 20px;
+  }
+}

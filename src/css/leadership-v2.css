@@ -1,0 +1,176 @@
+/* =============================================================
+   MEC LEADERSHIP — Premium 10-Section Storytelling Template
+   Color System: #6C2BD9 · #0F3D91 · #050816
+   ============================================================= */
+
+@import url('./design-tokens.css');
+
+.ldr-page {
+  background: #050816;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ─── 1. Cinematic Hero ─────────────────────────────────── */
+.ldr-hero {
+  position: relative; width: 100%; height: 90vh; min-height: 700px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.ldr-hero-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.7); transform: scale(1.1); /* For GSAP Parallax */
+}
+.ldr-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,1,24,0.9) 0%, rgba(15,61,145,0.75) 100%);
+  z-index: 1;
+}
+.ldr-hero-content {
+  position: relative; z-index: 10; text-align: center;
+  max-width: 900px; padding: 0 var(--padding-x);
+}
+.ldr-badge {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px;
+  background: rgba(255,255,255,0.1);    border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px; font-family: var(--font-body); font-size: 13px; font-weight: 700; color: #D8B4FE;
+  margin-bottom: 32px; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.ldr-hero-title {
+  font-family: 'Poppins', sans-serif; font-size: clamp(48px, 6vw, 92px);
+  font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -2px; margin: 0 0 24px;
+}
+.ldr-word-wrap { display: inline-block; overflow: hidden; vertical-align: top; margin-right: 16px; }
+.ldr-word { display: inline-block; will-change: transform, opacity; }
+.ldr-hero-sub {
+  font-family: var(--font-body); font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.85);
+  line-height: 1.7; max-width: 700px; margin: 0 auto 40px;
+}
+.ldr-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+
+/* ─── 2. Leadership Philosophy (Split) ──────────────────── */
+.ldr-phil { padding: 120px var(--padding-x); background: #050816; }
+.ldr-phil-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+.ldr-phil-text h2 { font-family: 'Poppins', sans-serif; font-size: 42px; margin-bottom: 24px; }
+.ldr-phil-text p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+.ldr-phil-img { position: relative; border-radius: 24px; overflow: hidden; height: 500px; }
+.ldr-phil-img img { width: 100%; height: 100%; object-fit: cover; }
+.ldr-quote-block {
+  position: absolute; bottom: -20px; left: -20px; right: 40px;
+  background: rgba(255,255,255,0.03);    
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 32px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.ldr-quote-text { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 20px; margin-bottom: 16px; line-height: 1.4; }
+.ldr-quote-sig { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; color: #A855F7; }
+
+
+/* ─── 3. Leadership Team Grid ───────────────────────────── */
+.ldr-grid-sec { padding: 120px var(--padding-x); background: linear-gradient(180deg, #050816 0%, #12022A 100%); }
+.ldr-sec-header { text-align: center; margin-bottom: 80px; }
+.ldr-sec-title { font-family: 'Poppins', sans-serif; font-size: 48px; font-weight: 700; margin-bottom: 16px; }
+.ldr-sec-sub { font-family: var(--font-body); font-size: 16px; color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto; }
+
+.ldr-grid { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.ldr-card {
+  position: relative; border-radius: 24px; overflow: hidden;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.4s ease;
+}
+.ldr-card:hover { transform: translateY(-10px); border-color: rgba(168,85,247,0.4); box-shadow: 0 20px 40px rgba(108, 43, 217, 0.2); }
+.ldr-img { width: 100%; height: 380px; overflow: hidden; position: relative; }
+.ldr-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: filter 0.5s, transform 0.5s; }
+.ldr-card:hover .ldr-img img { filter: grayscale(0%); transform: scale(1.05); }
+.ldr-info { padding: 32px; }
+.ldr-info h3 { font-family: 'Poppins', sans-serif; font-size: 28px; margin-bottom: 4px; }
+.ldr-info .role { font-family: var(--font-body); font-size: 14px; color: #A855F7; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
+.ldr-info p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 24px; }
+.ldr-social { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #fff; transition: 0.3s; }
+.ldr-social:hover { background: #3B82F6; }
+
+
+/* ─── 4. Word from the Chairman ─────────────────────────── */
+.ldr-chair { padding: 120px var(--padding-x); background: #0A0118; position: relative; overflow: hidden; }
+.ldr-chair-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; }
+.ldr-chair-img { border-radius: 24px; overflow: hidden; position: relative; }
+.ldr-chair-img img { width: 100%; height: auto; }
+.ldr-chair-msg { position: relative; }
+.ldr-quote-mark { position: absolute; top: -40px; left: -20px; font-size: 120px; color: rgba(168,85,247,0.1); font-family: serif; line-height: 1; }
+.ldr-chair-msg h2 { font-family: 'Poppins', sans-serif; font-size: 40px; margin-bottom: 24px; }
+.ldr-chair-msg p { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 24px; font-style: italic; }
+.ldr-chair-name { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700; color: #fff; }
+.ldr-chair-title { color: #A855F7; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 13px; }
+
+
+/* ─── 5. Leadership Highlights (Stats) ──────────────────── */
+.ldr-stats { padding: 100px var(--padding-x); background: linear-gradient(90deg, #6C2BD9, #0F3D91); }
+.ldr-stats-grid { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+.ldr-stat-val { font-family: 'Poppins', sans-serif; font-size: 64px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+.ldr-stat-label { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.05em; }
+
+
+/* ─── 6. Governance Structure (Visual Hierarchy) ────────── */
+.ldr-gov { padding: 120px var(--padding-x); background: #050816; text-align: center; }
+.ldr-tree { display: flex; flex-direction: column; align-items: center; gap: 40px; margin-top: 60px; position: relative; }
+.ldr-tree-node {
+  background: rgba(255,255,255,0.03);    border: 1px solid rgba(255,255,255,0.1);
+  padding: 24px 40px; border-radius: 999px; font-family: 'Poppins', sans-serif; font-size: 24px;
+  position: relative; z-index: 2; transition: 0.3s;
+}
+.ldr-tree-node:hover { background: rgba(168,85,247,0.2); border-color: rgba(168,85,247,0.5); transform: translateY(-5px); }
+.ldr-tree-level { display: flex; gap: 40px; justify-content: center; position: relative; }
+.ldr-tree-line { width: 2px; height: 40px; background: rgba(255,255,255,0.2); margin: 0 auto; }
+.ldr-tree-h-line { position: absolute; top: -40px; left: 20%; right: 20%; height: 2px; background: rgba(255,255,255,0.2); }
+
+
+/* ─── 7. Core Values (Glass Cards) ──────────────────────── */
+.ldr-vals { padding: 120px var(--padding-x); background: linear-gradient(180deg, #050816 0%, #12022A 100%); }
+.ldr-vals-grid { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.ldr-val-card {
+  background: rgba(255,255,255,0.03);    border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px; padding: 40px; transition: all 0.4s ease; text-align: center;
+}
+.ldr-val-card:hover { transform: translateY(-10px); border-color: rgba(59,130,246,0.4); background: rgba(255,255,255,0.06); }
+.ldr-val-icon { font-size: 32px; color: #A855F7; margin-bottom: 24px; }
+.ldr-val-card h3 { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 16px; }
+.ldr-val-card p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+
+
+/* ─── 8. Leadership Gallery (Masonry) ───────────────────── */
+.ldr-gal { padding: 120px var(--padding-x); background: #050816; }
+.ldr-masonry { max-width: var(--max-width); margin: 0 auto; columns: 3 300px; column-gap: 24px; }
+.ldr-masonry-item { position: relative; margin-bottom: 24px; border-radius: 20px; overflow: hidden; break-inside: avoid; }
+.ldr-masonry-item img { width: 100%; display: block; transition: transform 0.5s; }
+.ldr-masonry-item:hover img { transform: scale(1.05); }
+
+
+/* ─── 9. Testimonials Carousel ──────────────────────────── */
+.ldr-test { padding: 120px var(--padding-x); background: #0A0118; text-align: center; }
+.ldr-test-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.ldr-test-card { background: rgba(255,255,255,0.03); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
+.ldr-test-quote { font-style: italic; color: rgba(255,255,255,0.8); margin-bottom: 24px; line-height: 1.7; }
+.ldr-test-author { font-weight: 700; color: #fff; }
+
+
+/* ─── 10. Admissions CTA ────────────────────────────────── */
+.ldr-cta { padding: 120px var(--padding-x); background: linear-gradient(135deg, #2D086A 0%, #082259 100%); text-align: center; }
+.ldr-cta-inner { max-width: 800px; margin: 0 auto; }
+.ldr-cta-title { font-family: 'Poppins', sans-serif; font-size: 48px; font-weight: 800; margin-bottom: 24px; }
+.ldr-cta-desc { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+
+
+/* ─── Responsive Adjustments ────────────────────────────── */
+@media (max-width: 1024px) {
+  .ldr-phil-inner, .ldr-chair-inner { grid-template-columns: 1fr; }
+  .ldr-quote-block { position: relative; left: 0; right: 0; bottom: 0; margin-top: -40px; }
+  .ldr-grid { grid-template-columns: repeat(2, 1fr); }
+  .ldr-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .ldr-hero-title { font-size: 42px; }
+  .ldr-grid { grid-template-columns: 1fr; }
+  .ldr-stats-grid { grid-template-columns: 1fr; }
+  .ldr-masonry { columns: 1; }
+  .ldr-tree-h-line { display: none; }
+  .ldr-tree-level { flex-direction: column; gap: 40px; }
+}

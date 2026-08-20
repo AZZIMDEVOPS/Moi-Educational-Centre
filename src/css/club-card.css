@@ -1,0 +1,497 @@
+/* ========================================
+   CLUB CARD COMPONENT STYLES
+   ======================================== */
+
+.club-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: pointer;
+}
+
+.club-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Club Card Image Wrapper */
+.club-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #2e132e 0%, #5a1e5a 100%);
+}
+
+.club-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.club-card:hover .club-card-image {
+    transform: scale(1.05);
+}
+
+/* Purple Brand Overlay */
+.club-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(128, 0, 128, 0.25) 0%, rgba(107, 30, 142, 0.3) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Hover Content */
+.club-card-hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(46, 19, 46, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 4;
+}
+
+.club-card:hover .club-card-hover-content {
+    opacity: 1;
+}
+
+.club-card-cta {
+    padding: 12px 32px;
+    background: linear-gradient(135deg, #8b00ff 0%, #d946ef 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 0, 255, 0.4);
+}
+
+.club-card-cta:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 25px rgba(139, 0, 255, 0.6);
+}
+
+/* Club Card Content */
+.club-card-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.club-card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--main-color, #6b1e8e);
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.club-card:hover .club-card-title {
+    color: #8b00ff;
+}
+
+.club-card-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.club-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.meta-item {
+    display: flex;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.meta-label {
+    font-weight: 600;
+    color: var(--main-color, #6b1e8e);
+    white-space: nowrap;
+}
+
+.meta-value {
+    color: #888;
+}
+
+/* ========================================
+   CLUB IMAGE GALLERY STYLES
+   ======================================== */
+
+.club-image-gallery {
+    margin: 60px 0;
+    padding: 40px 0;
+}
+
+.gallery-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.gallery-header h3 {
+    font-size: 2rem;
+    color: var(--main-color, #6b1e8e);
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.gallery-grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.gallery-grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.gallery-grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Gallery Item */
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    group: "gallery";
+}
+
+.gallery-item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-item-image {
+    transform: scale(1.08);
+}
+
+/* Gallery Item Purple Overlay */
+.gallery-item-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(128, 0, 128, 0.2) 0%, rgba(107, 30, 142, 0.25) 100%);
+    z-index: 1;
+}
+
+/* Gallery Hover Effect */
+.gallery-item-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(46, 19, 46, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover .gallery-item-hover {
+    opacity: 1;
+}
+
+.gallery-zoom-icon {
+    width: 48px;
+    height: 48px;
+    color: white;
+    stroke-width: 2;
+}
+
+/* Gallery Lightbox */
+.gallery-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* ========================================
+   ACTIVITY PAGE IMAGE BANNER
+   ======================================== */
+
+.activity-banner-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 50px 0;
+}
+
+.activity-banner-image-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1.2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.activity-banner-image-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.activity-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.activity-banner-image-card:hover .activity-banner-image {
+    transform: scale(1.05);
+}
+
+/* Purple overlay for activity images */
+.activity-banner-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(128, 0, 128, 0.2) 0%, rgba(107, 30, 142, 0.25) 100%);
+    z-index: 1;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .club-card-image-wrapper {
+        height: 220px;
+    }
+
+    .club-card-title {
+        font-size: 1.3rem;
+    }
+
+    .gallery-grid-2,
+    .gallery-grid-3,
+    .gallery-grid-4 {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .gallery-item {
+        aspect-ratio: 1;
+    }
+
+    .gallery-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .club-card-cta {
+        padding: 10px 24px;
+        font-size: 0.9rem;
+    }
+
+    .activity-banner-image-card {
+        aspect-ratio: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .club-card-content {
+        padding: 18px;
+    }
+
+    .club-card-title {
+        font-size: 1.1rem;
+    }
+
+    .club-card-description {
+        font-size: 0.85rem;
+    }
+
+    .gallery-grid-2,
+    .gallery-grid-3,
+    .gallery-grid-4 {
+        grid-template-columns: 1fr;
+    }
+
+    .meta-item {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .lightbox-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .activity-banner-images {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   CLUBS LIST VIEW STYLES
+   ======================================== */
+
+.clubs-list-view {
+    padding: 60px 0;
+}
+
+.clubs-list-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.clubs-list-header h2 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--main-color, #6b1e8e);
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.clubs-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0;
+}
+
+.no-clubs-message {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .clubs-list-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .clubs-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .clubs-list-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .clubs-grid-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

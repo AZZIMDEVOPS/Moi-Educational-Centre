@@ -1,0 +1,248 @@
+/* =============================================================================
+   WHY MEC — PREMIUM FEATURE SHOWCASE
+   Interactive 3D Glass Cards with Motion Effects
+   ============================================================================= */
+
+.why-mec-section {
+  position: relative;
+  width: 100%;
+  padding: 120px 40px;
+  background: linear-gradient(180deg, #1a1a2e 0%, #0d0010 50%, #1a1a2e 100%);
+  overflow: hidden;
+}
+
+/* BACKGROUND EFFECTS */
+.why-mec-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 50% 0%, rgba(142, 68, 173, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 0% 100%, rgba(217, 70, 239, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.why-mec-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(142, 68, 173, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(142, 68, 173, 0.03) 1px, transparent 1px);
+  background-size: 100px 100px;
+  pointer-events: none;
+}
+
+/* SECTION HEADER */
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  z-index: 2;
+  position: relative;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  margin: 0 0 20px;
+  background: linear-gradient(135deg, #8e44ad 0%, #d946ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #c77dff;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* FEATURES GRID */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 3;
+}
+
+/* FEATURE CARD */
+.feature-card {
+  position: relative;
+  padding: 40px 30px;
+  border-radius: 20px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 10px 40px rgba(142, 68, 173, 0.1);
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  box-shadow: 0 30px 80px rgba(217, 70, 239, 0.3);
+  border-color: rgba(217, 70, 239, 0.4);
+}
+
+/* CARD GLOW */
+.card-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.feature-card:hover .card-glow {
+  opacity: 1;
+}
+
+/* ICON */
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 4px 12px rgba(142, 68, 173, 0.3));
+  position: relative;
+  z-index: 2;
+}
+
+/* CONTENT */
+.feature-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0;
+  color: #fff;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
+}
+
+.feature-description {
+  font-size: 1rem;
+  color: #c77dff;
+  margin: 0;
+  line-height: 1.6;
+  flex-grow: 1;
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+}
+
+/* FEATURE LINK */
+.feature-link {
+  background: none;
+  border: none;
+  color: #d946ef;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  align-self: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.feature-link:hover {
+  color: #fff;
+  transform: translateX(8px);
+}
+
+/* CTA SECTION */
+.why-mec-cta {
+  position: relative;
+  z-index: 3;
+  padding: 60px 40px;
+  border-radius: 20px;
+  background: rgba(142, 68, 173, 0.1);
+    
+  
+  border: 1px solid rgba(217, 70, 239, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  box-shadow: 0 20px 60px rgba(142, 68, 173, 0.15);
+}
+
+.cta-content h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  margin: 0 0 12px;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  color: #c77dff;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .why-mec-cta {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-content h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-mec-section {
+    padding: 80px 20px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 30px 20px;
+    min-height: 300px;
+  }
+
+  .why-mec-cta {
+    padding: 40px 20px;
+    gap: 20px;
+  }
+
+  .btn-premium {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-mec-section {
+    padding: 60px 15px;
+  }
+
+  .feature-card {
+    padding: 20px 15px;
+    min-height: 280px;
+  }
+
+  .feature-title {
+    font-size: 1.2rem;
+  }
+
+  .why-mec-cta {
+    padding: 30px 15px;
+  }
+
+  .cta-content h3 {
+    font-size: 1.4rem;
+  }
+}

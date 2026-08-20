@@ -1,0 +1,106 @@
+.cbc-section,
+.cambridge-page{
+     padding: 60px 0;
+}
+
+.cbc-section-intro h2{
+     font-size: 50px;
+     text-align: center;
+     font-weight: 600;
+}
+
+.cbc-section-intro img,
+.cambridge-page-content img{
+      width: 1000px;
+      height: 550px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+}
+
+.cbc-section-body{
+     width: 900px;
+     margin: auto;
+}
+
+.cbc-section-body p{
+     margin-bottom: 10px;
+     line-height: 1.6;
+     font-size: 18px;
+     font-weight: 300;
+}
+
+.cbc-section-body ul,
+.cambridge-page-content ul{
+     width: 90%;
+     margin: auto;
+     list-style-type: disc;
+     margin-bottom: 10px;
+}
+.cbc-section-body ul li,
+.cambridge-page-content ul li{
+     font-weight: 300;
+     margin-bottom: 5px;
+     font-size: 17px;
+}
+
+.cambridge-page-content{
+      width: 1000px;
+      margin: auto;
+}
+.cambridge-page-content h1{
+      font-size: 50px;
+      margin-bottom: 10px;
+      font-weight: 600;
+}
+.cambridge-page-content p{
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.5;
+      margin-bottom: 10px;
+}
+.cambridge-page-content h2{
+      font-size: 40px;
+      font-weight: 500;
+      margin-bottom: 10px;
+}
+.cambridge-page-content h3{
+      font-size: 22px;
+      font-weight: 450;
+      margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 1090px){
+      .cbc-section-intro img,
+      .cbc-section-body,
+      .cambridge-page-content,
+      .cambridge-page-content img{
+            width: 95%;
+      }
+}
+
+@media(max-width: 768px){
+      .cbc-section-intro h2,
+      .cambridge-page-content h1{
+            font-size: 40px;
+      }
+      .cbc-section-intro img{
+            height: 430px;
+      }
+}

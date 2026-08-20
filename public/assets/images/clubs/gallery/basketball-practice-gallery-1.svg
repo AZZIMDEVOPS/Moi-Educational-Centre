@@ -1,0 +1,32 @@
+<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="800" fill="#2e132e"/>
+  
+  <!-- Gradient -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8e44ad;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#5a2d7d;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#grad1)"/>
+  
+  <!-- Basketball court lines -->
+  <g opacity="0.2">
+    <circle cx="400" cy="400" r="120" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="400" cy="400" r="20" fill="none" stroke="#ffffff" stroke-width="1"/>
+  </g>
+  
+  <!-- Players shooting -->
+  <g opacity="0.4">
+    <circle cx="300" cy="250" r="30" fill="#ff8c00"/>
+    <rect x="285" y="290" width="30" height="90" fill="#ff8c00"/>
+  </g>
+  
+  <!-- Basketball -->
+  <circle cx="500" cy="200" r="25" fill="#ff8c00" opacity="0.6"/>
+  
+  <!-- Text -->
+  <text x="400" y="650" font-size="36" font-weight="bold" text-anchor="middle" fill="#ffffff" font-family="Arial">Basketball</text>
+  <text x="400" y="700" font-size="18" text-anchor="middle" fill="#d946ef" font-family="Arial">Practice Session</text>
+</svg>

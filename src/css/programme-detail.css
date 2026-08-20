@@ -1,0 +1,404 @@
+/* =============================================================
+   MEC EDUCATION PROGRAMME DETAIL — High Contrast Light Design
+   ============================================================= */
+
+@import url('./design-tokens.css');
+
+.prog-page-white {
+  background: #FFFFFF;
+  color: #0F172A;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── 1. Hero Section ───────────────────────────────────── */
+.prog-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.prog-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65) saturate(1.1);
+}
+
+.prog-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10, 1, 24, 0.88) 0%, rgba(15, 61, 145, 0.65) 100%);
+  z-index: 1;
+}
+
+.prog-hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 24px;
+  margin-top: 40px;
+}
+
+.prog-hero-badge {
+  display: inline-flex;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #D8B4FE;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.prog-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(44px, 7vw, 76px);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 20px;
+}
+
+.prog-hero-sub {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  max-width: 780px;
+  margin: 0 auto 36px;
+}
+
+.prog-hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ─── 2. Programme Overview (White Background & Dark Card) ──── */
+.prog-overview-white {
+  padding: 110px 24px;
+  background: #FFFFFF;
+  color: #0F172A;
+}
+
+.prog-overview-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: start;
+}
+
+.prog-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(108, 43, 217, 0.08);
+  border: 1px solid rgba(108, 43, 217, 0.2);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #6C2BD9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.prog-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6C2BD9;
+  box-shadow: 0 0 8px #6C2BD9;
+}
+
+.prog-sec-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.prog-sec-heading.text-center {
+  text-align: center;
+}
+
+.prog-sec-sub {
+  font-size: 16px;
+  color: #475569;
+  margin-bottom: 48px;
+}
+
+.prog-sec-sub.text-center {
+  text-align: center;
+}
+
+.prog-lead-text {
+  font-size: 19px;
+  line-height: 1.85;
+  color: #1E293B;
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+.prog-body-text {
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+/* Sidebar Dark Card */
+.prog-overview-sidebar {
+  position: sticky;
+  top: 120px;
+}
+
+.prog-levels-card {
+  background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 40px;
+  color: #FFFFFF;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.2);
+}
+
+.prog-levels-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.prog-levels-icon {
+  font-size: 26px;
+  color: #A855F7;
+}
+
+.prog-levels-header h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.prog-levels-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.prog-levels-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.prog-levels-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.prog-levels-list .check-icon {
+  color: #3B82F6;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ─── 3. Highlights Section (Light Grey Background) ────────── */
+.prog-highlights-light {
+  padding: 100px 24px;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.prog-container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.prog-hl-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.prog-highlight-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.prog-highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(108, 43, 217, 0.1);
+  border-color: rgba(108, 43, 217, 0.3);
+}
+
+.prog-hl-icon {
+  font-size: 36px;
+  color: #6C2BD9;
+  margin-bottom: 20px;
+}
+
+.prog-hl-intro {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #0F172A;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+.prog-hl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.prog-hl-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.prog-hl-step {
+  background: rgba(108, 43, 217, 0.1);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #6C2BD9;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.prog-hl-text {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ─── 4. Learning Journey Section ───────────────────────── */
+.prog-journey-white {
+  padding: 110px 24px;
+  background: #FFFFFF;
+}
+
+.prog-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.prog-phase-card {
+  padding: 28px 24px;
+  border-radius: 20px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.prog-phase-card:hover {
+  transform: translateY(-6px);
+  background: #FFFFFF;
+  border-color: #6C2BD9;
+  box-shadow: 0 12px 30px rgba(108, 43, 217, 0.12);
+}
+
+.prog-phase-card.active {
+  background: linear-gradient(135deg, rgba(108, 43, 217, 0.08) 0%, rgba(37, 99, 235, 0.08) 100%);
+  border: 2px solid #6C2BD9;
+  box-shadow: 0 12px 30px rgba(108, 43, 217, 0.15);
+}
+
+.prog-phase-icon {
+  font-size: 26px;
+  color: #6C2BD9;
+}
+
+.prog-phase-card.active .prog-phase-icon {
+  color: #6C2BD9;
+}
+
+.prog-phase-card h4 {
+  color: #0F172A;
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.prog-phase-action {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6C2BD9;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .prog-overview-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .prog-overview-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .prog-overview-white, .prog-highlights-light, .prog-journey-white {
+    padding: 70px 20px;
+  }
+  .prog-levels-card {
+    padding: 28px 20px;
+  }
+}

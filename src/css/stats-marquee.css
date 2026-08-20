@@ -1,0 +1,97 @@
+/* =============================================================
+   MEC STATS MARQUEE — Infinite Scroll Strip
+   ============================================================= */
+@import url('./design-tokens.css');
+
+.stats-marquee {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  background: linear-gradient(135deg, #7B2FF7 0%, #2D5BE3 60%, #00D4FF 100%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.stats-marquee::before,
+.stats-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+}
+
+.stats-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #7B2FF7, transparent);
+}
+
+.stats-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #00D4FF, transparent);
+}
+
+.stats-marquee-track {
+  display: flex;
+  gap: 0;
+  animation: marqueeScroll 28s linear infinite;
+  width: max-content;
+}
+
+.stats-marquee:hover .stats-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.stats-marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 40px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.stats-marquee-icon {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.stats-marquee-value {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.stats-marquee-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.stats-marquee-sep {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .stats-marquee-item {
+    padding: 16px 24px;
+    gap: 10px;
+  }
+  .stats-marquee-value { font-size: 18px; }
+  .stats-marquee-label { font-size: 10px; }
+}

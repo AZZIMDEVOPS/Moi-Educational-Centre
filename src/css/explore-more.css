@@ -1,0 +1,230 @@
+/* ─────────────────────────────────────────────────────────────
+   EXPLORE MORE SECTION — Interactive Cards
+   ───────────────────────────────────────────────────────────── */
+
+.explore-more-section {
+  padding: 5rem 2rem 3rem;
+  background: linear-gradient(135deg, #f8f6ff 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.explore-more-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.explore-more-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.explore-more-header h2 {
+  font-size: clamp(2.5rem, 4.2vw, 3.4rem);
+  font-weight: 800;
+  color: #260d32;
+  margin-bottom: 1rem;
+}
+
+.explore-more-header p {
+  font-size: 1.05rem;
+  color: #5b4b74;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.explore-more-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.explore-more-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0a0e27;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.explore-more-header p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.explore-more-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.explore-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #e5e0f0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.explore-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(168, 85, 247, 0.08));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.explore-card:hover {
+  transform: translateY(-8px);
+  border-color: #d8c8f0;
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.15);
+}
+
+.explore-card:hover::before {
+  opacity: 1;
+}
+
+.explore-card-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #a855f7;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.explore-card-parents .explore-card-icon {
+  color: #3b82f6;
+}
+
+.explore-card-podcast .explore-card-icon {
+  color: #ec4899;
+}
+
+.explore-card-alumni .explore-card-icon {
+  color: #10b981;
+}
+
+.explore-card-content {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.explore-card-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #0a0e27;
+  font-family: 'Poppins', sans-serif;
+}
+
+.explore-card-content p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.explore-card-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: #a855f7;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.explore-card:hover .explore-card-cta {
+  gap: 0.75rem;
+}
+
+.explore-card-cta .arrow {
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.explore-card:hover .explore-card-cta .arrow {
+  transform: translateX(4px);
+}
+
+.explore-card-gradient {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at bottom right, rgba(168, 85, 247, 0.1), transparent);
+  pointer-events: none;
+}
+
+/* Color variations */
+.explore-card-parents .explore-card-gradient {
+  background: radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.1), transparent);
+}
+
+.explore-card-podcast .explore-card-gradient {
+  background: radial-gradient(circle at bottom right, rgba(236, 72, 153, 0.1), transparent);
+}
+
+.explore-card-alumni .explore-card-gradient {
+  background: radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.1), transparent);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .explore-more-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .explore-more-header h2 {
+    font-size: 2rem;
+  }
+
+  .explore-more-header p {
+    font-size: 1rem;
+  }
+
+  .explore-more-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .explore-card {
+    padding: 1.5rem;
+  }
+
+  .explore-card-icon {
+    font-size: 2.5rem;
+  }
+
+  .explore-card-content h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-more-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .explore-card-icon {
+    font-size: 2rem;
+  }
+}

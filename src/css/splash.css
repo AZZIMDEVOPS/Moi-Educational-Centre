@@ -1,0 +1,268 @@
+/* =============================================================
+   SPLASH SCREEN — Simple Logo Animation
+   ============================================================= */
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.splash-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%);
+  opacity: 1;
+  transition: opacity 0.8s ease-out;
+}
+
+.splash-bg-intro {
+  opacity: 1;
+}
+
+.splash-bg-hold {
+  opacity: 1;
+}
+
+.splash-bg-exit {
+  opacity: 0;
+}
+
+/* Logo reveal container - centered and responsive */
+.logo-reveal-container {
+  position: absolute;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-wrapper {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0.3);
+  opacity: 0;
+  filter: drop-shadow(0 0 0 rgba(217, 70, 239, 0));
+}
+
+/* Intro phase: Animated entrance with pulse effect */
+.logo-wrapper.logo-intro {
+  animation: 
+    logo-intro-scale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+    logo-pulse 2.2s ease-in-out 0.8s infinite;
+  opacity: 1;
+}
+
+/* Hold phase: Stable with subtle glow */
+.logo-wrapper.logo-hold {
+  animation: logo-hold-glow 0.5s ease-out forwards;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Exit phase: Scale up and fade out */
+.logo-wrapper.logo-exit {
+  animation: logo-exit-fade 1s ease-in forwards;
+}
+
+@keyframes logo-intro-scale {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes logo-pulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(217, 70, 239, 0.3));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 25px rgba(217, 70, 239, 0.6));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(217, 70, 239, 0.3));
+  }
+}
+
+@keyframes logo-hold-glow {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(217, 70, 239, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 10px 40px rgba(142, 68, 173, 0.5));
+  }
+}
+
+@keyframes logo-exit-fade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 10px 40px rgba(142, 68, 173, 0.5));
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+    filter: drop-shadow(0 10px 60px rgba(217, 70, 239, 0.2));
+  }
+}
+
+/* Logo image styling */
+.logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+}
+
+.logo-svg-fallback {
+  width: 100%;
+  height: 100%;
+  filter: none;
+}
+
+/* Hide unused elements */
+.book-container {
+  display: none;
+}
+
+.splash-text {
+  display: none;
+}
+
+@keyframes number-scale {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.stars {
+  animation: stars-appear 1.25s ease-out 1.9s forwards;
+  opacity: 0;
+}
+
+@keyframes stars-appear {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.arc-text,
+.arc-text-bottom {
+  animation: text-fade 1.6s ease-out 2.2s forwards;
+  opacity: 0;
+}
+
+@keyframes text-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.wheat {
+  animation: wheat-appear 1.2s ease-out 2.5s forwards;
+  opacity: 0;
+}
+
+@keyframes wheat-appear {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Splash text */
+.splash-text {
+  position: absolute;
+  bottom: 60px;
+  z-index: 25;
+  text-align: center;
+  opacity: 0;
+}
+
+.splash-text.fade-in {
+  animation: text-reveal 0.8s ease-out forwards;
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.splash-text p {
+  font-size: 24px;
+  font-weight: 300;
+  color: #c77dff;
+  letter-spacing: 2px;
+  margin: 0;
+  animation: text-reveal 0.8s ease-out forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .logo-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+
+  .splash-text p {
+    font-size: 18px;
+    bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+
+  .splash-text p {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}

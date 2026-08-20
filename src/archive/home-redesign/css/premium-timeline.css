@@ -1,0 +1,367 @@
+/* =============================================================================
+   CINEMATIC LEGACY TIMELINE — MEC 40 Years Journey
+   Interactive 3D Floating Milestone Cards
+   ============================================================================= */
+
+.legacy-timeline-section {
+  position: relative;
+  width: 100%;
+  padding: 120px 40px;
+  background: linear-gradient(180deg, #0d0010 0%, #1a1a2e 50%, #0d0010 100%);
+  overflow: hidden;
+}
+
+/* BACKGROUND EFFECTS */
+.legacy-timeline-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(142, 68, 173, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 50%, rgba(217, 70, 239, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* SECTION HEADER */
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  z-index: 2;
+  position: relative;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  margin: 0 0 20px;
+  background: linear-gradient(135deg, #8e44ad 0%, #d946ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #c77dff;
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* TIMELINE CONTAINER */
+.timeline-container {
+  position: relative;
+  z-index: 5;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, 
+    rgba(142, 68, 173, 0.2) 0%,
+    rgba(217, 70, 239, 0.5) 50%,
+    rgba(142, 68, 173, 0.2) 100%);
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.3);
+}
+
+.timeline-line::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, #d946ef 50%, transparent 100%);
+  opacity: 0;
+  animation: timelineFlow 3s ease-in-out infinite;
+}
+
+@keyframes timelineFlow {
+  0% {
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+/* MILESTONES GRID */
+.milestones-grid {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.milestone-card {
+  position: relative;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.milestone-card.left {
+  margin-left: 0;
+  margin-right: auto;
+  justify-content: flex-end;
+}
+
+.milestone-card.right {
+  margin-right: 0;
+  margin-left: auto;
+  justify-content: flex-start;
+}
+
+/* CARD WRAPPER */
+.card-wrapper {
+  position: relative;
+  padding: 40px;
+  border-radius: 20px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 10px 40px rgba(142, 68, 173, 0.1);
+  overflow: hidden;
+}
+
+.card-wrapper:hover {
+  box-shadow: 0 20px 80px rgba(217, 70, 239, 0.3);
+  border-color: rgba(217, 70, 239, 0.4);
+  transform: translateY(-8px);
+}
+
+.card-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(217, 70, 239, 0.1) 0%, rgba(142, 68, 173, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.card-wrapper:hover::before {
+  opacity: 1;
+}
+
+/* YEAR BADGE */
+.year-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #8e44ad 0%, #d946ef 100%);
+  border-radius: 50%;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(217, 70, 239, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+/* MILESTONE CONTENT */
+.milestone-content {
+  position: relative;
+  z-index: 2;
+}
+
+.milestone-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 0 12px;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.milestone-description {
+  font-size: 1rem;
+  color: #c77dff;
+  margin: 0 0 20px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* ACHIEVEMENTS */
+.achievements {
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievements li {
+  padding: 8px 0;
+  padding-left: 24px;
+  color: #e8e8e8;
+  font-size: 0.95rem;
+  position: relative;
+}
+
+.achievements li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #d946ef;
+  font-weight: bold;
+}
+
+/* EXPAND BUTTON */
+.expand-btn {
+  background: none;
+  border: none;
+  color: #d946ef;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-top: 12px;
+  transition: all 0.3s;
+  letter-spacing: 0.05em;
+}
+
+.expand-btn:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+/* TIMELINE DOT */
+.timeline-dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, #8e44ad 0%, #d946ef 100%);
+  border-radius: 50%;
+  border: 3px solid #0d0010;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.6);
+}
+
+.milestone-card.left .timeline-dot {
+  right: -70px;
+}
+
+.milestone-card.right .timeline-dot {
+  left: -70px;
+}
+
+/* TIMELINE CTA */
+.timeline-cta {
+  text-align: center;
+  margin-top: 80px;
+  position: relative;
+  z-index: 5;
+}
+
+.timeline-cta p {
+  font-size: 1.3rem;
+  color: #c77dff;
+  margin: 0 0 30px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .timeline-line {
+    left: 0;
+  }
+
+  .milestone-card {
+    width: 100%;
+    margin-left: 80px !important;
+    justify-content: flex-start;
+  }
+
+  .milestone-card.left,
+  .milestone-card.right {
+    margin-left: 80px !important;
+  }
+
+  .timeline-dot {
+    left: -45px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .legacy-timeline-section {
+    padding: 80px 20px;
+  }
+
+  .timeline-line {
+    left: 20px;
+  }
+
+  .milestone-card {
+    width: 100%;
+    margin-left: 70px !important;
+  }
+
+  .card-wrapper {
+    padding: 30px;
+    min-height: 200px;
+  }
+
+  .timeline-dot {
+    left: -35px !important;
+    width: 12px;
+    height: 12px;
+  }
+
+  .year-badge {
+    width: 60px;
+    height: 60px;
+    font-size: 1.4rem;
+  }
+
+  .milestone-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .legacy-timeline-section {
+    padding: 60px 15px;
+  }
+
+  .timeline-line {
+    left: 10px;
+  }
+
+  .milestone-card {
+    width: 100%;
+    margin-left: 50px !important;
+  }
+
+  .card-wrapper {
+    padding: 20px;
+  }
+
+  .timeline-dot {
+    left: -25px !important;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}

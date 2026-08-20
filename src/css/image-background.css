@@ -1,0 +1,136 @@
+/* =============================================================
+   IMAGE BACKGROUND SECTION STYLES
+   ============================================================= */
+
+.image-background-section {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image Layer */
+.image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  z-index: 1;
+}
+
+/* Overlay Layer */
+.overlay-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+    
+}
+
+/* Decoration Elements */
+.decoration-elements {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.15), transparent);
+  filter: blur(40px);
+}
+
+.decoration-circle-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -50px;
+}
+
+.decoration-circle-2 {
+  width: 250px;
+  height: 250px;
+  bottom: -50px;
+  left: -100px;
+}
+
+.decoration-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(142, 68, 173, 0.2), transparent);
+}
+
+.decoration-line-1 {
+  width: 100%;
+  height: 1px;
+  top: 30%;
+  left: 0;
+}
+
+.decoration-line-2 {
+  width: 1px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+}
+
+/* Content Layer */
+.content-layer {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .image-background-section {
+    min-height: 300px;
+  }
+
+  .decoration-circle {
+    filter: blur(30px);
+  }
+
+  .decoration-circle-1 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .decoration-circle-2 {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-background-section {
+    min-height: 250px;
+  }
+
+  .decoration-circle {
+    filter: blur(20px);
+  }
+
+  .decoration-circle-1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .decoration-circle-2 {
+    width: 130px;
+    height: 130px;
+  }
+}

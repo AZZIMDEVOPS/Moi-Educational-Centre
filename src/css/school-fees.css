@@ -1,0 +1,135 @@
+/* =============================================================
+   MEC SCHOOL FEES PAGE — Premium Financial Experience
+   ============================================================= */
+
+@import url('./design-tokens.css');
+
+.school-fees-page {
+  background: #050816;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ─── 1. Premium Hero ───────────────────────────────────── */
+.fees-hero {
+  position: relative; width: 100%; height: 60vh; min-height: 500px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.fees-hero-bg {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.5) saturate(1.2); transform: scale(1.1);
+}
+.fees-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,1,24,0.95) 0%, rgba(15,61,145,0.85) 100%);
+  z-index: 1;
+}
+.fees-hero-content {
+  position: relative; z-index: 10; text-align: center;
+  max-width: 900px; padding: 0 var(--padding-x);
+}
+.fees-badge {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px;
+  background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3);
+    border-radius: 999px; font-size: 13px; font-weight: bold;
+  color: #D8B4FE; margin-bottom: 24px; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.fees-hero-title {
+  font-family: 'Poppins', sans-serif; font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800; color: #fff; line-height: 1.1; margin: 0 0 24px;
+}
+.fees-hero-sub {
+  font-family: var(--font-body); font-size: 18px; color: rgba(255,255,255,0.85);
+  line-height: 1.7; max-width: 700px; margin: 0 auto 40px;
+}
+.fees-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+
+/* ─── 2. Responsive Fee Tables ──────────────────────────── */
+.fees-table-section {
+  padding: 100px var(--padding-x); background: #050816; position: relative;
+}
+.fees-section-title {
+  font-family: 'Poppins', sans-serif; font-size: 40px; color: #fff; text-align: center; margin-bottom: 60px;
+}
+.fees-table-container {
+  max-width: 1000px; margin: 0 auto; background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.fees-table-wrapper {
+  overflow-x: auto;
+}
+.fees-table {
+  width: 100%; border-collapse: collapse; min-width: 600px;
+}
+.fees-table th, .fees-table td {
+  padding: 24px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.fees-table th {
+  background: rgba(108,43,217,0.2); color: #D8B4FE; font-weight: 700; font-size: 16px;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+.fees-table td { font-size: 17px; color: rgba(255,255,255,0.9); }
+.fees-table tr:hover td { background: rgba(255,255,255,0.03); }
+.fees-table td.total-col { color: #A855F7; font-weight: bold; font-size: 18px; }
+
+/* ─── 3. Payment Methods ────────────────────────────────── */
+.fees-payment-section {
+  padding: 100px var(--padding-x); background: #0A0118; border-top: 1px solid rgba(255,255,255,0.05);
+}
+.payment-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; max-width: 1200px; margin: 0 auto;
+}
+.payment-card {
+  background: rgba(255,255,255,0.02); padding: 40px; border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.05); transition: 0.3s ease; position: relative; overflow: hidden;
+}
+.payment-card:hover {
+  transform: translateY(-5px); border-color: rgba(168,85,247,0.3); background: rgba(255,255,255,0.04);
+}
+.payment-icon {
+  font-size: 40px; color: #A855F7; margin-bottom: 24px;
+}
+.payment-card h3 { font-size: 24px; color: #fff; margin-bottom: 16px; }
+.payment-card p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+.payment-instructions {
+  margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);
+  font-family: monospace; color: #D8B4FE; font-size: 15px;
+}
+
+/* ─── 4. Download Center ────────────────────────────────── */
+.fees-downloads-section {
+  padding: 100px var(--padding-x); background: #050816;
+}
+.downloads-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;
+}
+.download-card {
+  display: flex; align-items: center; justify-content: space-between; padding: 24px;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;
+  transition: 0.3s; cursor: pointer; text-decoration: none; color: #fff;
+}
+.download-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(168,85,247,0.5); }
+.download-info { display: flex; align-items: center; gap: 16px; }
+.download-icon { font-size: 32px; color: #EF4444; }
+.download-card h4 { margin: 0 0 4px; font-size: 16px; }
+.download-card p { margin: 0; font-size: 13px; color: rgba(255,255,255,0.5); }
+.download-btn { color: #A855F7; font-size: 20px; }
+
+/* ─── 5. Finance Contact ────────────────────────────────── */
+.fees-contact-section {
+  padding: 100px var(--padding-x); background: linear-gradient(180deg, #0A0118 0%, #050816 100%);
+}
+.finance-contact-card {
+  max-width: 800px; margin: 0 auto; background: rgba(108,43,217,0.1); border: 1px solid rgba(108,43,217,0.3);
+  padding: 60px; border-radius: 32px; text-align: center;
+}
+.finance-contact-card h2 { font-size: 32px; color: #fff; margin-bottom: 24px; }
+.finance-contact-card p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+.finance-contact-info {
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 40px;
+}
+.fc-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.fc-icon { font-size: 24px; color: #A855F7; }
+.fc-item span { font-size: 16px; color: #fff; font-weight: 600; }
+.fc-item small { font-size: 14px; color: rgba(255,255,255,0.5); }

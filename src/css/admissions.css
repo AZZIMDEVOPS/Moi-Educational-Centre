@@ -1,0 +1,173 @@
+/* =============================================================
+   MEC ADMISSION TIMELINE SECTION
+   Color System: #6C2BD9 · #0F3D91 · #050816
+   ============================================================= */
+
+@import url('./design-tokens.css');
+
+.admission-timeline-section {
+  padding: 100px 0;
+  background: var(--mec-light-bg-2);
+}
+
+.admission-timeline-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+.admission-timeline-header .section-sub {
+  margin-top: 16px;
+  max-width: 600px;
+}
+
+/* ─── Connected Timeline ──────────────────────────────────── */
+.admission-timeline-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 64px;
+  z-index: 1;
+}
+
+.admission-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  position: relative;
+  padding: 0 16px;
+}
+
+/* Icon Bubble */
+.admission-step-icon {
+  width: 64px;
+  height: 64px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--mec-purple);
+  box-shadow: 0 8px 24px rgba(108,43,217,0.12);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.admission-step:hover .admission-step-icon {
+  background: linear-gradient(135deg, var(--mec-purple), var(--mec-royal));
+  color: #fff;
+  transform: scale(1.15) translateY(-4px);
+  box-shadow: 0 16px 32px rgba(108,43,217,0.3);
+}
+
+/* Connectors */
+.admission-connector {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: calc(100% * 2.5); /* Adjust based on flex layout */
+  height: 2px;
+  background: linear-gradient(to right, rgba(108,43,217,0.6) 0%, rgba(108,43,217,0.1) 100%);
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Make connector animated dash */
+.admission-connector::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent, var(--mec-cyan), transparent);
+  width: 50%;
+  animation: moveDash 3s linear infinite;
+}
+
+@keyframes moveDash {
+  0% { transform: translateX(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(200%); opacity: 0; }
+}
+
+/* Content */
+.admission-step-content h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark-2);
+  margin: 0 0 8px;
+  transition: color 0.3s ease;
+}
+.admission-step-content p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.admission-step:hover .admission-step-content h4 {
+  color: var(--mec-purple);
+}
+
+/* CTA Buttons */
+.admission-cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .admission-timeline-wrap {
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+    max-width: 400px;
+    margin: 0 auto 48px;
+  }
+  .admission-step {
+    flex-direction: row;
+    text-align: left;
+    padding: 0;
+    gap: 24px;
+    width: 100%;
+  }
+  .admission-step-icon {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .admission-connector {
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 48px;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, rgba(108,43,217,0.6) 0%, rgba(108,43,217,0.1) 100%);
+  }
+  .admission-connector::after {
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, transparent, var(--mec-cyan), transparent);
+    animation: moveDashVert 3s linear infinite;
+  }
+}
+
+@keyframes moveDashVert {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  .admission-cta-actions { flex-direction: column; width: 100%; }
+  .admission-cta-actions > * { width: 100%; justify-content: center; }
+}
