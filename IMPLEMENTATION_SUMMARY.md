@@ -1,4 +1,4 @@
-# 🎨 Clubs & Activities Image Enhancement - Complete Solution
+https://moieducentre.ac.ke/# 🎨 Clubs & Activities Image Enhancement - Complete Solution
 
 **Status:** ✅ **READY FOR IMPLEMENTATION**  
 **Date:** April 27, 2026  
