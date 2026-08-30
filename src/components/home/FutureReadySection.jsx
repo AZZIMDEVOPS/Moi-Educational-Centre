@@ -56,14 +56,15 @@ const FutureReadySection = () => {
 
     return (
         <>
-            {/* Antigravity background elements */}
-            <div className="future-bg-float future-float-1"></div>
-            <div className="future-bg-float future-float-2"></div>
-            <div className="future-bg-float future-float-3"></div>
-            <div className="future-bg-float future-float-4"></div>
-            <div className="future-bg-float future-float-5"></div>
-            <div className="future-bg-line future-line-1"></div>
-            <div className="future-bg-line future-line-2"></div>
+            {/* Luminous Floating Spheres */}
+            <div className="future-bg-vectors-canvas" aria-hidden="true">
+                <div className="future-bg-float future-float-1"></div>
+                <div className="future-bg-float future-float-2"></div>
+                <div className="future-bg-float future-float-3"></div>
+                <div className="future-bg-float future-float-4"></div>
+                <div className="future-bg-float future-float-5"></div>
+                <div className="future-bg-float future-float-6"></div>
+            </div>
             
             <div style={{height: '2rem'}}></div>
             <div className="future-header">

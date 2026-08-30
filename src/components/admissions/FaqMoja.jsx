@@ -1,11 +1,14 @@
 import React from 'react';
-import { FaPlus, FaMinus, FaCheckCircle } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaCheckCircle, FaFileAlt } from 'react-icons/fa';
 
 const FaqMoja = ({ item, isOpen, onToggle }) => {
   if (!item) return null;
 
   return (
-    <article className={`faq-card ${isOpen ? 'is-open' : ''}`}>
+    <article 
+      className={`faq-card ${isOpen ? 'is-open' : ''}`}
+      id={`faq-item-${item.id}`}
+    >
       <button
         type="button"
         className="faq-card-header"

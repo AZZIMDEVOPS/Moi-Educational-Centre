@@ -1,5 +1,5 @@
-import React, { useState, useMemo, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { 
   FaSearch, 
   FaTimes, 
@@ -10,16 +10,75 @@ import {
   FaGraduationCap, 
   FaArrowRight, 
   FaCompass,
-  FaQuestionCircle
+  FaQuestionCircle,
+  FaFileInvoiceDollar,
+  FaBookOpen,
+  FaGlobe,
+  FaBus,
+  FaRegLightbulb
 } from 'react-icons/fa';
 import { faqs, faqCategories } from '../../data/faqs';
 import FaqMoja from './FaqMoja';
 import '../../css/faqs-v2.css';
 
+// Featured quick jump questions
+const FEATURED_QUESTIONS = [
+  { id: 201, label: "How do I apply to MEC?", category: "Applications" },
+  { id: 301, label: "What are the 2026 school fees?", category: "Fees & Payments" },
+  { id: 401, label: "Which curricula does MEC offer?", category: "Curriculum" },
+  { id: 501, label: "How is Cambridge structured?", category: "Cambridge" },
+  { id: 701, label: "Are transport services available?", category: "Transport" },
+  { id: 103, label: "Can I book a campus tour?", category: "Admissions" }
+];
+
+const RELATED_LINKS = [
+  {
+    title: "2026 Fee Structure",
+    desc: "Detailed termly and annual tuition breakdown, statutory fees, and M-Pesa channels.",
+    link: "/admissions/fees",
+    icon: <FaFileInvoiceDollar />
+  },
+  {
+    title: "Admission Process",
+    desc: "Step-by-step enrollment guide, online application form, and document checklists.",
+    link: "/admissions/admission-process",
+    icon: <FaGraduationCap />
+  },
+  {
+    title: "Download Resources",
+    desc: "Official 2026 fee schedules, registration forms, and curriculum information guides.",
+    link: "/admissions/resources",
+    icon: <FaBookOpen />
+  },
+  {
+    title: "Cambridge International",
+    desc: "British curriculum pathway from Cambridge Primary (Stages 1-6) through to IGCSE.",
+    link: "/education/cambridge-system",
+    icon: <FaGlobe />
+  }
+];
+
 const FaqsBody = () => {
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [openIds, setOpenIds] = useState(() => new Set([101, 102])); // Initial default open items
+  const [openIds, setOpenIds] = useState(() => new Set([101, 201, 301])); // Initial default open items
+
+  // Handle URL hash or query params
+  useEffect(() => {
+    if (location.hash) {
+      const h = location.hash.replace('#', '').toLowerCase();
+      if (h.includes('fee') || h.includes('pay')) {
+        setSelectedCategory('Fees & Payments');
+      } else if (h.includes('apply') || h.includes('application')) {
+        setSelectedCategory('Applications');
+      } else if (h.includes('cambridge')) {
+        setSelectedCategory('Cambridge');
+      } else if (h.includes('transport') || h.includes('bus')) {
+        setSelectedCategory('Transport');
+      }
+    }
+  }, [location.hash]);
 
   // Calculate count per category for badges
   const categoryCounts = useMemo(() => {
@@ -87,13 +146,29 @@ const FaqsBody = () => {
 
   const handleToggleAll = useCallback(() => {
     if (areAllFilteredOpen) {
-      // Collapse all
       setOpenIds(new Set());
     } else {
-      // Expand all currently filtered
       setOpenIds(new Set(filteredFaqs.map(item => item.id)));
     }
   }, [areAllFilteredOpen, filteredFaqs]);
+
+  // Jump to specific question and expand it
+  const handleJumpToQuestion = (id, category) => {
+    setSelectedCategory('All');
+    setSearchTerm('');
+    setOpenIds(prev => {
+      const next = new Set(prev);
+      next.add(id);
+      return next;
+    });
+    setTimeout(() => {
+      const el = document.getElementById(`faq-item-${id}`);
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   // Clear search handler
   const handleClearSearch = () => {
@@ -105,7 +180,7 @@ const FaqsBody = () => {
     return {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": faqs.slice(0, 15).map(item => ({
+      "mainEntity": faqs.slice(0, 20).map(item => ({
         "@type": "Question",
         "name": item.question,
         "acceptedAnswer": {
@@ -137,15 +212,15 @@ const FaqsBody = () => {
           <nav className="faq-breadcrumbs" aria-label="Breadcrumb">
             <Link to="/">Home</Link>
             <span className="faq-bc-sep">/</span>
-            <Link to="/admissions/admission-process">Admissions</Link>
+            <Link to="/about-MEC">About MEC</Link>
             <span className="faq-bc-sep">/</span>
-            <span className="faq-bc-active" aria-current="page">Frequently Asked Questions</span>
+            <span className="faq-bc-active" aria-current="page">FAQs</span>
           </nav>
 
           {/* Eyebrow */}
           <div className="faq-hero-eyebrow">
             <span className="faq-eyebrow-dot" />
-            <span>ADMISSIONS KNOWLEDGE BASE</span>
+            <span>ADMISSIONS & ACADEMICS KNOWLEDGE BASE</span>
           </div>
 
           {/* Headline */}
@@ -155,7 +230,7 @@ const FaqsBody = () => {
 
           {/* Supporting Copy */}
           <p className="faq-hero-sub">
-            Find clear, authoritative answers to the questions parents and prospective families ask most about admissions, curriculum pathways, tuition fees, campus life, and transport.
+            Find quick answers to common questions about admissions, academics, school life and joining Moi Educational Centre.
           </p>
 
           {/* Highlight Trust Badges */}
@@ -170,7 +245,7 @@ const FaqsBody = () => {
             </div>
             <div className="faq-hero-badge-pill">
               <FaCalendarCheck />
-              <span>Nairobi West Campus</span>
+              <span>Nairobi Campus, Off Lang'ata Rd</span>
             </div>
           </div>
         </div>
@@ -180,7 +255,7 @@ const FaqsBody = () => {
       <main className="faq-main-section">
         <div className="faq-container">
           
-          {/* ─── Search Bar ──────────────────────────────────────── */}
+          {/* ─── Search Bar (Primary UX Feature) ──────────────────── */}
           <div className="faq-search-wrap">
             <div className="faq-search-box">
               <FaSearch className="faq-search-icon" aria-hidden="true" />
@@ -191,7 +266,7 @@ const FaqsBody = () => {
                 id="faq-search-input"
                 type="text"
                 className="faq-search-input"
-                placeholder="Search your question (e.g. fees, Cambridge, CBC, transport, uniform, documents)..."
+                placeholder="Search questions (e.g. fees, admission, Cambridge, transport, uniform)..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 autoComplete="off"
@@ -208,6 +283,28 @@ const FaqsBody = () => {
               )}
             </div>
           </div>
+
+          {/* ─── Featured Popular Questions Chips ─────────────────── */}
+          {!searchTerm && selectedCategory === 'All' && (
+            <div className="faq-featured-chips-wrap">
+              <div className="featured-chips-header">
+                <FaRegLightbulb className="chip-header-icon" />
+                <span>Popular Questions:</span>
+              </div>
+              <div className="featured-chips-list">
+                {FEATURED_QUESTIONS.map(q => (
+                  <button
+                    key={q.id}
+                    className="faq-featured-chip"
+                    onClick={() => handleJumpToQuestion(q.id, q.category)}
+                  >
+                    <span>{q.label}</span>
+                    <FaArrowRight className="chip-arrow" />
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* ─── Category Navigation Pills ────────────────────────── */}
           <div className="faq-categories-wrapper">
@@ -275,9 +372,9 @@ const FaqsBody = () => {
               <div className="faq-empty-icon-wrap">
                 <FaQuestionCircle />
               </div>
-              <h2 className="faq-empty-title">We couldn't find an answer to that question</h2>
+              <h2 className="faq-empty-title">We couldn't find an answer matching your search</h2>
               <p className="faq-empty-desc">
-                No questions matched your search term "{searchTerm}". Try different keywords, select another category, or contact our Admissions Team directly for immediate guidance.
+                No questions matched "{searchTerm}". Try checking for spelling, browsing other categories, or speaking directly to our Admissions Team.
               </p>
               <div className="faq-empty-actions">
                 <button
@@ -295,7 +392,31 @@ const FaqsBody = () => {
             </div>
           )}
 
-          {/* ─── 7. ADMISSIONS CONVERSION CTA BLOCK ───────────────── */}
+          {/* ─── 3. EXPLORE RELATED ADMISSIONS LINKS (Section 11) ─── */}
+          <section className="faq-related-links-section" aria-labelledby="related-links-heading">
+            <div className="related-links-header">
+              <span className="related-eyebrow">ESSENTIAL ADMISSIONS PORTALS</span>
+              <h2 id="related-links-heading" className="related-title">Explore Related Information</h2>
+              <p className="related-sub">Quick links to key admissions policies, documents, and academic pathways.</p>
+            </div>
+
+            <div className="related-links-grid">
+              {RELATED_LINKS.map((rl, idx) => (
+                <Link key={idx} to={rl.link} className="related-link-card">
+                  <div className="related-card-icon">
+                    {rl.icon}
+                  </div>
+                  <div className="related-card-text">
+                    <h3 className="related-card-title">{rl.title}</h3>
+                    <p className="related-card-desc">{rl.desc}</p>
+                  </div>
+                  <FaArrowRight className="related-card-arrow" />
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* ─── 4. "CAN'T FIND YOUR ANSWER?" CTA (Section 10) ────── */}
           <section className="faq-cta-section" aria-labelledby="faq-cta-heading">
             <div className="faq-cta-glow" aria-hidden="true" />
             
@@ -304,18 +425,18 @@ const FaqsBody = () => {
               <div className="faq-cta-left">
                 <span className="faq-cta-eyebrow">ADMISSIONS SUPPORT</span>
                 <h2 id="faq-cta-heading" className="faq-cta-title">
-                  Still have questions?
+                  Can't find what you're looking for?
                 </h2>
                 <p className="faq-cta-desc">
-                  Our Admissions Team is here to assist you every step of the way, helping you make the most informed decision for your child's academic future.
+                  Our Admissions team is happy to help with any questions about joining Moi Educational Centre, booking campus tours, and guiding your application.
                 </p>
                 <div className="faq-cta-buttons">
                   <Link to="/contact" className="faq-cta-btn-primary">
                     <span>Contact Admissions</span>
                     <FaArrowRight aria-hidden="true" />
                   </Link>
-                  <Link to="/admissions/admission-process#application-form" className="faq-cta-btn-secondary">
-                    <span>Start Your Application</span>
+                  <Link to="/admissions/admission-process" className="faq-cta-btn-secondary">
+                    <span>Apply to MEC</span>
                   </Link>
                 </div>
               </div>
@@ -332,7 +453,7 @@ const FaqsBody = () => {
                   </div>
                 </a>
 
-                <a href="https://wa.me/254706280170" target="_blank" rel="noreferrer" className="faq-contact-channel-card">
+                <a href="https://wa.me/254706280170?text=Hello%20MEC%20Admissions%2C%20I%20have%20an%20inquiry%20regarding%20enrollment." target="_blank" rel="noreferrer" className="faq-contact-channel-card">
                   <div className="faq-channel-icon whatsapp">
                     <FaWhatsapp />
                   </div>
@@ -342,13 +463,13 @@ const FaqsBody = () => {
                   </div>
                 </a>
 
-                <a href="mailto:admissions@moieducentre.ac.ke" className="faq-contact-channel-card">
+                <a href="mailto:info@moieducentre.ac.ke" className="faq-contact-channel-card">
                   <div className="faq-channel-icon">
                     <FaEnvelope />
                   </div>
                   <div className="faq-channel-info">
                     <span className="faq-channel-label">Email Admissions Office</span>
-                    <span className="faq-channel-val">admissions@moieducentre.ac.ke</span>
+                    <span className="faq-channel-val">info@moieducentre.ac.ke</span>
                   </div>
                 </a>
               </div>

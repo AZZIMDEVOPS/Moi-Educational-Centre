@@ -119,6 +119,10 @@ function App() {
         <Route path='/news-and-updates' element={<News />} />
         <Route path="/admissions/admission-process" element={<AdmissionProcess />} />
         <Route path='/admissions/frequently-asked-questions' element={<FAQs />} />
+        <Route path='/admissions/faqs' element={<FAQs />} />
+        <Route path='/about-MEC/faqs' element={<FAQs />} />
+        <Route path='/about-MEC/frequently-asked-questions' element={<FAQs />} />
+        <Route path='/faqs' element={<FAQs />} />
         <Route path="/admissions/resources" element={<Resources />} />
         <Route path='/admissions/fees' element={<SchoolFees />} />
         <Route path='/admissions/fees-structure' element={<SchoolFees />} />
