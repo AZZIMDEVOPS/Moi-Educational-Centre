@@ -121,6 +121,7 @@ function App() {
         <Route path='/admissions/frequently-asked-questions' element={<FAQs />} />
         <Route path="/admissions/resources" element={<Resources />} />
         <Route path='/admissions/fees' element={<SchoolFees />} />
+        <Route path='/admissions/fees-structure' element={<SchoolFees />} />
         <Route path='/education' element={<EducationLanding />} />
         <Route path='/education/CBC/:name' element={<SingeEducationPage />} />
         <Route path='/about-MEC/leadership' element={<Leadership />} />
