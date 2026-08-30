@@ -211,8 +211,104 @@ export function processUserQuery(userMessage, conversationContext = {}, currentR
     }
   }
 
-  // 6. Fee Queries & Payment Channels
-  if (/\b(fees?|tuition|cost|how much|charges?|price|pay|term fee|annual fee|calculator|mpesa|paybill)\b/i.test(rawQ)) {
+  // 6. Mode of Payment & Payment Channels (M-Pesa, Bank Transfer, Paybill)
+  if (/\b(mode of payment|payment mode|payment method|payment options?|how to pay|how do i pay|mpesa|paybill|bank transfer|bank account|standard chartered|absa|cheque|rtgs|electronic transfer|finance office|pay fees?)\b/i.test(rawQ)) {
+    const navTarget = getNavigationTarget("fees", "payments");
+    return {
+      answer: "Moi Educational Centre accepts fee payments through official cashless channels: 1) M-Pesa Paybill (Business No: 522123, Account: 50444# followed by Student Admission Number or Full Name), 2) Standard Chartered Bank (A/C: 0102012345600, Nairobi West Branch), 3) ABSA Bank (A/C: 0309481923). Note: Cash payments are strictly not accepted on campus.",
+      confidence: 1.0,
+      source: { type: "MEC Official Website", name: "Finance Office Payment Guidelines", url: navTarget.fullUrl },
+      navigation: {
+        enabled: true,
+        route: navTarget.fullUrl,
+        sectionId: navTarget.sectionId,
+        highlight: true
+      },
+      visualCard: {
+        type: "payment_channels",
+        mpesa: PAYMENT_CHANNELS_2026.mpesa,
+        banks: PAYMENT_CHANNELS_2026.banks
+      },
+      actions: [
+        { label: "View Payment Channels on Page →", type: "navigate", route: navTarget.fullUrl },
+        { label: "Full 2026 Fee Structure", type: "navigate", route: "/admissions/fees" },
+        { label: "Download Fee Schedule PDF", type: "navigate", route: "/admissions/resources" },
+        { label: "Contact Finance Office", type: "contact", phone: MEC_CORE_FACTS.contact.financePhone }
+      ],
+      updatedContext: { lastNavigation: navTarget }
+    };
+  }
+
+  // 7. Careers, Job Vacancies & Employment
+  if (/\b(vacanc(?:y|ies)|careers?|jobs?|hiring|employment|open positions?|recruitment|teacher jobs?|work at mec|work with us|apply for job|teaching vacancy)\b/i.test(rawQ)) {
+    const navTarget = getNavigationTarget("vacancies", "openings");
+    return {
+      answer: "Moi Educational Centre is an employer of choice. We regularly recruit qualified, passionate educators and operational professionals. Open vacancies include Senior School Faculty, Finance Officers, and Facilities Staff. Applications and resumes should be sent to recruitment@moieducentre.ac.ke. I have opened the careers portal for you below.",
+      confidence: 1.0,
+      source: { type: "MEC Official Website", name: "MEC Careers & Vacancies", url: navTarget.fullUrl },
+      navigation: {
+        enabled: true,
+        route: navTarget.fullUrl,
+        sectionId: navTarget.sectionId,
+        highlight: true
+      },
+      actions: [
+        { label: "Browse Open Positions →", type: "navigate", route: navTarget.fullUrl },
+        { label: "Email Recruitment Desk", type: "contact", email: "recruitment@moieducentre.ac.ke" },
+        { label: "View About MEC", type: "navigate", route: "/about-MEC" }
+      ],
+      updatedContext: { lastNavigation: navTarget }
+    };
+  }
+
+  // 8. Pre-School & Early Years (Crèche, Reception, PP1, PP2)
+  if (/\b(preschool|pre-school|early years|kindergarten|playgroup|creche|crèche|reception|pp1|pp2|daycare|nursery)\b/i.test(rawQ)) {
+    const navTarget = getNavigationTarget("preschool", "explorer");
+    return {
+      answer: "MEC Pre-School offers a nurturing, play-based Early Years CBC Foundation across 4 stages: Crèche/Daycare (Age 2), Reception (Age 3), Pre-Primary 1 (PP1, Age 4), and Pre-Primary 2 (PP2, Age 5). Our programme includes Jolly Phonics, early numeracy, swimming, creative arts, and nutritious hot lunches.",
+      confidence: 1.0,
+      source: { type: "MEC Official Website", name: "Pre-School & Early Years", url: navTarget.fullUrl },
+      navigation: {
+        enabled: true,
+        route: navTarget.fullUrl,
+        sectionId: navTarget.sectionId,
+        highlight: true
+      },
+      actions: [
+        { label: "Explore Pre-School CBC →", type: "navigate", route: navTarget.fullUrl },
+        { label: "View Pre-School Fees (from KES 40,000)", type: "navigate", route: "/admissions/fees" },
+        { label: "Start Online Application", type: "navigate", route: "/admissions/admission-process#application-form" },
+        { label: "Book a Campus Tour", type: "contact", whatsappUrl: `${MEC_CORE_FACTS.contact.whatsappUrl}?text=Hello%20MEC%2C%20I%20would%20like%20to%20book%20a%20tour%20for%20the%20Pre-School.` }
+      ],
+      updatedContext: { lastNavigation: navTarget }
+    };
+  }
+
+  // 9. British Cambridge International Curriculum
+  if (/\b(cambridge|cie|british curriculum|igcse|cambridge primary|uk curriculum|international curriculum|year 1|year 2|year 3|year 4|year 5|year 6)\b/i.test(rawQ)) {
+    const navTarget = getNavigationTarget("cambridgeDetails", "overview");
+    return {
+      answer: "Moi Educational Centre offers the British Cambridge International Curriculum (CIE Primary from Year 1 to Year 6) running concurrently with the Kenyan CBC track. The Cambridge curriculum emphasizes English, Mathematics, Science, Global Perspectives, and Digital Literacy with internationally recognized checkpoints.",
+      confidence: 1.0,
+      source: { type: "MEC Official Website", name: "Cambridge International Track", url: navTarget.fullUrl },
+      navigation: {
+        enabled: true,
+        route: navTarget.fullUrl,
+        sectionId: navTarget.sectionId,
+        highlight: true
+      },
+      actions: [
+        { label: "Explore Cambridge Curriculum →", type: "navigate", route: navTarget.fullUrl },
+        { label: "Cambridge Fees (from KES 72,000)", type: "navigate", route: "/admissions/fees#cambridge-fees-section" },
+        { label: "Compare CBC vs Cambridge", type: "navigate", route: "/admissions/admission-process#curriculum-choice" },
+        { label: "Enrol in Cambridge Track", type: "navigate", route: "/admissions/admission-process#application-form" }
+      ],
+      updatedContext: { lastNavigation: navTarget }
+    };
+  }
+
+  // 10. Fee Queries (Grade-Specific & General Schedules)
+  if (/\b(fees?|tuition|cost|how much|charges?|price|term fee|annual fee|fee structure|calculator)\b/i.test(rawQ)) {
     if (gradeEntity) {
       const gCode = gradeEntity.gradeCode;
       let targetSection = "cbe";
@@ -274,41 +370,16 @@ export function processUserQuery(userMessage, conversationContext = {}, currentR
         actions: [
           { label: `View ${gradeEntity.raw} Fee Breakdown →`, type: "navigate", route: navTarget.fullUrl },
           { label: "Open Live Fee Calculator", type: "navigate", route: "/admissions/fees#fee-calculator" },
-          { label: "Apply for 2026", type: "navigate", route: "/admissions/admission-process#application-form" },
-          { label: "Talk to Finance", type: "contact", whatsappUrl: `${MEC_CORE_FACTS.contact.whatsappUrl}?text=Hello%20MEC%2C%20I%20have%20a%20question%20regarding%20${gradeEntity.raw}%20fees.` }
+          { label: "View Payment Channels", type: "navigate", route: "/admissions/fees#payment-channels" },
+          { label: "Apply for 2026", type: "navigate", route: "/admissions/admission-process#application-form" }
         ],
         updatedContext: { activeGrade: gradeEntity.raw, activeGradeCode: gradeEntity.gradeCode, lastNavigation: navTarget }
       };
     }
 
-    if (/\b(mpesa|paybill|bank|account|how to pay)\b/i.test(rawQ)) {
-      const navTarget = getNavigationTarget("fees", "payments");
-      return {
-        answer: "MEC fee payments are processed securely via M-Pesa Paybill (Business No: 522123, Account: Learner Admission Number), or direct transfer to Standard Chartered Bank (A/C 0102012345600) and ABSA Bank (A/C 0309481923). Cash is not accepted on campus.",
-        confidence: 1.0,
-        source: { type: "MEC Official Website", name: "Finance Office Payment Guidelines", url: navTarget.fullUrl },
-        navigation: {
-          enabled: true,
-          route: navTarget.fullUrl,
-          sectionId: navTarget.sectionId,
-          highlight: true
-        },
-        visualCard: {
-          type: "payment_channels",
-          mpesa: PAYMENT_CHANNELS_2026.mpesa,
-          banks: PAYMENT_CHANNELS_2026.banks
-        },
-        actions: [
-          { label: "View Bank & Paybill Details", type: "navigate", route: navTarget.fullUrl },
-          { label: "Contact Accounts Office", type: "contact", phone: MEC_CORE_FACTS.contact.financePhone }
-        ],
-        updatedContext: { lastNavigation: navTarget }
-      };
-    }
-
     const navTarget = getNavigationTarget("fees", "cbe");
     return {
-      answer: "Moi Educational Centre offers transparent, competitive fee schedules across all levels (Playgroup from KES 40,000/term, Primary from KES 46,000/term, Junior School from KES 64,000/term, and Senior School Grade 10 at KES 100,000/term). Which specific grade level are you enquiring about?",
+      answer: "Moi Educational Centre offers transparent, competitive fee schedules across all levels (Playgroup from KES 40,000/term, Primary from KES 46,000/term, Junior School from KES 64,000/term, Senior School Grade 10 at KES 100,000/term, and Cambridge Primary from KES 72,000/term). Which specific grade or curriculum level would you like to view?",
       confidence: 1.0,
       source: { type: "MEC Official Website", name: "2026 Fee Schedule", url: navTarget.fullUrl },
       navigation: {
@@ -318,8 +389,9 @@ export function processUserQuery(userMessage, conversationContext = {}, currentR
         highlight: true
       },
       actions: [
-        { label: "Open Full Fee Schedules", type: "navigate", route: "/admissions/fees" },
+        { label: "Open Full Fee Schedules →", type: "navigate", route: "/admissions/fees" },
         { label: "Calculate Custom Fees", type: "navigate", route: "/admissions/fees#fee-calculator" },
+        { label: "Payment Channels & M-Pesa", type: "navigate", route: "/admissions/fees#payment-channels" },
         { label: "Download Fee PDF", type: "navigate", route: "/admissions/resources" }
       ],
       updatedContext: { lastNavigation: navTarget }

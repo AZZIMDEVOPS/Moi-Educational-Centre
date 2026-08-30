@@ -11,7 +11,8 @@ import {
   FaVolumeUp, FaVolumeMute, FaSearch, FaDownload, FaEnvelope, 
   FaWhatsapp, FaPhone, FaCompass, FaGraduationCap, FaCalculator,
   FaCheckCircle, FaExclamationCircle, FaGlobe, FaMapMarkerAlt,
-  FaMinus, FaExpand, FaArrowRight, FaCrosshairs, FaRobot
+  FaMinus, FaExpand, FaArrowRight, FaCrosshairs, FaRobot,
+  FaTrashAlt
 } from 'react-icons/fa';
 import { processUserQuery } from '../../ai/aiIntentEngine';
 import { useAINavigation } from '../../hooks/useAINavigation';
@@ -33,9 +34,26 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
   const [isTtsEnabled, setIsTtsEnabled] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
+  const [toastMessage, setToastMessage] = useState('');
   const [showLeadModal, setShowLeadModal] = useState(false);
   const [leadForm, setLeadForm] = useState({ parentName: '', phone: '', email: '', childGrade: '', message: '' });
   const [leadSubmitted, setLeadSubmitted] = useState(false);
+
+  const initialWelcomeMessage = {
+    id: 'welcome-msg',
+    sender: 'bot',
+    text: "Hello! Welcome to Moi Educational Centre. I am the MEC ASSISTANT. I can answer questions about any topic on our website (fees, payment modes, curricula, admission steps, open careers, campus tour) and take you directly to that exact page. What would you like to explore?",
+    timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    source: { type: 'MEC Official Website', name: 'MEC Assistant Welcome', url: '/' },
+    actions: [
+      { label: 'View 2026 Fees →', type: 'navigate', route: '/admissions/fees' },
+      { label: 'Mode of Payment →', type: 'navigate', route: '/admissions/fees#payment-channels' },
+      { label: 'Admission Steps →', type: 'navigate', route: '/admissions/admission-process#admissions-timeline' },
+      { label: 'Careers & Vacancies →', type: 'navigate', route: '/about-MEC/vacancies' },
+      { label: 'Pre-School CBC →', type: 'navigate', route: '/education/pre-school' },
+      { label: 'Campus Location →', type: 'navigate', route: '/contact#location' }
+    ]
+  };
 
   // Restore or initialize messages
   const [messages, setMessages] = useState(() => {
@@ -45,21 +63,7 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
     } catch (e) {
       console.error(e);
     }
-    return [
-      {
-        id: 'welcome-msg',
-        sender: 'bot',
-        text: "Hello! Welcome to Moi Educational Centre. I am the MEC ASSISTANT. I can answer your questions, explain fees and curriculum options, calculate child age placement, and take you directly to any exact section on the website. What would you like to explore today?",
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        source: { type: 'MEC Official Website', name: 'MEC Assistant Welcome', url: '/' },
-        actions: [
-          { label: 'View 2026 Fees', type: 'navigate', route: '/admissions/fees' },
-          { label: 'Admission Steps', type: 'navigate', route: '/admissions/admission-process#admissions-timeline' },
-          { label: 'CBC vs Cambridge', type: 'navigate', route: '/admissions/admission-process#curriculum-choice' },
-          { label: 'Campus Location', type: 'navigate', route: '/contact#location' }
-        ]
-      }
-    ];
+    return [initialWelcomeMessage];
   });
 
   // Conversation Context Memory
@@ -76,6 +80,32 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
   const messagesEndRef = useRef(null);
   const speechRecognitionRef = useRef(null);
   const handleSendMessageRef = useRef(null);
+
+  const showToast = (msg) => {
+    setToastMessage(msg);
+    setTimeout(() => setToastMessage(''), 2400);
+  };
+
+  // Clear Chat History
+  const handleClearChat = () => {
+    try {
+      sessionStorage.removeItem(SESSION_STORAGE_KEY);
+      sessionStorage.removeItem(CONVERSATION_CONTEXT_KEY);
+    } catch (e) {
+      console.error(e);
+    }
+    setConversationContext({});
+    setSearchFilter('');
+    setIsSearching(false);
+    setMessages([
+      {
+        ...initialWelcomeMessage,
+        id: `welcome-${Date.now()}`,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      }
+    ]);
+    showToast('Chat history cleared ✓');
+  };
 
   // Sync to sessionStorage
   useEffect(() => {
@@ -94,7 +124,7 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
     }
   }, [conversationContext]);
 
-  // External open trigger from teaser (cinematic intro)
+  // External open trigger from teaser
   useEffect(() => {
     if (externalOpen) {
       setIsOpen(true);
@@ -107,7 +137,6 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
   useEffect(() => {
     if (externalStarterQuery && isOpen) {
       setInputMessage(externalStarterQuery);
-      // Trigger send after a tiny delay so the chatbot is fully open
       const t = setTimeout(() => {
         if (handleSendMessageRef.current) {
           handleSendMessageRef.current(externalStarterQuery);
@@ -134,16 +163,24 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
     const p = location.pathname.toLowerCase();
     if (p.includes('/fees')) {
       return [
+        { label: 'Mode of Payment?', query: 'What are the accepted modes of fee payment?' },
+        { label: 'M-Pesa Paybill?', query: 'How do I pay fees via M-Pesa?' },
         { label: 'Grade 5 Tuition?', query: 'What is the fee for Grade 5?' },
         { label: 'Senior School (Grade 10)?', query: 'What are the Grade 10 Senior School fees?' },
-        { label: 'Cambridge Fees?', query: 'How much are Cambridge International fees?' },
-        { label: 'M-Pesa Paybill?', query: 'How do I pay fees via M-Pesa?' }
+        { label: 'Cambridge Fees?', query: 'How much are Cambridge International fees?' }
       ];
     } else if (p.includes('/admission')) {
       return [
+        { label: 'Mode of Payment?', query: 'How do we pay school fees and assessment fees?' },
         { label: 'Required Documents?', query: 'What documents are required for admission?' },
-        { label: 'Assessment Date?', query: 'How does the learner assessment work?' },
+        { label: 'Admission Steps?', query: 'What are the steps to join MEC in 2026?' },
         { label: 'Start Online Application', query: 'I want to fill the admission application form' }
+      ];
+    } else if (p.includes('/vacancies')) {
+      return [
+        { label: 'Open Positions?', query: 'What job vacancies are currently available at MEC?' },
+        { label: 'How to Apply?', query: 'How do I apply for a teaching vacancy at MEC?' },
+        { label: 'Recruitment Email?', query: 'What is the HR recruitment email address?' }
       ];
     } else if (p.includes('/contact')) {
       return [
@@ -153,6 +190,7 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
       ];
     } else if (p.includes('/education')) {
       return [
+        { label: 'Pre-School Programme?', query: 'Tell me about the Early Years and Pre-School programme' },
         { label: 'CBC vs Cambridge?', query: 'What is the difference between CBC and Cambridge at MEC?' },
         { label: 'Senior School Pathways?', query: 'What pathways exist in Senior School Grade 10?' },
         { label: 'Age Placement?', query: 'My child was born in 2021, which class can they join?' }
@@ -165,11 +203,12 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
       ];
     }
     return [
-      { label: 'Grade 5 Fee?', query: 'What is the fee for Grade 5?' },
+      { label: 'Mode of Payment?', query: 'What is the mode of payment for fees?' },
+      { label: '2026 Fee Structure', query: 'What are the fees for 2026?' },
+      { label: 'Careers & Vacancies', query: 'What career opportunities exist at MEC?' },
       { label: 'How to Apply?', query: 'How do I apply for 2026 admission?' },
-      { label: 'Campus Map', query: 'Where is MEC located?' },
-      { label: 'CIE Cambridge Track', query: 'Tell me about the British Cambridge curriculum' },
-      { label: 'Talk to Admissions', query: 'I would like to speak with someone in admissions' }
+      { label: 'Pre-School CBC', query: 'Tell me about the Pre-School programme' },
+      { label: 'Campus Map', query: 'Where is MEC located?' }
     ];
   };
 
@@ -390,7 +429,7 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
               <button 
                 className={`mec-ai-icon-btn ${isSearching ? 'is-active' : ''}`}
                 onClick={() => setIsSearching(!isSearching)}
-                title="Search conversation"
+                title="Search in conversation"
                 aria-label="Search conversation"
               >
                 <FaSearch />
@@ -402,6 +441,14 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
                 aria-label="Toggle voice output"
               >
                 {isTtsEnabled ? <FaVolumeUp /> : <FaVolumeMute />}
+              </button>
+              <button 
+                className="mec-ai-icon-btn"
+                onClick={handleClearChat}
+                title="Clear chat history"
+                aria-label="Clear chat history"
+              >
+                <FaTrashAlt />
               </button>
               <button 
                 className="mec-ai-icon-btn"
@@ -429,6 +476,14 @@ export const AIChatbot = ({ externalOpen, externalStarterQuery, onExternalHandle
               </button>
             </div>
           </div>
+
+          {/* Toast Notification */}
+          {toastMessage && (
+            <div className="mec-ai-toast-banner">
+              <FaCheckCircle size={13} />
+              <span>{toastMessage}</span>
+            </div>
+          )}
 
           {!isMinimized && (
             <>

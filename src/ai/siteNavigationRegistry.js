@@ -222,6 +222,40 @@ export const SITE_NAVIGATION_REGISTRY = {
     sections: {
       articles: { id: "news-articles", title: "Latest News", description: "Recent stories, achievements, and campus updates" }
     }
+  },
+
+  // ─── 11. CAREERS & VACANCIES ────────────────────────────────────────
+  vacancies: {
+    title: "Careers & Job Vacancies at MEC",
+    path: "/about-MEC/vacancies",
+    category: "About",
+    keywords: ["careers", "vacancies", "jobs", "hiring", "employment", "open positions", "recruitment", "teacher jobs", "work at mec", "apply for job", "recruitment@moieducentre.ac.ke"],
+    sections: {
+      openings: { id: "open-positions", title: "Open Positions", description: "Current career openings in teaching, finance, and campus operations" }
+    }
+  },
+
+  // ─── 12. PRE-SCHOOL & EARLY YEARS ──────────────────────────────────
+  preschool: {
+    title: "Pre-School & Early Years CBC Programme",
+    path: "/education/pre-school",
+    category: "Academics",
+    keywords: ["preschool", "pre-school", "pre-primary", "early years", "playgroup", "creche", "crèche", "reception", "pp1", "pp2", "kindergarten", "daycare"],
+    sections: {
+      explorer: { id: "preschool-explorer", title: "Early Years Explorer", description: "Crèche (2 yrs), Reception (3 yrs), PP1 (4 yrs), PP2 (5 yrs)" },
+      pillars: { id: "preschool-pillars", title: "Pre-School Excellence Pillars", description: "Nurturing environment, phonics, play-based discovery, and swimming" }
+    }
+  },
+
+  // ─── 13. BOARD CHAIRMAN ─────────────────────────────────────────────
+  chairman: {
+    title: "Word from Our Chairman — Mr. Paul K. Chemng'orem",
+    path: "/about-MEC/word-from-our-chairman",
+    category: "About",
+    keywords: ["chairman", "board chairman", "paul chemng'orem", "chairman message", "governance"],
+    sections: {
+      message: { id: "chairman-message", title: "Chairman's Address", description: "Strategic leadership vision and 40-year milestone message" }
+    }
   }
 };
 

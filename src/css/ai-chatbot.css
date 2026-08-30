@@ -218,6 +218,24 @@
   color: #FFFFFF;
 }
 
+.mec-ai-toast-banner {
+  background: #0F172A;
+  color: #38BDF8;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+  animation: mecAiToastSlide 0.25s ease-out;
+}
+
+@keyframes mecAiToastSlide {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ─── Contextual Page Strip ─────────────────────────────────────────── */
 .mec-ai-page-context-bar {
   background: #F1F5F9;
