@@ -91,6 +91,16 @@ function App() {
     window.scrollTo(0, 0)
   }, [location])
 
+  useEffect(() => {
+    if (assistantPendingQuery) {
+      setChatbotStarterQuery(assistantPendingQuery);
+      setChatbotOpen(true);
+      if (typeof clearPendingQuery === 'function') {
+        clearPendingQuery();
+      }
+    }
+  }, [assistantPendingQuery, clearPendingQuery]);
+
   const handleSplashComplete = () => {
     setShowSplash(false);
     sessionStorage.setItem('splashShown', 'true');
@@ -140,9 +150,12 @@ function App() {
         <Route path='/education/cambridge-system' element={<CambridgePage />} />
         <Route path="/about-MEC/school-events" element={<Events />} />
         <Route path="/about-MEC/school-events/:name" element={<SingleEventPage />} />
-        <Route path='/news-and-updates/:title' element={<SingleArticlePage />} />
         <Route path="/about-MEC/vacancies" element={<Vacancies />} />
+        <Route path="/about-MEC/careers" element={<Vacancies />} />
+        <Route path="/careers" element={<Vacancies />} />
+        <Route path="/vacancies" element={<Vacancies />} />
         <Route path="/about-MEC/vacancy/:title" element={<SingleVacancy />} />
+        <Route path="/careers/:title" element={<SingleVacancy />} />
 
         <Route path="/portal/faculty" element={<FacultyPortal />} />
         <Route path="/portal/faculty/lms" element={<FacultyLMS />} />

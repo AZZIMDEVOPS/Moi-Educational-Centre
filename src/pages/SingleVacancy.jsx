@@ -1,74 +1,269 @@
-import { useNavigate, useParams } from "react-router-dom";
-import Navbar from "../components/common/navigation/Navbar"
-import { TbArrowNarrowLeft } from "react-icons/tb";
-import { TbSquareRoundedCheckFilled } from "react-icons/tb";
-
-import { jobs } from "../data/jobs";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import Navbar from "../components/common/navigation/Navbar";
 import Footer from "../components/common/Footer";
+import SEO from "../components/common/SEO";
+import { jobs } from "../data/jobs";
+import { 
+  FaArrowLeft, 
+  FaCheckCircle, 
+  FaBriefcase, 
+  FaMapMarkerAlt, 
+  FaUserTie, 
+  FaCalendarAlt, 
+  FaGraduationCap, 
+  FaPaperPlane, 
+  FaCopy, 
+  FaCheck, 
+  FaShieldAlt,
+  FaEnvelope,
+  FaAward
+} from "react-icons/fa";
+import "../css/vacancies-v2.css";
+
 const SingleVacancy = () => {
-    const { title } = useParams();
-   const job = jobs.find(item => item.url_param === title);
-   const navigate = useNavigate();
+  const { title } = useParams();
+  const navigate = useNavigate();
+  const [copied, setCopied] = useState(false);
+
+  const job = jobs.find(item => item.url_param === title) || jobs[0];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [title]);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("recruitment@moieducentre.ac.ke");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  if (!job) {
+    return (
+      <>
+        <Navbar />
+        <div style={{ padding: "180px 24px", textAlign: "center", minHeight: "70vh" }}>
+          <h2>Position Not Found</h2>
+          <p>The vacancy you are looking for may have closed or moved.</p>
+          <Link to="/about-MEC/vacancies" className="btn-vacancy-details" style={{ display: 'inline-flex', marginTop: 16 }}>
+            Browse All Vacancies
+          </Link>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
+  const mailtoLink = `mailto:recruitment@moieducentre.ac.ke?subject=Application for ${encodeURIComponent(job.title)} Position - [Your Full Name]`;
+
   return (
     <>
-         <Navbar />
-         <div className="single-vacancy-body">
-                  <div className="inner-row">
-                           <div className="single-vacancy-content">
-                                    <button onClick={() => navigate("/about-MEC/vacancies")}><span><TbArrowNarrowLeft /></span> Back to all vacancies</button>
+      <SEO 
+        title={`${job.title} | Careers at Moi Educational Centre`}
+        description={job.summary || `Explore the ${job.title} career opportunity at Moi Educational Centre, Nairobi.`}
+      />
+      <Navbar />
 
-                                    <div className="single-vacancy-texts">
-                                              <h2>{job.title}</h2>
-                                              <p>{job.summary}</p>
+      <div className="single-vacancy-v2">
+        <div className="single-vacancy-container">
+          
+          {/* Back Button */}
+          <Link to="/about-MEC/vacancies" className="btn-back-vacancies">
+            <FaArrowLeft size={12} /> Back to All Vacancies
+          </Link>
 
-                                              <h3>Key Responsibilities</h3>
-                                               { job.id === 485 || job.id ===345 || job.id === 346 ?
-                                                        <div className="responsibilities-tweak">
-                                                                 { job.responsibilities.map(item => 
-                                                                       <div className="responsibility-block" key={item.id}>
-                                                                                <h4>{item.title}</h4>
-                                                                                <ul>
-                                                                                        { item.list.map(kitu => <li key={kitu}><span><TbSquareRoundedCheckFilled /></span>{kitu}</li>)}
-                                                                                </ul>
-                                                                       </div>
-                                                                 )}
-                                                        </div>
-                                                      :
-                                                      <ul>
-                                                           { job.responsibilities.map(item => <li key={item}><span><TbSquareRoundedCheckFilled /></span>{item}</li>)}
-                                                      </ul>
-                                                 }
-                                               { job.advantage && 
-                                                    <div className="advantage">
-                                                          <h3>Added Advantage</h3>
-                                                          <p>{job.advantage}</p>
-                                                    </div>
-                                               }
-                                              <h3>Qualifications & Requirements</h3>
-                                              <ul>
-                                                     { job.qualifications.map(item => <li key={item}><span><TbSquareRoundedCheckFilled /></span> {item}</li>)}
-                                              </ul>
+          <div className="vacancy-detail-layout">
+            
+            {/* Left Column: Full Job Details */}
+            <main className="vacancy-main-content">
+              
+              <div className="vacancy-detail-header">
+                <div className="vacancy-header-badges">
+                  <span className="vacancy-dept-tag">
+                    <FaBriefcase size={11} /> {job.department || "Academic & Operations"}
+                  </span>
+                  <span className="vacancy-type-tag">
+                    {job.type || "Full-Time • Permanent"}
+                  </span>
+                </div>
+                <h1 className="vacancy-detail-title">{job.title}</h1>
+                <p className="vacancy-detail-summary">{job.summary}</p>
+              </div>
 
-                                              { job.competencies.length > 0 && 
-                                                    <>
-                                                             <h3>Competencies & Attributes</h3>
-                                                            <ul>
-                                                                    { job.competencies.map(item => <li key={item}><span><TbSquareRoundedCheckFilled /></span>{item}</li>)}
-                                                            </ul>
-                                                    </>
-                                              }
+              {/* Key Responsibilities */}
+              <section className="vacancy-section-block">
+                <h3>
+                  <FaBriefcase /> Key Responsibilities & Duties
+                </h3>
 
-                                              <div className="application-instruction">
-                                                        <h4>Application instructions</h4>
-                                                        <p>Send your application email with the job title as the subject line to <span>recruitment@moieducentre.ac.ke</span></p>
-                                              </div>
-                                    </div>
-                           </div>
+                {Array.isArray(job.responsibilities) && typeof job.responsibilities[0] === 'object' ? (
+                  job.responsibilities.map((respGroup) => (
+                    <div className="responsibility-sub-card" key={respGroup.id || respGroup.title}>
+                      <h4>{respGroup.title}</h4>
+                      <ul>
+                        {respGroup.list && respGroup.list.map((item, idx) => (
+                          <li key={idx}>
+                            <FaCheckCircle className="checklist-icon" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))
+                ) : (
+                  <ul className="vacancy-checklist">
+                    {Array.isArray(job.responsibilities) && job.responsibilities.map((item, idx) => (
+                      <li key={idx}>
+                        <FaCheckCircle className="checklist-icon" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+
+              {/* Qualifications & Requirements */}
+              {job.qualifications && job.qualifications.length > 0 && (
+                <section className="vacancy-section-block">
+                  <h3>
+                    <FaGraduationCap /> Qualifications & Experience Requirements
+                  </h3>
+                  <ul className="vacancy-checklist">
+                    {job.qualifications.map((qual, idx) => (
+                      <li key={idx}>
+                        <FaCheckCircle className="checklist-icon" />
+                        <span>{qual}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {/* Competencies & Attributes */}
+              {job.competencies && job.competencies.length > 0 && (
+                <section className="vacancy-section-block">
+                  <h3>
+                    <FaAward /> Core Competencies & Desired Attributes
+                  </h3>
+                  <ul className="vacancy-checklist">
+                    {job.competencies.map((comp, idx) => (
+                      <li key={idx}>
+                        <FaCheckCircle className="checklist-icon" />
+                        <span>{comp}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {/* Added Advantage */}
+              {job.advantage && (
+                <section className="vacancy-section-block">
+                  <div className="safeguarding-notice-card" style={{ background: '#F0FDF4', borderColor: '#BBF7D0' }}>
+                    <h5 style={{ color: '#16A34A' }}>
+                      <FaAward /> Added Advantage
+                    </h5>
+                    <p style={{ color: '#166534', fontSize: '14px' }}>{job.advantage}</p>
                   </div>
-         </div>
-         <Footer />
-    </>
-  )
-}
+                </section>
+              )}
 
-export default SingleVacancy
+            </main>
+
+            {/* Right Column: Sticky Overview & Application Card */}
+            <aside className="vacancy-sidebar-sticky">
+              
+              <div className="vacancy-overview-card">
+                <h4>Job Overview</h4>
+                
+                <div className="overview-list">
+                  <div className="overview-item">
+                    <FaBriefcase />
+                    <div>
+                      <strong>Position</strong>
+                      <span>{job.title}</span>
+                    </div>
+                  </div>
+
+                  <div className="overview-item">
+                    <FaAward />
+                    <div>
+                      <strong>Department</strong>
+                      <span>{job.department || "Academic & Operations"}</span>
+                    </div>
+                  </div>
+
+                  {job.reportsTo && (
+                    <div className="overview-item">
+                      <FaUserTie />
+                      <div>
+                        <strong>Reports To</strong>
+                        <span>{job.reportsTo}</span>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="overview-item">
+                    <FaMapMarkerAlt />
+                    <div>
+                      <strong>Location</strong>
+                      <span>{job.location || "Nairobi, Kenya (South C)"}</span>
+                    </div>
+                  </div>
+
+                  <div className="overview-item">
+                    <FaCalendarAlt />
+                    <div>
+                      <strong>Application Deadline</strong>
+                      <span>{job.deadline || "Rolling / Open"}</span>
+                    </div>
+                  </div>
+                </div>
+
+                <a href={mailtoLink} className="btn-sidebar-apply-now">
+                  <FaPaperPlane /> Apply for this Position
+                </a>
+
+                {/* Email Copy Mini Box */}
+                <div style={{ marginTop: 20, paddingTop: 18, borderTop: '1px solid #F1F5F9' }}>
+                  <div style={{ fontSize: '12px', color: '#64748B', marginBottom: 8, fontWeight: 600 }}>
+                    Send application directly to:
+                  </div>
+                  <div className="email-copy-bar" style={{ padding: '6px 10px', background: '#F8FAFC', border: '1px solid #E2E8F0' }}>
+                    <span className="email-text-code" style={{ color: '#0F172A', fontSize: '12.5px' }}>
+                      recruitment@moieducentre.ac.ke
+                    </span>
+                    <button 
+                      className={`btn-copy-email ${copied ? 'copied' : ''}`}
+                      onClick={handleCopyEmail}
+                      style={{ padding: '6px 12px', fontSize: '11.5px' }}
+                    >
+                      {copied ? <FaCheck /> : <FaCopy />}
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Safeguarding & Child Protection Notice */}
+              <div className="safeguarding-notice-card">
+                <h5>
+                  <FaShieldAlt /> Child Safeguarding Policy
+                </h5>
+                <p>
+                  Moi Educational Centre is committed to safeguarding and promoting the welfare of children. All applicants must be willing to undergo enhanced background screening, police clearance, and rigorous reference checks.
+                </p>
+              </div>
+
+            </aside>
+
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </>
+  );
+};
+
+export default SingleVacancy;

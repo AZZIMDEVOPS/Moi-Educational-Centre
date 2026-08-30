@@ -1,0 +1,1002 @@
+/* =============================================================
+   MEC CAREERS & VACANCIES — Modern UI/UX Redesign
+   Color System: #6C2BD9 (MEC Purple) · #0F3D91 (MEC Blue) · Crisp White Surfaces
+   ============================================================= */
+
+@import url('./design-tokens.css');
+
+.vacancies-page-v2 {
+  background: #FFFFFF;
+  color: #0F172A;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── 1. Hero Section ───────────────────────────────────── */
+.vacancies-hero-v2 {
+  position: relative;
+  background: linear-gradient(145deg, #0A0118 0%, #15082E 50%, #0F3D91 100%);
+  padding: 130px 24px 80px;
+  color: #FFFFFF;
+  overflow: hidden;
+  text-align: center;
+}
+
+.vacancies-hero-v2::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(142, 68, 173, 0.35), transparent 70%);
+  pointer-events: none;
+}
+
+.vacancies-hero-v2::after {
+  content: "";
+  position: absolute;
+  bottom: -150px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(15, 61, 145, 0.4), transparent 70%);
+  pointer-events: none;
+}
+
+.vacancies-hero-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.vacancies-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #D8B4FE;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.vacancies-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(36px, 5.5vw, 62px);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin: 0 0 20px;
+  letter-spacing: -0.02em;
+}
+
+.vacancies-hero-title span {
+  background: linear-gradient(135deg, #C084FC 0%, #60A5FA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.vacancies-hero-sub {
+  font-size: clamp(16px, 1.8vw, 19px);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto 36px;
+  font-weight: 400;
+}
+
+/* Metric Strip */
+.vacancies-metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1060px;
+  margin: 40px auto 0;
+  position: relative;
+  z-index: 2;
+}
+
+.vacancy-metric-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.vacancy-metric-box:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.metric-number {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.metric-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ─── 2. Main Openings Section ───────────────────────────── */
+.vacancies-main-section {
+  padding: 90px 24px;
+  background: #FFFFFF;
+}
+
+.vacancies-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Controls: Search & Category Filter Pills */
+.vacancies-controls-wrap {
+  margin-bottom: 48px;
+}
+
+.vacancies-search-box {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto 28px;
+}
+
+.vacancies-search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6C2BD9;
+  font-size: 18px;
+}
+
+.vacancies-search-input {
+  width: 100%;
+  height: 56px;
+  padding: 0 48px 0 54px;
+  background: #F8FAFC;
+  border: 2px solid #E2E8F0;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #0F172A;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.vacancies-search-input:focus {
+  background: #FFFFFF;
+  border-color: #6C2BD9;
+  box-shadow: 0 8px 24px rgba(108, 43, 217, 0.12);
+}
+
+.vacancies-search-clear {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #E2E8F0;
+  border: none;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #475569;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.vacancies-search-clear:hover {
+  background: #CBD5E1;
+  color: #0F172A;
+}
+
+/* Department Pills */
+.vacancies-dept-pills {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dept-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 999px;
+  color: #475569;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dept-pill-btn:hover {
+  background: #FAF5FF;
+  border-color: #6C2BD9;
+  color: #6C2BD9;
+  transform: translateY(-2px);
+}
+
+.dept-pill-btn.active {
+  background: #6C2BD9;
+  border-color: #6C2BD9;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(108, 43, 217, 0.25);
+}
+
+.dept-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dept-pill-btn.active .dept-count-badge {
+  background: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
+}
+
+/* Open Positions Header */
+.open-positions-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #F1F5F9;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.open-positions-heading-row h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+}
+
+.open-positions-count {
+  font-size: 14px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+/* ─── 3. Modern Vacancy Cards Grid ───────────────────────── */
+.vacancies-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.vacancy-card-v2 {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(15, 61, 145, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vacancy-card-v2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, #6C2BD9 0%, #0F3D91 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.vacancy-card-v2:hover {
+  transform: translateY(-6px);
+  border-color: #6C2BD9;
+  box-shadow: 0 20px 50px rgba(108, 43, 217, 0.12);
+}
+
+.vacancy-card-v2:hover::before {
+  opacity: 1;
+}
+
+.vacancy-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.vacancy-dept-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  background: rgba(108, 43, 217, 0.08);
+  color: #6C2BD9;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.vacancy-type-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #059669;
+  background: #ECFDF5;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.vacancy-card-v2 h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.vacancy-meta-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.vacancy-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.vacancy-meta-item svg {
+  color: #6C2BD9;
+  font-size: 13px;
+}
+
+.vacancy-summary-text {
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 1.65;
+  margin: 0 0 28px;
+  flex-grow: 1;
+}
+
+.vacancy-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid #F1F5F9;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-vacancy-details {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #6C2BD9;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(108, 43, 217, 0.25);
+}
+
+.btn-vacancy-details:hover {
+  background: #581C87;
+  transform: translateY(-2px);
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(108, 43, 217, 0.4);
+}
+
+.btn-vacancy-apply-direct {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0F3D91;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-vacancy-apply-direct:hover {
+  color: #6C2BD9;
+  text-decoration: underline;
+}
+
+/* Empty State */
+.vacancies-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #F8FAFC;
+  border: 2px dashed #CBD5E1;
+  border-radius: 24px;
+}
+
+.vacancies-empty-state h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 16px 0 8px;
+}
+
+.vacancies-empty-state p {
+  color: #64748B;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+/* ─── 4. Why Work at MEC Section ─────────────────────────── */
+.why-work-mec-section {
+  padding: 90px 24px;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.why-work-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.why-work-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 32px 24px;
+  box-shadow: 0 6px 20px rgba(15, 61, 145, 0.04);
+  transition: all 0.3s ease;
+}
+
+.why-work-card:hover {
+  transform: translateY(-5px);
+  border-color: #6C2BD9;
+  box-shadow: 0 14px 34px rgba(108, 43, 217, 0.1);
+}
+
+.why-work-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(108, 43, 217, 0.1), rgba(15, 61, 145, 0.1));
+  color: #6C2BD9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.why-work-card h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 10px;
+}
+
+.why-work-card p {
+  font-size: 13.5px;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── 5. Hiring Process Timeline ─────────────────────────── */
+.hiring-process-section {
+  padding: 90px 24px;
+  background: #FFFFFF;
+}
+
+.hiring-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+  position: relative;
+}
+
+.hiring-step-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 32px 24px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hiring-step-card:hover {
+  background: #FFFFFF;
+  border-color: #6C2BD9;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(108, 43, 217, 0.08);
+}
+
+.step-number-badge {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+  background: #6C2BD9;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(108, 43, 217, 0.3);
+}
+
+.hiring-step-card h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 12px 0 10px;
+}
+
+.hiring-step-card p {
+  font-size: 13.5px;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── 6. Application CTA & Copy Email Box ────────────────── */
+.vacancies-cta-section {
+  padding: 40px 24px 100px;
+  background: #FFFFFF;
+}
+
+.vacancies-cta-box {
+  background: linear-gradient(135deg, #0F172A 0%, #1A0D36 50%, #0F3D91 100%);
+  border-radius: 32px;
+  padding: 56px 48px;
+  color: #FFFFFF;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vacancies-cta-left h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(26px, 3.2vw, 38px);
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+
+.vacancies-cta-left p {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin: 0 0 28px;
+}
+
+.copy-email-interactive-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 28px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.copy-email-interactive-box h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #D8B4FE;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.copy-email-interactive-box p {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.email-copy-bar {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 8px 12px 8px 18px;
+  gap: 12px;
+}
+
+.email-text-code {
+  font-family: 'Courier New', monospace;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  flex-grow: 1;
+  word-break: break-all;
+}
+
+.btn-copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #6C2BD9;
+  border: none;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-copy-email:hover {
+  background: #581C87;
+}
+
+.btn-copy-email.copied {
+  background: #10B981;
+}
+
+/* ─── 7. Single Vacancy Detail Page ──────────────────────── */
+.single-vacancy-v2 {
+  padding: 110px 24px 90px;
+  background: #F8FAFC;
+  min-height: 100vh;
+}
+
+.single-vacancy-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.btn-back-vacancies {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 999px;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 36px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(15, 61, 145, 0.04);
+}
+
+.btn-back-vacancies:hover {
+  background: #FAF5FF;
+  border-color: #6C2BD9;
+  color: #6C2BD9;
+  transform: translateX(-4px);
+}
+
+.vacancy-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Left Column Main Content */
+.vacancy-main-content {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 28px;
+  padding: 48px;
+  box-shadow: 0 10px 30px rgba(15, 61, 145, 0.05);
+}
+
+.vacancy-detail-header {
+  padding-bottom: 28px;
+  border-bottom: 1px solid #F1F5F9;
+  margin-bottom: 32px;
+}
+
+.vacancy-header-badges {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.vacancy-detail-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.vacancy-detail-summary {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.vacancy-section-block {
+  margin-bottom: 40px;
+}
+
+.vacancy-section-block h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vacancy-section-block h3 svg {
+  color: #6C2BD9;
+}
+
+.responsibility-sub-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.responsibility-sub-card h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 12px;
+}
+
+.responsibility-sub-card ul,
+.vacancy-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.responsibility-sub-card li,
+.vacancy-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.checklist-icon {
+  color: #6C2BD9;
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Right Sticky Sidebar Card */
+.vacancy-sidebar-sticky {
+  position: sticky;
+  top: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.vacancy-overview-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(15, 61, 145, 0.05);
+}
+
+.vacancy-overview-card h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.overview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.overview-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.overview-item svg {
+  color: #6C2BD9;
+  font-size: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.overview-item div strong {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748B;
+}
+
+.overview-item div span {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0F172A;
+}
+
+.btn-sidebar-apply-now {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 24px;
+  background: #6C2BD9;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 20px rgba(108, 43, 217, 0.35);
+}
+
+.btn-sidebar-apply-now:hover {
+  background: #581C87;
+  transform: translateY(-2px);
+  color: #FFFFFF;
+  box-shadow: 0 12px 28px rgba(108, 43, 217, 0.5);
+}
+
+.safeguarding-notice-card {
+  background: #FAF5FF;
+  border: 1px solid #E9D5FF;
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.safeguarding-notice-card h5 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #6C2BD9;
+  margin: 0 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.safeguarding-notice-card p {
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ─── Responsive Queries ─────────────────────────────────── */
+@media (max-width: 1024px) {
+  .vacancies-metrics-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vacancies-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-work-grid, .hiring-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vacancies-cta-box {
+    grid-template-columns: 1fr;
+    padding: 40px 32px;
+  }
+  .vacancy-detail-layout {
+    grid-template-columns: 1fr;
+  }
+  .vacancy-sidebar-sticky {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .vacancies-hero-v2 {
+    padding: 100px 20px 60px;
+  }
+  .vacancies-main-section, .why-work-mec-section, .hiring-process-section, .vacancies-cta-section {
+    padding: 60px 18px;
+  }
+  .vacancies-metrics-strip {
+    grid-template-columns: 1fr;
+  }
+  .why-work-grid, .hiring-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .vacancy-card-v2 {
+    padding: 28px 20px;
+  }
+  .vacancy-main-content {
+    padding: 28px 20px;
+  }
+  .email-copy-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

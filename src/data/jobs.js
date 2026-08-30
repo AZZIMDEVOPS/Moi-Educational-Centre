@@ -1,290 +1,300 @@
 export const jobs = [
-        {
-            id: 345,
-            title: "Accountant",
-            link: "/about-MEC/vacancy/accountant",
-            url_param: "accountant",
-            reportsTo: "Finance & Administration Manager",
-            summary: "The accountant will be responsible for managing all financial activities of the school, ensuring accuracy in financial reporting, compliance with Kenyan statutory regulations, and supporting strategic financial planning to ensure the school's sustainability and growth.",
-            responsibilities: [
-                {
-                    id: 0,
-                    title: "Financial Management & Reporting",
-                    list: [
-                        "Maintain accurate books of accounts using accounting software (online SMIS or any other software provided.",
-                        "Prepare monthly, quarterly, and annual financial reports for management and the Board to by reviewed by Finance Manager.",
-                        "Monitor and report on income and expenditure to ensure alignment with budgets.",
-                        "Prepare and present cash flow forecasts and financial analysis."
-                    ]
-                },
-                {
-                    id: 1,
-                    title: "Budgeting & Planning",
-                    list: [
-                        "Assist in the preparation of annual school budgets.",
-                        "Monitor budget implementation and advise on variances.",
-                        "Ensure compliance with food safety standards.",
-                        "Support departments in budget tracking and resource allocation."
-                    ]
-                },
-                {
-                    id: 2,
-                    title: "Fee Collection & Student Accounts",
-                    list: [
-                        "Oversee billing and collection of school fees and other revenues.",
-                        "Maintain up-to-date student ledger accounts.",
-                        "Follow up on outstanding fees and prepare debtors’ reports.",
-                        "Implement and monitor payment plans where applicable."
-                    ]
-                },
-            {
-                id: 3,
-                title: "Procurement & Payments",
-                list: [
-                        "Oversee payment processes ensuring proper authorization and documentation.",
-                        "Ensure proper accounting for purchases and school expenditures.",
-                        "Reconcile supplier accounts and manage relationships with vendors.",
-                        "Ensure adherence to procurement policies and transparency."
-                ]
-            },
-            {
-                id: 4,
-                title: "Statutory Compliance",
-                list: [
-                        "Ensure timely filing and payment of statutory obligations (e.g. PAYE, NHIF, NSSF, VAT, etc.).",
-                        "Liaise with external auditors, KRA, and other relevant bodies.",
-                        "Maintain accurate payroll records and spearhead payroll processing.",
-                ]
-            },
-            {
-                 id: 5,
-                 title: "Internal Controls & Record Keeping",
-                 list: [
-                      "Maintain and strengthen internal financial controls.",
-                      "Ensure safe custody of financial records and documentation.",
-                      "Conduct regular audits and risk assessments."
-                 ]
-            },
-            {
-                id: 6,
-                title: "Asset Management",
-                list: [
-                     "Maintain an updated fixed assets register.",
-                     "Support in stock-taking and inventory management."
-                ]
-            }
-        ],
-         qualifications: [
-             "Bachelor’s degree in Accounting, Finance, or related field.",
-             "CPA (Kenya) qualification – at least CPA Part II (Section 4) or above.",
-             "Minimum 3 years experience in accounting, preferably in a school or NGO setting.",
-             "Proficiency in accounting software and MS Excel.",
-             "Sound knowledge of Kenyan tax laws and financial regulations."
-         ],
-         competencies: [
-               "High integrity and professionalism.",
-               "Strong analytical and problem-solving skills.",
-               "Excellent attention to detail and accuracy.",
-               "Good communication and interpersonal skills.",
-               "Ability to work independently and as part of a team.",
-               "Discretion and confidentiality in handling financial data."
-         ]
-
-        },
-         {
-            id: 346,
-            title: "Accounts Assistant",
-            link: "/about-MEC/vacancy/accounts-assistant",
-            url_param: "accounts-assistant",
-            reportsTo: "Finance & Administration Manager",
-            summary: "The accounts assistant will support the effective financial management of Moi Educational Centre by ensuring accurate, timely, and compliant processing of all financial transactions. The role upholds transparency, accountability, and effeciency in both accounts receivable and payable operations, ensuring that all inflows and outflows are well recorded, reconciled and aligned with institutional policies and requirements.",
-            responsibilities: [
-                {
-                    id: 0,
-                    title: "Accounts Receivable (AR) Management",
-                    list: [
-                        "Prepare and issue invoices for school fees, transport, and other services.",
-                        "Record and receipt payments made by parents, students, and other stakeholders.",
-                        "Maintain accurate and up-to-date fee registers and debtor ledgers.",
-                        "Reconcile receipts and deposits with bank statements to ensure all collections are accounted for.",
-                        "Support communication with parents and guardians regarding fee balances, receipts, and payment schedules.",
-                        "Maintain proper documentation for all collections and follow up on overdue payments as guided by the Finance Manager."
-                    ]
-                },
-                {
-                    id: 1,
-                    title: "Accounts Payable (AP) Management",
-                    list: [
-                        "Receive, verify, and process supplier invoices in line with LPOs, delivery notes, and contract terms.",
-                        "Prepare supplier payment vouchers and ensure payments are made within approved timelines.",
-                        "Maintain an updated supplier ledger and ensure all payables are properly authorized and supported by documentation.",
-                        "Support the Finance Manager in preparing schedules for statutory deductions (PAYE, NHIF, NSSF, and VAT).",
-                        "Reconcile supplier statements and address discrepancies in coordination with vendors."
-                    ]
-                },
-                {
-                    id: 2,
-                    title: "Petty Cash and Banking",
-                    list: [
-                        "Manage petty cash operations, ensuring accurate recording, approval, and replenishment of float.",
-                        "Conduct periodic petty cash reconciliations and prepare summary reports for review.",
-                        "Ensure timely banking of all collected revenues and maintain bank deposit slips and reconciliations.",
-                    ]
-                },
-            {
-                id: 3,
-                title: "Reconciliations and Reporting",
-                list: [
-                        "Prepare monthly bank reconciliations for all school accounts.",
-                        "Reconcile debtors, creditors, and control accounts to maintain accurate financial records.",
-                        "Assist in generating periodic financial reports and schedules for management review and audits.",
-                ]
-            },
-            {
-                id: 4,
-                title: "Compliance and Audit Support",
-                list: [
-                        "Ensure all accounting transactions comply with MEC financial policies and Kenyan statutory requirements.",
-                        "Support both internal and external audits by preparing documentation and responding to queries.",
-                        "Maintain orderly filing of all financial documents for easy retrieval and reference.",
-                ]
-            },
-            {
-                 id: 5,
-                 title: "Stakeholder Support",
-                 list: [
-                      "Provide courteous and professional support to staff, suppliers, and parents on finance- related queries.",
-                      "Collaborate with administrative, academic, and operations departments to ensure smooth financial coordination across functions.",
-                 ]
-            },
-        ],
-         competencies: [
-             "Sound understanding of double-entry accounting, ledger management, and reconciliations.",
-             "Familiarity with Kenyan tax and statutory regulations (PAYE, NHIF, NSSF, VAT).",
-             "Knowledge of audit requirements and internal control systems.",
-             "High numerical accuracy and analytical skills.",
-             "Competence in QuickBooks, Sage, or Pastel accounting systems.",
-             "Proficiency in Microsoft Excel, Word, and Outlook.",
-             "Strong organizational and time management abilities.",
-             "Excellent communication and interpersonal skills.",
-             "Ability to maintain confidentiality and handle sensitive financial data responsibly.",
-             "Capacity to multitask and meet tight deadlines with minimal supervision.",
-             "Ability to identify and correct financial discrepancies promptly.",
-             "Team player with a collaborative mindset and strong customer service orientation.",
-             "Upholds ethical and transparent financial practices.",
-             "Ensures accuracy in all transactions and reports.",
-             "Works harmoniously with colleagues and departments.",
-             "Delivers consistent, high-quality outputs within deadlines.",
-             "Embraces change in systems, processes, and technologies."
-         ],
-         qualifications: [
-               "Minimum KCSE Grade C (Plain) or equivalent with passes in English and Mathematics.",
-               "Diploma in Accounting, Finance, Supply Chain Management or Business Administration (Bachelor’s degree is an added advantage).",
-               "CPA Part II (Section 4) or higher, certified by KASNEB.",
-               "Training or certification in computerized accounting systems (QuickBooks, Sage, or Pastel) is desirable.",
-               "At least 2 years of progressive experience in accounting or finance, preferably within a school, NGO, or service-oriented institution.",
-               "Demonstrated experience in both accounts receivable and accounts payable functions.",
-               "Experience in preparing reconciliations, processing payments, and maintaining financial records."
-         ]
-
-        },
-        {
-        id: 1233,
-        title: "Business Studies & Mathematics Teacher",
-        url_param: "business-studies-and-mathematics-teacher",
-        link: "/about-MEC/vacancy/business-studies-and-mathematics-teacher",
-        summary: "",
-        responsibilities: [
-            "Plan and deliver engaging lessons aligned to KCSE and CBC requirements.",
-            "Prepare learners for internal and national examinations, ensuring consistent value addition.",
-            "Set, mark, analyze, and provide feedback on assessments.",
-            "Implement CBC pedagogy, including continuous assessment and learner support.",
-            "Track learner progress and implement academic interventions.",
-            "Maintain professional teaching records and comply with TSC, KNEC, and KICD guidelines.",
-            "Provide mentorship, guidance, and pastoral support to learners.",
-            "Participate in departmental, co-curricular, and school programmes."
-        ],
-        qualifications: [
-            "Bachelor's degree in Education.",
-            "TSC registered and active (mandatory).",
-            "At least five (5) years of continuous teaching experience at secondary school level.",
-            "Proven track record of excellent performance in KCSE, with clear evidence of value addition.",
-            "KNEC Examiner status will be a distinct added advantage.",
-            "CBC trained, with demonstrable understanding of competency-based pedagogy, assessment, and learner support.",
-            "Strong classroom management skills, learner-centered teaching approach, and commitment"
-        ],
-        competencies: [
-            
-        ]
-    },
     {
-        id: 485,
-        title: "Catering and Sanitation Coordinator",
-        url_param: "catering-and-sanitation-coordinator",
-        link: "/about-MEC/vacancy/catering-and-sanitation-coordinator",
-        summary: "The Catering and Sanitation Coordinator will provide leadership and oversight for all housekeeping, sanitation, and catering operations, ensuring a clean, safe, and hygienic environment for students, staff, and visitors across all MEC schools.",
+        id: 345,
+        title: "Accountant",
+        link: "/about-MEC/vacancy/accountant",
+        url_param: "accountant",
+        department: "Finance & Accounts",
+        type: "Full-Time • Permanent",
+        location: "Nairobi, Kenya (South C Campus)",
+        experience: "3+ Years Experience",
+        deadline: "Open / Rolling Applications",
+        reportsTo: "Finance & Administration Manager",
+        summary: "The Accountant will be responsible for managing all financial activities of the school, ensuring accuracy in financial reporting, compliance with Kenyan statutory regulations, and supporting strategic financial planning to ensure the school's long-term sustainability and growth.",
         responsibilities: [
             {
                 id: 0,
-                title: "Housekeeping & Cleaning Oversite",
+                title: "Financial Management & Reporting",
                 list: [
-                      "Supervise cleaning teams and ensure all school spaces meet required hygiene standards.",
-                      "Implement and monitor cleaning schedules not handled by the outsourced company.",
-                      "Manage internal cleaning inventory and ensure proper usage.",
-                      "Conduct routine inspections for compliance."
+                    "Maintain accurate books of accounts using school management and accounting software.",
+                    "Prepare monthly, quarterly, and annual financial reports for management and Board review.",
+                    "Monitor and report on income and expenditure to ensure alignment with approved budgets.",
+                    "Prepare and present cash flow forecasts and strategic financial analysis."
                 ]
             },
             {
                 id: 1,
-                title: "Catering & Kitchen Management",
+                title: "Budgeting & Planning",
                 list: [
-                    "Supervise kitchen staff and ensure timely, hygienic meal preparation.",
-                    "Monitor food quality, storage, and portion control.",
-                    "Ensure compliance with food safety standards.",
-                    "Maintain kitchen inventory and support procurement planning."
+                    "Assist in the preparation of annual school operational budgets.",
+                    "Monitor budget implementation and advise departments on variances.",
+                    "Support department heads in budget tracking and resource allocation."
                 ]
             },
             {
                 id: 2,
-                title: "Staff Coordination",
+                title: "Fee Collection & Student Accounts",
                 list: [
-                    "Train, guide, and supervise kitchen and cleaning staff.",
-                    "Prepare duty rosters and monitor attendance.",
-                    "Promote teamwork, professionalism, and discipline."
+                    "Oversee billing and reconciliation of school fees and other institutional revenues.",
+                    "Maintain up-to-date student ledger accounts on the school MIS portal.",
+                    "Follow up on outstanding balances and prepare monthly debtor ageing reports.",
+                    "Implement and monitor approved parent fee payment plans."
                 ]
             },
-           {
-               id: 3,
-               title: "Health, Safety & Hygiene",
-               list: [
-                    "Ensure compliance with occupational health and safety standards.",
-                    "Report maintenance or safety concerns promptly.",
-                    "Support hygiene and sanitation awareness initiatives."
-               ]
-           },
-           {
-               id: 4,
-               title: "Administration & Reporting",
-               list: [
-                    "Maintain accurate records of inventory and operations.",
-                    "Prepare periodic reports on housekeeping and catering performance.",
-                    "Support school events requiring catering or venue setup."
-               ]
-           }
+            {
+                id: 3,
+                title: "Procurement & Supplier Payments",
+                list: [
+                    "Oversee payment processes ensuring proper authorization and supporting vouchers.",
+                    "Ensure proper accounting for purchases and departmental expenditures.",
+                    "Reconcile supplier statements and maintain strong vendor relationships.",
+                    "Ensure adherence to procurement governance, integrity, and transparency."
+                ]
+            },
+            {
+                id: 4,
+                title: "Statutory Compliance & Payroll",
+                list: [
+                    "Ensure timely filing and remittance of statutory deductions (PAYE, SHA, NSSF, Housing Levy, VAT).",
+                    "Liaise effectively with external auditors, KRA, and relevant regulatory bodies.",
+                    "Maintain accurate payroll records and spearhead monthly payroll reconciliations."
+                ]
+            },
+            {
+                id: 5,
+                title: "Internal Controls & Record Keeping",
+                list: [
+                    "Maintain and strengthen internal financial control frameworks.",
+                    "Ensure safe custody and digital archiving of financial records and audit documentation.",
+                    "Conduct periodic internal checks and financial risk assessments."
+                ]
+            },
+            {
+                id: 6,
+                title: "Asset Management & Inventory",
+                list: [
+                    "Maintain an updated fixed assets register with proper depreciation schedules.",
+                    "Support periodic stock-taking exercises and store inventory audits."
+                ]
+            }
         ],
         qualifications: [
-              "Diploma in Housekeeping, Catering, Hospitality, or related discipline.",
-              "Minimum 3 years’ experience in a school, hotel, or institutional kitchen/housekeeping role.",
-              "Strong knowledge of hygiene and food safety standards.",
-              "Excellent supervisory, organizational, and communication skills."
+            "Bachelor’s degree in Accounting, Finance, Commerce, or related discipline.",
+            "CPA (Kenya) qualification – minimum CPA Part II (Section 4) or full CPA(K).",
+            "Minimum 3 years of progressive accounting experience, preferably in an educational or institutional setting.",
+            "Proficiency in computerized accounting software (QuickBooks, Sage, or ERP) and advanced MS Excel.",
+            "Sound, up-to-date knowledge of Kenyan tax laws, KRA iTax, and statutory compliance."
         ],
         competencies: [
-            "Responsible, reliable, and detail-oriented.",
-            "Strong sense of order, cleanliness, and discipline.",
-            "Able to lead teams effectively and work under minimal supervision.",
-            "Calm under pressure and committed to high standards."
+            "High integrity, ethical standards, and professional dependability.",
+            "Strong analytical, reconciliation, and problem-solving skills.",
+            "Excellent attention to detail, precision, and accuracy in numerical reporting.",
+            "Good communication, interpersonal, and team collaboration abilities.",
+            "Discretion and strict confidentiality in handling financial records."
         ]
-
+    },
+    {
+        id: 346,
+        title: "Accounts Assistant",
+        link: "/about-MEC/vacancy/accounts-assistant",
+        url_param: "accounts-assistant",
+        department: "Finance & Accounts",
+        type: "Full-Time • Permanent",
+        location: "Nairobi, Kenya (South C Campus)",
+        experience: "2+ Years Experience",
+        deadline: "Open / Rolling Applications",
+        reportsTo: "Finance & Administration Manager",
+        summary: "The Accounts Assistant will support the effective financial operations of Moi Educational Centre by ensuring accurate, timely, and compliant processing of all financial transactions. The role upholds transparency and accountability across accounts receivable, accounts payable, and banking operations.",
+        responsibilities: [
+            {
+                id: 0,
+                title: "Accounts Receivable (AR) Management",
+                list: [
+                    "Prepare and issue fee invoices for school fees, transport, and extra-curricular services.",
+                    "Record and receipt payments made by parents, students, and institutional partners.",
+                    "Maintain accurate and up-to-date fee registers and student ledger accounts.",
+                    "Reconcile daily receipts and M-Pesa/bank deposits against bank statements.",
+                    "Provide courteous support to parents regarding fee statements and payment schedules."
+                ]
+            },
+            {
+                id: 1,
+                title: "Accounts Payable (AP) Management",
+                list: [
+                    "Receive, verify, and match supplier invoices against LPOs and delivery notes.",
+                    "Prepare supplier payment vouchers with complete supporting documentation.",
+                    "Maintain an updated supplier ledger and reconcile vendor statements monthly.",
+                    "Support the preparation of schedules for statutory deductions."
+                ]
+            },
+            {
+                id: 2,
+                title: "Petty Cash & Banking Operations",
+                list: [
+                    "Manage petty cash operations, disbursements, and timely float replenishment.",
+                    "Conduct weekly petty cash reconciliations and submit summary reports.",
+                    "Ensure prompt banking of all cash and cheques with proper deposit tracking."
+                ]
+            },
+            {
+                id: 3,
+                title: "Reconciliations & Audit Support",
+                list: [
+                    "Prepare monthly bank reconciliation statements for all school accounts.",
+                    "Reconcile control accounts, debtors, and creditors registers.",
+                    "Support internal and external audit exercises with organized documentation."
+                ]
+            },
+            {
+                id: 4,
+                title: "Stakeholder & Administrative Support",
+                list: [
+                    "Provide prompt and professional service to parents, suppliers, and faculty on finance queries.",
+                    "Maintain orderly, secure physical and digital filing of all financial vouchers."
+                ]
+            }
+        ],
+        qualifications: [
+            "Diploma or Bachelor’s degree in Accounting, Finance, Business Administration, or related field.",
+            "CPA Part II (Section 4) or higher certified by KASNEB.",
+            "Minimum 2 years of practical experience in accounts receivable and payable functions.",
+            "Proficiency in accounting software (QuickBooks, Sage, or ERP) and MS Office (Excel & Word).",
+            "Familiarity with Kenyan statutory compliance and payment portals."
+        ],
+        competencies: [
+            "High numerical accuracy and rigorous attention to detail.",
+            "Strong customer service orientation and courteous interpersonal communication.",
+            "Honesty, confidentiality, and commitment to transparent financial practices.",
+            "Ability to manage multiple deadlines in a dynamic academic environment."
+        ]
+    },
+    {
+        id: 1233,
+        title: "Business Studies & Mathematics Teacher",
+        url_param: "business-studies-and-mathematics-teacher",
+        link: "/about-MEC/vacancy/business-studies-and-mathematics-teacher",
+        department: "Senior School Faculty",
+        type: "Full-Time • Permanent",
+        location: "Nairobi, Kenya (South C Campus)",
+        experience: "5+ Years Experience",
+        deadline: "Open / Rolling Applications",
+        reportsTo: "Principal / Head of Department",
+        summary: "We are seeking a dynamic, qualified, and TSC-registered Business Studies & Mathematics Educator to join our distinguished Senior School academic faculty. The educator will inspire learners, deliver innovative CBC pedagogy, and uphold MEC’s tradition of exceptional academic excellence.",
+        responsibilities: [
+            {
+                id: 0,
+                title: "Instruction & Curriculum Delivery",
+                list: [
+                    "Plan, prepare, and deliver engaging, learner-centered lessons aligned with CBC and national curriculum guidelines.",
+                    "Integrate interactive technology, case studies, and real-world business applications into daily classroom learning.",
+                    "Prepare learners thoroughly for continuous assessments, formative evaluations, and national examinations."
+                ]
+            },
+            {
+                id: 1,
+                title: "Assessment & Learner Growth",
+                list: [
+                    "Set, administer, mark, and analyze diagnostic, formative, and summative assessments.",
+                    "Provide timely, constructive feedback to learners and parents to foster continuous academic improvement.",
+                    "Design targeted academic intervention and enrichment strategies for diverse learning paces."
+                ]
+            },
+            {
+                id: 2,
+                title: "Professional Records & Compliance",
+                list: [
+                    "Maintain up-to-date professional records including schemes of work, lesson plans, and learner progress records in line with TSC & KICD guidelines.",
+                    "Actively participate in departmental moderation, teacher professional development, and subject panels."
+                ]
+            },
+            {
+                id: 3,
+                title: "Pastoral Care & Co-Curricular Engagement",
+                list: [
+                    "Provide mentorship, guidance, and values-based character development to learners.",
+                    "Lead or support business/entrepreneurship clubs, math contests, and school events."
+                ]
+            }
+        ],
+        qualifications: [
+            "Bachelor of Education (B.Ed.) degree with specialization in Business Studies and Mathematics.",
+            "Active Teacher Service Commission (TSC) registration (mandatory).",
+            "At least five (5) years of continuous teaching experience at secondary school level.",
+            "Demonstrated track record of outstanding academic value addition and national exam results.",
+            "Certified CBC training with clear understanding of competency-based pedagogy and assessment.",
+            "KNEC Examiner certification is an added advantage."
+        ],
+        competencies: [
+            "Passionate about teaching and inspiring young minds in Business and Mathematics.",
+            "Strong digital literacy and ability to leverage educational technology in teaching.",
+            "Excellent classroom management, communication, and emotional intelligence.",
+            "Collaborative spirit and dedication to holistic school life."
+        ]
+    },
+    {
+        id: 485,
+        title: "Catering & Sanitation Coordinator",
+        url_param: "catering-and-sanitation-coordinator",
+        link: "/about-MEC/vacancy/catering-and-sanitation-coordinator",
+        department: "Operations & Facilities",
+        type: "Full-Time • Permanent",
+        location: "Nairobi, Kenya (South C Campus)",
+        experience: "3+ Years Experience",
+        deadline: "Open / Rolling Applications",
+        reportsTo: "Operations & Administration Manager",
+        summary: "The Catering and Sanitation Coordinator will provide professional leadership and oversight for all institutional catering, housekeeping, and sanitation operations, ensuring a pristine, safe, and hygienic environment for all learners, faculty, and visitors across MEC campuses.",
+        responsibilities: [
+            {
+                id: 0,
+                title: "Housekeeping & Campus Sanitation",
+                list: [
+                    "Supervise cleaning crews and ensure all classrooms, offices, dining halls, and washrooms meet top-tier hygiene standards.",
+                    "Design, implement, and monitor daily, weekly, and holiday deep-cleaning schedules.",
+                    "Manage inventory of cleaning detergents, sanitation equipment, and consumables efficiently.",
+                    "Conduct daily cleanliness inspections and audits across the entire campus."
+                ]
+            },
+            {
+                id: 1,
+                title: "Catering & Dining Management",
+                list: [
+                    "Supervise kitchen personnel to ensure timely, hygienic, and nutritious meal preparation.",
+                    "Monitor food safety, proper cold-chain storage, portion control, and waste minimization.",
+                    "Enforce strict public health, food handling, and kitchen sanitation regulations.",
+                    "Assist in kitchen stock management, supplier food quality checks, and menu planning."
+                ]
+            },
+            {
+                id: 2,
+                title: "Staff Leadership & Training",
+                list: [
+                    "Train, mentor, and supervise kitchen and housekeeping support teams.",
+                    "Prepare duty rosters, monitor attendance, and foster a culture of professionalism and discipline.",
+                    "Conduct regular occupational health and hygiene safety briefings."
+                ]
+            },
+            {
+                id: 3,
+                title: "Health, Safety & Compliance",
+                list: [
+                    "Ensure full compliance with public health regulations, OSHA standards, and county health certifications.",
+                    "Identify and report facility maintenance or safety hazards immediately.",
+                    "Support campus event catering, guest hospitality, and special institutional functions."
+                ]
+            }
+        ],
+        qualifications: [
+            "Diploma or Higher Diploma in Institutional Catering, Hospitality Management, Food & Beverage, or Environmental Sanitation.",
+            "Minimum 3 years of supervisory experience in a reputable school, hospital, or hospitality institution.",
+            "Valid Food Handlers Certificate and thorough knowledge of HACCP / public health hygiene protocols.",
+            "Strong supervisory, team coordination, and inventory management capabilities."
+        ],
+        competencies: [
+            "Strong sense of order, cleanliness, high standards, and reliability.",
+            "Excellent team leadership and interpersonal communication skills.",
+            "Calm, proactive problem solver able to manage high-volume campus operations.",
+            "Committed to student health, wellness, and institutional excellence."
+        ]
     },
     // {
     //     id: 0,

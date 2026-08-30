@@ -374,6 +374,7 @@
   font-size: 13px;
   color: #475569;
   cursor: pointer;
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -1864,7 +1865,7 @@
 
 @media (max-width: 768px) {
   .fees-hero {
-    min-height: auto;
+    min-height: 0;
     padding: 110px 20px 50px;
   }
   .fees-hero-title {

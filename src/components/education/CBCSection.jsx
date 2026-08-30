@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { cbc } from "../../data/education";
 import gsap from "gsap";
@@ -509,7 +509,7 @@ const LearningJourney = ({ currentId }) => {
 };
 
 /* ─── 9. Admissions CTA Card ────────────────────────────── */
-const PreSchoolAdmissionsCTA = ({ stage }) => {
+const PreSchoolAdmissionsCTA = () => {
   return (
     <section className="preschool-cta-section">
       <div className="prog-container">
@@ -607,7 +607,7 @@ const CBCSection = () => {
         )}
 
         <LearningJourney currentId={stage.id} />
-        <PreSchoolAdmissionsCTA stage={stage} />
+        <PreSchoolAdmissionsCTA />
       </main>
     </div>
   );
