@@ -398,27 +398,69 @@ const TestimonialsCarousel = () => {
 
 /* ─── 11. FAQ Accordion ─────────────────────────────────── */
 const AboutFAQ = () => {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0);
   const faqs = [
-    { q: "Which curriculum is offered?", a: "We offer the Kenyan CBC (Competency-Based Curriculum) alongside select Cambridge International standard practices." },
-    { q: "What is the admissions process?", a: "Admissions require an application form, a brief assessment, and an interview with the admissions team." },
-    { q: "Are there boarding facilities?", a: "MEC operates primarily as a day school, ensuring strong parent-school partnerships." }
+    { 
+      q: "Which curriculum is offered at Moi Educational Centre?", 
+      a: "We offer the Kenyan CBC (Competency-Based Curriculum) across Pre-School, Primary, Junior School, and Senior School, integrated with British Cambridge International standards, Robotics, STEM, and the MEC Music Academy." 
+    },
+    { 
+      q: "What is the admissions process for new learners?", 
+      a: "Admissions require submitting an application form (online or at the Admissions Desk), followed by a brief learner readiness assessment and parent orientation interview." 
+    },
+    { 
+      q: "Are there boarding facilities available?", 
+      a: "MEC operates primarily as a premier day school with comprehensive door-to-door transport routes covering Nairobi and its environs, fostering close daily family bonds." 
+    },
+    {
+      q: "How does MEC support co-curricular talent?",
+      a: "With over 35+ clubs, swimming, football, basketball, chess, drama, robotics labs, and an internationally acclaimed Music Academy that tours Europe."
+    }
   ];
+
   return (
     <section className="abt-faq">
-      <div className="abt-sec-header">
-        <h2 className="abt-sec-title">Frequently Asked Questions</h2>
-      </div>
-      <div className="abt-faq-inner">
-        {faqs.map((f, i) => (
-          <div className={`abt-faq-item ${openIndex === i ? 'open' : ''}`} key={i} onClick={() => setOpenIndex(openIndex === i ? null : i)}>
-            <div className="abt-faq-q">
-              <span>{f.q}</span>
-              <FaChevronDown style={{ transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)', transition: '0.3s' }} />
-            </div>
-            <div className="abt-faq-a">{f.a}</div>
+      <div className="abt-faq-container">
+        
+        <div className="abt-faq-header">
+          <div className="abt-faq-eyebrow">
+            Got Questions?
           </div>
-        ))}
+          <h2 className="abt-faq-title">Frequently Asked Questions</h2>
+          <p className="abt-faq-subtitle">
+            Find quick answers to common questions regarding our academic curriculum, admissions, and student life.
+          </p>
+        </div>
+
+        <div className="abt-faq-list">
+          {faqs.map((f, i) => (
+            <div 
+              className={`abt-faq-card ${openIndex === i ? 'open' : ''}`} 
+              key={i} 
+              onClick={() => setOpenIndex(openIndex === i ? null : i)}
+            >
+              <div className="abt-faq-question-row">
+                <span className="abt-faq-q-text">{f.q}</span>
+                <span className={`abt-faq-chevron ${openIndex === i ? 'rotated' : ''}`}>
+                  <FaChevronDown />
+                </span>
+              </div>
+              {openIndex === i && (
+                <div className="abt-faq-answer">
+                  <p>{f.a}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="abt-faq-footer-cta">
+          <span>Looking for more detailed admissions information?</span>
+          <Link to="/admissions/frequently-asked-questions" className="abt-faq-link-more">
+            Browse All FAQs &rarr;
+          </Link>
+        </div>
+
       </div>
     </section>
   );

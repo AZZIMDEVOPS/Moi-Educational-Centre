@@ -523,13 +523,162 @@
 .abt-test-author { font-weight: 700; color: #0f172a; }
 
 
-/* ─── 11. FAQ Accordion ─────────────────────────────────── */
-.abt-faq { padding: 120px var(--padding-x); background: #ffffff; }
-.abt-faq-inner { max-width: 800px; margin: 0 auto; }
-.abt-faq-item { border-bottom: 1px solid #e2e8f0; padding: 24px 0; cursor: pointer; }
-.abt-faq-q { font-family: var(--font-body); font-size: 18px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; color: #0f172a; }
-.abt-faq-a { font-size: 15px; color: #64748b; line-height: 1.7; margin-top: 16px; display: none; }
-.abt-faq-item.open .abt-faq-a { display: block; }
+/* ─── 11. FAQ Accordion (Centered) ──────────────────────── */
+.abt-faq { 
+  padding: 100px var(--padding-x); 
+  background: #FFFFFF; 
+}
+
+.abt-faq-container { 
+  max-width: 860px; 
+  margin: 0 auto; 
+}
+
+.abt-faq-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.abt-faq-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(108, 43, 217, 0.08);
+  border: 1px solid rgba(108, 43, 217, 0.25);
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #6C2BD9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.abt-faq-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.abt-faq-subtitle {
+  font-size: 16px;
+  color: #64748B;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.abt-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.abt-faq-card {
+  background: #F8FAFC;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 22px 28px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.abt-faq-card:hover {
+  background: #FFFFFF;
+  border-color: #6C2BD9;
+  box-shadow: 0 8px 24px rgba(108, 43, 217, 0.08);
+  transform: translateY(-2px);
+}
+
+.abt-faq-card.open {
+  background: #FFFFFF;
+  border-color: #6C2BD9;
+  box-shadow: 0 12px 32px rgba(108, 43, 217, 0.12);
+}
+
+.abt-faq-question-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.abt-faq-q-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #0F172A;
+  line-height: 1.4;
+}
+
+.abt-faq-chevron {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(108, 43, 217, 0.08);
+  color: #6C2BD9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.abt-faq-chevron.rotated {
+  transform: rotate(180deg);
+  background: #6C2BD9;
+  color: #FFFFFF;
+}
+
+.abt-faq-answer {
+  padding-top: 14px;
+  margin-top: 14px;
+  border-top: 1px solid #F1F5F9;
+  animation: faqFadeDown 0.3s ease-out;
+}
+
+@keyframes faqFadeDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.abt-faq-answer p {
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.abt-faq-footer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+  font-size: 14px;
+  color: #64748B;
+  flex-wrap: wrap;
+}
+
+.abt-faq-link-more {
+  font-weight: 700;
+  color: #6C2BD9;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.abt-faq-link-more:hover {
+  color: #0F3D91;
+  transform: translateX(3px);
+}
 
 
 /* ─── 12. Admissions CTA ────────────────────────────────── */
