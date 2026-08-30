@@ -7,13 +7,13 @@
 
 .accreditations-v2 {
   position: relative;
-  background-color: #050816;
+  background-color: #ffffff;
   padding: 120px 0;
   overflow: hidden;
-  color: #FFFFFF;
+  color: #0f172a;
   font-family: 'Poppins', sans-serif;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 /* ─── Ambient Light Mesh & Glows ────────────────────────── */
@@ -56,12 +56,12 @@
   align-items: center;
   gap: 10px;
   padding: 8px 20px;
-  background: rgba(168, 85, 247, 0.12);
-  border: 1px solid rgba(168, 85, 247, 0.28);
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.2);
   border-radius: 999px;
   font-size: 12px;
   font-weight: 700;
-  color: #D8B4FE;
+  color: #7C3AED;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -80,7 +80,7 @@
   font-size: clamp(38px, 5vw, 64px);
   font-weight: 800;
   line-height: 1.1;
-  color: #FFFFFF;
+  color: #0f172a;
   margin: 0 0 20px;
   letter-spacing: -0.02em;
 }
@@ -95,7 +95,7 @@
 .acc-sub {
   font-family: var(--font-body);
   font-size: 17px;
-  color: rgba(255, 255, 255, 0.78);
+  color: #64748b;
   line-height: 1.7;
 }
 
@@ -113,11 +113,9 @@
 .acc-card {
   position: relative;
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   cursor: pointer;
   opacity: 1;
@@ -156,17 +154,16 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background: rgba(255, 255, 255, 0.05);
+  background: #f8fafc;
   padding: 12px 20px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid #e2e8f0;
 }
 
 .acc-logo-wrap img {
   max-height: 100%;
   max-width: 130px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
   opacity: 0.9;
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
@@ -175,14 +172,14 @@
   font-family: 'Poppins', sans-serif;
   font-size: 22px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #0f172a;
   margin: 0 0 10px;
 }
 
 .acc-card-desc {
   font-family: var(--font-body);
   font-size: 14.5px;
-  color: rgba(255, 255, 255, 0.7);
+  color: #64748b;
   line-height: 1.6;
   margin: 0 0 24px;
   flex-grow: 1;
@@ -217,9 +214,9 @@
 
 .acc-card:hover {
   transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.06);
+  background: #ffffff;
   border-color: rgba(168, 85, 247, 0.4);
-  box-shadow: 0 24px 60px rgba(108, 43, 217, 0.25);
+  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.1);
 }
 
 .acc-card:hover .acc-logo-wrap img {
@@ -418,31 +415,67 @@
 .acc-confidence-statement {
   position: relative;
   z-index: 10;
-  max-width: 860px;
-  margin: 0 auto;
+  max-width: 920px;
+  margin: 56px auto 0;
   text-align: center;
-  padding: 48px 40px;
-  background: linear-gradient(135deg, rgba(108, 43, 217, 0.2) 0%, rgba(15, 61, 145, 0.2) 100%);
-  border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-  opacity: 1;
+  padding: 48px 48px;
+  background: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #8E44AD 100%);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 48px rgba(15, 61, 145, 0.22);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.acc-confidence-statement::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.acc-shield-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 18px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .acc-shield-icon {
-  font-size: 44px;
-  margin-bottom: 16px;
+  font-size: 16px;
 }
 
-.acc-confidence-statement p {
+.acc-confidence-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.92);
-  line-height: 1.6;
-  margin: 0;
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 14px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.acc-confidence-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(14.5px, 1.15vw, 16.5px);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 /* ─── Responsive Breakpoints ────────────────────────────── */

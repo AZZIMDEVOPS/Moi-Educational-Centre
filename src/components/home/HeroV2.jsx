@@ -1,6 +1,18 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
+import { 
+  FaTrophy, 
+  FaUserGraduate, 
+  FaChalkboardTeacher, 
+  FaGraduationCap, 
+  FaFutbol, 
+  FaStar,
+  FaSeedling,
+  FaRobot,
+  FaHeart,
+  FaSchool 
+} from 'react-icons/fa';
 import schoolImg from '../../assets/school7.jpg';
 import '../../css/home-v2.css';
 
@@ -24,19 +36,19 @@ const useCountUp = (target, duration = 1800, start = false) => {
 };
 
 const STATS = [
-  { value: '40+',    label: 'Years of Excellence', icon: '🏆' },
-  { value: '2500+',  label: 'Students Enrolled',   icon: '👩‍🎓' },
-  { value: '100+',   label: 'Expert Educators',    icon: '👨‍🏫' },
-  { value: '98%',    label: 'University Placement', icon: '🎓' },
-  { value: '15+',    label: 'Sports Disciplines',  icon: '⚽' },
-  { value: '50+',    label: 'Clubs & Activities',  icon: '🌟' },
+  { value: '40+',    label: 'Years of Excellence', Icon: FaTrophy },
+  { value: '2500+',  label: 'Students Enrolled',   Icon: FaUserGraduate },
+  { value: '100+',   label: 'Expert Educators',    Icon: FaChalkboardTeacher },
+  { value: '98%',    label: 'University Placement', Icon: FaGraduationCap },
+  { value: '15+',    label: 'Sports Disciplines',  Icon: FaFutbol },
+  { value: '50+',    label: 'Clubs & Activities',  Icon: FaStar },
 ];
 
 const FEATURES = [
-  { icon: '🎓', text: 'Academic Excellence' },
-  { icon: '🌱', text: 'Holistic Development' },
-  { icon: '🤖', text: 'Innovative Learning' },
-  { icon: '❤️', text: 'Strong Values' },
+  { Icon: FaGraduationCap, text: 'Academic Excellence' },
+  { Icon: FaSeedling, text: 'Holistic Development' },
+  { Icon: FaRobot, text: 'Innovative Learning' },
+  { Icon: FaHeart, text: 'Strong Values' },
 ];
 
 /* ─── Stat Item with CountUp ─────────────────────────────── */
@@ -244,7 +256,9 @@ const HeroV2 = () => {
           {/* Badge */}
           <div ref={badgeRef} className="hero-badge" role="status">
             <span className="hero-badge-dot" aria-hidden="true" />
-            <span className="hero-badge-text">🏆 Celebrating 40 Years of Excellence · Est. 1986</span>
+            <span className="hero-badge-text">
+              <FaTrophy style={{ color: '#f59e0b', marginRight: 6 }} /> Celebrating 40 Years of Excellence · Est. 1986
+            </span>
           </div>
 
           {/* Headline */}
@@ -276,11 +290,11 @@ const HeroV2 = () => {
               className="hero-btn-secondary"
               id="hero-tour-btn"
               onClick={() => window.open(
-                'https://wa.me/254706280170?text=Hello%20MEC%20Admissions%20Team%2C%20I%20would%20like%20to%20book%20a%20school%20tour.',
+                'https://wa.me/254706280170?text=Hello%2C%20I%20would%20like%20to%20book%20a%20school%20tour%20at%20Moi%20Educational%20Centre.',
                 '_blank'
               )}
             >
-              <span>🏫</span> Book a School Tour
+              <FaSchool style={{ marginRight: '6px' }} /> Book a School Tour
             </button>
             <Link
               to="/education/CBC/senior-school"
@@ -295,7 +309,9 @@ const HeroV2 = () => {
           <div ref={featuresRef} className="hero-feature-cards">
             {FEATURES.map(f => (
               <div key={f.text} className="hero-feature-card">
-                <span className="hero-feature-icon" aria-hidden="true">{f.icon}</span>
+                <span className="hero-feature-icon" aria-hidden="true">
+                  <f.Icon style={{ fontSize: '14px', color: '#38bdf8' }} />
+                </span>
                 <span className="hero-feature-text">{f.text}</span>
               </div>
             ))}

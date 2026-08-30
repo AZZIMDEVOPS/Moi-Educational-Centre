@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import heroVideo from "../../assets/hero-vid.mp4";
 import heroPoster from "../../assets/hero-poster2.jpg";
 import { useLanguage, translations } from "../../context/LanguageContext";

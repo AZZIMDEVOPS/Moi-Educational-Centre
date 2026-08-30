@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import Cam02Parking from "../../assets/hero-uploads/Cam02-Parking.jpg";
 import DSC00492 from "../../assets/hero-uploads/DSC00492.jpg";
 import alumni11 from "../../assets/hero-uploads/Alumni 11 - Class of 98.jpg";
@@ -9,13 +9,17 @@ import images7 from "../../assets/hero-uploads/images (7).jpg";
 import images8 from "../../assets/hero-uploads/images (8).jpg";
 import maxresdefault from "../../assets/hero-uploads/maxresdefault.jpg";
 import school7v2 from "../../assets/hero-uploads/school7-D3PnsiCT (1).jpg";
+import viennaCathedral from "../../assets/music-tour-2026/vienna-cathedral-interior.jpg";
+import viennaMonument from "../../assets/music-tour-2026/vienna-monument-student.jpg";
 import { useLanguage, translations } from "../../context/LanguageContext";
 import { Link } from "react-router-dom";
 import { HiOutlineArrowDown } from "react-icons/hi2";
 
 const slides = [
+  viennaCathedral,
   Cam02Parking,
   DSC00492,
+  viennaMonument,
   alumni11,
   images5,
   images6,
@@ -68,7 +72,7 @@ const HeroSection = () => {
                      <div className="hero-slider" aria-roledescription="carousel">
                             <AnimatePresence initial={false} mode="wait">
                                    {slides.map((s, i) => i === index && (
-                                          <motion.div
+                                          <Motion.div
                                                  key={i}
                                                  className="slide"
                                                  initial={{ opacity: 0 }}
@@ -79,7 +83,7 @@ const HeroSection = () => {
                                           >
                                                  <div className="slide-image" style={{ backgroundImage: `url(${s})`, transform: `translateY(${scrolled * 0.06}px)` }} />
                                                  <div className="slide-overlay" />
-                                          </motion.div>
+                                          </Motion.div>
                                    ))}
                             </AnimatePresence>
 

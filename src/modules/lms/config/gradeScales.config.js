@@ -76,15 +76,17 @@ export const convertToGrade = (score, maxScore, scaleType = GRADE_SCALES.PERCENT
     case GRADE_SCALES.PERCENTAGE:
       return `${Math.round(percentage)}%`;
 
-    case GRADE_SCALES.LETTER:
+    case GRADE_SCALES.LETTER: {
       const letterGrade = LETTER_SCALE.grades.find(
         (g) => percentage >= g.minScore && percentage <= g.maxScore
       );
       return letterGrade ? letterGrade.letter : 'N/A';
+    }
 
-    case GRADE_SCALES.STANDARD:
+    case GRADE_SCALES.STANDARD: {
       const level = STANDARD_SCALE.levels.find((l) => percentage >= l.minScore);
       return level ? level.level : 'Beginning';
+    }
 
     default:
       return `${Math.round(percentage)}%`;
@@ -102,15 +104,17 @@ export const getGradeDescription = (score, maxScore, scaleType = GRADE_SCALES.PE
   const percentage = (score / maxScore) * 100;
 
   switch (scaleType) {
-    case GRADE_SCALES.LETTER:
+    case GRADE_SCALES.LETTER: {
       const letterGrade = LETTER_SCALE.grades.find(
         (g) => percentage >= g.minScore && percentage <= g.maxScore
       );
       return letterGrade ? letterGrade.description : 'No grade';
+    }
 
-    case GRADE_SCALES.STANDARD:
+    case GRADE_SCALES.STANDARD: {
       const level = STANDARD_SCALE.levels.find((l) => percentage >= l.minScore);
       return level ? level.level : 'Beginning';
+    }
 
     default:
       if (percentage >= 90) return 'Excellent';

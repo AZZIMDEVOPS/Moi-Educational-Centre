@@ -1,21 +1,45 @@
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight, FaCalendarCheck, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 
 const LeadershipCTA = () => {
   return (
-    <section className="ldr-cta">
-      <div className="ldr-cta-inner">
-        <h2 className="ldr-cta-title" style={{ color: '#fff' }}>Join a School Led by Visionaries</h2>
-        <p className="ldr-cta-desc">
-          Experience the MEC difference firsthand. Discover how our dedicated leadership, world-class curricula, and commitment to excellence can shape your child's future.
-        </p>
-        
-        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link to="/admissions/admission-process" className="nav-apply-btn" style={{ height: '54px', fontSize: '15px' }}>
-            Apply Now
-          </Link>
-          <Link to="/contact" className="nav-apply-btn" style={{ height: '54px', fontSize: '15px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.3)', boxShadow: 'none' }}>
-            Book a School Tour
-          </Link>
+    <section className="ldr-cta-v2-section" id="contact-admissions">
+      <div className="ldr-container">
+        <div className="ldr-cta-v2-card">
+          <div className="ldr-cta-v2-content">
+            <span className="ldr-cta-v2-badge">START YOUR JOURNEY WITH US</span>
+            <h2 className="ldr-cta-v2-title">
+              Excellence Starts with the Right Environment.
+            </h2>
+            <p className="ldr-cta-v2-sub">
+              Experience the warmth, purpose, and instructional leadership of Moi Educational Centre. We invite you to tour our modern campus or begin your child’s 2026 application today.
+            </p>
+
+            <div className="ldr-cta-v2-btns">
+              <Link to="/education" className="ldr-cta-btn-primary">
+                Explore Academic Pathways <FaArrowRight />
+              </Link>
+              <Link to="/admissions/admission-process" className="ldr-cta-btn-secondary">
+                Apply for 2026 Admissions
+              </Link>
+              <Link to="/contact" className="ldr-cta-btn-outline">
+                Book a Campus Tour
+              </Link>
+            </div>
+
+            <div className="ldr-cta-contact-strip">
+              <div className="cta-contact-item">
+                <FaPhoneAlt className="cta-contact-icon" />
+                <span>+254-20-6004155 / 0702 090 213</span>
+              </div>
+              <span className="cta-contact-dot">•</span>
+              <div className="cta-contact-item">
+                <FaEnvelope className="cta-contact-icon" />
+                <span>info@moieducentre.ac.ke</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

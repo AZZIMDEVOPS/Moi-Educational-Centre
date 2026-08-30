@@ -2,19 +2,12 @@ import React, { useState } from 'react';
 import Navbar from '../../components/common/navigation/Navbar';
 import Footer from '../../components/common/Footer';
 import SEO from '../../components/common/SEO';
-import { useLanguage } from '../../context/LanguageContext';
 
 import {
   SCHOOL_ERP_METRICS,
   PRINCIPAL_APPROVAL_QUEUE,
   ADMISSIONS_PIPELINE,
-  PROCUREMENT_REQUESTS,
-  SCHOOL_ASSETS,
-  ERP_AUDIT_LOGS,
-  LINKED_CHILDREN,
-  FEE_STATEMENTS,
-  ANNOUNCEMENTS,
-  SCHOOL_DOCUMENTS
+  ERP_AUDIT_LOGS
 } from '../../data/portalData';
 
 import {
@@ -28,18 +21,11 @@ import {
 import '../../css/portal.css';
 
 const AdminERP = () => {
-  const { t } = useLanguage();
-
   /* Role-Based Access Control (RBAC) State */
   const [currentRole, setCurrentRole] = useState('Principal'); // 'Principal' | 'Super Admin' | 'Finance' | 'Operations Admin'
   const [activeTab, setActiveTab] = useState('dashboard');
   const [approvalQueue, setApprovalQueue] = useState(PRINCIPAL_APPROVAL_QUEUE);
-  const [procurementList, setProcurementList] = useState(PROCUREMENT_REQUESTS);
   const [auditTrail, setAuditTrail] = useState(ERP_AUDIT_LOGS);
-
-  /* Search & Filter States */
-  const [globalSearch, setGlobalSearch] = useState('');
-  const [approvalFilter, setApprovalFilter] = useState('All');
   const [smsSentNotice, setSmsSentNotice] = useState(false);
 
   /* Helper for Principal Approvals */
@@ -105,42 +91,42 @@ const AdminERP = () => {
             </div>
           </div>
 
-          {/* ─── 2. ERP NAVIGATION SUB-MENU ──────────────────────── */}
+          {/* ─── 2. Top Executive Sub-Nav ───────────────────────── */}
           <div className="portal-submenu-wrapper" style={{ background: '#FFFFFF', borderRadius: 20, marginBottom: 28, border: '1px solid #E2E8F0', padding: 8 }}>
             <ul className="portal-submenu" style={{ justifyContent: 'flex-start' }}>
               <li className="portal-submenu-item">
                 <button className={activeTab === 'dashboard' ? 'active' : ''} onClick={() => setActiveTab('dashboard')}>
-                  📊 Executive Command Dashboard
+                  <FaChartLine style={{ marginRight: 6 }} /> Executive Command Dashboard
                 </button>
               </li>
               <li className="portal-submenu-item">
                 <button className={activeTab === 'approvals' ? 'active' : ''} onClick={() => setActiveTab('approvals')}>
-                  ⚡ Principal Approval Queue ({approvalQueue.filter(a => a.status === 'Pending Review').length})
+                  <FaClipboardCheck style={{ marginRight: 6 }} /> Principal Approval Queue ({approvalQueue.filter(a => a.status === 'Pending Review').length})
                 </button>
               </li>
               <li className="portal-submenu-item">
                 <button className={activeTab === 'admissions' ? 'active' : ''} onClick={() => setActiveTab('admissions')}>
-                  🎓 Admissions Pipeline
+                  <FaUserGraduate style={{ marginRight: 6 }} /> Admissions Pipeline
                 </button>
               </li>
               <li className="portal-submenu-item">
                 <button className={activeTab === 'finance' ? 'active' : ''} onClick={() => setActiveTab('finance')}>
-                  💳 Finance & Reconciliation
+                  <FaFileInvoiceDollar style={{ marginRight: 6 }} /> Finance & Reconciliation
                 </button>
               </li>
               <li className="portal-submenu-item">
                 <button className={activeTab === 'procurement' ? 'active' : ''} onClick={() => setActiveTab('procurement')}>
-                  📦 Procurement & Assets
+                  <FaBoxes style={{ marginRight: 6 }} /> Procurement & Assets
                 </button>
               </li>
               <li className="portal-submenu-item">
                 <button className={activeTab === 'transport' ? 'active' : ''} onClick={() => setActiveTab('transport')}>
-                  🚌 Transport & Fleet
+                  <FaBus style={{ marginRight: 6 }} /> Transport & Fleet
                 </button>
               </li>
               <li className="portal-submenu-item">
                 <button className={activeTab === 'audit' ? 'active' : ''} onClick={() => setActiveTab('audit')}>
-                  📜 System Audit Log
+                  <FaHistory style={{ marginRight: 6 }} /> System Audit Log
                 </button>
               </li>
             </ul>
@@ -158,29 +144,36 @@ const AdminERP = () => {
                   <div className="student-metric-sub">+{SCHOOL_ERP_METRICS.newAdmissionsThisTerm} New Admissions Term 1</div>
                 </div>
 
-                <div className="student-metric-card">
-                  <div className="student-card-icon-wrap emerald"><FaCalendarCheck /></div>
-                  <div className="student-metric-title">Learner Attendance</div>
-                  <div className="student-metric-val">{SCHOOL_ERP_METRICS.learnerAttendanceRate}%</div>
-                  <div className="student-metric-sub">Staff Attendance: {SCHOOL_ERP_METRICS.staffAttendanceRate}%</div>
-                </div>
-
                 <div className="student-metric-card" onClick={() => setActiveTab('finance')}>
                   <div className="student-card-icon-wrap blue"><FaFileInvoiceDollar /></div>
-                  <div className="student-metric-title">Fees Collected</div>
-                  <div className="student-metric-val">KES {(SCHOOL_ERP_METRICS.totalFeesCollectedKES / 1000000).toFixed(1)}M</div>
-                  <div className="student-metric-sub">{SCHOOL_ERP_METRICS.collectionRatePct}% Collection Rate</div>
+                  <div className="student-metric-title">Fee Collection Rate</div>
+                  <div className="student-metric-val">{SCHOOL_ERP_METRICS.feeCollectionRate}%</div>
+                  <div className="student-metric-sub">KES {SCHOOL_ERP_METRICS.totalCollectedKES.toLocaleString()} Collected</div>
                 </div>
 
                 <div className="student-metric-card" onClick={() => setActiveTab('finance')}>
-                  <div className="student-card-icon-wrap rose"><FaExclamationTriangle /></div>
-                  <div className="student-metric-title">Outstanding Fees</div>
-                  <div className="student-metric-val">KES {(SCHOOL_ERP_METRICS.outstandingFeesKES / 1000000).toFixed(1)}M</div>
-                  <div className="student-metric-sub">Due before Mid-Term Break</div>
+                  <div className="student-card-icon-wrap amber"><FaExclamationTriangle /></div>
+                  <div className="student-metric-title">Pending Balance</div>
+                  <div className="student-metric-val">KES {(SCHOOL_ERP_METRICS.pendingBalancesKES / 1000000).toFixed(1)}M</div>
+                  <div className="student-metric-sub">48 Unpaid Accounts</div>
+                </div>
+
+                <div className="student-metric-card" onClick={() => setActiveTab('dashboard')}>
+                  <div className="student-card-icon-wrap teal"><FaChalkboardTeacher /></div>
+                  <div className="student-metric-title">Staff On-Duty</div>
+                  <div className="student-metric-val">{SCHOOL_ERP_METRICS.teachingStaffPresent} / {SCHOOL_ERP_METRICS.teachingStaffTotal}</div>
+                  <div className="student-metric-sub">100% Core Coverage</div>
+                </div>
+
+                <div className="student-metric-card" onClick={() => setActiveTab('transport')}>
+                  <div className="student-card-icon-wrap indigo"><FaBus /></div>
+                  <div className="student-metric-title">Active Bus Fleet</div>
+                  <div className="student-metric-val">{SCHOOL_ERP_METRICS.fleetBusesActive} Buses</div>
+                  <div className="student-metric-sub">All Morning Routes Cleared</div>
                 </div>
 
                 <div className="student-metric-card" onClick={() => setActiveTab('approvals')}>
-                  <div className="student-card-icon-wrap amber"><FaClipboardCheck /></div>
+                  <div className="student-card-icon-wrap rose"><FaClipboardCheck /></div>
                   <div className="student-metric-title">Pending Approvals</div>
                   <div className="student-metric-val">{approvalQueue.filter(a => a.status === 'Pending Review').length} Decisions</div>
                   <div className="student-metric-sub">Requires Principal Sign-off</div>
@@ -190,25 +183,25 @@ const AdminERP = () => {
               {/* Action Bar */}
               <div className="student-quick-actions-bar">
                 <button className="student-action-btn" onClick={() => setActiveTab('approvals')}>
-                  ⚡ Open Approval Queue
+                  <FaClipboardCheck style={{ marginRight: 6 }} /> Open Approval Queue
                 </button>
                 <button className="student-action-btn" onClick={handleDispatchFeeReminders}>
-                  📲 Dispatch Fee Balance SMS Alerts
+                  <FaPaperPlane style={{ marginRight: 6 }} /> Dispatch Fee Balance SMS Alerts
                 </button>
                 <button className="student-action-btn" onClick={() => setActiveTab('finance')}>
-                  📈 Financial Reconciliation Report
+                  <FaChartLine style={{ marginRight: 6 }} /> Financial Reconciliation Report
                 </button>
                 <button className="student-action-btn" onClick={() => setActiveTab('procurement')}>
-                  📦 View Procurement Requests
+                  <FaBoxes style={{ marginRight: 6 }} /> View Procurement Requests
                 </button>
                 <button className="student-action-btn" onClick={() => setActiveTab('audit')}>
-                  📜 View ERP Audit Logs
+                  <FaHistory style={{ marginRight: 6 }} /> View ERP Audit Logs
                 </button>
               </div>
 
               {smsSentNotice && (
                 <div style={{ background: '#DCFCE7', color: '#15803D', padding: 14, borderRadius: 12, fontWeight: 700, fontSize: 13, marginBottom: 24 }}>
-                  ✓ SMS reminders dispatched to 48 parents with pending balances via MEC SMS Gateway.
+                  <FaCheckCircle style={{ marginRight: 6 }} /> SMS reminders dispatched to 48 parents with pending balances via MEC SMS Gateway.
                 </div>
               )}
 
@@ -242,14 +235,14 @@ const AdminERP = () => {
                             style={{ background: '#16A34A', color: '#fff', padding: '4px 12px', fontSize: 12, border: 'none' }}
                             onClick={() => handleApprovalAction(item.id, 'Approved')}
                           >
-                            ✓ Approve
+                            <FaCheckCircle style={{ marginRight: 4 }} /> Approve
                           </button>
                           <button
                             className="student-action-btn"
                             style={{ background: '#DC2626', color: '#fff', padding: '4px 12px', fontSize: 12, border: 'none' }}
                             onClick={() => handleApprovalAction(item.id, 'Rejected')}
                           >
-                            ✗ Reject
+                            <FaTimesCircle style={{ marginRight: 4 }} /> Reject
                           </button>
                         </div>
                       </div>

@@ -8,11 +8,11 @@
 .trust-marquee {
   position: relative;
   width: 100%;
-  background: var(--mec-dark);
+  background: #f8fafc;
   padding: 32px 0;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
   z-index: 10;
 }
 
@@ -28,11 +28,11 @@
 }
 .trust-marquee::before {
   left: 0;
-  background: linear-gradient(to right, var(--mec-dark), transparent);
+  background: linear-gradient(to right, #f8fafc, transparent);
 }
 .trust-marquee::after {
   right: 0;
-  background: linear-gradient(to left, var(--mec-dark), transparent);
+  background: linear-gradient(to left, #f8fafc, transparent);
 }
 
 .trust-marquee-track {
@@ -63,15 +63,15 @@
   height: 48px;
   width: auto;
   object-fit: contain;
-  opacity: 0.65;
-  filter: grayscale(100%) brightness(200%);
+  opacity: 0.6;
+  filter: grayscale(100%);
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .trust-marquee-logo:hover {
   opacity: 1;
-  filter: grayscale(0%) drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
+  filter: grayscale(0%);
   transform: scale(1.05);
 }
 
@@ -80,17 +80,17 @@
   align-items: center;
   gap: 10px;
   padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 999px;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .trust-marquee-text-pill:hover {
-  background: rgba(108, 43, 217, 0.15);
-  border-color: rgba(168, 85, 247, 0.4);
-  box-shadow: 0 0 20px rgba(108, 43, 217, 0.3);
+  background: rgba(108, 43, 217, 0.06);
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 4px 16px rgba(108, 43, 217, 0.1);
   transform: translateY(-2px);
 }
 
@@ -102,7 +102,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  color: #334155;
   letter-spacing: 0.05em;
   white-space: nowrap;
 }
@@ -111,7 +111,7 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
+  background: #cbd5e1;
   margin-left: 32px;
 }
 

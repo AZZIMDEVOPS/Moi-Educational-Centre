@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { FaPlay, FaPause, FaMapMarkerAlt, FaExpandArrowsAlt } from 'react-icons/fa';
-import heroVideo from '../../assets/hero-vid.mp4';
+import React, { useState } from 'react';
+import CinematicDroneExperience from './CinematicDroneExperience';
 
 import school3 from '../../assets/school3.jpg';
 import school4 from '../../assets/school4.jpg';
@@ -19,20 +18,6 @@ const GALLERY = [
 
 const CampusTourSection = () => {
   const [activeImage, setActiveImage] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef(null);
-
-  const togglePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        videoRef.current.play();
-        setIsPlaying(true);
-      }
-    }
-  };
 
   return (
     <section className="campus-tour-section" id="campus-tour">
@@ -41,53 +26,19 @@ const CampusTourSection = () => {
         <div className="campus-tour-header global-reveal">
           <div className="section-eyebrow">
             <span className="section-eyebrow-dot" aria-hidden="true" />
-            Discover Our Campus
+            Interactive Aerial Campus Experience
           </div>
           <h2 className="section-heading">
             A world-class environment designed for <span>excellence.</span>
           </h2>
           <p className="section-sub">
-            Explore our state-of-the-art facilities, modern classrooms, and expansive sports complexes. Experience the MEC difference through our aerial campus tour.
+            Explore our state-of-the-art facilities, modern classrooms, and expansive sports complexes. Experience the MEC difference through our scroll-driven 4K drone flyover.
           </p>
         </div>
 
-        {/* Main Cinematic Feature (Original Aerial Drone Video) */}
-        <div className="campus-tour-main global-reveal">
-          <video
-            ref={videoRef}
-            src={heroVideo}
-            className="campus-tour-hero-vid"
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-          
-          <div className="campus-tour-overlay">
-            <button className="campus-tour-play" onClick={togglePlayPause} aria-label={isPlaying ? "Pause Drone Footage" : "Play Drone Footage"}>
-              <div className="play-pulse-1" />
-              <div className="play-pulse-2" />
-              {isPlaying ? <FaPause className="play-icon" style={{ marginLeft: 0 }} /> : <FaPlay className="play-icon" />}
-            </button>
-            <div className="campus-tour-title">
-              <h3>MEC Campus Aerial Drone Tour</h3>
-              <p>Cinematic 4K Aerial View</p>
-            </div>
-            
-            <button className="campus-tour-360">
-              <FaExpandArrowsAlt /> 360° Virtual Tour
-            </button>
-
-            {/* Interactive hotspots */}
-            <div className="campus-hotspot" style={{ top: '30%', left: '40%' }}>
-              <div className="hotspot-dot"><FaMapMarkerAlt /></div>
-              <div className="hotspot-label">Main Academic Block</div>
-            </div>
-            <div className="campus-hotspot" style={{ top: '50%', right: '25%' }}>
-              <div className="hotspot-dot"><FaMapMarkerAlt /></div>
-              <div className="hotspot-label">Sports Arena</div>
-            </div>
-          </div>
+        {/* ── Main Cinematic Feature (Scroll-Driven Drone Experience) ── */}
+        <div className="campus-tour-feature-wrap global-reveal" style={{ marginBottom: '40px' }}>
+          <CinematicDroneExperience />
         </div>
 
         {/* Interactive Gallery */}

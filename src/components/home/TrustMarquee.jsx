@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaShieldAlt, FaLandmark, FaMusic, FaRobot } from 'react-icons/fa';
 import cambridgeLogo from '../../assets/cambridge.png';
 import pearsonLogo from '../../assets/pearson.png';
 import nccLogo from '../../assets/ncc.png';
@@ -13,10 +14,10 @@ const TRUST_LOGOS = [
   { src: kaisLogo, alt: 'Kenya Association of International Schools (KAIS)' },
   { src: mec40Logo, alt: 'MEC 40 Years of Excellence' },
   // Repeated text-based awards/trust marks to fill the marquee
-  { text: 'CBC Accredited', icon: '🇰🇪' },
-  { text: 'British Council Partner', icon: '🏛️' },
-  { text: 'ABRSM Music Academy', icon: '🎵' },
-  { text: 'National Robotics Champions', icon: '🤖' },
+  { text: 'CBC Accredited', Icon: FaShieldAlt },
+  { text: 'British Council Partner', Icon: FaLandmark },
+  { text: 'ABRSM Music Academy', Icon: FaMusic },
+  { text: 'National Robotics Champions', Icon: FaRobot },
 ];
 
 const TrustMarquee = () => {
@@ -32,7 +33,9 @@ const TrustMarquee = () => {
               <img src={item.src} alt={item.alt} className="trust-marquee-logo" loading="lazy" />
             ) : (
               <div className="trust-marquee-text-pill">
-                <span className="trust-marquee-icon" aria-hidden="true">{item.icon}</span>
+                <span className="trust-marquee-icon" aria-hidden="true">
+                  <item.Icon style={{ fontSize: '13px', color: '#38bdf8' }} />
+                </span>
                 <span className="trust-marquee-text">{item.text}</span>
               </div>
             )}

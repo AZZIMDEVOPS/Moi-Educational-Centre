@@ -1,54 +1,93 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { FaChevronDown } from 'react-icons/fa';
-import imgHero from '../../../assets/experience.jpg';
-
-gsap.registerPlugin(ScrollTrigger);
+import React, { useRef } from "react";
+import { FaArrowRight, FaChevronDown, FaShieldAlt } from "react-icons/fa";
+import imgChair from "../../../assets/peter-chair.jpg";
 
 const LeadershipHero = () => {
   const heroRef = useRef(null);
-  const bgRef = useRef(null);
-  const textRef = useRef(null);
 
-  useEffect(() => {
-    gsap.to(bgRef.current, {
-      yPercent: 30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-    gsap.fromTo(textRef.current,
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.2 }
-    );
-  }, []);
-
-  const scrollToGrid = () => {
-    document.getElementById('team-grid')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="ldr-hero" ref={heroRef}>
-      <img src={imgHero} alt="Leadership at MEC" className="ldr-hero-bg" ref={bgRef} />
-      <div className="ldr-hero-overlay" />
-      
-      <div className="ldr-hero-content" ref={textRef}>
-        <div className="ldr-badge">🌟 40 Years of Excellence</div>
-        <h1 className="ldr-hero-title">Guiding the Vision,<br/>Leading with Purpose</h1>
-        <p className="ldr-hero-sub">
-          At the heart of Moi Educational Centre is a team of dedicated leaders driven by a shared commitment to excellence, integrity and student growth. Together, they set the tone for a thriving learning environment inspiring both staff and students.
-        </p>
-        
-        <div className="ldr-hero-btns">
-          <button onClick={scrollToGrid} className="nav-apply-btn" style={{ height: '54px', fontSize: '15px' }}>
-            Meet Our Leadership <FaChevronDown />
-          </button>
+    <section className="ldr-hero-v3" ref={heroRef} id="overview">
+      <div className="ldr-hero-container">
+        {/* Left Column: Typography & Intent */}
+        <div className="ldr-hero-left">
+          <div className="ldr-hero-eyebrow">
+            <span className="ldr-eyebrow-dot" />
+            <span>LEADERSHIP AT MOI EDUCATIONAL CENTRE</span>
+          </div>
+
+          <h1 className="ldr-hero-title">
+            Leading with Purpose.<br />
+            <span className="ldr-title-accent">Inspiring Excellence.</span>
+          </h1>
+
+          <p className="ldr-hero-sub">
+            For over four decades, our leadership team has steered Moi Educational Centre with vision, integrity, and an unyielding commitment to nurturing curious, resilient, and values-grounded global citizens.
+          </p>
+
+          <div className="ldr-hero-actions">
+            <button 
+              onClick={() => scrollToSection("directory")} 
+              className="ldr-btn-primary"
+            >
+              Meet Our Leadership <FaChevronDown />
+            </button>
+            <button 
+              onClick={() => scrollToSection("chairman")} 
+              className="ldr-btn-secondary"
+            >
+              Chairman's Address <FaArrowRight />
+            </button>
+          </div>
+
+          <div className="ldr-hero-trust-bar">
+            <div className="ldr-trust-item">
+              <span className="ldr-trust-number">40+</span>
+              <span className="ldr-trust-label">Years of Educational Leadership</span>
+            </div>
+            <div className="ldr-trust-divider" />
+            <div className="ldr-trust-item">
+              <span className="ldr-trust-number">100%</span>
+              <span className="ldr-trust-label">Values & Character Focused</span>
+            </div>
+            <div className="ldr-trust-divider" />
+            <div className="ldr-trust-item">
+              <span className="ldr-trust-number">Dual</span>
+              <span className="ldr-trust-label">CBC & Cambridge Excellence</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Editorial Portrait Showcase (Preserving natural composition without cropping) */}
+        <div className="ldr-hero-right">
+          <div className="ldr-hero-frame">
+            <div className="ldr-portrait-card main-portrait">
+              <div className="ldr-portrait-img-box">
+                <img 
+                  src={imgChair} 
+                  alt="Mr. Paul K. Chemng'orem, Board Chairman" 
+                  className="ldr-portrait-img"
+                />
+              </div>
+              <div className="ldr-portrait-caption">
+                <span className="ldr-caption-role">BOARD OF DIRECTORS</span>
+                <span className="ldr-caption-name">Mr. Paul K. Chemng'orem</span>
+                <span className="ldr-caption-sub">Chairman — Guiding MEC since 2004</span>
+              </div>
+            </div>
+
+            {/* Floating Badge */}
+            <div className="ldr-floating-stat-badge">
+              <FaShieldAlt className="stat-badge-icon" />
+              <div>
+                <strong>Governance with Integrity</strong>
+                <span>Rooted in Faith, Service & Diligence</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

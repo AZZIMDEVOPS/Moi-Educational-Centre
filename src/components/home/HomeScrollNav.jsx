@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHeroIntro } from '../../context/HeroIntroContext';
 import '../../css/home-scroll-nav.css';
 
 const SECTIONS = [
@@ -21,6 +22,7 @@ const SECTIONS = [
 const HomeScrollNav = () => {
   const [activeSection, setActiveSection] = useState('hero-section');
   const [scrollProgress, setScrollProgress] = useState(0);
+  const { isImmersionMode } = useHeroIntro();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,7 +60,10 @@ const HomeScrollNav = () => {
   };
 
   return (
-    <nav className="home-scroll-nav" aria-label="Page section navigation">
+    <nav
+      className={`home-scroll-nav${isImmersionMode ? ' scroll-nav-hidden' : ''}`}
+      aria-label="Page section navigation"
+    >
       <div className="home-scroll-track">
         <div 
           className="home-scroll-bar" 

@@ -104,7 +104,7 @@ const ResourcesBody = () => {
         { opacity: 1, y: 0, scale: 1, duration: 0.4, stagger: 0.05, ease: "power2.out", overwrite: true }
       );
     }
-  }, [activeCategory, searchQuery]);
+  }, [activeCategory, searchQuery, filteredResources.length]);
 
   return (
     <div className="resources-page-v2">
@@ -114,7 +114,9 @@ const ResourcesBody = () => {
         <img src={imgCampus} alt="MEC Campus" className="res-hero-bg" />
         <div className="res-hero-overlay" />
         <div className="res-hero-content">
-          <div className="res-badge">📚 Admissions Resources</div>
+          <div className="res-badge">
+            <FaFolderOpen style={{ marginRight: 6, color: '#38bdf8' }} /> Admissions Resources
+          </div>
           <h1 className="res-hero-title">Everything You Need to Join MEC</h1>
           <p className="res-hero-sub">
             Access all the key documents to help guide your journey at MEC, from application forms to fee structures and enrollment materials. Whether you're planning to join our community or already part of it, these resources are here to support you in every step.
@@ -147,7 +149,7 @@ const ResourcesBody = () => {
         </div>
       </div>
 
-      <main className="res-main-section">
+      <main className="res-main-section" id="downloadable-resources">
         
         {/* ─── Featured Resources (Only show if no search/filter applied) ─── */}
         {activeCategory === "All Resources" && searchQuery === "" && (

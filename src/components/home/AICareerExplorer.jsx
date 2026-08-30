@@ -1,5 +1,18 @@
 import { useState } from 'react';
-import { FaBriefcase, FaChartLine, FaPlay } from 'react-icons/fa';
+import { 
+  FaBriefcase, 
+  FaChartLine, 
+  FaPlay, 
+  FaLaptopCode, 
+  FaChartBar, 
+  FaBullseye, 
+  FaPalette, 
+  FaRobot, 
+  FaBullhorn, 
+  FaMicroscope, 
+  FaGlobeAmericas,
+  FaCheckCircle
+} from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
 
 const AICareerExplorer = () => {
@@ -7,14 +20,14 @@ const AICareerExplorer = () => {
     const [activeCareer, setActiveCareer] = useState(null);
 
     const t = language === 'en' ? {
-        title: "💼 AI Career Explorer",
+        title: "AI Career Explorer",
         subtitle: "Explore 50+ career paths powered by AI insights",
         salaryRange: "Salary Range",
         requirements: "Key Requirements",
         pathways: "MEC Pathways",
         learnMore: "Explore This Career"
     } : {
-        title: "💼 Mtafiti wa Ajira wa AI",
+        title: "Mtafiti wa Ajira wa AI",
         subtitle: "Chunguza njia 50+ za ajira",
         salaryRange: "Upeo wa Mshahara",
         requirements: "Mahitaji Makuu",
@@ -26,7 +39,7 @@ const AICareerExplorer = () => {
         {
             id: 1,
             title: language === 'en' ? 'Software Engineer' : 'Mhandisi wa Software',
-            icon: '💻',
+            Icon: FaLaptopCode,
             salary: language === 'en' ? '$80K - $150K' : 'KES 8M - 15M',
             demand: 'Very High',
             description: language === 'en' ? 'Build innovative applications and systems' : 'Kujenga programu na mifumo',
@@ -40,7 +53,7 @@ const AICareerExplorer = () => {
         {
             id: 2,
             title: language === 'en' ? 'Data Scientist' : 'Sayensi ya Data',
-            icon: '📊',
+            Icon: FaChartBar,
             salary: language === 'en' ? '$90K - $160K' : 'KES 9M - 16M',
             demand: 'Very High',
             description: language === 'en' ? 'Unlock insights from data to drive decisions' : 'Gundua habari kutoka data',
@@ -54,7 +67,7 @@ const AICareerExplorer = () => {
         {
             id: 3,
             title: language === 'en' ? 'Product Manager' : 'Meneja wa Bidhaa',
-            icon: '🎯',
+            Icon: FaBullseye,
             salary: language === 'en' ? '$100K - $180K' : 'KES 10M - 18M',
             demand: 'High',
             description: language === 'en' ? 'Lead product vision and strategy' : 'Iongeze bidhaa na mkakati',
@@ -68,7 +81,7 @@ const AICareerExplorer = () => {
         {
             id: 4,
             title: language === 'en' ? 'UX/UI Designer' : 'Muundo wa UX/UI',
-            icon: '🎨',
+            Icon: FaPalette,
             salary: language === 'en' ? '$70K - $130K' : 'KES 7M - 13M',
             demand: 'High',
             description: language === 'en' ? 'Design beautiful and functional user experiences' : 'Muundo wastani wa watumiaji',
@@ -82,7 +95,7 @@ const AICareerExplorer = () => {
         {
             id: 5,
             title: language === 'en' ? 'AI/ML Engineer' : 'Mhandisi wa AI/ML',
-            icon: '🤖',
+            Icon: FaRobot,
             salary: language === 'en' ? '$120K - $200K' : 'KES 12M - 20M',
             demand: 'Very High',
             description: language === 'en' ? 'Develop cutting-edge AI solutions' : 'Kujenga suluhisho za AI',
@@ -96,7 +109,7 @@ const AICareerExplorer = () => {
         {
             id: 6,
             title: language === 'en' ? 'Marketing Director' : 'Mkurugenzi wa Uuzaji',
-            icon: '📢',
+            Icon: FaBullhorn,
             salary: language === 'en' ? '$80K - $150K' : 'KES 8M - 15M',
             demand: 'High',
             description: language === 'en' ? 'Shape brands and drive business growth' : 'Kujenga brand na kuongeza biashara',
@@ -110,7 +123,7 @@ const AICareerExplorer = () => {
         {
             id: 7,
             title: language === 'en' ? 'Biomedical Engineer' : 'Mhandisi wa Kimatibabu',
-            icon: '🔬',
+            Icon: FaMicroscope,
             salary: language === 'en' ? '$75K - $140K' : 'KES 7.5M - 14M',
             demand: 'Medium-High',
             description: language === 'en' ? 'Innovate healthcare solutions' : 'Kubunifu suluhisho za afya',
@@ -124,7 +137,7 @@ const AICareerExplorer = () => {
         {
             id: 8,
             title: language === 'en' ? 'Environmental Consultant' : 'Mshauri wa Mazingira',
-            icon: '🌍',
+            Icon: FaGlobeAmericas,
             salary: language === 'en' ? '$60K - $120K' : 'KES 6M - 12M',
             demand: 'Growing',
             description: language === 'en' ? 'Solve environmental challenges sustainably' : 'Kutatua matatizo ya mazingira',
@@ -153,7 +166,9 @@ const AICareerExplorer = () => {
                             className="career-card"
                             onClick={() => setActiveCareer(career)}
                         >
-                            <h4>{career.icon}</h4>
+                            <div className="career-card-icon" style={{ fontSize: '24px', color: '#38bdf8', marginBottom: '12px' }}>
+                                <career.Icon />
+                            </div>
                             <h5>{career.title}</h5>
                             <p>{career.description}</p>
                             <div className="career-meta">
@@ -181,7 +196,7 @@ const AICareerExplorer = () => {
 
                     <div className="career-detail-content">
                         <div className="career-title-section">
-                            <h2>{activeCareer.icon} {activeCareer.title}</h2>
+                            <h2><activeCareer.Icon style={{ color: '#38bdf8', marginRight: '10px' }} /> {activeCareer.title}</h2>
                             <p>{activeCareer.description}</p>
                         </div>
 
@@ -201,7 +216,10 @@ const AICareerExplorer = () => {
                                 <h5>{t.requirements}</h5>
                                 <ul>
                                     {activeCareer.requirements.map((req, idx) => (
-                                        <li key={idx}>✓ {req}</li>
+                                        <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
+                                            <FaCheckCircle style={{ color: '#10b981', marginRight: 6, flexShrink: 0 }} />
+                                            <span>{req}</span>
+                                        </li>
                                     ))}
                                 </ul>
                             </div>

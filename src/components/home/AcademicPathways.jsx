@@ -2,96 +2,113 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FaGraduationCap } from 'react-icons/fa';
 
 // Assets
-import imgPreSchool from '../../assets/kids.jpg';
-import imgLowerPrimary from '../../assets/academic.jpg';
+import imgPreSchool from '../../assets/pre-primary.jpg';
+import imgLowerPrimary from '../../assets/junior1.jpg';
 import imgUpperPrimary from '../../assets/upper.jpg';
-import imgJuniorSchool from '../../assets/junior1.jpg';
+import imgJuniorSchool from '../../assets/junior2.jpg';
 import imgSeniorSchool from '../../assets/senior.jpg';
+import imgCambridge from '../../assets/cambridge.jpg';
 
 import '../../css/academic-pathways.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const STAGES = [
-  'Early Years',
-  'Primary',
-  'Junior',
-  'Senior',
-  'University'
+  'Pre-Primary',
+  'Lower Primary',
+  'Upper Primary',
+  'Junior School',
+  'Senior School',
+  'CIE Primary (Year 1–6)'
 ];
 
 const PATHWAYS = [
   {
-    id: 'junior',
-    title: 'Junior School',
-    subtitle: 'Grades 7–9',
-    curriculum: 'CBC & Cambridge Lower Secondary',
-    age: 'Ages 12–14',
-    desc: 'Expanding horizons through discovery, critical thinking, and a robust STEM curriculum.',
-    highlights: ['Coding', 'Robotics', 'STEM', 'Creativity', 'Cambridge Checkpoint'],
-    image: imgJuniorSchool,
-    link: '/education/CBC/junior-school',
-    buttonText: 'Discover Junior School',
-    gridClass: 'grid-large-left',
-    activeStage: 2 // Maps to 'Junior'
-  },
-  {
     id: 'pre-school',
-    title: 'Pre-School',
+    title: 'Pre-Primary',
     subtitle: 'Playgroup to PP2',
-    curriculum: 'Montessori & CBC',
+    curriculum: 'Early Years Foundation & CBC',
     age: 'Ages 2–5',
-    desc: 'A nurturing environment where foundational literacy and numeracy begin through play.',
+    desc: 'A warm, nurturing environment where foundational literacy and numeracy begin through play.',
     highlights: ['Play-Based Learning', 'Early Literacy', 'Creativity', 'Safe Environment'],
     image: imgPreSchool,
     link: '/education/CBC/pre-primary',
-    buttonText: 'Explore Pre-School',
+    buttonText: 'Explore Pre-Primary',
     gridClass: 'grid-medium-top',
-    activeStage: 0 // Maps to 'Early Years'
+    activeStage: 0 // Maps to 'Pre-Primary'
   },
   {
     id: 'lower-primary',
     title: 'Lower Primary',
-    subtitle: 'Grades 1–3',
-    curriculum: 'CBC & Cambridge Primary',
+    subtitle: 'Grades 1–3 CBC',
+    curriculum: 'CBC Lower Primary Framework',
     age: 'Ages 6–8',
-    desc: 'Building confident learners through inquiry, digital literacy, and collaborative learning.',
-    highlights: ['Reading', 'Numeracy', 'ICT Integration', 'Confidence Building'],
+    desc: 'Building confident learners through inquiry, digital literacy, mathematical fluency, and reading.',
+    highlights: ['Reading & Phonics', 'Numeracy', 'ICT Integration', 'Confidence Building'],
     image: imgLowerPrimary,
     link: '/education/CBC/lower-primary',
     buttonText: 'Explore Lower Primary',
     gridClass: 'grid-medium-bottom',
-    activeStage: 1 // Maps to 'Primary'
-  },
-  {
-    id: 'senior',
-    title: 'Senior School',
-    subtitle: 'Grades 10–12',
-    curriculum: 'IGCSE & A-Levels',
-    age: 'Ages 15–18',
-    desc: 'Preparing outstanding leaders for top universities globally and beyond.',
-    highlights: ['IGCSE', 'Career Pathways', 'Leadership', 'University Preparation', 'Global Citizenship'],
-    image: imgSeniorSchool,
-    link: '/education/CBC/senior-school',
-    buttonText: 'Explore Senior School',
-    gridClass: 'grid-large-bottom',
-    activeStage: 3 // Maps to 'Senior'
+    activeStage: 1 // Maps to 'Lower Primary'
   },
   {
     id: 'upper-primary',
     title: 'Upper Primary',
-    subtitle: 'Grades 4–6',
-    curriculum: 'CBC & Cambridge Primary',
+    subtitle: 'Grades 4–6 CBC',
+    curriculum: 'CBC Upper Primary Framework',
     age: 'Ages 9–11',
-    desc: 'Developing independent problem solvers and critical thinkers.',
-    highlights: ['Leadership', 'Problem Solving', 'Sports', 'Innovation'],
+    desc: 'Developing independent problem solvers, scientific inquiry, digital skills, and critical thinkers.',
+    highlights: ['Science Labs', 'Problem Solving', 'Sports & Swimming', 'Robotics'],
     image: imgUpperPrimary,
     link: '/education/CBC/upper-primary',
     buttonText: 'Explore Upper Primary',
     gridClass: 'grid-wide-bottom',
-    activeStage: 1 // Maps to 'Primary'
+    activeStage: 2 // Maps to 'Upper Primary'
+  },
+  {
+    id: 'junior',
+    title: 'Junior School',
+    subtitle: 'Grades 7–9 CBC',
+    curriculum: 'CBC Junior Secondary Framework',
+    age: 'Ages 12–14',
+    desc: 'Expanding horizons through STEM labs, robotics, coding, pre-technical studies, and athletics.',
+    highlights: ['Coding', 'Robotics', 'Science Labs', 'Pre-Technical Studies', 'Career Guidance'],
+    image: imgJuniorSchool,
+    link: '/education/CBC/junior-school',
+    buttonText: 'Discover Junior School',
+    gridClass: 'grid-large-left',
+    activeStage: 3 // Maps to 'Junior School'
+  },
+  {
+    id: 'senior',
+    title: 'Senior School',
+    subtitle: 'Grades 10–12 CBC Pathways',
+    curriculum: 'CBC Senior Secondary Pathways',
+    age: 'Ages 15–18',
+    desc: 'Specialized academic pathways in STEM, Social Sciences, and Arts & Sports Science.',
+    highlights: ['Specialized Pathways', 'Career Mentorship', 'Leadership', 'University Prep', 'Global Citizenship'],
+    image: imgSeniorSchool,
+    link: '/education/CBC/senior-school',
+    buttonText: 'Explore Senior School',
+    gridClass: 'grid-large-bottom',
+    activeStage: 4 // Maps to 'Senior School'
+  },
+  {
+    id: 'cie-primary',
+    title: 'CIE Primary (Year 1–6)',
+    subtitle: 'British Cambridge International',
+    curriculum: 'Cambridge Primary Curriculum',
+    age: 'Ages 5–11',
+    desc: 'Internationally benchmarked British curriculum delivering world-class mastery with Cambridge Checkpoint assessments.',
+    highlights: ['Cambridge English & Math', 'Cambridge Science', 'Global Perspectives', 'Cambridge Checkpoint'],
+    image: imgCambridge,
+    link: '/education/cambridge',
+    buttonText: 'Explore Cambridge Primary',
+    gridClass: 'grid-wide-bottom',
+    activeStage: 5 // Maps to 'CIE Primary'
   }
 ];
 
@@ -144,7 +161,7 @@ const AcademicPathways = () => {
         {/* ─── Header ─── */}
         <div className="ap-header" ref={headerRef}>
           <div className="ap-badge">
-            <span className="ap-badge-icon">📖</span>
+            <FaGraduationCap className="ap-badge-icon" style={{ fontSize: '13px', marginRight: '6px' }} />
             Our Learning Journey
           </div>
           <h2 className="ap-title">

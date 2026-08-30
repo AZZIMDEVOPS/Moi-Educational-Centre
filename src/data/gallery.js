@@ -61,8 +61,11 @@ export const gallery = [
   { id: 62, category: "Events", image: "/assets/wsc-speech-1.jpg", title: "World Scholar's Cup - Faculty Address" },
   { id: 63, category: "Academics", image: "/assets/wsc-speech-2.jpg", title: "Debate & Public Speaking Showcase" },
   { id: 64, category: "Academics", image: "/assets/wsc-speech-3.jpg", title: "World Scholar's Cup - Keynote & Alpaca Mascot" },
-  { id: 65, category: "Academics", image: "/assets/wsc-medal-1.jpg", title: "World Scholar's Cup - Gold Medalist" },
-  { id: 66, category: "Academics", image: "/assets/wsc-medal-2.jpg", title: "World Scholar's Cup - Honors Recipient" },
+  { id: 67, category: "Events", image: "/assets/music-tour-2026/vienna-cathedral-interior.jpg", title: "MEC Music Academy Europe Tour 2026 — St. Stephen's Cathedral Performance, Vienna" },
+  { id: 68, category: "School Life", image: "/assets/music-tour-2026/vienna-monument-student.jpg", title: "MEC Music Academy Europe Tour 2026 — Graben Pestsäule Monument, Vienna" },
+  { id: 69, category: "School Life", image: "/assets/music-tour-2026/vienna-stephansplatz-student.jpg", title: "MEC Music Academy Europe Tour 2026 — Stephansplatz Cultural Immersion, Vienna" },
+  { id: 70, category: "Events", image: "/assets/music-tour-2026/vienna-director-cathedral.jpg", title: "MEC Music Academy Europe Tour 2026 — Music Conservatory Faculty & Leadership in Vienna" },
 ];
 
 export const categories = ["All", "School Life", "Academics", "Sports", "Events", "Facilities"];
+

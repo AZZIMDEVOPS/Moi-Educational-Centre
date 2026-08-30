@@ -1,46 +1,82 @@
+import React from 'react';
+import { FaPlus, FaMinus, FaCheckCircle } from 'react-icons/fa';
 
-import { useState } from "react";
-import { BsPlusLg } from "react-icons/bs";
-import { PiMinusLight } from "react-icons/pi";
-import { HiCheckCircle } from "react-icons/hi2";
-const FaqMoja = ({ kitu }) => {
-   const [ isActive, setIsActive ] = useState(false);
+const FaqMoja = ({ item, isOpen, onToggle }) => {
+  if (!item) return null;
+
   return (
-   <div className={ isActive ? "faq-block active" : "faq-block"}>
-                <div className="faq-block-question" onClick={() => setIsActive(!isActive)}>
-                        <h3>{kitu.question}</h3>
-                        <div className="faq-block-action">
-                                   { isActive ? <span><PiMinusLight /></span> :  <span><BsPlusLg /></span>}
-                        </div>
-                </div>
-                <div className="faq-block-answer">
-                        <div className="faq-block-answer-inner">
-                                    { kitu.answer.straight.map(kitu2 => <p key={kitu2}>{kitu2}</p>)}
-                                    { kitu.answer.list && 
-                                            <div className="answer-list-wrap">
-                                                    { kitu.answer.list.map((kitu2, index) => 
-                                                            <div className="answer-list-block" key={kitu2.id}>
-                                                                        <h4>{`${index+1}. ${kitu2.title}`}</h4>
-                                                                        <ul>
-                                                                                { kitu2.explanations.map(kitu3 => <li key={kitu3}>{kitu3}</li>)}
-                                                                        </ul>
-                                                            </div>
-                                                    )}
-                                            </div>
-                                    }
-                                    { kitu.answer.simple_list &&
-                                          <div className="answer-list-wrap">
-                                                  <ul>
-                                                         { kitu.answer.simple_list.map(kitu2 => 
-                                                               <li key={kitu2}><span><HiCheckCircle /></span>{kitu2}</li>
-                                                         )}
-                                                  </ul>
-                                          </div>
-                                    }
-                        </div>
-                </div>
-    </div>
-  )
-}
+    <article className={`faq-card ${isOpen ? 'is-open' : ''}`}>
+      <button
+        type="button"
+        className="faq-card-header"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+        aria-controls={`faq-answer-${item.id}`}
+        id={`faq-question-${item.id}`}
+      >
+        <div className="faq-card-question-wrap">
+          <span className="faq-card-cat-badge">{item.category}</span>
+          <h3 className="faq-card-title">{item.question}</h3>
+        </div>
+        <div className="faq-card-icon-wrap" aria-hidden="true">
+          {isOpen ? <FaMinus /> : <FaPlus />}
+        </div>
+      </button>
 
-export default FaqMoja
+      <div
+        id={`faq-answer-${item.id}`}
+        role="region"
+        aria-labelledby={`faq-question-${item.id}`}
+        className="faq-card-collapse"
+      >
+        <div className="faq-card-body-overflow">
+          <div className="faq-card-body">
+            {/* Standard paragraphs */}
+            {item.answer?.straight && item.answer.straight.map((para, idx) => (
+              <p key={idx} className="faq-paragraph">{para}</p>
+            ))}
+
+            {/* Structured Sub-Lists with Headings */}
+            {item.answer?.list && (
+              <div className="faq-structured-list">
+                {item.answer.list.map((subItem) => (
+                  <div key={subItem.id || subItem.title} className="faq-structured-block">
+                    <h4 className="faq-structured-title">{subItem.title}</h4>
+                    {subItem.explanations && (
+                      <ul className="faq-structured-subitems">
+                        {subItem.explanations.map((exp, eIdx) => (
+                          <li key={eIdx}>{exp}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Checklist / Bullet Points */}
+            {item.answer?.simple_list && (
+              <ul className="faq-checklist">
+                {item.answer.simple_list.map((point, pIdx) => (
+                  <li key={pIdx} className="faq-checklist-item">
+                    <FaCheckCircle className="faq-check-icon" aria-hidden="true" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {/* Extra Important Note */}
+            {item.answer?.extra && (
+              <div className="faq-extra-note">
+                <p>{item.answer.extra}</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+};
+
+export default FaqMoja;

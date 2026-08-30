@@ -89,7 +89,7 @@
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition: all 0.3s ease;
 }
 
@@ -111,7 +111,8 @@
   padding: 2rem;
   margin-bottom: 2rem;
   border-radius: 12px;
-  sticky: top 80px;
+  position: sticky;
+  top: 80px;
   z-index: 10;
 }
 
@@ -477,7 +478,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .btn-primary {

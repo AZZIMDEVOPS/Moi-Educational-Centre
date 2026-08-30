@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaCheckCircle, FaBookOpen, FaGlobe, FaFlask, FaLaptopCode, FaMusic, FaRunning, FaStar, FaChevronDown } from "react-icons/fa";
+import { FaCheckCircle, FaBookOpen, FaGlobe, FaFlask, FaLaptopCode, FaMusic, FaRunning, FaStar, FaChevronDown, FaRobot, FaTrophy, FaSwimmer } from "react-icons/fa";
 import { TbBulb } from "react-icons/tb";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
@@ -42,7 +42,9 @@ const AboutHeroV2 = () => {
       <img src={imgSenior} alt="MEC Campus" className="abt-hero-bg" />
       <div className="abt-hero-overlay" />
       <div className="abt-hero-content">
-        <div className="abt-badge">🌟 Celebrating 40 Years of Excellence</div>
+        <div className="abt-badge">
+          <FaStar style={{ color: '#f59e0b', marginRight: 6 }} /> Celebrating 40 Years of Excellence
+        </div>
         <h1 className="abt-hero-title">
           <span className="abt-word-wrap"><span className="abt-word">Shaping</span></span>
           <span className="abt-word-wrap"><span className="abt-word">Futures.</span></span><br/>
@@ -247,7 +249,9 @@ const WhyChooseMecBento = () => {
         <div className="abt-b-card abt-b-hero">
           <img src={imgInnovation} alt="STEM & Robotics" className="abt-b-img" />
           <div className="abt-b-overlay" />
-          <div className="abt-b-badge">🤖 Future-Ready Education</div>
+          <div className="abt-b-badge">
+            <FaRobot style={{ color: '#38bdf8', marginRight: 6 }} /> Future-Ready Education
+          </div>
           <div className="abt-b-content">
             <div className="abt-b-icon-wrap blue">
               <FaLaptopCode />
@@ -259,7 +263,9 @@ const WhyChooseMecBento = () => {
 
         {/* Card 2: 40 Years of Excellence */}
         <div className="abt-b-card abt-b-stat">
-          <div className="abt-b-pill purple">🏆 Legacy of Success</div>
+          <div className="abt-b-pill purple">
+            <FaTrophy style={{ color: '#eab308', marginRight: 6 }} /> Legacy of Success
+          </div>
           <div className="abt-b-content">
             <div className="abt-b-stat-num">40+</div>
             <h3>Years of Excellence</h3>
@@ -289,7 +295,9 @@ const WhyChooseMecBento = () => {
         <div className="abt-b-card abt-b-media">
           <img src={imgSwimming} alt="Campus Facilities" className="abt-b-img" />
           <div className="abt-b-overlay" />
-          <div className="abt-b-badge">🏊 Modern Amenities</div>
+          <div className="abt-b-badge">
+            <FaSwimmer style={{ color: '#06b6d4', marginRight: 6 }} /> Modern Amenities
+          </div>
           <div className="abt-b-content">
             <h3>Olympic Sports & Aquatic Complex</h3>
             <p>Expansive sports fields, heated swimming pool, music studios, and modern libraries supporting holistic child development.</p>
@@ -370,12 +378,16 @@ const TestimonialsCarousel = () => {
       </div>
       <div className="abt-test-grid">
         <div className="abt-test-card">
-          <div style={{ color: '#FBBF24', fontSize: '20px', marginBottom: '16px' }}>★★★★★</div>
+          <div style={{ color: '#f59e0b', fontSize: '16px', marginBottom: '16px', display: 'flex', gap: '4px' }}>
+            {[...Array(5)].map((_, i) => <FaStar key={i} />)}
+          </div>
           <p className="abt-test-quote">"MEC has transformed my child. The teachers are incredibly supportive and the facilities are world-class."</p>
           <div className="abt-test-author">— Sarah W., Parent</div>
         </div>
         <div className="abt-test-card">
-          <div style={{ color: '#FBBF24', fontSize: '20px', marginBottom: '16px' }}>★★★★★</div>
+          <div style={{ color: '#f59e0b', fontSize: '16px', marginBottom: '16px', display: 'flex', gap: '4px' }}>
+            {[...Array(5)].map((_, i) => <FaStar key={i} />)}
+          </div>
           <p className="abt-test-quote">"The balance between academic rigor and co-curricular activities here is unmatched in Nairobi."</p>
           <div className="abt-test-author">— James K., Alumni</div>
         </div>

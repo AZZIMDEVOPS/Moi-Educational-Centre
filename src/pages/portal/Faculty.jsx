@@ -22,7 +22,8 @@ import {
   FaBook, FaCalendarAlt, FaFileAlt, FaDesktop, FaUsers, FaBell,
   FaChalkboardTeacher, FaUserGraduate, FaClipboardCheck, FaChartLine,
   FaPlus, FaCheckCircle, FaPen, FaSave, FaPaperPlane, FaDownload,
-  FaExclamationTriangle, FaSearch, FaAward, FaSlidersH, FaTimes, FaShieldAlt
+  FaExclamationTriangle, FaSearch, FaAward, FaSlidersH, FaTimes, FaShieldAlt,
+  FaFolderOpen, FaGraduationCap, FaLayerGroup, FaSchool, FaComments, FaStar, FaBookOpen, FaBriefcase
 } from 'react-icons/fa';
 
 import '../../css/portal.css';
@@ -55,7 +56,6 @@ const FacultyPortal = () => {
   const [showLessonPlanModal, setShowLessonPlanModal] = useState(false);
   const [lpTopic, setLpTopic] = useState('');
   const [lpObjectives, setLpObjectives] = useState('');
-  const [lpCompetencies, setLpCompetencies] = useState('Critical Thinking, Problem Solving');
   const [lpCreatedNotice, setLpCreatedNotice] = useState(false);
 
   const [showAssignmentModal, setShowAssignmentModal] = useState(false);
@@ -88,11 +88,9 @@ const FacultyPortal = () => {
     setStudents(prev => prev.map(s => s.admNo === admNo ? { ...s, status: newStatus } : s));
   };
 
-  /* Marks Auto-Save Handler */
-  const handleSaveMarks = (e) => {
-    e.preventDefault();
-    setMarksSavedNotice(true);
-    setTimeout(() => setMarksSavedNotice(false), 2500);
+  /* Save Attendance Handler */
+  const handleSaveAttendance = () => {
+    setAttendanceSubmitted(true);
   };
 
   /* Create Lesson Plan Handler */
@@ -121,7 +119,7 @@ const FacultyPortal = () => {
 
   return (
     <>
-      <SEO title={t.faculty} description="Faculty Portal for Moi Educational Centre staff - Complete class management & teaching workspace." />
+      <SEO title={t.faculty} description={t.workspaceSub} />
       <Navbar />
 
       {/* Hero Section */}
@@ -135,52 +133,52 @@ const FacultyPortal = () => {
         <ul className="portal-submenu">
           <li className="portal-submenu-item">
             <button className={activeTab === 'overview' ? 'active' : ''} onClick={() => setActiveTab('overview')}>
-              📊 Workspace Summary
+              <FaLayerGroup style={{ marginRight: 6 }} /> Workspace Summary
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'my-classes' ? 'active' : ''} onClick={() => setActiveTab('my-classes')}>
-              🏫 My Classes & Students
+              <FaSchool style={{ marginRight: 6 }} /> My Classes & Students
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'attendance' ? 'active' : ''} onClick={() => setActiveTab('attendance')}>
-              📋 Daily Roll Call
+              <FaClipboardCheck style={{ marginRight: 6 }} /> Daily Roll Call
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'lesson-planning' ? 'active' : ''} onClick={() => setActiveTab('lesson-planning')}>
-              📖 Lesson Planner
+              <FaBookOpen style={{ marginRight: 6 }} /> Lesson Planner
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'assignments' ? 'active' : ''} onClick={() => setActiveTab('assignments')}>
-              📝 Assignments & Marking
+              <FaPen style={{ marginRight: 6 }} /> Assignments & Marking
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'grading' ? 'active' : ''} onClick={() => setActiveTab('grading')}>
-              📈 Marks Sheet & Grading
+              <FaChartLine style={{ marginRight: 6 }} /> Marks Sheet & Grading
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'reports' ? 'active' : ''} onClick={() => setActiveTab('reports')}>
-              📜 Report Cards Workflow
+              <FaFileAlt style={{ marginRight: 6 }} /> Report Cards Workflow
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'timetable' ? 'active' : ''} onClick={() => setActiveTab('timetable')}>
-              📅 Teaching Timetable
+              <FaCalendarAlt style={{ marginRight: 6 }} /> Teaching Timetable
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'communication' ? 'active' : ''} onClick={() => setActiveTab('communication')}>
-              💬 Parent Messaging
+              <FaComments style={{ marginRight: 6 }} /> Parent Messaging
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'pastoral' ? 'active' : ''} onClick={() => setActiveTab('pastoral')}>
-              🌟 Pastoral & Behaviour
+              <FaStar style={{ marginRight: 6 }} /> Pastoral & Behaviour
             </button>
           </li>
         </ul>
@@ -194,15 +192,15 @@ const FacultyPortal = () => {
             <div className="student-profile-strip">
               <img src={teacher.avatar} alt={teacher.name} className="student-avatar-lg" />
               <div className="student-profile-meta">
-                <h1>Welcome, {teacher.name} 👋</h1>
+                <h1>Welcome, {teacher.name}</h1>
                 <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: 14 }}>
                   {teacher.title} · Staff ID: <strong>{teacher.staffId}</strong>
                 </p>
                 <div className="student-meta-badges">
-                  <span className="student-badge-pill">🏫 Head of {teacher.headOfStream}</span>
-                  <span className="student-badge-pill">📂 Department: {teacher.department}</span>
-                  <span className="student-badge-pill">🎓 {teacher.qualifications}</span>
-                  <span className="student-badge-pill">📅 Term 1, Academic Year 2026</span>
+                  <span className="student-badge-pill"><FaSchool style={{ marginRight: 6 }} /> Head of {teacher.headOfStream}</span>
+                  <span className="student-badge-pill"><FaFolderOpen style={{ marginRight: 6 }} /> Department: {teacher.department}</span>
+                  <span className="student-badge-pill"><FaGraduationCap style={{ marginRight: 6 }} /> {teacher.qualifications}</span>
+                  <span className="student-badge-pill"><FaCalendarAlt style={{ marginRight: 6 }} /> Term 1, Academic Year 2026</span>
                 </div>
               </div>
             </div>
@@ -252,25 +250,25 @@ const FacultyPortal = () => {
               {/* Quick Actions */}
               <div className="student-quick-actions-bar">
                 <button className="student-action-btn" onClick={() => setActiveTab('attendance')}>
-                  📋 Take Attendance
+                  <FaClipboardCheck style={{ marginRight: 6 }} /> Take Attendance
                 </button>
                 <button className="student-action-btn" onClick={() => setShowLessonPlanModal(true)}>
-                  📖 Create Lesson Plan
+                  <FaBookOpen style={{ marginRight: 6 }} /> Create Lesson Plan
                 </button>
                 <button className="student-action-btn" onClick={() => setShowAssignmentModal(true)}>
-                  📝 Create Assignment
+                  <FaPen style={{ marginRight: 6 }} /> Create Assignment
                 </button>
                 <button className="student-action-btn" onClick={() => setActiveTab('grading')}>
-                  📈 Enter CAT Marks
+                  <FaChartLine style={{ marginRight: 6 }} /> Enter CAT Marks
                 </button>
                 <button className="student-action-btn" onClick={() => setActiveTab('reports')}>
-                  📜 Submit Report Cards
+                  <FaFileAlt style={{ marginRight: 6 }} /> Submit Report Cards
                 </button>
                 <Link to="/portal/faculty/lms" className="student-action-btn" style={{ textDecoration: 'none' }}>
-                  🖥️ Open Google LMS
+                  <FaDesktop style={{ marginRight: 6 }} /> Open Google LMS
                 </Link>
                 <Link to="/portal/faculty/hr" className="student-action-btn" style={{ textDecoration: 'none' }}>
-                  💼 HR & Payslips
+                  <FaBriefcase style={{ marginRight: 6 }} /> HR & Payslips
                 </Link>
               </div>
 
@@ -390,7 +388,7 @@ const FacultyPortal = () => {
 
                 {attendanceSubmitted ? (
                   <span className="badge-status confirmed" style={{ fontSize: 13, padding: '6px 14px' }}>
-                    ✓ Roll Call Submitted & Locked
+                    <FaCheckCircle style={{ marginRight: 6 }} /> Roll Call Submitted & Locked
                   </span>
                 ) : (
                   <button className="portal-pay-btn" onClick={() => setAttendanceSubmitted(true)}>
@@ -434,7 +432,7 @@ const FacultyPortal = () => {
                             </button>
                             <button
                               className="student-action-btn"
-                              style={{ padding: '3px 10px', fontSize: 11, background: st.status === 'Late' ? '#D97706' : '#F1F5F9', color: st.status === 'Late' ? '#fff' : '#334155' }}
+                              style={{ padding: '3px 10px', fontSize: 11, background: st.status === 'Late' ? '#0F3D91' : '#F1F5F9', color: st.status === 'Late' ? '#fff' : '#334155' }}
                               onClick={() => handleToggleAttendance(st.admNo, 'Late')}
                             >
                               L (Late)
@@ -508,7 +506,7 @@ const FacultyPortal = () => {
 
               {marksSavedNotice && (
                 <div style={{ background: '#DCFCE7', color: '#15803D', padding: 12, borderRadius: 12, fontWeight: 700, fontSize: 13, marginBottom: 16 }}>
-                  ✓ Marks sheet successfully auto-saved and backed up to school database!
+                  <FaCheckCircle style={{ marginRight: 6 }} /> Marks sheet successfully auto-saved and backed up to school database!
                 </div>
               )}
 

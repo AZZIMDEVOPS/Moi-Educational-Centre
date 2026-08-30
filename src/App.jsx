@@ -67,6 +67,8 @@ import ParentDashboard from './pages/ParentDashboard'
 import AIChatbot from './components/common/AIChatbot'
 import WhatsAppButton from './components/common/WhatsAppButton'
 import SplashScreen from './components/common/SplashScreen'
+import MEC40AssistantTeaser from './components/common/MEC40AssistantTeaser'
+import { useHeroIntro } from './context/HeroIntroContext'
 import { useState } from 'react'
 
 // NEW COMMUNITY PAGES
@@ -76,6 +78,10 @@ import Alumni from './pages/Alumni'
 
 function App() {
   const location = useLocation();
+  const { isImmersionMode, skipIntro, assistantPendingQuery, clearPendingQuery } = useHeroIntro();
+  const [chatbotOpen, setChatbotOpen] = useState(false);
+  const [chatbotStarterQuery, setChatbotStarterQuery] = useState(null);
+
   const [showSplash, setShowSplash] = useState(() => {
     // Check if splash has been shown in this session
     return !sessionStorage.getItem('splashShown');
@@ -90,9 +96,21 @@ function App() {
     sessionStorage.setItem('splashShown', 'true');
   }
 
+  // When teaser triggers a chatbot action, open chatbot with that query
+  const handleTeaserOpenChatbot = (query) => {
+    setChatbotStarterQuery(query);
+    setChatbotOpen(true);
+  };
+
   return (
     <>
       {showSplash && <SplashScreen onAnimationComplete={handleSplashComplete} />}
+      {/* Skip Intro — only shown during immersion */}
+      {isImmersionMode && (
+        <button className="mec-skip-intro-btn" onClick={skipIntro} aria-label="Skip cinematic intro">
+          Skip Intro
+        </button>
+      )}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/parent-dashboard" element={<ParentDashboard />} />
@@ -161,7 +179,12 @@ function App() {
         <Route path="/podcast-hub" element={<PodcastHub />} />
         <Route path="/alumni" element={<Alumni />} />
       </Routes>
-      <AIChatbot />
+      <MEC40AssistantTeaser onOpenChatbot={handleTeaserOpenChatbot} />
+      <AIChatbot
+        externalOpen={chatbotOpen}
+        externalStarterQuery={chatbotStarterQuery}
+        onExternalHandled={() => { setChatbotOpen(false); setChatbotStarterQuery(null); }}
+      />
       <WhatsAppButton />
     </>
   )

@@ -8,7 +8,7 @@
 .ap-section {
   position: relative;
   width: 100%;
-  background: #050816;
+  background: #ffffff;
   padding: 60px 0 90px 0;
   overflow: hidden;
 }
@@ -20,7 +20,7 @@
   top: 0; left: 50%;
   transform: translateX(-50%);
   width: 800px; height: 800px;
-  background: radial-gradient(circle, rgba(108, 43, 217, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(108, 43, 217, 0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -44,23 +44,22 @@
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 61, 145, 0.08);
+  border: 1px solid rgba(15, 61, 145, 0.2);
   border-radius: 999px;
   margin-bottom: 24px;
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  color: #D8B4FE;
-    
+  color: #0F3D91;
 }
-.ap-badge-icon { font-size: 14px; }
+.ap-badge-icon { font-size: 14px; color: #8E44AD; }
 
 .ap-title {
   font-family: 'Poppins', sans-serif;
   font-size: clamp(40px, 5vw, 56px);
   font-weight: 800;
-  color: #fff;
+  color: #0f172a;
   line-height: 1.1;
   letter-spacing: -1px;
   margin: 0 0 20px;
@@ -73,7 +72,7 @@
 }
 .ap-word { display: inline-block; }
 .ap-gradient-text {
-  background: linear-gradient(135deg, #A855F7, #3B82F6);
+  background: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #8E44AD 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -83,7 +82,7 @@
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
-  color: rgba(255,255,255,0.7);
+  color: #64748b;
   line-height: 1.8;
   margin: 0;
 }
@@ -101,7 +100,7 @@
   position: absolute;
   top: 10px; left: 0; right: 0;
   height: 2px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #e2e8f0;
   border-radius: 1px;
 }
 
@@ -136,8 +135,8 @@
 
 .ap-node-dot {
   width: 22px; height: 22px;
-  background: #050816;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
   border-radius: 50%;
   transition: all 0.4s ease;
   z-index: 2;
@@ -147,7 +146,7 @@
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 600;
-  color: rgba(255,255,255,0.4);
+  color: #94a3b8;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: color 0.4s ease;
@@ -166,8 +165,8 @@
   transform: scale(1.2);
   box-shadow: 0 0 16px rgba(168, 85, 247, 0.8);
 }
-.ap-node.active .ap-node-label { color: #fff; }
-.ap-node.current .ap-node-label { color: #D8B4FE; }
+.ap-node.active .ap-node-label { color: #0f172a; }
+.ap-node.current .ap-node-label { color: #7C3AED; }
 
 
 /* ─── Bento Grid ────────────────────────────────────────── */

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaGraduationCap, FaTarget, FaLightbulb, FaCheckCircle } from 'react-icons/fa';
+import { FaGraduationCap, FaTarget, FaLightbulb, FaCheckCircle, FaRocket, FaGlobeAmericas, FaPalette, FaMicroscope } from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
 
 const AILearningPathFinder = () => {
@@ -7,11 +7,11 @@ const AILearningPathFinder = () => {
     const [selectedPath, setSelectedPath] = useState(null);
 
     const t = language === 'en' ? {
-        title: "📚 AI Learning Paths",
+        title: "AI Learning Paths",
         subtitle: "Your personalized journey to success",
         explorePaths: "Explore Paths"
     } : {
-        title: "📚 Mapango ya Kujifunza AI",
+        title: "Mapango ya Kujifunza AI",
         subtitle: "Safari yako ya kibinafsi kwenye mafanikio",
         explorePaths: "Chunguza Mapango"
     };
@@ -20,7 +20,7 @@ const AILearningPathFinder = () => {
         {
             id: 1,
             title: language === 'en' ? 'Future Tech Pioneer' : 'Mjumbe wa Teknolohia',
-            icon: '🚀',
+            Icon: FaRocket,
             color: '#FF6B6B',
             description: language === 'en' ? 'Master coding, AI, and innovation' : 'Kuwa na ujuzi wa kuandika, AI na kubunifu',
             stages: [
@@ -33,7 +33,7 @@ const AILearningPathFinder = () => {
         {
             id: 2,
             title: language === 'en' ? 'Global Citizen Leader' : 'Kiongozi wa Kimataifa',
-            icon: '🌍',
+            Icon: FaGlobeAmericas,
             color: '#4ECDC4',
             description: language === 'en' ? 'Leadership, languages, and cultural excellence' : 'Uongozi, lugha na usambano wa kitamaduni',
             stages: [
@@ -46,7 +46,7 @@ const AILearningPathFinder = () => {
         {
             id: 3,
             title: language === 'en' ? 'Creative Innovator' : 'Mbunifu wa Ubunifu',
-            icon: '🎨',
+            Icon: FaPalette,
             color: '#95E1D3',
             description: language === 'en' ? 'Arts, design, and creative entrepreneurship' : 'Sanaa, muundo, na biashara ya ubunifu',
             stages: [
@@ -59,7 +59,7 @@ const AILearningPathFinder = () => {
         {
             id: 4,
             title: language === 'en' ? 'Science Explorer' : 'Mtafiti wa Sayansi',
-            icon: '🔬',
+            Icon: FaMicroscope,
             color: '#FFD93D',
             description: language === 'en' ? 'Research, discovery, and scientific innovation' : 'Utafiti, ugunduzi na kubunifu kwa sayansi',
             stages: [
@@ -87,7 +87,9 @@ const AILearningPathFinder = () => {
                             style={{ borderLeftColor: path.color }}
                             onClick={() => setSelectedPath(path)}
                         >
-                            <div className="path-icon">{path.icon}</div>
+                            <div className="path-icon">
+                                <path.Icon style={{ fontSize: '20px', color: path.color }} />
+                            </div>
                             <h4>{path.title}</h4>
                             <p>{path.description}</p>
                             <button className="explore-btn">
@@ -106,7 +108,7 @@ const AILearningPathFinder = () => {
                     </button>
                     <div className="path-header">
                         <h3>
-                            <span className="path-emoji">{selectedPath.icon}</span>
+                            <selectedPath.Icon style={{ color: selectedPath.color, marginRight: '8px' }} />
                             {selectedPath.title}
                         </h3>
                     </div>

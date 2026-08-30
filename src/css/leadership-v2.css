@@ -1,176 +1,1806 @@
 /* =============================================================
-   MEC LEADERSHIP — Premium 10-Section Storytelling Template
-   Color System: #6C2BD9 · #0F3D91 · #050816
+   MEC LEADERSHIP — World-Class Editorial Leadership Styling
+   Typography: Poppins & Clean Sans-Serif
+   Palette: Official MEC Royal Blue (#0F3D91) & Future-Ready Purple (#8E44AD)
+   Backgrounds: Pristine White (#ffffff) & Subtle Warm Light (#f8fafc)
    ============================================================= */
 
 @import url('./design-tokens.css');
 
-.ldr-page {
-  background: #050816;
-  color: #fff;
+.ldr-page-root {
+  background: #ffffff;
+  color: #0f172a;
+  font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* ─── 1. Cinematic Hero ─────────────────────────────────── */
-.ldr-hero {
-  position: relative; width: 100%; height: 90vh; min-height: 700px;
-  display: flex; align-items: center; justify-content: center; overflow: hidden;
+.ldr-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
-.ldr-hero-bg {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  filter: brightness(0.7); transform: scale(1.1); /* For GSAP Parallax */
+
+/* ─── 0. Scroll Progress Bar ─────────────────────────────── */
+.ldr-scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0F3D91 0%, #2563EB 50%, #8E44AD 100%);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
 }
-.ldr-hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(10,1,24,0.9) 0%, rgba(15,61,145,0.75) 100%);
-  z-index: 1;
+
+/* ─── 0. Sticky Secondary Sub-Nav ────────────────────────── */
+.ldr-sticky-subnav {
+  position: sticky;
+  top: 76px;
+  z-index: 900;
+  background: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
-.ldr-hero-content {
-  position: relative; z-index: 10; text-align: center;
-  max-width: 900px; padding: 0 var(--padding-x);
+
+.ldr-subnav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  height: 52px;
 }
-.ldr-badge {
-  display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px;
-  background: rgba(255,255,255,0.1);    border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 999px; font-family: var(--font-body); font-size: 13px; font-weight: 700; color: #D8B4FE;
-  margin-bottom: 32px; letter-spacing: 0.05em; text-transform: uppercase;
+
+.ldr-subnav-container::-webkit-scrollbar {
+  display: none;
 }
+
+.ldr-subnav-link {
+  background: transparent;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.ldr-subnav-link:hover {
+  color: #0F3D91;
+  background: #f1f5f9;
+}
+
+.ldr-subnav-link.active {
+  color: #0F3D91;
+  background: rgba(15, 61, 145, 0.08);
+  font-weight: 700;
+}
+
+/* ─── 1. Leadership Hero Section ─────────────────────────── */
+.ldr-hero-v3 {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  padding: 130px 0 80px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-bottom: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+}
+
+.ldr-hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.ldr-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F3D91;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  background: rgba(15, 61, 145, 0.06);
+  padding: 6px 16px;
+  border-radius: 999px;
+}
+
+.ldr-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0F3D91;
+}
+
 .ldr-hero-title {
-  font-family: 'Poppins', sans-serif; font-size: clamp(48px, 6vw, 92px);
-  font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -2px; margin: 0 0 24px;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(36px, 4.2vw, 56px);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px;
 }
-.ldr-word-wrap { display: inline-block; overflow: hidden; vertical-align: top; margin-right: 16px; }
-.ldr-word { display: inline-block; will-change: transform, opacity; }
+
+.ldr-title-accent {
+  color: #0F3D91;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: #0F3D91;
+}
+
 .ldr-hero-sub {
-  font-family: var(--font-body); font-size: 20px; font-weight: 400; color: rgba(255,255,255,0.85);
-  line-height: 1.7; max-width: 700px; margin: 0 auto 40px;
+  font-size: clamp(15.5px, 1.15vw, 18px);
+  color: #475569;
+  line-height: 1.7;
+  margin: 0 0 32px;
+  max-width: 600px;
 }
-.ldr-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 
-
-/* ─── 2. Leadership Philosophy (Split) ──────────────────── */
-.ldr-phil { padding: 120px var(--padding-x); background: #050816; }
-.ldr-phil-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
-.ldr-phil-text h2 { font-family: 'Poppins', sans-serif; font-size: 42px; margin-bottom: 24px; }
-.ldr-phil-text p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
-.ldr-phil-img { position: relative; border-radius: 24px; overflow: hidden; height: 500px; }
-.ldr-phil-img img { width: 100%; height: 100%; object-fit: cover; }
-.ldr-quote-block {
-  position: absolute; bottom: -20px; left: -20px; right: 40px;
-  background: rgba(255,255,255,0.03);    
-  border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 32px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+.ldr-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 40px;
 }
-.ldr-quote-text { font-family: 'Poppins', sans-serif; font-style: italic; font-size: 20px; margin-bottom: 16px; line-height: 1.4; }
-.ldr-quote-sig { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 700; color: #A855F7; }
 
-
-/* ─── 3. Leadership Team Grid ───────────────────────────── */
-.ldr-grid-sec { padding: 120px var(--padding-x); background: linear-gradient(180deg, #050816 0%, #12022A 100%); }
-.ldr-sec-header { text-align: center; margin-bottom: 80px; }
-.ldr-sec-title { font-family: 'Poppins', sans-serif; font-size: 48px; font-weight: 700; margin-bottom: 16px; }
-.ldr-sec-sub { font-family: var(--font-body); font-size: 16px; color: rgba(255,255,255,0.6); max-width: 600px; margin: 0 auto; }
-
-.ldr-grid { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-.ldr-card {
-  position: relative; border-radius: 24px; overflow: hidden;
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
-  transition: all 0.4s ease;
+.ldr-btn-primary {
+  height: 50px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #2563EB 100%);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(15, 61, 145, 0.35);
+  transition: all 0.25s ease;
+  text-decoration: none;
 }
-.ldr-card:hover { transform: translateY(-10px); border-color: rgba(168,85,247,0.4); box-shadow: 0 20px 40px rgba(108, 43, 217, 0.2); }
-.ldr-img { width: 100%; height: 380px; overflow: hidden; position: relative; }
-.ldr-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); transition: filter 0.5s, transform 0.5s; }
-.ldr-card:hover .ldr-img img { filter: grayscale(0%); transform: scale(1.05); }
-.ldr-info { padding: 32px; }
-.ldr-info h3 { font-family: 'Poppins', sans-serif; font-size: 28px; margin-bottom: 4px; }
-.ldr-info .role { font-family: var(--font-body); font-size: 14px; color: #A855F7; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 16px; }
-.ldr-info p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 24px; }
-.ldr-social { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); color: #fff; transition: 0.3s; }
-.ldr-social:hover { background: #3B82F6; }
 
-
-/* ─── 4. Word from the Chairman ─────────────────────────── */
-.ldr-chair { padding: 120px var(--padding-x); background: #0A0118; position: relative; overflow: hidden; }
-.ldr-chair-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: center; }
-.ldr-chair-img { border-radius: 24px; overflow: hidden; position: relative; }
-.ldr-chair-img img { width: 100%; height: auto; }
-.ldr-chair-msg { position: relative; }
-.ldr-quote-mark { position: absolute; top: -40px; left: -20px; font-size: 120px; color: rgba(168,85,247,0.1); font-family: serif; line-height: 1; }
-.ldr-chair-msg h2 { font-family: 'Poppins', sans-serif; font-size: 40px; margin-bottom: 24px; }
-.ldr-chair-msg p { font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.8); margin-bottom: 24px; font-style: italic; }
-.ldr-chair-name { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700; color: #fff; }
-.ldr-chair-title { color: #A855F7; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 13px; }
-
-
-/* ─── 5. Leadership Highlights (Stats) ──────────────────── */
-.ldr-stats { padding: 100px var(--padding-x); background: linear-gradient(90deg, #6C2BD9, #0F3D91); }
-.ldr-stats-grid { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
-.ldr-stat-val { font-family: 'Poppins', sans-serif; font-size: 64px; font-weight: 800; color: #fff; margin-bottom: 8px; }
-.ldr-stat-label { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.8); text-transform: uppercase; letter-spacing: 0.05em; }
-
-
-/* ─── 6. Governance Structure (Visual Hierarchy) ────────── */
-.ldr-gov { padding: 120px var(--padding-x); background: #050816; text-align: center; }
-.ldr-tree { display: flex; flex-direction: column; align-items: center; gap: 40px; margin-top: 60px; position: relative; }
-.ldr-tree-node {
-  background: rgba(255,255,255,0.03);    border: 1px solid rgba(255,255,255,0.1);
-  padding: 24px 40px; border-radius: 999px; font-family: 'Poppins', sans-serif; font-size: 24px;
-  position: relative; z-index: 2; transition: 0.3s;
+.ldr-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(15, 61, 145, 0.5);
 }
-.ldr-tree-node:hover { background: rgba(168,85,247,0.2); border-color: rgba(168,85,247,0.5); transform: translateY(-5px); }
-.ldr-tree-level { display: flex; gap: 40px; justify-content: center; position: relative; }
-.ldr-tree-line { width: 2px; height: 40px; background: rgba(255,255,255,0.2); margin: 0 auto; }
-.ldr-tree-h-line { position: absolute; top: -40px; left: 20%; right: 20%; height: 2px; background: rgba(255,255,255,0.2); }
 
-
-/* ─── 7. Core Values (Glass Cards) ──────────────────────── */
-.ldr-vals { padding: 120px var(--padding-x); background: linear-gradient(180deg, #050816 0%, #12022A 100%); }
-.ldr-vals-grid { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-.ldr-val-card {
-  background: rgba(255,255,255,0.03);    border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 24px; padding: 40px; transition: all 0.4s ease; text-align: center;
+.ldr-btn-secondary {
+  height: 50px;
+  padding: 0 26px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0F3D91;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
 }
-.ldr-val-card:hover { transform: translateY(-10px); border-color: rgba(59,130,246,0.4); background: rgba(255,255,255,0.06); }
-.ldr-val-icon { font-size: 32px; color: #A855F7; margin-bottom: 24px; }
-.ldr-val-card h3 { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 700; margin-bottom: 16px; }
-.ldr-val-card p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; }
 
+.ldr-btn-secondary:hover {
+  border-color: #0F3D91;
+  background: #f8fafc;
+}
 
-/* ─── 8. Leadership Gallery (Masonry) ───────────────────── */
-.ldr-gal { padding: 120px var(--padding-x); background: #050816; }
-.ldr-masonry { max-width: var(--max-width); margin: 0 auto; columns: 3 300px; column-gap: 24px; }
-.ldr-masonry-item { position: relative; margin-bottom: 24px; border-radius: 20px; overflow: hidden; break-inside: avoid; }
-.ldr-masonry-item img { width: 100%; display: block; transition: transform 0.5s; }
-.ldr-masonry-item:hover img { transform: scale(1.05); }
+.ldr-hero-trust-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
 
+.ldr-trust-item {
+  display: flex;
+  flex-direction: column;
+}
 
-/* ─── 9. Testimonials Carousel ──────────────────────────── */
-.ldr-test { padding: 120px var(--padding-x); background: #0A0118; text-align: center; }
-.ldr-test-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-.ldr-test-card { background: rgba(255,255,255,0.03); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
-.ldr-test-quote { font-style: italic; color: rgba(255,255,255,0.8); margin-bottom: 24px; line-height: 1.7; }
-.ldr-test-author { font-weight: 700; color: #fff; }
+.ldr-trust-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0F3D91;
+}
 
+.ldr-trust-label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
 
-/* ─── 10. Admissions CTA ────────────────────────────────── */
-.ldr-cta { padding: 120px var(--padding-x); background: linear-gradient(135deg, #2D086A 0%, #082259 100%); text-align: center; }
-.ldr-cta-inner { max-width: 800px; margin: 0 auto; }
-.ldr-cta-title { font-family: 'Poppins', sans-serif; font-size: 48px; font-weight: 800; margin-bottom: 24px; }
-.ldr-cta-desc { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+.ldr-trust-divider {
+  width: 1px;
+  height: 32px;
+  background: #e2e8f0;
+}
 
+/* Hero Right: Portrait Showcase */
+.ldr-hero-right {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
 
-/* ─── Responsive Adjustments ────────────────────────────── */
+.ldr-hero-frame {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+}
+
+.ldr-portrait-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ldr-portrait-card:hover {
+  transform: translateY(-4px);
+}
+
+.ldr-portrait-img-box {
+  width: 100%;
+  height: 420px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.ldr-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ldr-portrait-caption {
+  padding: 22px 24px;
+  background: #ffffff;
+}
+
+.ldr-caption-role {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  color: #0F3D91;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.ldr-caption-name {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.ldr-caption-sub {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.ldr-floating-stat-badge {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.stat-badge-icon {
+  font-size: 24px;
+  color: #0F3D91;
+  flex-shrink: 0;
+}
+
+.ldr-floating-stat-badge strong {
+  display: block;
+  font-size: 13.5px;
+  color: #0f172a;
+}
+
+.ldr-floating-stat-badge span {
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* ─── 2. Editorial Philosophy Statement ──────────────────── */
+.ldr-philosophy-statement-sec {
+  padding: 50px 0;
+  background: #ffffff;
+}
+
+.ldr-philosophy-card {
+  background: linear-gradient(135deg, #0F3D91 0%, #163E9E 50%, #8E44AD 100%);
+  border-radius: 28px;
+  padding: 56px 48px;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 16px 44px rgba(15, 61, 145, 0.16);
+}
+
+.ldr-statement-headline {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 16px auto 24px;
+  max-width: 960px;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.ldr-statement-foot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ldr-statement-author {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ─── 3. Chairman's Message Section ──────────────────────── */
+.ldr-chairman-section {
+  padding: 80px 0;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ldr-section-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
+}
+
+.ldr-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F3D91;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ldr-section-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+
+.ldr-section-desc {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+.ldr-chair-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 28px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 48px;
+  align-items: flex-start;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.ldr-chair-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ldr-chair-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f1f5f9;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.ldr-chair-photo {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ldr-chair-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(15, 61, 145, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chair-meta-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.chair-meta-role {
+  font-size: 14px;
+  color: #0F3D91;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.chair-meta-tenure {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #64748b;
+  background: #f8fafc;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+}
+
+.tenure-icon {
+  color: #8E44AD;
+}
+
+.ldr-quote-icon-wrap {
+  font-size: 32px;
+  color: rgba(15, 61, 145, 0.2);
+  margin-bottom: 12px;
+}
+
+.ldr-chair-pullquote {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #0F3D91;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 24px;
+  padding-left: 16px;
+  border-left: 3px solid #0F3D91;
+}
+
+.ldr-chair-body-text p {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.ldr-chair-expanded-text {
+  animation: fadeIn 0.3s ease;
+}
+
+.ldr-read-more-btn {
+  background: none;
+  border: none;
+  color: #0F3D91;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ldr-read-more-btn:hover {
+  text-decoration: underline;
+}
+
+.ldr-chair-signature-block {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.chair-sig-details strong {
+  display: block;
+  font-size: 16px;
+  color: #0f172a;
+}
+
+.chair-sig-details span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* ─── 4. Executive Principals Editorial ──────────────────── */
+.ldr-principals-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.ldr-principal-editorial-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 28px;
+  padding: 44px;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 48px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.ldr-principal-editorial-card.inverted {
+  grid-template-columns: 1.15fr 0.85fr;
+  background: #f8fafc;
+}
+
+.ldr-pe-visual {
+  position: relative;
+}
+
+.ldr-pe-img-box {
+  width: 100%;
+  height: 420px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #f1f5f9;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.ldr-pe-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ldr-pe-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(15, 61, 145, 0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ldr-pe-badge.senior-badge {
+  background: rgba(142, 68, 173, 0.92);
+}
+
+.ldr-pe-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  color: #0F3D91;
+  letter-spacing: 0.08em;
+  background: rgba(15, 61, 145, 0.08);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.ldr-pe-tag.senior-tag {
+  color: #8E44AD;
+  background: rgba(142, 68, 173, 0.1);
+}
+
+.ldr-pe-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.ldr-pe-role {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #64748b;
+  margin: 0 0 18px;
+}
+
+.ldr-pe-quote {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #0F3D91;
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 20px;
+  padding: 14px 18px;
+  background: #f8fafc;
+  border-left: 3px solid #0F3D91;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.quote-icon-sm {
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.ldr-pe-bio p {
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.ldr-pe-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.pe-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.check-icon {
+  color: #10b981;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ─── 5. Leadership Directory Grid ───────────────────────── */
+.ldr-directory-section {
+  padding: 80px 0 100px;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+}
+
+.ldr-controls-wrapper {
+  max-width: 900px;
+  margin: 0 auto 36px;
+}
+
+.ldr-search-bar {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.ldr-search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  font-size: 16px;
+}
+
+.ldr-search-bar input {
+  width: 100%;
+  height: 52px;
+  padding: 0 44px 0 50px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14.5px;
+  color: #0f172a;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.ldr-search-bar input:focus {
+  outline: none;
+  border-color: #0F3D91;
+  box-shadow: 0 0 0 4px rgba(15, 61, 145, 0.12);
+}
+
+.ldr-clear-btn {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e2e8f0;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+.ldr-filter-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ldr-pill-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ldr-pill-btn:hover {
+  border-color: #0F3D91;
+  color: #0F3D91;
+}
+
+.ldr-pill-btn.active {
+  background: #0F3D91;
+  color: #ffffff;
+  border-color: #0F3D91;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(15, 61, 145, 0.25);
+}
+
+.ldr-results-count-bar {
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.ldr-results-count-bar strong {
+  color: #0F3D91;
+}
+
+.ldr-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px dashed #cbd5e1;
+}
+
+.ldr-empty-state p {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.ldr-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.ldr-team-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.ldr-team-card:hover {
+  transform: translateY(-6px);
+  border-color: #0F3D91;
+  box-shadow: 0 16px 36px rgba(15, 61, 145, 0.12);
+}
+
+.ldr-card-image-box {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.ldr-team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ldr-team-card:hover .ldr-team-photo {
+  transform: scale(1.05);
+}
+
+.ldr-card-category-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(15, 61, 145, 0.88);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 2;
+}
+
+.ldr-card-view-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 61, 145, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.ldr-card-view-overlay span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: #ffffff;
+  color: #0F3D91;
+  font-size: 12.5px;
+  font-weight: 700;
+  border-radius: 999px;
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
+}
+
+.ldr-team-card:hover .ldr-card-view-overlay {
+  opacity: 1;
+}
+
+.ldr-team-card:hover .ldr-card-view-overlay span {
+  transform: translateY(0);
+}
+
+.ldr-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ldr-card-role-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  color: #8E44AD;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.ldr-card-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px;
+  line-height: 1.3;
+}
+
+.ldr-card-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0F3D91;
+  margin: 0 0 12px;
+}
+
+.ldr-card-bio-snippet {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.ldr-card-quote-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #f8fafc;
+  border-left: 2px solid #8E44AD;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 16px;
+  font-size: 12.5px;
+  color: #475569;
+  font-style: italic;
+}
+
+.quote-tiny-icon {
+  font-size: 11px;
+  color: #8E44AD;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.ldr-card-footer {
+  padding-top: 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.ldr-card-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0F3D91;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ldr-team-card:hover .ldr-card-btn {
+  color: #1B48B8;
+  transform: translateX(4px);
+}
+
+/* ─── 6. Leadership at a Glance ─────────────────────────── */
+.ldr-glance-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.ldr-glance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.ldr-glance-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  padding: 32px 26px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.ldr-glance-card:hover {
+  transform: translateY(-4px);
+  border-color: #0F3D91;
+  box-shadow: 0 12px 28px rgba(15, 61, 145, 0.08);
+}
+
+.glance-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.glance-icon {
+  font-size: 24px;
+  color: #0F3D91;
+}
+
+.glance-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: #0F3D91;
+}
+
+.glance-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.glance-desc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ─── 7. Leadership Philosophy (4 Pillars) ───────────────── */
+.ldr-pillars-section {
+  padding: 80px 0;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ldr-pillars-interactive-wrap {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.ldr-pillars-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ldr-pillar-tab-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+}
+
+.ldr-pillar-tab-btn:hover {
+  border-color: #0F3D91;
+  transform: translateX(4px);
+}
+
+.ldr-pillar-tab-btn.active {
+  background: #0F3D91;
+  color: #ffffff;
+  border-color: #0F3D91;
+  box-shadow: 0 8px 24px rgba(15, 61, 145, 0.25);
+}
+
+.pillar-tab-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  opacity: 0.6;
+}
+
+.pillar-tab-info {
+  flex: 1;
+}
+
+.pillar-tab-info strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.pillar-tab-info span {
+  font-size: 12.5px;
+  opacity: 0.85;
+}
+
+.pillar-tab-arrow {
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.ldr-pillar-tab-btn.active .pillar-tab-arrow {
+  opacity: 1;
+}
+
+.ldr-pillar-display-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.pillar-display-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F3D91;
+  background: rgba(15, 61, 145, 0.08);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+.pillar-display-headline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.35;
+  margin: 0 0 16px;
+}
+
+.pillar-display-body {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.7;
+  margin: 0 0 24px;
+}
+
+.pillar-points-list h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px;
+}
+
+.pillar-points-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pillar-points-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #334155;
+}
+
+.pillar-point-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0F3D91;
+  flex-shrink: 0;
+}
+
+/* ─── 8. Official Mission & Vision ───────────────────────── */
+.ldr-mission-vision-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.ldr-mv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+.ldr-mv-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 38px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.ldr-mv-card.mission-card {
+  border-top: 4px solid #0F3D91;
+}
+
+.ldr-mv-card.vision-card {
+  border-top: 4px solid #8E44AD;
+  background: #f8fafc;
+}
+
+.mv-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #0F3D91;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.mv-badge.vision {
+  color: #8E44AD;
+}
+
+.mv-quote {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  font-style: italic;
+}
+
+.mv-context {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Core Values Block */
+.ldr-values-block {
+  background: linear-gradient(135deg, #0F3D91 0%, #163E9E 50%, #8E44AD 100%);
+  border-radius: 28px;
+  padding: 48px;
+  color: #ffffff;
+}
+
+.ldr-values-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.ldr-values-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.ldr-values-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.ldr-val-pill-card {
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  padding: 22px 18px;
+  text-align: center;
+}
+
+.val-pill-number {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.val-pill-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.val-pill-desc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── 9. Leadership CTA ──────────────────────────────────── */
+.ldr-cta-v2-section {
+  padding: 60px 0 90px;
+  background: #ffffff;
+}
+
+.ldr-cta-v2-card {
+  background: linear-gradient(135deg, #0F3D91 0%, #163E9E 50%, #8E44AD 100%);
+  border-radius: 28px;
+  padding: 56px 40px;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 20px 48px rgba(15, 61, 145, 0.22);
+}
+
+.ldr-cta-v2-badge {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.ldr-cta-v2-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.ldr-cta-v2-sub {
+  font-size: 16px;
+  opacity: 0.92;
+  max-width: 720px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+}
+
+.ldr-cta-v2-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.ldr-cta-btn-primary {
+  height: 52px;
+  padding: 0 32px;
+  background: #ffffff;
+  color: #0F3D91;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.ldr-cta-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.ldr-cta-btn-secondary {
+  height: 52px;
+  padding: 0 28px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.ldr-cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.ldr-cta-btn-outline {
+  height: 52px;
+  padding: 0 26px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.ldr-cta-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.ldr-cta-contact-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  font-size: 13.5px;
+  opacity: 0.9;
+}
+
+.cta-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── 10. Interactive Leadership Modal ───────────────────── */
+.ldr-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 35, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 99999;
+  animation: fadeIn 0.25s ease;
+}
+
+.ldr-modal-sheet {
+  background: #ffffff;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ldr-modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #475569;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.ldr-modal-close-btn:hover {
+  background: #0F3D91;
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.ldr-modal-grid {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  align-items: stretch;
+}
+
+.ldr-modal-visual {
+  background: #f8fafc;
+  padding: 40px 32px;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ldr-modal-photo-frame {
+  width: 100%;
+  height: 340px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #e2e8f0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ldr-modal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.ldr-modal-cat-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  color: #0F3D91;
+  background: rgba(15, 61, 145, 0.08);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.ldr-modal-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.ldr-modal-role {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #8E44AD;
+  margin: 0 0 12px;
+}
+
+.ldr-modal-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+.meta-icon {
+  color: #0F3D91;
+  font-size: 14px;
+}
+
+.ldr-modal-body {
+  padding: 44px;
+  overflow-y: auto;
+}
+
+.ldr-modal-header-tag {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.ldr-modal-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.ldr-modal-subtitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0F3D91;
+  margin: 0 0 24px;
+}
+
+.ldr-modal-quote-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #f8fafc;
+  border-left: 3px solid #0F3D91;
+  padding: 18px 20px;
+  border-radius: 0 14px 14px 0;
+  margin-bottom: 24px;
+}
+
+.modal-quote-icon {
+  font-size: 20px;
+  color: #0F3D91;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.modal-quote-text {
+  font-size: 14.5px;
+  font-style: italic;
+  color: #0f172a;
+  line-height: 1.55;
+  margin: 0 0 4px;
+  font-weight: 600;
+}
+
+.modal-quote-author {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.bio-section-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.ldr-modal-bio-content p {
+  font-size: 14px;
+  color: #334155;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+.ldr-modal-footer-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 12.5px;
+  color: #065f46;
+  margin-top: 24px;
+}
+
+.modal-check-icon {
+  font-size: 16px;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* ─── 11. Floating Back to Top ───────────────────────────── */
+.ldr-back-to-top {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0F3D91;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 800;
+  transition: all 0.25s ease;
+}
+
+.ldr-back-to-top:hover {
+  background: #0F3D91;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* ─── Animations ─────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ─── Responsive Breakpoints ────────────────────────────── */
 @media (max-width: 1024px) {
-  .ldr-phil-inner, .ldr-chair-inner { grid-template-columns: 1fr; }
-  .ldr-quote-block { position: relative; left: 0; right: 0; bottom: 0; margin-top: -40px; }
-  .ldr-grid { grid-template-columns: repeat(2, 1fr); }
-  .ldr-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .ldr-hero-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .ldr-chair-card {
+    grid-template-columns: 1fr;
+  }
+  .ldr-principal-editorial-card, .ldr-principal-editorial-card.inverted {
+    grid-template-columns: 1fr;
+  }
+  .ldr-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ldr-glance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ldr-pillars-interactive-wrap {
+    grid-template-columns: 1fr;
+  }
+  .ldr-mv-grid {
+    grid-template-columns: 1fr;
+  }
+  .ldr-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ldr-modal-grid {
+    grid-template-columns: 1fr;
+  }
+  .ldr-modal-visual {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
 }
+
 @media (max-width: 640px) {
-  .ldr-hero-title { font-size: 42px; }
-  .ldr-grid { grid-template-columns: 1fr; }
-  .ldr-stats-grid { grid-template-columns: 1fr; }
-  .ldr-masonry { columns: 1; }
-  .ldr-tree-h-line { display: none; }
-  .ldr-tree-level { flex-direction: column; gap: 40px; }
+  .ldr-hero-v3 {
+    padding: 100px 0 50px;
+  }
+  .ldr-hero-title {
+    font-size: 32px;
+  }
+  .ldr-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .ldr-glance-grid {
+    grid-template-columns: 1fr;
+  }
+  .ldr-values-grid {
+    grid-template-columns: 1fr;
+  }
+  .ldr-chair-card, .ldr-principal-editorial-card {
+    padding: 24px;
+  }
+  .ldr-modal-body, .ldr-modal-visual {
+    padding: 24px;
+  }
 }

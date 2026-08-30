@@ -82,11 +82,12 @@ export const clubImageConfig = {
         ]
     },
     'music-academy': {
-        hero: '/assets/hero-poster.jpg',
+        hero: '/assets/music-tour-2026/vienna-cathedral-interior.jpg',
         gallery: [
-            '/assets/hero-poster.jpg',
-            '/assets/hero-poster2.jpg',
-            '/assets/school.jpg',
+            '/assets/music-tour-2026/vienna-cathedral-interior.jpg',
+            '/assets/music-tour-2026/vienna-monument-student.jpg',
+            '/assets/music-tour-2026/vienna-stephansplatz-student.jpg',
+            '/assets/music-tour-2026/vienna-director-cathedral.jpg',
         ]
     },
     'computer-robotics': {

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FaShieldAlt } from 'react-icons/fa';
 
 // Logos
 import cambridgeLogo from '../../assets/cambridge.png';
@@ -8,7 +9,7 @@ import pearsonLogo from '../../assets/pearson.png';
 import edexcelLogo from '../../assets/edexcel.png';
 import kaisLogo from '../../assets/kais.png';
 import nccLogo from '../../assets/ncc.png';
-import mecLogo from '../../assets/logo.png';
+import kenyaGovSeal from '../../assets/kenya-government-seal.svg';
 
 import GlobalConnections from './GlobalConnections';
 
@@ -64,7 +65,7 @@ const TrustStat = ({ value, label }) => {
 /* ─── Data ─────────────────────────────────────────────── */
 const ACCREDITATIONS = [
   { id: 'cambridge', name: 'Cambridge International', desc: 'Globally recognized IGCSE and A-Level qualifications.', badge: 'International Curriculum', logo: cambridgeLogo },
-  { id: 'cbc', name: 'Competency-Based Curriculum', desc: 'Aligned with the Ministry of Education for holistic learning.', badge: 'National Framework', logo: mecLogo },
+  { id: 'cbc', name: 'Competency-Based Curriculum', desc: 'Aligned with the Ministry of Education for holistic learning.', badge: 'National Framework', logo: kenyaGovSeal },
   { id: 'pearson', name: 'Pearson Edexcel', desc: 'International assessments and global educational benchmarking.', badge: 'Global Assessments', logo: pearsonLogo },
   { id: 'ncc', name: 'NCC Education', desc: 'Providing internationally recognized computing qualifications.', badge: 'Tech Education', logo: nccLogo },
   { id: 'kais', name: 'KAIS Member', desc: 'Kenya Association of International Schools collaboration.', badge: 'Affiliation', logo: kaisLogo },
@@ -131,34 +132,15 @@ const AccreditationsSection = () => {
         {/* 3. Real Interactive World Map & Connections Component */}
         <GlobalConnections />
 
-        {/* 4. Trust Metrics */}
-        <div className="acc-stats-row">
-          <TrustStat value="40+" label="Years of Excellence" />
-          <TrustStat value="6+" label="Global Partners" />
-          <TrustStat value="100%" label="CBC Approved" />
-          <TrustStat value="Top 10" label="Cambridge Centres" />
-        </div>
-
-        {/* 5. Recognition Timeline */}
-        <div className="acc-timeline-section">
-          <div className="acc-timeline-track">
-            {TIMELINE.map((item, i) => (
-              <div className="acc-timeline-item" key={i}>
-                <div className="acc-timeline-year">{item.year}</div>
-                <div className="acc-timeline-dot" />
-                <div className="acc-timeline-event">{item.event}</div>
-              </div>
-            ))}
-            <div className="acc-timeline-line" />
-          </div>
-        </div>
-
-        {/* 6. Parent Confidence Statement */}
+        {/* Confidence Guarantee Card */}
         <div className="acc-confidence-statement">
-          <div className="acc-shield-icon">🛡️</div>
-          <p>
-            Every programme at Moi Educational Centre is designed to meet nationally approved and internationally 
-            recognized educational standards, giving every learner the confidence to thrive anywhere in the world.
+          <div className="acc-shield-badge">
+            <FaShieldAlt className="acc-shield-icon" style={{ color: '#38bdf8', fontSize: '15px' }} />
+            <span>Our Quality Commitment</span>
+          </div>
+          <h3 className="acc-confidence-title">Empowering Learners with Global Standards</h3>
+          <p className="acc-confidence-desc">
+            Every programme at Moi Educational Centre is carefully designed to meet nationally approved CBC and internationally recognized Cambridge benchmarks—giving every learner the lifelong confidence, character, and intellect to excel anywhere in the world.
           </p>
         </div>
 

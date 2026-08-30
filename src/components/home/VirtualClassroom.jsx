@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import gsap from 'gsap';
 import { Link } from 'react-router-dom';
+import { FaStar, FaBookOpen, FaPen } from 'react-icons/fa';
 import '../../css/virtual-classroom.css';
 
 const boardItems = {
@@ -177,7 +178,7 @@ const VirtualClassroom = () => {
           </div>
         </div>
 
-        <motion.div className="vc-smart-board vc-scene-card" style={sceneStyle} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
+        <Motion.div className="vc-smart-board vc-scene-card" style={sceneStyle} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: 'easeOut' }}>
           <div className="vc-board-top">
             <div>
               <p className="vc-subtitle">Smart board</p>
@@ -220,11 +221,11 @@ const VirtualClassroom = () => {
               </button>
             ))}
           </div>
-        </motion.div>
+        </Motion.div>
 
         <div className="vc-desk-area">
           {deskProfiles.map((desk) => (
-            <motion.button
+            <Motion.button
               key={desk.id}
               type="button"
               className={`vc-desk vc-scene-card ${activeDesk.id === desk.id ? 'active-desk' : ''}`}
@@ -244,20 +245,20 @@ const VirtualClassroom = () => {
                 <span>Progress</span>
                 <strong>{desk.progress}</strong>
               </div>
-            </motion.button>
+            </Motion.button>
           ))}
 
-          <motion.div className="vc-teacher-desk vc-scene-card" initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }}>
+          <Motion.div className="vc-teacher-desk vc-scene-card" initial={{ opacity: 0, y: 26 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }}>
             <div>
               <p className="vc-subtitle">Teacher station</p>
               <h3>Guided, warm and inspiring</h3>
             </div>
             <p>Every lesson blends strong pedagogy, live collaboration and purposeful technology.</p>
             <Link to="/contact" className="vc-teacher-link">Book a classroom tour</Link>
-          </motion.div>
+          </Motion.div>
         </div>
 
-        <motion.aside className="vc-control-panel vc-scene-card" initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.1 }}>
+        <Motion.aside className="vc-control-panel vc-scene-card" initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.1 }}>
           <div className="vc-panel-head">
             <p className="vc-subtitle">Today</p>
             <h3>Class overview</h3>
@@ -279,17 +280,17 @@ const VirtualClassroom = () => {
               <strong>{activeDesk.progress}</strong>
             </div>
           </div>
-        </motion.aside>
+        </Motion.aside>
 
-        <motion.div className="vc-float vc-float-book" animate={{ y: [0, -8, 0], rotate: [0, -1, 0] }} transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}>
-          <span>✦</span>
-        </motion.div>
-        <motion.div className="vc-float vc-float-notebook" animate={{ y: [0, -6, 0], rotate: [0, 2, 0] }} transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}>
-          <span>▤</span>
-        </motion.div>
-        <motion.div className="vc-float vc-float-pen" animate={{ y: [0, -9, 0], rotate: [0, 8, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}>
-          <span>✎</span>
-        </motion.div>
+        <Motion.div className="vc-float vc-float-book" animate={{ y: [0, -8, 0], rotate: [0, -1, 0] }} transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}>
+          <span><FaStar size={14} color="#f59e0b" /></span>
+        </Motion.div>
+        <Motion.div className="vc-float vc-float-notebook" animate={{ y: [0, -6, 0], rotate: [0, 2, 0] }} transition={{ duration: 3.4, repeat: Infinity, ease: 'easeInOut' }}>
+          <span><FaBookOpen size={14} color="#38bdf8" /></span>
+        </Motion.div>
+        <Motion.div className="vc-float vc-float-pen" animate={{ y: [0, -9, 0], rotate: [0, 8, 0] }} transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}>
+          <span><FaPen size={14} color="#a855f7" /></span>
+        </Motion.div>
       </div>
     </section>
   );

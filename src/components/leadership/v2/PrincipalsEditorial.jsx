@@ -1,61 +1,124 @@
-import { leaders } from '../../../data/leaders';
-
-// We map image paths from data/leaders (which are root relative like "/team/wekesa.jpg")
-// to our Vite setup. Ideally, these images are in public/team/ or src/assets/.
-// In the current setup, if they are root relative, they are likely in the public folder.
+import React from "react";
+import { FaGraduationCap, FaQuoteLeft, FaBookReader, FaLaptopCode, FaCheckCircle } from "react-icons/fa";
+import { leaders } from "../../../data/leaders";
 
 const PrincipalsEditorial = () => {
-  const principalSenior = leaders.find(l => l.id === 0);
-  const principalPrimary = leaders.find(l => l.id === 276);
+  const principalPrimary = leaders.find((l) => l.id === 276) || {};
+  const principalSenior = leaders.find((l) => l.id === 0) || {};
 
   return (
-    <>
-      {/* Principal Senior School */}
-      <section className="ldr-phil reveal">
-        <div className="ldr-phil-inner">
-          <div className="ldr-phil-text">
-            <h2 style={{ color: '#fff' }}>{principalSenior.name}</h2>
-            <div className="ldr-chair-title" style={{ marginBottom: '24px' }}>{principalSenior.position}</div>
-            
-            {principalSenior.description.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-          
-          <div className="ldr-phil-img">
-            <img src={principalSenior.image} alt={principalSenior.name} />
-            <div className="ldr-quote-block">
-              <p className="ldr-quote-text">"{principalSenior.quote.text}"</p>
-              <span className="ldr-quote-sig">— {principalSenior.quote.intro.replace(',', '').trim()}</span>
-            </div>
-          </div>
+    <section className="ldr-principals-section" id="principals">
+      <div className="ldr-container">
+        
+        {/* Section Header */}
+        <div className="ldr-section-header">
+          <span className="ldr-eyebrow">EXECUTIVE ACADEMIC LEADERSHIP</span>
+          <h2 className="ldr-section-title">Guiding Academic Excellence</h2>
+          <p className="ldr-section-desc">
+            Experienced instructional leaders championing holistic development from early foundation through senior high school.
+          </p>
         </div>
-      </section>
 
-      {/* Principal Primary & Junior School (Flipped Layout) */}
-      <section className="ldr-phil reveal" style={{ background: '#0A0118', paddingTop: '60px', paddingBottom: '120px' }}>
-        <div className="ldr-phil-inner" style={{ direction: 'rtl' }}>
-          
-          <div className="ldr-phil-text" style={{ direction: 'ltr' }}>
-            <h2 style={{ color: '#fff' }}>{principalPrimary.name}</h2>
-            <div className="ldr-chair-title" style={{ marginBottom: '24px' }}>{principalPrimary.position}</div>
-            
-            {principalPrimary.description.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-
-          <div className="ldr-phil-img" style={{ direction: 'ltr' }}>
-            <img src={principalPrimary.image} alt={principalPrimary.name} />
-            <div className="ldr-quote-block" style={{ right: '-20px', left: '40px' }}>
-              <p className="ldr-quote-text">"{principalPrimary.quote.text}"</p>
-              <span className="ldr-quote-sig">— {principalPrimary.quote.intro.replace(':', '').trim()}</span>
+        {/* ─── 1. Principal: Primary & Junior School ──────────── */}
+        <div className="ldr-principal-editorial-card">
+          <div className="ldr-pe-visual">
+            <div className="ldr-pe-img-box">
+              <img 
+                src={principalPrimary.image} 
+                alt={principalPrimary.name} 
+                className="ldr-pe-img"
+              />
+            </div>
+            <div className="ldr-pe-badge">
+              <FaBookReader />
+              <span>Primary & Junior School</span>
             </div>
           </div>
 
+          <div className="ldr-pe-content">
+            <span className="ldr-pe-tag">PRIMARY & JUNIOR SCHOOL LEADERSHIP</span>
+            <h3 className="ldr-pe-name">{principalPrimary.name}</h3>
+            <p className="ldr-pe-role">{principalPrimary.position}</p>
+
+            <blockquote className="ldr-pe-quote">
+              <FaQuoteLeft className="quote-icon-sm" />
+              "{principalPrimary.quote?.text}"
+            </blockquote>
+
+            <div className="ldr-pe-bio">
+              {principalPrimary.description?.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+
+            <div className="ldr-pe-highlights">
+              <div className="pe-highlight-item">
+                <FaCheckCircle className="check-icon" />
+                <span>20+ Years Educational Sector Experience</span>
+              </div>
+              <div className="pe-highlight-item">
+                <FaCheckCircle className="check-icon" />
+                <span>Trained KNEC Mathematics Examiner</span>
+              </div>
+              <div className="pe-highlight-item">
+                <FaCheckCircle className="check-icon" />
+                <span>Holistic & Values-Based Child Development</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-    </>
+
+        {/* ─── 2. Principal: Senior School (Inverted Layout) ──── */}
+        <div className="ldr-principal-editorial-card inverted">
+          <div className="ldr-pe-content">
+            <span className="ldr-pe-tag senior-tag">SENIOR HIGH SCHOOL LEADERSHIP</span>
+            <h3 className="ldr-pe-name">{principalSenior.name}</h3>
+            <p className="ldr-pe-role">{principalSenior.position}</p>
+
+            <blockquote className="ldr-pe-quote">
+              <FaQuoteLeft className="quote-icon-sm" />
+              "{principalSenior.quote?.text}"
+            </blockquote>
+
+            <div className="ldr-pe-bio">
+              {principalSenior.description?.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+
+            <div className="ldr-pe-highlights">
+              <div className="pe-highlight-item">
+                <FaCheckCircle className="check-icon" />
+                <span>Senior School CBC 3-Pathway Implementation</span>
+              </div>
+              <div className="pe-highlight-item">
+                <FaCheckCircle className="check-icon" />
+                <span>Technology Immersion & Future-Ready Skills</span>
+              </div>
+              <div className="pe-highlight-item">
+                <FaCheckCircle className="check-icon" />
+                <span>Student Mentorship & Global Preparedness</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="ldr-pe-visual">
+            <div className="ldr-pe-img-box">
+              <img 
+                src={principalSenior.image} 
+                alt={principalSenior.name} 
+                className="ldr-pe-img"
+              />
+            </div>
+            <div className="ldr-pe-badge senior-badge">
+              <FaLaptopCode />
+              <span>Senior High School (Grade 10)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   );
 };
 

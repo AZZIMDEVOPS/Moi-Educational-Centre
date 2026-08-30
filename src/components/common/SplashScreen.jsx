@@ -93,16 +93,11 @@ const SplashScreen = ({ onAnimationComplete }) => {
               YEARS
             </text>
             
-            {/* Decorative stars */}
+            {/* Decorative vector stars */}
             <g fill="#d946ef" opacity="0.8">
-              {/* Top star */}
-              <text x="100" y="38" textAnchor="middle" fontSize="14">★</text>
-              {/* Left stars */}
-              <text x="75" y="50" textAnchor="middle" fontSize="10">★</text>
-              <text x="65" y="65" textAnchor="middle" fontSize="8">★</text>
-              {/* Right stars */}
-              <text x="125" y="50" textAnchor="middle" fontSize="10">★</text>
-              <text x="135" y="65" textAnchor="middle" fontSize="8">★</text>
+              <polygon points="100,30 102,35 107,35 103,38 105,43 100,40 95,43 97,38 93,35 98,35" />
+              <polygon points="75,44 76.5,47.5 80,47.5 77,50 78.5,53.5 75,51.5 71.5,53.5 73,50 70,47.5 73.5,47.5" />
+              <polygon points="125,44 126.5,47.5 130,47.5 127,50 128.5,53.5 125,51.5 121.5,53.5 123,50 120,47.5 123.5,47.5" />
             </g>
             
             {/* Bottom accent */}

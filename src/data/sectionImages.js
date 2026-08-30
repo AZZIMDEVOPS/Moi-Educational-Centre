@@ -156,8 +156,8 @@ export const sectionImages = {
     clubs: [
       {
         name: 'Music Academy',
-        image: '/assets/images/clubs/music-academy.jpg',
-        alt: 'Music Academy',
+        image: '/assets/music-tour-2026/vienna-cathedral-interior.jpg',
+        alt: 'MEC Music Academy Europe Tour 2026',
       },
       {
         name: 'Computer Robotics',

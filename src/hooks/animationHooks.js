@@ -11,8 +11,6 @@ export const useBackgroundImage = (imageUrl, options = {}) => {
   const {
     duration = 1,
     delay = 0,
-    overlay = true,
-    overlayColor = 'rgba(46, 19, 46, 0.4)',
     parallax = false,
   } = options;
 

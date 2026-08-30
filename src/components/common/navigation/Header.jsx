@@ -4,12 +4,13 @@ import {
   FaUserCircle, FaMoon, FaSun, FaSearch, FaTimes, FaChevronDown, 
   FaInfoCircle, FaUsers, FaQuoteLeft, FaBriefcase, FaCalendarAlt,
   FaChild, FaBookOpen, FaBrain, FaLaptopCode, FaGraduationCap,
-  FaFileAlt, FaMoneyBillWave, FaFolderOpen, FaQuestionCircle 
+  FaFileAlt, FaMoneyBillWave, FaFolderOpen, FaQuestionCircle, FaStar 
 } from "react-icons/fa";
 import { CgMenu } from "react-icons/cg";
 import logo from "../../../assets/logo.png";
 import imgKids from "../../../assets/kids.jpg";
 import imgSenior from "../../../assets/senior.jpg";
+import { useHeroIntro } from "../../../context/HeroIntroContext";
 import "../../../css/navbar.css";
 
 const Header = () => {
@@ -102,9 +103,12 @@ const Header = () => {
 
   const isHome = pathname === "/";
 
+  // Cinematic intro state: retract header during hero immersion
+  const { isHeaderRetracted = false, skipIntro = null } = useHeroIntro();
+
   return (
     <>
-      <header className={`mec-header${scrolled || !isHome ? " scrolled" : ""}`}>
+      <header className={`mec-header${scrolled || !isHome ? " scrolled" : ""}${isHeaderRetracted ? " header-retracted" : ""}`}>
         <div className="header-inner">
           
           {/* 1. Logo Area */}
@@ -139,10 +143,10 @@ const Header = () => {
               
               <div 
                 id="about-mega-menu"
-                className="mec-mega-menu"
+                className="mec-mega-menu about-mega-menu"
                 data-open={openDropdown === 'about'}
               >
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div className="mega-links-column">
                   <Link to="/about-MEC" className="mega-icon-link" onClick={closeDropdown}>
                     <div className="mega-icon"><FaInfoCircle /></div>
                     <div className="mega-text">
@@ -180,14 +184,18 @@ const Header = () => {
                   </Link>
                 </div>
 
-                <Link to="/about-MEC" className="mega-featured" onClick={closeDropdown}>
-                  <img src={imgSenior} alt="Celebrating 40 Years" />
-                  <div className="mega-featured-overlay" />
-                  <div style={{ position: 'absolute', top: '16px', right: '16px', background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(10px)', padding: '6px 12px', borderRadius: '20px', fontSize: '10px', fontWeight: 'bold', textTransform: 'uppercase', color: '#D8B4FE', border: '1px solid rgba(255,255,255,0.3)' }}>🌟 Celebrating 40 Years</div>
-                  <h5>A Legacy of Excellence</h5>
-                  <p style={{ marginBottom: '12px' }}>Inspiring confident learners and shaping futures since 1986.</p>
-                  <span style={{ fontSize: '13px', fontWeight: 'bold', color: '#A855F7', display: 'flex', alignItems: 'center', gap: '4px' }}>Learn More &rarr;</span>
-                </Link>
+                <div className="mega-featured-column">
+                  <Link to="/about-MEC" className="mega-featured" onClick={closeDropdown}>
+                    <img src={imgSenior} alt="Celebrating 40 Years of Moi Educational Centre" />
+                    <div className="mega-featured-overlay" />
+                    <div className="mega-badge">
+                      <FaStar style={{ color: '#f59e0b', marginRight: 6 }} /> Celebrating 40 Years
+                    </div>
+                    <h5>A Legacy of Excellence</h5>
+                    <p>Inspiring confident learners and shaping futures since 1986.</p>
+                    <span className="mega-cta-link">Learn More &rarr;</span>
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -215,48 +223,45 @@ const Header = () => {
                 className="mec-mega-menu edu-mega-menu"
                 data-open={openDropdown === 'education'}
               >
-                <div style={{ display: 'grid', gridTemplateColumns: '60% 40%', gap: '28px', width: '100%' }}>
-                  
-                  {/* Left Column - Programmes (Structured Single Edge Alignment) */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
-                    <Link to="/education/CBC/pre-primary" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('pre')}>
-                      <div className="mega-icon"><FaChild /></div>
-                      <div className="mega-text">
-                        <span className="mega-title">Pre-Primary</span>
-                        <span className="mega-desc">A nurturing foundation through play-based learning and early childhood development.</span>
-                      </div>
-                    </Link>
-                    <Link to="/education/CBC/lower-primary" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('lower')}>
-                      <div className="mega-icon"><FaBookOpen /></div>
-                      <div className="mega-text">
-                        <span className="mega-title">Lower Primary</span>
-                        <span className="mega-desc">Building literacy, numeracy, creativity, and confidence through engaging learning experiences.</span>
-                      </div>
-                    </Link>
-                    <Link to="/education/CBC/upper-primary" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('upper')}>
-                      <div className="mega-icon"><FaBrain /></div>
-                      <div className="mega-text">
-                        <span className="mega-title">Upper Primary</span>
-                        <span className="mega-desc">Developing independent learners with strong academic and leadership foundations.</span>
-                      </div>
-                    </Link>
-                    <Link to="/education/CBC/junior-school" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('junior')}>
-                      <div className="mega-icon"><FaLaptopCode /></div>
-                      <div className="mega-text">
-                        <span className="mega-title">Junior School</span>
-                        <span className="mega-desc">Preparing students for future success through innovation, STEM, and holistic education.</span>
-                      </div>
-                    </Link>
-                    <Link to="/education/CBC/senior-school" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('senior')}>
-                      <div className="mega-icon"><FaGraduationCap /></div>
-                      <div className="mega-text">
-                        <span className="mega-title">Senior School</span>
-                        <span className="mega-desc">Empowering learners for university, careers, and global citizenship.</span>
-                      </div>
-                    </Link>
-                  </div>
+                <div className="mega-links-column">
+                  <Link to="/education/CBC/pre-primary" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('pre')}>
+                    <div className="mega-icon"><FaChild /></div>
+                    <div className="mega-text">
+                      <span className="mega-title">Pre-Primary</span>
+                      <span className="mega-desc">A nurturing foundation through play-based learning and early childhood development.</span>
+                    </div>
+                  </Link>
+                  <Link to="/education/CBC/lower-primary" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('lower')}>
+                    <div className="mega-icon"><FaBookOpen /></div>
+                    <div className="mega-text">
+                      <span className="mega-title">Lower Primary</span>
+                      <span className="mega-desc">Building literacy, numeracy, creativity, and confidence through engaging learning experiences.</span>
+                    </div>
+                  </Link>
+                  <Link to="/education/CBC/upper-primary" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('upper')}>
+                    <div className="mega-icon"><FaBrain /></div>
+                    <div className="mega-text">
+                      <span className="mega-title">Upper Primary</span>
+                      <span className="mega-desc">Developing independent learners with strong academic and leadership foundations.</span>
+                    </div>
+                  </Link>
+                  <Link to="/education/CBC/junior-school" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('junior')}>
+                    <div className="mega-icon"><FaLaptopCode /></div>
+                    <div className="mega-text">
+                      <span className="mega-title">Junior School</span>
+                      <span className="mega-desc">Preparing students for future success through innovation, STEM, and holistic education.</span>
+                    </div>
+                  </Link>
+                  <Link to="/education/CBC/senior-school" className="mega-icon-link" onClick={closeDropdown} onMouseEnter={() => setHoveredProgram('senior')}>
+                    <div className="mega-icon"><FaGraduationCap /></div>
+                    <div className="mega-text">
+                      <span className="mega-title">Senior School</span>
+                      <span className="mega-desc">Empowering learners for university, careers, and global citizenship.</span>
+                    </div>
+                  </Link>
+                </div>
 
-                  {/* Right Column - Dynamic Feature Card */}
+                <div className="mega-featured-column">
                   <Link 
                     to={`/education/CBC/${
                       hoveredProgram === 'pre' ? 'pre-primary' : 
@@ -278,6 +283,7 @@ const Header = () => {
                       alt="Featured Programme" 
                     />
                     <div className="mega-featured-overlay" />
+                    <div className="mega-badge">Academic Pathway</div>
                     <h5>
                       {hoveredProgram === 'pre' ? 'Pre-Primary Education' : 
                        hoveredProgram === 'lower' ? 'Lower Primary Education' : 
@@ -285,16 +291,15 @@ const Header = () => {
                        hoveredProgram === 'junior' ? 'Junior School Education' : 
                        'Senior School Education'}
                     </h5>
-                    <p style={{ marginBottom: '12px' }}>
+                    <p>
                       {hoveredProgram === 'pre' ? 'A joyful beginning.' : 
                        hoveredProgram === 'lower' ? 'Building confidence.' : 
                        hoveredProgram === 'upper' ? 'Fostering independence.' : 
                        hoveredProgram === 'junior' ? 'Preparing for the future.' : 
                        'Empowering leaders.'}
                     </p>
-                    <span style={{ fontSize: '13px', fontWeight: 'bold', color: '#A855F7', display: 'flex', alignItems: 'center', gap: '4px' }}>Explore Programme &rarr;</span>
+                    <span className="mega-cta-link">Explore Programme &rarr;</span>
                   </Link>
-
                 </div>
               </div>
             </div>
@@ -368,12 +373,6 @@ const Header = () => {
               </NavLink>
             </div>
             
-            <div className="mec-nav-item">
-              <NavLink to="/portal/students" className={({ isActive }) => `mec-nav-link${isActive ? " active" : ""}`} onClick={closeDropdown}>
-                Portal
-              </NavLink>
-            </div>
-
           </nav>
 
           {/* 3. Actions Container */}

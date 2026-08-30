@@ -1,26 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaGraduationCap, FaGlobeAmericas, FaLightbulb, FaHandsHelping } from "react-icons/fa";
 import aboutImg from "../../assets/about2.jpg";
 import "../../css/about-v3.css";
 
 const HIGHLIGHTS = [
   {
-    icon: "🎓",
+    Icon: FaGraduationCap,
     title: "Academic Excellence",
     desc: "A globally acclaimed curriculum delivering outstanding results."
   },
   {
-    icon: "🌍",
+    Icon: FaGlobeAmericas,
     title: "Global Learning",
     desc: "Preparing students for success in an ever-changing world."
   },
   {
-    icon: "💡",
+    Icon: FaLightbulb,
     title: "Innovation & Technology",
     desc: "Future-ready learning with modern STEM integration."
   },
   {
-    icon: "🤝",
+    Icon: FaHandsHelping,
     title: "Character & Leadership",
     desc: "Nurturing resilience, integrity, and lifelong leadership skills."
   }
@@ -78,7 +79,9 @@ const AboutSection = () => {
               <div className="about-highlights">
                 {HIGHLIGHTS.map((hl, idx) => (
                   <div className="about-hl-card" key={idx}>
-                    <div className="about-hl-icon">{hl.icon}</div>
+                    <div className="about-hl-icon">
+                      <hl.Icon style={{ fontSize: '18px', color: '#38bdf8' }} />
+                    </div>
                     <h4>{hl.title}</h4>
                     <p>{hl.desc}</p>
                   </div>

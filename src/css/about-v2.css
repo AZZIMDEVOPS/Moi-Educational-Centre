@@ -6,8 +6,8 @@
 @import url('./design-tokens.css');
 
 .about-page {
-  background: #050816;
-  color: #fff;
+  background: #ffffff;
+  color: #0f172a;
   overflow-x: hidden;
 }
 
@@ -175,10 +175,10 @@
 
 
 /* ─── 3. Our Story (Split Layout) ───────────────────────── */
-.abt-story { padding: 120px var(--padding-x); background: #050816; }
+.abt-story { padding: 120px var(--padding-x); background: #ffffff; }
 .abt-story-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
-.abt-story-text h2 { font-family: 'Poppins', sans-serif; font-size: 42px; margin-bottom: 24px; }
-.abt-story-text p { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+.abt-story-text h2 { font-family: 'Poppins', sans-serif; font-size: 42px; margin-bottom: 24px; color: #0f172a; }
+.abt-story-text p { font-size: 16px; line-height: 1.8; color: #64748b; margin-bottom: 24px; }
 .abt-story-images { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; }
 .abt-story-img-main { grid-column: 1 / 3; height: 340px; border-radius: 24px; overflow: hidden; }
 .abt-story-img-sub { height: 220px; border-radius: 24px; overflow: hidden; }
@@ -187,28 +187,29 @@
 
 
 /* ─── 4. Vision & Values (Cards) ────────────────────────── */
-.abt-values { padding: 120px var(--padding-x); background: linear-gradient(180deg, #050816 0%, #12022A 100%); }
+.abt-values { padding: 120px var(--padding-x); background: #f8fafc; }
 .abt-values-grid { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
 .abt-val-card {
-  background: rgba(255,255,255,0.03);    border: 1px solid rgba(255,255,255,0.08);
+  background: #ffffff;    border: 1px solid #e2e8f0;
   border-radius: 24px; padding: 40px; transition: all 0.4s ease; text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
-.abt-val-card:hover { transform: translateY(-10px); border-color: rgba(168,85,247,0.4); background: rgba(255,255,255,0.06); }
+.abt-val-card:hover { transform: translateY(-10px); border-color: rgba(168,85,247,0.4); background: #ffffff; box-shadow: 0 12px 30px rgba(168,85,247,0.1); }
 .abt-val-icon { font-size: 32px; color: #3B82F6; margin-bottom: 24px; }
-.abt-val-card h3 { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 16px; }
-.abt-val-card p { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.7; }
+.abt-val-card h3 { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 16px; color: #0f172a; }
+.abt-val-card p { font-size: 15px; color: #64748b; line-height: 1.7; }
 
 
 /* ─── 5. Leadership (Profile Cards) ─────────────────────── */
-.abt-leaders { padding: 120px var(--padding-x); background: #050816; }
+.abt-leaders { padding: 120px var(--padding-x); background: #ffffff; }
 .abt-leaders-grid { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
-.abt-leader-card { position: relative; border-radius: 24px; overflow: hidden; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); }
+.abt-leader-card { position: relative; border-radius: 24px; overflow: hidden; background: #ffffff; border: 1px solid #e2e8f0; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
 .abt-leader-img { width: 100%; height: 380px; overflow: hidden; }
-.abt-leader-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); transition: filter 0.5s, transform 0.5s; }
+.abt-leader-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(10%); transition: filter 0.5s, transform 0.5s; }
 .abt-leader-card:hover .abt-leader-img img { filter: grayscale(0%); transform: scale(1.05); }
 .abt-leader-info { padding: 24px; text-align: center; }
-.abt-leader-info h3 { font-family: 'Poppins', sans-serif; font-size: 24px; margin-bottom: 4px; }
-.abt-leader-info p { font-family: var(--font-body); font-size: 13px; color: #A855F7; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+.abt-leader-info h3 { font-family: 'Poppins', sans-serif; font-size: 24px; margin-bottom: 4px; color: #0f172a; }
+.abt-leader-info p { font-family: var(--font-body); font-size: 13px; color: #7C3AED; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
 
 
 /* ─── 6. Why Choose MEC (Creative Bento Grid - Light Mode White Background) ─── */
@@ -491,7 +492,7 @@
 
 
 /* ─── 7. Campus Gallery (Masonry) ───────────────────────── */
-.abt-gallery { padding: 120px var(--padding-x); background: #050816; }
+.abt-gallery { padding: 120px var(--padding-x); background: #ffffff; }
 .abt-masonry { max-width: var(--max-width); margin: 0 auto; columns: 3 300px; column-gap: 24px; }
 .abt-masonry-item { position: relative; margin-bottom: 24px; border-radius: 20px; overflow: hidden; break-inside: avoid; }
 .abt-masonry-item img { width: 100%; display: block; transition: transform 0.5s; }
@@ -499,14 +500,14 @@
 
 
 /* ─── 8. Stats & Accreditations ─────────────────────────── */
-.abt-stats { padding: 120px var(--padding-x); background: linear-gradient(135deg, #12022A 0%, #050816 100%); }
+.abt-stats { padding: 120px var(--padding-x); background: #f8fafc; }
 .abt-stats-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
 .abt-stat-num { font-family: 'Poppins', sans-serif; font-size: 64px; font-weight: 800; background: linear-gradient(135deg, #A855F7, #3B82F6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
-.abt-stat-label { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em; }
+.abt-stat-label { font-size: 15px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }
 
 
 /* ─── 9. Student Life Showcase (Horizontal Scroll) ──────── */
-.abt-life { padding: 120px 0; background: #050816; overflow: hidden; }
+.abt-life { padding: 120px 0; background: #ffffff; overflow: hidden; }
 .abt-life-track { display: flex; gap: 24px; padding: 0 var(--padding-x); overflow-x: auto; scroll-snap-type: x mandatory; -ms-overflow-style: none; }
 .abt-life-track::-webkit-scrollbar { display: none; }
 .abt-life-card { flex: 0 0 350px; height: 450px; scroll-snap-align: center; border-radius: 24px; position: relative; overflow: hidden; }
@@ -515,19 +516,19 @@
 
 
 /* ─── 10. Testimonials Carousel ─────────────────────────── */
-.abt-testimonials { padding: 120px var(--padding-x); background: #0A0118; text-align: center; }
+.abt-testimonials { padding: 120px var(--padding-x); background: #f8fafc; text-align: center; }
 .abt-test-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-.abt-test-card { background: rgba(255,255,255,0.03); padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }
-.abt-test-quote { font-style: italic; color: rgba(255,255,255,0.8); margin-bottom: 24px; line-height: 1.7; }
-.abt-test-author { font-weight: 700; color: #fff; }
+.abt-test-card { background: #ffffff; padding: 40px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
+.abt-test-quote { font-style: italic; color: #64748b; margin-bottom: 24px; line-height: 1.7; }
+.abt-test-author { font-weight: 700; color: #0f172a; }
 
 
 /* ─── 11. FAQ Accordion ─────────────────────────────────── */
-.abt-faq { padding: 120px var(--padding-x); background: #050816; }
+.abt-faq { padding: 120px var(--padding-x); background: #ffffff; }
 .abt-faq-inner { max-width: 800px; margin: 0 auto; }
-.abt-faq-item { border-bottom: 1px solid rgba(255,255,255,0.1); padding: 24px 0; cursor: pointer; }
-.abt-faq-q { font-family: var(--font-body); font-size: 18px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
-.abt-faq-a { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-top: 16px; display: none; }
+.abt-faq-item { border-bottom: 1px solid #e2e8f0; padding: 24px 0; cursor: pointer; }
+.abt-faq-q { font-family: var(--font-body); font-size: 18px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; color: #0f172a; }
+.abt-faq-a { font-size: 15px; color: #64748b; line-height: 1.7; margin-top: 16px; display: none; }
 .abt-faq-item.open .abt-faq-a { display: block; }
 
 

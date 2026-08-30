@@ -8,14 +8,23 @@
 }
 
 :root {
-      --main-color: #8e44ad;
+      --main-color: #0F3D91;
+      --main-blue: #0F3D91;
+      --main-blue-mid: #1B48B8;
+      --main-blue-light: #2563EB;
+      --main-purple: #8E44AD;
+      --main-purple-light: #A855F7;
+      --main-purple-accent: #C77DFF;
       --font: "Poppins", sans-serif;
-      --bg-color: #2e132e;
+      --bg-color: #ffffff;
+      --grad-brand: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #8E44AD 100%);
+      --grad-royal: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #2563EB 100%);
+      --grad-purple: linear-gradient(135deg, #8E44AD 0%, #A855F7 100%);
 }
 
 body {
       font-family: 'Poppins', sans-serif;
-      background-color: #fdf8ff;
+      background-color: #ffffff;
 }
 
 a,

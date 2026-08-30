@@ -7,10 +7,10 @@
 
 .student-life-v2 {
   position: relative;
-  background: #050816;
+  background: #ffffff;
   padding: 120px 0;
   overflow: hidden;
-  color: #fff;
+  color: #0f172a;
 }
 
 /* Ambient Glows */
@@ -23,8 +23,8 @@
   pointer-events: none;
   z-index: 1;
 }
-.life-ambient-glow.left { top: 10%; left: -200px; background: #6C2BD9; }
-.life-ambient-glow.right { bottom: 10%; right: -200px; background: #0F3D91; }
+.life-ambient-glow.left { top: 10%; left: -200px; background: rgba(108,43,217,0.08); }
+.life-ambient-glow.right { bottom: 10%; right: -200px; background: rgba(15,61,145,0.06); }
 
 /* ─── 1. Header ─────────────────────────────────────────── */
 .life-header {
@@ -51,12 +51,13 @@
 .life-gradient {
   background: linear-gradient(135deg, #A855F7 0%, #3B82F6 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .life-sub {
   font-family: var(--font-body);
   font-size: 18px;
-  color: rgba(255,255,255,0.7);
+  color: #64748b;
   line-height: 1.6;
 }
 
@@ -70,9 +71,9 @@
   gap: 40px;
   margin-bottom: 80px;
   padding: 32px;
-  background: rgba(255,255,255,0.03);
+  background: #f8fafc;
     
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid #e2e8f0;
   border-radius: 24px;
 }
 .life-stat-box { text-align: center; }
@@ -80,14 +81,14 @@
   font-family: var(--font-display);
   font-size: 36px;
   font-weight: 800;
-  color: #fff;
+  color: #0f172a;
   margin-bottom: 8px;
 }
 .life-stat-label {
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
-  color: rgba(168,85,247,0.9);
+  color: #7C3AED;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -115,8 +116,8 @@
   overflow: hidden;
   cursor: pointer;
   background: #111;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  border: 1px solid #e2e8f0;
 }
 
 .bento-bg-wrap {
@@ -216,69 +217,190 @@
 }
 
 /* ─── 4. Experience Carousel ────────────────────────────── */
-.life-section-title {
-  font-family: var(--font-display);
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 32px;
-}
-.text-center { text-align: center; }
-
-.life-experience-section {
-  position: relative;
-  z-index: 10;
-  margin-bottom: 120px;
-}
-.life-horizontal-scroll {
-  width: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Firefox */
-  padding-bottom: 20px;
-}
-.life-horizontal-scroll::-webkit-scrollbar { display: none; } /* Chrome */
-.life-carousel-track {
+/* ─── 4. Experience Carousel (Right-to-Left Infinite Animation) ───── */
+.life-exp-header-row {
   display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
   gap: 20px;
-  padding: 0 var(--padding-x); /* align to grid */
-  width: max-content;
 }
-.life-carousel-slide {
-  width: 600px;
-  height: 400px;
-  scroll-snap-align: center;
-  border-radius: 24px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.05);
+
+.life-exp-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.life-carousel-slide img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s ease;
+
+.life-ctrl-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(15, 61, 145, 0.08);
+  border: 1px solid rgba(15, 61, 145, 0.2);
+  color: #0F3D91;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.25s ease;
 }
-.life-carousel-slide:hover img {
+
+.life-ctrl-btn:hover {
+  background: #0F3D91;
+  color: #FFFFFF;
   transform: scale(1.05);
 }
-.slide-content {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+
+.life-ctrl-btn.active {
+  background: #0F3D91;
+  color: #FFFFFF;
+}
+
+.life-marquee-container {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  position: relative;
+}
+
+.life-marquee-container::-webkit-scrollbar {
+  display: none;
+}
+
+.life-marquee-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  padding: 10px 24px 30px;
+}
+
+/* Continuous Right to Left Movement Animation */
+.life-marquee-container.is-playing .life-marquee-track {
+  animation: experienceMarqueeLeft 40s linear infinite;
+}
+
+.life-marquee-container:hover .life-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes experienceMarqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.life-experience-card {
+  width: 440px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 10px 25px rgba(15, 61, 145, 0.06);
+  text-decoration: none;
+  color: inherit;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 40px;
+  flex-shrink: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.slide-content h4 {
+
+.life-experience-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 61, 145, 0.15);
+  border-color: #CBD5E1;
+}
+
+.exp-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #0F172A;
+}
+
+.exp-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.life-experience-card:hover .exp-img-wrap img {
+  transform: scale(1.08);
+}
+
+.exp-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.7) 100%);
+}
+
+.exp-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(15, 61, 145, 0.9);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.exp-content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.exp-content h4 {
   font-family: var(--font-display);
-  font-size: 32px;
-  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0 0 6px;
 }
-.slide-content p {
-  font-size: 16px;
-  color: #D8B4FE;
-  margin: 0;
+
+.exp-content p {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: #64748B;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.exp-arrow {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #0F3D91;
+  transition: gap 0.2s ease;
+}
+
+.life-experience-card:hover .exp-arrow {
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .life-experience-card {
+    width: 300px;
+  }
+  .exp-img-wrap {
+    height: 180px;
+  }
 }
 
 /* ─── 5. Timeline ───────────────────────────────────────── */

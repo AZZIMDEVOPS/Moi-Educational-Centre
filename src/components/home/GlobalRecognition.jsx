@@ -5,11 +5,10 @@ import CountUp from 'react-countup';
 
 import cambridgeLogo from '../../assets/cambridge.png';
 import pearsonLogo from '../../assets/pearson.png';
-import nccLogo from '../../assets/ncc.png';
 import kaisLogo from '../../assets/kais.png';
 import edexcelLogo from '../../assets/edexcel.png';
 import abrsmLogo from '../../assets/abrsm.gif';
-import ministryLogo from '../../assets/ministry-of-education.jpg';
+import kenyaGovSeal from '../../assets/kenya-government-seal.svg';
 import '../../css/global-recognition.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,10 +22,10 @@ const accreditations = [
     statusColor: '#10B981',
   },
   {
-    logo: ministryLogo,
+    logo: kenyaGovSeal,
     isFullColor: true,
-    name: 'Ministry of Education',
-    desc: 'Approved and registered by the Ministry of Education to deliver the Kenya Competency-Based Curriculum (CBC).',
+    name: 'Ministry of Education (CBC)',
+    desc: 'Approved and registered by the Republic of Kenya Ministry of Education to deliver the Competency-Based Curriculum.',
     status: 'APPROVED',
     statusColor: '#3B82F6',
   },
@@ -48,7 +47,7 @@ const accreditations = [
 
 const TRUST_LOGOS = [
   { src: cambridgeLogo, alt: 'Cambridge International Education', label: 'Cambridge Assessment' },
-  { src: ministryLogo, alt: 'Republic of Kenya Ministry of Education', isColor: true, label: 'Ministry of Education' },
+  { src: kenyaGovSeal, alt: 'Republic of Kenya Ministry of Education', isColor: true, label: 'Ministry of Education (CBC)' },
   { src: kaisLogo, alt: 'Kenya Association of International Schools', label: 'KAIS International' },
   { src: abrsmLogo, alt: 'ABRSM Music Examination Board', label: 'ABRSM Music' },
   { src: pearsonLogo, alt: 'Pearson Qualifications', label: 'Pearson Academic' },

@@ -1,20 +1,34 @@
-import { useState, useEffect } from 'react';
-import { FaBrain, FaFire, FaArrowRight, FaSpinner } from 'react-icons/fa';
+import { useState } from 'react';
+import { 
+  FaBrain, 
+  FaFire, 
+  FaArrowRight, 
+  FaSpinner, 
+  FaRobot, 
+  FaLaptopCode, 
+  FaSeedling, 
+  FaPenNib, 
+  FaPalette, 
+  FaTheaterMasks, 
+  FaUsers, 
+  FaGlobeAmericas, 
+  FaHandshake, 
+  FaMicroscope 
+} from 'react-icons/fa';
 import { useLanguage } from '../../context/LanguageContext';
 
 const AIContentDiscovery = () => {
     const { language } = useLanguage();
     const [recommendations, setRecommendations] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [interestKey, setInterestKey] = useState(null);
 
     const t = language === 'en' ? {
-        title: "🧠 AI-Powered Content Discovery",
+        title: "AI-Powered Content Discovery",
         subtitle: "Curated articles & insights powered by vector AI",
         noData: "Browse & interact with content to get AI recommendations",
         loadMore: "Load More Recommendations"
     } : {
-        title: "🧠 Uvunjaji wa Maudhui wa AI",
+        title: "Uvunjaji wa Maudhui wa AI",
         subtitle: "Nakala na maelezo yaliyo na AI",
         noData: "Tafuta maudhui ili kupata mapendekezo ya AI",
         loadMore: "Pakia Mapendekezo Zaidi"
@@ -27,7 +41,7 @@ const AIContentDiscovery = () => {
                 category: 'STEM',
                 title: language === 'en' ? 'The Future of Robotics at MEC' : 'Mustakabali wa Robotiki',
                 excerpt: language === 'en' ? 'Discover how our robotics lab is shaping tomorrow\'s innovators...' : 'Gundua jinsi lab yetu ina kubadilisha wabunifu...',
-                image: '🤖',
+                Icon: FaRobot,
                 relevance: 98
             },
             {
@@ -35,7 +49,7 @@ const AIContentDiscovery = () => {
                 category: 'Technology',
                 title: language === 'en' ? 'Coding Bootcamp Success Stories' : 'Hadithi za Bootcamp ya Kuandika',
                 excerpt: language === 'en' ? 'Meet our students who landed tech internships...' : 'Utambulane na wanafunzi wenye ajira...',
-                image: '💻',
+                Icon: FaLaptopCode,
                 relevance: 95
             },
             {
@@ -43,7 +57,7 @@ const AIContentDiscovery = () => {
                 category: 'Science',
                 title: language === 'en' ? 'Climate Change Research Initiative' : 'Mradi wa Utafiti wa Mabadiliko ya Tabia',
                 excerpt: language === 'en' ? 'Join our environmental science projects...' : 'Jiunge na miradi ya sayansi...',
-                image: '🌱',
+                Icon: FaSeedling,
                 relevance: 92
             }
         ],
@@ -53,7 +67,7 @@ const AIContentDiscovery = () => {
                 category: 'Arts',
                 title: language === 'en' ? 'Creative Writing Masterclass' : 'Masomo Makubwa ya Kuandika Kwa Ujinga',
                 excerpt: language === 'en' ? 'Improve your storytelling and literary skills...' : 'Boresha ujuzi wako wa hadithi...',
-                image: '✍️',
+                Icon: FaPenNib,
                 relevance: 97
             },
             {
@@ -61,7 +75,7 @@ const AIContentDiscovery = () => {
                 category: 'Culture',
                 title: language === 'en' ? 'Digital Arts & Design Program' : 'Programu ya Sanaa Dijitali',
                 excerpt: language === 'en' ? 'Learn design thinking from industry experts...' : 'Jifunze muundo kutoka kwa wataalamu...',
-                image: '🎨',
+                Icon: FaPalette,
                 relevance: 94
             },
             {
@@ -69,7 +83,7 @@ const AIContentDiscovery = () => {
                 category: 'Performance',
                 title: language === 'en' ? 'Theater Production Opportunities' : 'Fursa za Kutengeneza Tamthilia',
                 excerpt: language === 'en' ? 'Audition for our upcoming school productions...' : 'Jaribu kwa ajili ya mifumo...',
-                image: '🎭',
+                Icon: FaTheaterMasks,
                 relevance: 90
             }
         ],
@@ -79,7 +93,7 @@ const AIContentDiscovery = () => {
                 category: 'Leadership',
                 title: language === 'en' ? 'Student Leadership Forum 2026' : 'Jukumuu la Uongozi wa Wanafunzi',
                 excerpt: language === 'en' ? 'Develop your leadership potential with mentors...' : 'Kusambaza uongozi wako...',
-                image: '👥',
+                Icon: FaUsers,
                 relevance: 96
             },
             {
@@ -87,7 +101,7 @@ const AIContentDiscovery = () => {
                 category: 'Global',
                 title: language === 'en' ? 'International Exchange Programs' : 'Programu za Ubadala wa Kimataifa',
                 excerpt: language === 'en' ? 'Study abroad and build global networks...' : 'Soma nje na kujenga mtandao...',
-                image: '🌐',
+                Icon: FaGlobeAmericas,
                 relevance: 93
             },
             {
@@ -95,7 +109,7 @@ const AIContentDiscovery = () => {
                 category: 'Development',
                 title: language === 'en' ? 'Conflict Resolution & Mediation Skills' : 'Ujuzi wa Kutatua Ubishi',
                 excerpt: language === 'en' ? 'Master communication and negotiation...' : 'Kuwa na ujuzi wa kuwasiliana...',
-                image: '🤝',
+                Icon: FaHandshake,
                 relevance: 89
             }
         ]
@@ -103,7 +117,6 @@ const AIContentDiscovery = () => {
 
     const generateRecommendations = (category) => {
         setLoading(true);
-        setInterestKey(category);
         
         // Simulate AI processing
         setTimeout(() => {
@@ -127,21 +140,21 @@ const AIContentDiscovery = () => {
                         className="interest-btn stem"
                         onClick={() => generateRecommendations('stem')}
                     >
-                        <span className="emoji">🔬</span>
+                        <span className="emoji"><FaMicroscope /></span>
                         <span>{language === 'en' ? 'STEM & Tech' : 'STEM na Tech'}</span>
                     </button>
                     <button 
                         className="interest-btn arts"
                         onClick={() => generateRecommendations('arts')}
                     >
-                        <span className="emoji">🎨</span>
+                        <span className="emoji"><FaPalette /></span>
                         <span>{language === 'en' ? 'Arts & Culture' : 'Sanaa na Utamaduni'}</span>
                     </button>
                     <button 
                         className="interest-btn leadership"
                         onClick={() => generateRecommendations('leadership')}
                     >
-                        <span className="emoji">👥</span>
+                        <span className="emoji"><FaUsers /></span>
                         <span>{language === 'en' ? 'Leadership' : 'Uongozi'}</span>
                     </button>
                 </div>
@@ -169,7 +182,9 @@ const AIContentDiscovery = () => {
                     <div className="content-cards">
                         {recommendations.map(content => (
                             <div key={content.id} className="content-card">
-                                <div className="card-image">{content.image}</div>
+                                <div className="card-image" style={{ fontSize: '24px', color: '#38bdf8' }}>
+                                    <content.Icon />
+                                </div>
                                 <div className="card-content">
                                     <span className="card-category">{content.category}</span>
                                     <h5>{content.title}</h5>
@@ -191,7 +206,6 @@ const AIContentDiscovery = () => {
                             className="reset-discovery-btn"
                             onClick={() => {
                                 setRecommendations([]);
-                                setInterestKey(null);
                             }}
                         >
                             {language === 'en' ? '← Different interests?' : '← Maslahi mengine?'}

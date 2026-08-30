@@ -288,16 +288,17 @@ export const UPCOMING_EXAMS = [
 ];
 
 export const STUDENT_ACHIEVEMENTS = [
-  { id: 'ACH-1', title: 'World Scholar\'s Cup Global Qualifier', category: 'Debate & Academics', date: 'Feb 2026', badge: '🥇 Gold Medalist', desc: 'Ranked Top 3 overall scholar team in Nairobi Regional Round. Qualified for Kuala Lumpur Global Round.' },
-  { id: 'ACH-2', title: 'ABRSM Grade 2 Piano Distinction', category: 'Music Academy', date: 'Nov 2025', badge: '🎵 Distinction', desc: 'Scored 138/150 in the Associated Board of the Royal Schools of Music practical examination.' },
-  { id: 'ACH-3', title: 'Inter-House Swimming Gala Champion', category: 'Sports', date: 'Oct 2025', badge: '🏊 1st Place', desc: 'Gold Medal in 50m Butterfly & 4x50m Medley Relay representing Chemelil House.' },
-  { id: 'ACH-4', title: 'MEC STEM Robotics Innovator Award', category: 'Innovation', date: 'Jul 2025', badge: '🤖 Top Project', desc: 'Built an automated solar tracking circuit model during MEC Innovation Week.' },
+  { id: 'ACH-0', title: 'MEC Music Academy Europe Tour 2026 (Vienna)', category: 'Music & International Tours', date: 'Aug 2026', badge: 'Europe Tour 2026', desc: 'Selected for the prestigious MEC Music Academy International Tour to Vienna, Austria — performing at St. Stephen\'s Cathedral and attending conservatory masterclasses.' },
+  { id: 'ACH-1', title: 'World Scholar\'s Cup Global Qualifier', category: 'Debate & Academics', date: 'Feb 2026', badge: 'Gold Medalist', desc: 'Ranked Top 3 overall scholar team in Nairobi Regional Round. Qualified for Kuala Lumpur Global Round.' },
+  { id: 'ACH-2', title: 'ABRSM Grade 2 Piano Distinction', category: 'Music Academy', date: 'Nov 2025', badge: 'Distinction', desc: 'Scored 138/150 in the Associated Board of the Royal Schools of Music practical examination.' },
+  { id: 'ACH-3', title: 'Inter-House Swimming Gala Champion', category: 'Sports', date: 'Oct 2025', badge: '1st Place', desc: 'Gold Medal in 50m Butterfly & 4x50m Medley Relay representing Chemelil House.' },
+  { id: 'ACH-4', title: 'MEC STEM Robotics Innovator Award', category: 'Innovation', date: 'Jul 2025', badge: 'Top Project', desc: 'Built an automated solar tracking circuit model during MEC Innovation Week.' },
 ];
 
 export const STUDENT_CLUBS = [
+  { name: 'MEC Music Academy (Europe Tour 2026)', category: 'Arts & Music', patron: 'Music Conservatory Faculty', meeting: 'Tuesdays & Thursdays 03:30 PM - 05:00 PM', venue: 'Music Studio A & Concert Hall', status: 'Tour Delegate' },
   { name: 'World Scholar\'s Cup Club', category: 'Academic & Debate', patron: 'Mr. Richard Thorne', meeting: 'Wednesdays 03:30 PM - 05:00 PM', venue: 'Main Auditorium', status: 'Active Member' },
   { name: 'MEC Robotics & STEM Society', category: 'Technology', patron: 'Eng. Kevin Otieno', meeting: 'Thursdays 03:30 PM - 05:00 PM', venue: 'Innovation Lab 1', status: 'Active Member' },
-  { name: 'MEC Music Academy (Piano Ensemble)', category: 'Arts & Music', patron: 'Mr. Philip Musyoka', meeting: 'Tuesdays 03:30 PM - 04:30 PM', venue: 'Music Studio A', status: 'Active Member' },
   { name: 'Swimming & Aquatics Squad', category: 'Sports', patron: 'Coach Brian', meeting: 'Mondays & Fridays 04:00 PM', venue: 'Aquatics Complex', status: 'Team Captain' }
 ];
 

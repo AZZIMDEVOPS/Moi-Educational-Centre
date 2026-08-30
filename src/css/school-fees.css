@@ -1,135 +1,1162 @@
 /* =============================================================
-   MEC SCHOOL FEES PAGE — Premium Financial Experience
+   MEC SCHOOL FEES 2026 — Official High-Contrast Redesign
+   Typography: Poppins
+   Colors: Official MEC Royal Blue (#0F3D91) & Future-Ready Purple (#8E44AD)
    ============================================================= */
 
 @import url('./design-tokens.css');
 
 .school-fees-page {
-  background: #050816;
-  color: #fff;
+  background: #ffffff;
+  color: #0f172a;
   overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* ─── 1. Premium Hero ───────────────────────────────────── */
+.fees-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── 1. Hero Section ─────────────────────────────────────── */
 .fees-hero {
-  position: relative; width: 100%; height: 60vh; min-height: 500px;
-  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 140px 24px 70px;
+  box-sizing: border-box;
 }
+
 .fees-hero-bg {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  filter: brightness(0.5) saturate(1.2); transform: scale(1.1);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.48) saturate(1.2);
+  transform: scale(1.02);
 }
+
 .fees-hero-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(10,1,24,0.95) 0%, rgba(15,61,145,0.85) 100%);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 61, 145, 0.85) 0%, rgba(10, 15, 35, 0.94) 100%);
   z-index: 1;
 }
-.fees-hero-content {
-  position: relative; z-index: 10; text-align: center;
-  max-width: 900px; padding: 0 var(--padding-x);
-}
-.fees-badge {
-  display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px;
-  background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.3);
-    border-radius: 999px; font-size: 13px; font-weight: bold;
-  color: #D8B4FE; margin-bottom: 24px; letter-spacing: 0.05em; text-transform: uppercase;
-}
-.fees-hero-title {
-  font-family: 'Poppins', sans-serif; font-size: clamp(40px, 5vw, 64px);
-  font-weight: 800; color: #fff; line-height: 1.1; margin: 0 0 24px;
-}
-.fees-hero-sub {
-  font-family: var(--font-body); font-size: 18px; color: rgba(255,255,255,0.85);
-  line-height: 1.7; max-width: 700px; margin: 0 auto 40px;
-}
-.fees-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 
-/* ─── 2. Responsive Fee Tables ──────────────────────────── */
-.fees-table-section {
-  padding: 100px var(--padding-x); background: #050816; position: relative;
+.fees-hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
 }
+
+.fees-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.fees-hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(34px, 4.4vw, 56px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+}
+
+.fees-hero-sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(15px, 1.15vw, 17.5px);
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.65;
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+
+.fees-hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.fees-btn-primary {
+  height: 50px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #2563EB 100%);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(15, 61, 145, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fees-btn-primary:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #0C3278 0%, #163E9E 50%, #1D4ED8 100%);
+  box-shadow: 0 12px 32px rgba(15, 61, 145, 0.55);
+}
+
+.fees-btn-secondary {
+  height: 50px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fees-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+/* ─── 2. Tabs Section ─────────────────────────────────────── */
+.fees-tabs-section {
+  padding: 80px 0 60px;
+  background: #ffffff;
+}
+
+.fees-tabs-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.fees-section-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F3D91;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
 .fees-section-title {
-  font-family: 'Poppins', sans-serif; font-size: 40px; color: #fff; text-align: center; margin-bottom: 60px;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
 }
-.fees-table-container {
-  max-width: 1000px; margin: 0 auto; background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.05); border-radius: 24px; overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+
+.fees-section-desc {
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 auto;
 }
-.fees-table-wrapper {
+
+/* Interactive Navigation Pills */
+.fees-nav-pills {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  padding: 8px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  margin-top: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.fees-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.fees-nav-pill .pill-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  color: #334155;
+  letter-spacing: 0.04em;
+}
+
+.fees-nav-pill:hover {
+  color: #0F3D91;
+  background: rgba(15, 61, 145, 0.06);
+}
+
+.fees-nav-pill.active {
+  background: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #8E44AD 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(15, 61, 145, 0.25);
+}
+
+.fees-nav-pill.active .pill-badge {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+/* ─── Table Cards ─────────────────────────────────────────── */
+.fees-tab-content {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fees-table-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.04);
+  margin-bottom: 32px;
+}
+
+.fees-table-header {
+  padding: 24px 32px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.fees-table-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 4px;
+}
+
+.fees-table-sub {
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0;
+}
+
+.fees-currency-tag {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F3D91;
+  background: rgba(15, 61, 145, 0.08);
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 61, 145, 0.15);
+}
+
+.fees-table-wrap {
   overflow-x: auto;
 }
-.fees-table {
-  width: 100%; border-collapse: collapse; min-width: 600px;
-}
-.fees-table th, .fees-table td {
-  padding: 24px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.fees-table th {
-  background: rgba(108,43,217,0.2); color: #D8B4FE; font-weight: 700; font-size: 16px;
-  letter-spacing: 0.05em; text-transform: uppercase;
-}
-.fees-table td { font-size: 17px; color: rgba(255,255,255,0.9); }
-.fees-table tr:hover td { background: rgba(255,255,255,0.03); }
-.fees-table td.total-col { color: #A855F7; font-weight: bold; font-size: 18px; }
 
-/* ─── 3. Payment Methods ────────────────────────────────── */
+.fees-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.fees-data-table th {
+  background: #ffffff;
+  padding: 16px 24px;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 2px solid #e2e8f0;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.fees-data-table th.th-total {
+  background: #f8fafc;
+  color: #0F3D91;
+  font-weight: 800;
+}
+
+.fees-data-table td {
+  padding: 16px 24px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+  transition: background 0.2s ease;
+}
+
+.fees-data-table tr:hover td {
+  background: #f8fafc;
+}
+
+.fees-data-table tr.highlight-row td {
+  background: #faf5ff;
+}
+
+.section-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.td-grade strong {
+  color: #0f172a;
+}
+
+.td-total {
+  font-weight: 700;
+  color: #0F3D91;
+  background: #f8fafc;
+}
+
+/* ─── Other Charges Grid ─────────────────────────────────── */
+.other-charges-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px 32px;
+}
+
+.other-charges-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 20px;
+}
+
+.charges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.charge-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 14px 18px;
+}
+
+.charge-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.charge-details {
+  flex: 1;
+}
+
+.charge-name {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.charge-freq {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.charge-amount {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F3D91;
+}
+
+.charge-item.total-summary-item {
+  background: linear-gradient(135deg, rgba(15, 61, 145, 0.06) 0%, rgba(142, 68, 173, 0.06) 100%);
+  border-color: #0F3D91;
+}
+
+.charge-item.total-summary-item .charge-amount {
+  color: #0F3D91;
+  font-size: 15px;
+}
+
+/* ─── Senior School Specific Styles ──────────────────────── */
+.senior-fees-hero-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 36px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.04);
+  margin-bottom: 32px;
+}
+
+.senior-badge {
+  display: inline-flex;
+  padding: 4px 14px;
+  background: rgba(142, 68, 173, 0.1);
+  color: #8E44AD;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.senior-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px;
+}
+
+.senior-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 0 28px;
+}
+
+.senior-terms-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.senior-term-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+}
+
+.senior-term-card.total-card {
+  background: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #8E44AD 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 8px 24px rgba(15, 61, 145, 0.25);
+}
+
+.term-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.senior-term-card.total-card .term-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.term-amount {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+}
+
+.senior-term-card.total-card .term-amount {
+  color: #ffffff;
+}
+
+.term-note {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.senior-term-card.total-card .term-note {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.senior-inclusions-wrap {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+}
+
+.senior-inclusions-wrap h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 16px;
+}
+
+.inclusions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.inclusion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #334155;
+}
+
+.inc-icon {
+  color: #10b981;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.senior-extra-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.electives-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px 32px;
+}
+
+.electives-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.elective-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.el-icon {
+  font-size: 22px;
+}
+
+.el-name {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.el-cost {
+  font-size: 12.5px;
+  color: #0F3D91;
+  font-weight: 600;
+}
+
+.electives-note {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ─── 3. Interactive Fee Calculator Widget ──────────────────── */
+.fees-calculator-section {
+  padding: 70px 0;
+  background: #f8fafc;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.calculator-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 28px;
+  padding: 44px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+}
+
+.calc-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.calc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  background: rgba(15, 61, 145, 0.08);
+  color: #0F3D91;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.calc-header h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.calc-header p {
+  font-size: 14.5px;
+  color: #64748b;
+  margin: 0;
+}
+
+.calc-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.calc-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.calc-input-group label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.calc-pill-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calc-pill-selector button {
+  padding: 12px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  color: #334155;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calc-pill-selector button.active {
+  border-color: #0F3D91;
+  background: rgba(15, 61, 145, 0.06);
+  color: #0F3D91;
+  font-weight: 700;
+}
+
+.calc-select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #0f172a;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.calc-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calc-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.calc-checkbox-label input {
+  width: 16px;
+  height: 16px;
+  accent-color: #0F3D91;
+}
+
+/* Calculator Summary Result */
+.calc-summary-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.calc-summary-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 16px;
+}
+
+.calc-summary-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0F3D91;
+  letter-spacing: 0.06em;
+}
+
+.calc-summary-grade {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 4px 0 0;
+}
+
+.calc-breakdown-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.calc-breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  color: #475569;
+}
+
+.calc-breakdown-row strong {
+  color: #0f172a;
+}
+
+.calc-breakdown-row.highlight {
+  color: #8E44AD;
+}
+
+.calc-breakdown-row.highlight strong {
+  color: #8E44AD;
+}
+
+.calc-total-box {
+  background: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #8E44AD 100%);
+  border-radius: 16px;
+  padding: 22px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.calc-total-lbl {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.calc-total-val {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.calc-total-sub {
+  font-size: 11.5px;
+  opacity: 0.8;
+  display: block;
+}
+
+.calc-apply-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  text-align: center;
+  background: #0F3D91;
+  color: #ffffff;
+  border-radius: 999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.calc-apply-btn:hover {
+  background: #0C3278;
+  transform: translateY(-2px);
+}
+
+/* ─── 4. Verified Payment Channels ──────────────────────────── */
 .fees-payment-section {
-  padding: 100px var(--padding-x); background: #0A0118; border-top: 1px solid rgba(255,255,255,0.05);
-}
-.payment-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; max-width: 1200px; margin: 0 auto;
-}
-.payment-card {
-  background: rgba(255,255,255,0.02); padding: 40px; border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.05); transition: 0.3s ease; position: relative; overflow: hidden;
-}
-.payment-card:hover {
-  transform: translateY(-5px); border-color: rgba(168,85,247,0.3); background: rgba(255,255,255,0.04);
-}
-.payment-icon {
-  font-size: 40px; color: #A855F7; margin-bottom: 24px;
-}
-.payment-card h3 { font-size: 24px; color: #fff; margin-bottom: 16px; }
-.payment-card p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.6; }
-.payment-instructions {
-  margin-top: 24px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);
-  font-family: monospace; color: #D8B4FE; font-size: 15px;
+  padding: 80px 0;
+  background: #ffffff;
 }
 
-/* ─── 4. Download Center ────────────────────────────────── */
-.fees-downloads-section {
-  padding: 100px var(--padding-x); background: #050816;
+.payment-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+  margin-bottom: 32px;
 }
-.downloads-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;
-}
-.download-card {
-  display: flex; align-items: center; justify-content: space-between; padding: 24px;
-  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;
-  transition: 0.3s; cursor: pointer; text-decoration: none; color: #fff;
-}
-.download-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(168,85,247,0.5); }
-.download-info { display: flex; align-items: center; gap: 16px; }
-.download-icon { font-size: 32px; color: #EF4444; }
-.download-card h4 { margin: 0 0 4px; font-size: 16px; }
-.download-card p { margin: 0; font-size: 13px; color: rgba(255,255,255,0.5); }
-.download-btn { color: #A855F7; font-size: 20px; }
 
-/* ─── 5. Finance Contact ────────────────────────────────── */
-.fees-contact-section {
-  padding: 100px var(--padding-x); background: linear-gradient(180deg, #0A0118 0%, #050816 100%);
+.payment-channel-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
 }
+
+.payment-channel-card:hover {
+  transform: translateY(-4px);
+  border-color: #0F3D91;
+  box-shadow: 0 12px 28px rgba(15, 61, 145, 0.08);
+}
+
+.payment-channel-card.highlight-channel {
+  border-color: #8E44AD;
+  background: #faf5ff;
+}
+
+.pc-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0F3D91;
+  background: rgba(15, 61, 145, 0.08);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.pc-badge.senior {
+  color: #8E44AD;
+  background: rgba(142, 68, 173, 0.12);
+}
+
+.pc-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 20px;
+}
+
+.pc-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.pc-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.pc-lbl {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.pc-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  font-size: 11px;
+  font-weight: 700;
+  color: #0F3D91;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pc-copy-btn:hover {
+  background: #0F3D91;
+  color: #ffffff;
+  border-color: #0F3D91;
+}
+
+.pc-val {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+}
+
+.pc-format-note {
+  font-size: 11.5px;
+  color: #64748b;
+  margin-top: 6px;
+  background: #f8fafc;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.pc-sub-detail {
+  font-size: 11.5px;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+.payment-policy-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px 28px;
+}
+
+.payment-policy-box h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px;
+}
+
+.payment-policy-box ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.65;
+}
+
+/* ─── 5. Finance Office Contact CTA ───────────────────────── */
+.finance-contact-section {
+  padding: 40px 0 90px;
+  background: #ffffff;
+}
+
 .finance-contact-card {
-  max-width: 800px; margin: 0 auto; background: rgba(108,43,217,0.1); border: 1px solid rgba(108,43,217,0.3);
-  padding: 60px; border-radius: 32px; text-align: center;
+  background: linear-gradient(135deg, #0F3D91 0%, #1B48B8 50%, #8E44AD 100%);
+  border-radius: 28px;
+  padding: 48px;
+  color: #ffffff;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 20px 48px rgba(15, 61, 145, 0.22);
 }
-.finance-contact-card h2 { font-size: 32px; color: #fff; margin-bottom: 24px; }
-.finance-contact-card p { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
-.finance-contact-info {
-  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 40px;
+
+.fc-badge {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
 }
-.fc-item { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.fc-icon { font-size: 24px; color: #A855F7; }
-.fc-item span { font-size: 16px; color: #fff; font-weight: 600; }
-.fc-item small { font-size: 14px; color: rgba(255,255,255,0.5); }
+
+.fc-left h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 800;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.fc-left p {
+  font-size: 15px;
+  opacity: 0.92;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.fc-details {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fc-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.fc-icon {
+  font-size: 20px;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.fc-detail-item span {
+  display: block;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.fc-detail-item strong {
+  font-size: 15px;
+}
+
+.fc-action-card {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+}
+
+.fc-action-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.fc-action-card p {
+  font-size: 13.5px;
+  opacity: 0.9;
+  margin: 0 0 20px;
+}
+
+.fc-btn-apply {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background: #ffffff;
+  color: #0F3D91;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  transition: all 0.25s ease;
+}
+
+.fc-btn-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.fc-btn-tour {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.fc-btn-tour:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .senior-terms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .senior-extra-grid {
+    grid-template-columns: 1fr;
+  }
+  .calc-body {
+    grid-template-columns: 1fr;
+  }
+  .payment-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .finance-contact-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .fees-hero {
+    padding: 120px 16px 50px;
+  }
+  .fees-hero-title {
+    font-size: 30px;
+  }
+  .calculator-card {
+    padding: 24px;
+  }
+  .senior-terms-grid {
+    grid-template-columns: 1fr;
+  }
+  .finance-contact-card {
+    padding: 28px;
+  }
+}

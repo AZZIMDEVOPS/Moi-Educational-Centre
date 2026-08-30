@@ -1,220 +1,572 @@
 /* =============================================================
-   MEC TESTIMONIALS — Premium Glassmorphism Carousel
+   MEC COMMUNITY TESTIMONIALS V3 — World-Class Editorial Social Proof
+   Typography: Poppins & Clean Sans-Serif
+   Palette: Official MEC Royal Blue (#0F3D91) & Future-Ready Purple (#8E44AD)
+   Backgrounds: Pristine White (#ffffff) & Subtle Warm Light (#f8fafc)
    ============================================================= */
+
 @import url('./design-tokens.css');
 
-.testimonials {
-  padding: 120px 24px;
+.community-testimonials-v3 {
+  padding: 100px 0 110px;
   background: #ffffff;
   position: relative;
   overflow: hidden;
+  font-family: 'Poppins', sans-serif;
   border-top: 1px solid #f1f5f9;
   border-bottom: 1px solid #f1f5f9;
 }
 
-.testimonials::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(123, 47, 247, 0.25), transparent);
-}
-
-.testimonials-inner {
-  max-width: var(--max-width);
+.comm-container {
+  max-width: 1240px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
-.testimonials-header {
+/* ─── 1. Header Section ──────────────────────────────────── */
+.comm-header {
   text-align: center;
-  margin-bottom: 56px;
+  max-width: 780px;
+  margin: 0 auto 52px;
 }
 
-/* Carousel */
-.testimonials-track-wrap {
-  overflow: hidden;
-  border-radius: 24px;
-  position: relative;
+.comm-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0F3D91;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(15, 61, 145, 0.06);
+  padding: 6px 18px;
+  border-radius: 999px;
+  margin-bottom: 16px;
 }
 
-.testimonials-track {
+.comm-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0F3D91;
+}
+
+.comm-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(32px, 3.8vw, 46px);
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  margin: 0 0 14px;
+}
+
+.comm-subtitle {
+  font-size: clamp(15px, 1.15vw, 17px);
+  color: #475569;
+  line-height: 1.65;
+  margin: 0 auto 32px;
+  max-width: 660px;
+}
+
+/* Category Filter Pills */
+.comm-category-pills {
   display: flex;
-  gap: 24px;
-  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
-/* Card */
-.testimonial-card {
-  flex-shrink: 0;
-  width: calc(33.333% - 16px);
+.comm-cat-pill {
+  padding: 9px 22px;
+  border-radius: 999px;
   background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 24px;
-  padding: 36px 28px 28px;
-  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.04);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.35s ease;
+  border: 1px solid #cbd5e1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.testimonial-card:hover {
-  box-shadow: 0 20px 56px rgba(123, 47, 247, 0.12);
-  transform: translateY(-4px);
-  border-color: rgba(123, 47, 247, 0.30);
+.comm-cat-pill:hover {
+  border-color: #0F3D91;
+  color: #0F3D91;
   background: #ffffff;
 }
 
-.testimonial-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(to right, #7B2FF7, #00D4FF);
-  border-radius: 3px 3px 0 0;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s ease;
+.comm-cat-pill.active {
+  background: #0F3D91;
+  color: #ffffff;
+  border-color: #0F3D91;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(15, 61, 145, 0.25);
 }
 
-.testimonial-card:hover::before {
-  transform: scaleX(1);
+/* ─── 2. Hero Stage (40/60 Split) ────────────────────────── */
+.comm-hero-stage {
+  margin-bottom: 56px;
 }
 
-/* Quote mark */
-.testimonial-quote {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  font-family: var(--font-display);
-  font-size: 80px;
-  color: rgba(123, 47, 247, 0.08);
-  line-height: 1;
-  pointer-events: none;
-  font-style: italic;
-  select: none;
+.comm-stage-grid {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: 40px;
+  align-items: stretch;
 }
 
-/* Stars */
-.testimonial-stars {
+/* Left Column: Authentic Community Media */
+.comm-media-col {
   display: flex;
-  gap: 3px;
-  margin-bottom: 16px;
-  color: #FFD700;
-  font-size: 16px;
 }
 
-/* Text */
-.testimonial-text {
-  font-family: var(--font-body);
-  font-size: 15px;
-  color: #334155;
-  line-height: 1.75;
+.comm-media-card {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.comm-media-img-box {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.comm-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  animation: fadeInImage 0.4s ease;
+}
+
+.comm-media-overlay-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(15, 61, 145, 0.9);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 2;
+}
+
+.badge-heart-icon {
+  color: #f43f5e;
+  font-size: 12px;
+}
+
+.comm-media-caption {
+  padding: 22px 24px;
+  background: #ffffff;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.media-tagline {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  color: #8E44AD;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.media-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.media-role {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Right Column: Featured Quote Experience */
+.comm-quote-col {
+  display: flex;
+}
+
+.comm-quote-card {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 28px;
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+  position: relative;
+  animation: fadeInQuote 0.45s ease;
+}
+
+.comm-quote-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 24px;
-  font-style: italic;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-/* Author */
-.testimonial-author {
+.comm-role-badge {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0F3D91;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(15, 61, 145, 0.08);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.comm-stars-verified {
   display: flex;
   align-items: center;
-  gap: 12px;
-  border-top: 1px solid #e2e8f0;
-  padding-top: 20px;
+  gap: 10px;
 }
 
-.testimonial-avatar {
+.stars-label {
+  font-size: 11.5px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.stars-row {
+  display: flex;
+  gap: 2px;
+}
+
+.star-icon {
+  color: #0F3D91;
+  font-size: 13px;
+}
+
+.comm-large-quote-icon {
+  font-size: 36px;
+  color: rgba(15, 61, 145, 0.18);
+  margin-bottom: 16px;
+}
+
+.comm-quote-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(18px, 1.8vw, 23px);
+  font-weight: 600;
+  font-style: italic;
+  color: #0f172a;
+  line-height: 1.6;
+  margin: 0 0 28px;
+  flex: 1;
+}
+
+.comm-author-signature-block {
+  margin-bottom: 28px;
+  padding-top: 18px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.comm-author-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 2px;
+}
+
+.comm-author-designation {
+  font-size: 14px;
+  color: #0F3D91;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Carousel Progress Controls */
+.comm-carousel-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.comm-pagination-indicator {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+}
+
+.comm-pagination-indicator strong {
+  font-size: 20px;
+  font-weight: 900;
+  color: #0F3D91;
+}
+
+.comm-pagination-indicator span {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.comm-dots-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.comm-dot-btn {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.comm-dot-btn.active {
+  width: 28px;
+  background: #0F3D91;
+  border-radius: 999px;
+}
+
+.comm-nav-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.comm-arrow-btn {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #7B2FF7, #2D5BE3);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0F3D91;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
 
-.testimonial-name {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 700;
-  color: #0f172a;
+.comm-arrow-btn:hover {
+  background: #0F3D91;
+  color: #ffffff;
+  border-color: #0F3D91;
+  transform: translateY(-2px);
 }
 
-.testimonial-role {
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: var(--mec-purple);
+/* ─── 3. Institutional Trust Strip ───────────────────────── */
+.comm-trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 28px 36px;
+  margin-bottom: 48px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+
+.comm-trust-stat {
+  text-align: center;
+}
+
+.comm-stat-num {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #0F3D91;
+  margin-bottom: 2px;
+}
+
+.comm-stat-label {
+  font-size: 12.5px;
+  color: #64748b;
   font-weight: 500;
 }
 
-/* Controls */
-.testimonials-controls {
+.comm-stat-sep {
+  display: none;
+}
+
+/* ─── 4. Community Invitation CTA ────────────────────────── */
+.comm-cta-box {
+  background: linear-gradient(135deg, #0F3D91 0%, #163E9E 50%, #8E44AD 100%);
+  border-radius: 24px;
+  padding: 40px 48px;
+  color: #ffffff;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 36px;
+  gap: 32px;
+  box-shadow: 0 16px 40px rgba(15, 61, 145, 0.2);
 }
 
-.testimonials-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(123, 47, 247, 0.20);
-  background: #fff;
-  color: var(--mec-purple);
-  font-size: 18px;
-  cursor: pointer;
+.comm-cta-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.comm-cta-content h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+.comm-cta-content p {
+  font-size: 14.5px;
+  opacity: 0.9;
+  margin: 0;
+  max-width: 580px;
+}
+
+.comm-cta-actions {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.comm-btn-apply {
+  height: 48px;
+  padding: 0 26px;
+  background: #ffffff;
+  color: #0F3D91;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(123, 47, 247, 0.10);
+  gap: 8px;
+  transition: all 0.2s ease;
 }
 
-.testimonials-btn:hover {
-  background: var(--mec-purple);
-  color: #fff;
-  border-color: var(--mec-purple);
-  box-shadow: 0 8px 24px rgba(123, 47, 247, 0.30);
+.comm-btn-apply:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-.testimonials-dots {
-  display: flex;
-  gap: 6px;
+.comm-btn-tour {
+  height: 48px;
+  padding: 0 22px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
 }
 
-.testimonials-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(123, 47, 247, 0.20);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  border: none;
+.comm-btn-tour:hover {
+  background: rgba(255, 255, 255, 0.22);
 }
 
-.testimonials-dot.active {
-  background: var(--mec-purple);
-  width: 24px;
-  border-radius: 4px;
+/* ─── Animations ─────────────────────────────────────────── */
+@keyframes fadeInQuote {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
+@keyframes fadeInImage {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Responsive Breakpoints ────────────────────────────── */
 @media (max-width: 1024px) {
-  .testimonial-card {
-    width: calc(50% - 12px);
+  .comm-stage-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .comm-media-card {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .comm-trust-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .comm-cta-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 24px;
+  }
+  .comm-cta-actions {
+    justify-content: center;
   }
 }
 
-@media (max-width: 600px) {
-  .testimonials { padding: 64px 16px; }
-  .testimonial-card {
-    width: calc(100% - 0px);
+@media (max-width: 640px) {
+  .community-testimonials-v3 {
+    padding: 70px 0 80px;
+  }
+  .comm-title {
+    font-size: 28px;
+  }
+  .comm-quote-card {
+    padding: 28px 20px;
+  }
+  .comm-quote-text {
+    font-size: 17px;
+  }
+  .comm-trust-strip {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+  .comm-cta-box {
+    padding: 28px 18px;
+  }
+  .comm-cta-content h3 {
+    font-size: 20px;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { FaGraduationCap, FaLeaf, FaLightbulb, FaHeart } from 'react-icons/fa';
 import '../../css/feature-cards.css';
 
@@ -8,8 +8,8 @@ const CARDS = [
     icon: FaGraduationCap,
     title: 'Academic Excellence',
     desc: 'Rigorous CBC and Cambridge curricula designed to foster critical thinking and intellectual growth.',
-    color: '#A855F7',
-    glowColor: 'rgba(168, 85, 247, 0.4)',
+    color: '#0F3D91',
+    glowColor: 'rgba(15, 61, 145, 0.35)',
     badge: 'CBC & Cambridge'
   },
   {
@@ -17,8 +17,8 @@ const CARDS = [
     icon: FaLeaf,
     title: 'Holistic Development',
     desc: 'Empowering students through sports, arts, and extracurriculars to build well-rounded character.',
-    color: '#10B981',
-    glowColor: 'rgba(16, 185, 129, 0.4)',
+    color: '#8E44AD',
+    glowColor: 'rgba(142, 68, 173, 0.35)',
     badge: 'Sports & Arts'
   },
   {
@@ -26,8 +26,8 @@ const CARDS = [
     icon: FaLightbulb,
     title: 'Innovative Learning',
     desc: 'State-of-the-art technology, robotics, and modern teaching methodologies for a future-ready education.',
-    color: '#3B82F6',
-    glowColor: 'rgba(59, 130, 246, 0.4)',
+    color: '#1B48B8',
+    glowColor: 'rgba(27, 72, 184, 0.35)',
     badge: 'STEM & Tech'
   },
   {
@@ -35,8 +35,8 @@ const CARDS = [
     icon: FaHeart,
     title: 'Strong Values',
     desc: 'A nurturing environment rooted in integrity, respect, empathy, and community service.',
-    color: '#EC4899',
-    glowColor: 'rgba(236, 72, 153, 0.4)',
+    color: '#A855F7',
+    glowColor: 'rgba(168, 85, 247, 0.35)',
     badge: 'Ethics & Leadership'
   }
 ];

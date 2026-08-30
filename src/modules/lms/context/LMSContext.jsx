@@ -77,11 +77,11 @@ export const LMSProvider = ({ children }) => {
   /**
    * Fetch courses for current user
    */
-  const fetchCourses = useCallback(async (filters = {}) => {
+  const fetchCourses = useCallback(async (_filters = {}) => {
     try {
       setCourseLoading(true);
       // TODO: Implement API call
-      // const data = await courseService.getCourses(filters);
+      // const data = await courseService.getCourses(_filters);
       // setCourses(data);
       setErrorMessage(null);
     } catch (error) {
@@ -113,10 +113,10 @@ export const LMSProvider = ({ children }) => {
   /**
    * Create new course
    */
-  const createCourse = useCallback(async (courseData) => {
+  const createCourse = useCallback(async (_courseData) => {
     try {
       // TODO: Implement API call
-      // const newCourse = await courseService.createCourse(courseData);
+      // const newCourse = await courseService.createCourse(_courseData);
       // setCourses([...courses, newCourse]);
       // setSuccessMessage('Course created successfully');
       // return newCourse;
@@ -124,48 +124,48 @@ export const LMSProvider = ({ children }) => {
       setErrorMessage('Failed to create course');
       console.error(error);
     }
-  }, [courses]);
+  }, []);
 
   /**
    * Update existing course
    */
-  const updateCourse = useCallback(async (courseId, courseData) => {
+  const updateCourse = useCallback(async (_courseId, _courseData) => {
     try {
       // TODO: Implement API call
-      // const updated = await courseService.updateCourse(courseId, courseData);
-      // setCourses(courses.map(c => c.id === courseId ? updated : c));
+      // const updated = await courseService.updateCourse(_courseId, _courseData);
+      // setCourses(courses.map(c => c.id === _courseId ? updated : c));
       // setSuccessMessage('Course updated successfully');
       // return updated;
     } catch (error) {
       setErrorMessage('Failed to update course');
       console.error(error);
     }
-  }, [courses]);
+  }, []);
 
   /**
    * Delete course
    */
-  const deleteCourse = useCallback(async (courseId) => {
+  const deleteCourse = useCallback(async (_courseId) => {
     try {
       // TODO: Implement API call
-      // await courseService.deleteCourse(courseId);
-      // setCourses(courses.filter(c => c.id !== courseId));
+      // await courseService.deleteCourse(_courseId);
+      // setCourses(courses.filter(c => c.id !== _courseId));
       // setSuccessMessage('Course deleted successfully');
     } catch (error) {
       setErrorMessage('Failed to delete course');
       console.error(error);
     }
-  }, [courses]);
+  }, []);
 
   // ============ Assignment Management ============
 
   /**
    * Fetch assignments
    */
-  const fetchAssignments = useCallback(async (courseId) => {
+  const fetchAssignments = useCallback(async (_courseId) => {
     try {
       // TODO: Implement API call
-      // const data = await assignmentService.getAssignments(courseId);
+      // const data = await assignmentService.getAssignments(_courseId);
       // setAssignments(data);
     } catch (error) {
       setErrorMessage('Failed to load assignments');
@@ -176,10 +176,10 @@ export const LMSProvider = ({ children }) => {
   /**
    * Submit assignment
    */
-  const submitAssignment = useCallback(async (assignmentId, submissionData) => {
+  const submitAssignment = useCallback(async (_assignmentId, _submissionData) => {
     try {
       // TODO: Implement API call
-      // const submission = await assignmentService.submitAssignment(assignmentId, submissionData);
+      // const submission = await assignmentService.submitAssignment(_assignmentId, _submissionData);
       // setSubmissions([...submissions, submission]);
       // setSuccessMessage('Assignment submitted successfully');
       // return submission;
@@ -187,17 +187,17 @@ export const LMSProvider = ({ children }) => {
       setErrorMessage('Failed to submit assignment');
       console.error(error);
     }
-  }, [submissions]);
+  }, []);
 
   // ============ Quiz Management ============
 
   /**
    * Fetch quizzes for course
    */
-  const fetchQuizzes = useCallback(async (courseId) => {
+  const fetchQuizzes = useCallback(async (_courseId) => {
     try {
       // TODO: Implement API call
-      // const data = await quizService.getQuizzes(courseId);
+      // const data = await quizService.getQuizzes(_courseId);
       // setQuizzes(data);
     } catch (error) {
       setErrorMessage('Failed to load quizzes');
@@ -208,10 +208,10 @@ export const LMSProvider = ({ children }) => {
   /**
    * Attempt quiz
    */
-  const attemptQuiz = useCallback(async (quizId) => {
+  const attemptQuiz = useCallback(async (_quizId) => {
     try {
       // TODO: Implement API call
-      // const attempt = await quizService.startAttempt(quizId);
+      // const attempt = await quizService.startAttempt(_quizId);
       // return attempt;
     } catch (error) {
       setErrorMessage('Failed to start quiz attempt');
@@ -222,10 +222,10 @@ export const LMSProvider = ({ children }) => {
   /**
    * Submit quiz attempt
    */
-  const submitQuizAttempt = useCallback(async (attemptId, answers) => {
+  const submitQuizAttempt = useCallback(async (_attemptId, _answers) => {
     try {
       // TODO: Implement API call
-      // const result = await quizService.submitAttempt(attemptId, answers);
+      // const result = await quizService.submitAttempt(_attemptId, _answers);
       // setSuccessMessage('Quiz submitted successfully');
       // return result;
     } catch (error) {
@@ -239,10 +239,10 @@ export const LMSProvider = ({ children }) => {
   /**
    * Fetch grades
    */
-  const fetchGrades = useCallback(async (filters = {}) => {
+  const fetchGrades = useCallback(async (_filters = {}) => {
     try {
       // TODO: Implement API call
-      // const data = await gradeService.getGrades(filters);
+      // const data = await gradeService.getGrades(_filters);
       // setGrades(data);
     } catch (error) {
       setErrorMessage('Failed to load grades');
@@ -269,10 +269,10 @@ export const LMSProvider = ({ children }) => {
   /**
    * Send message
    */
-  const sendMessage = useCallback(async (recipientId, messageContent) => {
+  const sendMessage = useCallback(async (_recipientId, _messageContent) => {
     try {
       // TODO: Implement API call
-      // const message = await messageService.sendMessage(recipientId, messageContent);
+      // const message = await messageService.sendMessage(_recipientId, _messageContent);
       // setMessages([...messages, message]);
       // setSuccessMessage('Message sent successfully');
       // return message;
@@ -280,7 +280,7 @@ export const LMSProvider = ({ children }) => {
       setErrorMessage('Failed to send message');
       console.error(error);
     }
-  }, [messages]);
+  }, []);
 
   // ============ Notification Management ============
 
@@ -319,10 +319,10 @@ export const LMSProvider = ({ children }) => {
   /**
    * Fetch analytics data
    */
-  const fetchAnalytics = useCallback(async (filters = {}) => {
+  const fetchAnalytics = useCallback(async (_filters = {}) => {
     try {
       // TODO: Implement API call
-      // const data = await analyticsService.getAnalytics(filters);
+      // const data = await analyticsService.getAnalytics(_filters);
       // setAnalyticsData(data);
     } catch (error) {
       setErrorMessage('Failed to load analytics');
@@ -377,6 +377,7 @@ export const LMSProvider = ({ children }) => {
     // Courses
     courses,
     selectedCourse,
+    setSelectedCourse,
     courseLoading,
     fetchCourses,
     getCourse,
@@ -387,12 +388,14 @@ export const LMSProvider = ({ children }) => {
     // Assignments
     assignments,
     submissions,
+    setSubmissions,
     fetchAssignments,
     submitAssignment,
 
     // Quizzes
     quizzes,
     quizAttempts,
+    setQuizAttempts,
     fetchQuizzes,
     attemptQuiz,
     submitQuizAttempt,
@@ -400,11 +403,13 @@ export const LMSProvider = ({ children }) => {
     // Grades
     grades,
     gradeScale,
+    setGradeScale,
     fetchGrades,
 
     // Messages
     messages,
     unreadMessageCount,
+    setUnreadMessageCount,
     fetchMessages,
     sendMessage,
 
@@ -415,6 +420,7 @@ export const LMSProvider = ({ children }) => {
 
     // Analytics
     analyticsData,
+    setAnalyticsData,
     fetchAnalytics,
 
     // Utilities

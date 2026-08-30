@@ -2,17 +2,17 @@ import ContactForm from "./ContactForm"
 import { MdPhone } from "react-icons/md";
 import { BsEnvelopeAt } from "react-icons/bs";
 import { SlLocationPin } from "react-icons/sl";
-import { useState } from "react";
+import { FaBookOpen, FaGraduationCap, FaMoneyCheckAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 const ContactHero = () => {
-  const [hoveredCard, setHoveredCard] = useState(null);
 
   const contactCards = [
     {
       id: 1,
+      anchorId: "senior-school-contact",
       title: "Senior School",
       subtitle: "Reception/Admissions",
-      icon: "📚",
+      Icon: FaBookOpen,
       details: [
         { type: "phone", value: "0797 339 900" },
         { type: "phone", value: "0777 339 909" },
@@ -21,9 +21,10 @@ const ContactHero = () => {
     },
     {
       id: 2,
+      anchorId: "primary-school-contact",
       title: "Primary & Junior School",
       subtitle: "Reception/Admissions",
-      icon: "🎓",
+      Icon: FaGraduationCap,
       details: [
         { type: "phone", value: "0702 090 213" },
         { type: "email", value: "info@moieducentre.ac.ke" }
@@ -31,9 +32,10 @@ const ContactHero = () => {
     },
     {
       id: 3,
+      anchorId: "finance-office-contact",
       title: "Finance",
       subtitle: "Accounts Department",
-      icon: "💰",
+      Icon: FaMoneyCheckAlt,
       details: [
         { type: "phone", value: "0113 693 624" },
         { type: "email", value: "accounts@moieducentre.ac.ke" }
@@ -41,9 +43,10 @@ const ContactHero = () => {
     },
     {
       id: 4,
+      anchorId: "location",
       title: "Location",
       subtitle: "Visit Us",
-      icon: "📍",
+      Icon: FaMapMarkerAlt,
       details: [
         { type: "address", value: "Mai Mahiu Rd, City Estate, Nairobi West" }
       ]
@@ -79,20 +82,21 @@ const ContactHero = () => {
           </div>
 
           {/* Contact Cards Grid */}
-          <div className="contact-cards-container">
+          <div className="contact-cards-container" id="contact-departments">
             <div className="cards-grid">
               {contactCards.map((card, index) => (
                 <div
                   key={card.id}
+                  id={card.anchorId}
                   className="contact-card"
-                  onMouseEnter={() => setHoveredCard(card.id)}
-                  onMouseLeave={() => setHoveredCard(null)}
                   style={{
                     animationDelay: `${index * 0.1}s`
                   }}
                 >
                   <div className="card-background"></div>
-                  <div className="card-icon">{card.icon}</div>
+                  <div className="card-icon">
+                    <card.Icon />
+                  </div>
                   <h3 className="card-title">{card.title}</h3>
                   <p className="card-subtitle">{card.subtitle}</p>
                   
@@ -114,7 +118,7 @@ const ContactHero = () => {
           </div>
 
           {/* Map Section */}
-          <div className="map-section-modern">
+          <div className="map-section-modern" id="map-section">
             <h2 className="section-title">Find Us On The Map</h2>
             <div className="map-container">
               <iframe 
@@ -129,7 +133,7 @@ const ContactHero = () => {
           </div>
 
           {/* Form Section */}
-          <div className="form-section-modern">
+          <div className="form-section-modern" id="contact-form-section">
             <div className="form-header">
               <h2 className="section-title">Send Us A Message</h2>
               <p className="form-subtitle">We'll respond to your inquiry as soon as possible</p>

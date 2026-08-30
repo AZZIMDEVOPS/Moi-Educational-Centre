@@ -1,0 +1,321 @@
+/* ================================================================
+   MEC HERO TEASER — Cinematic AI Assistant Reveal Card
+   Emerges from bottom-right during hero immersion mode.
+   Solid colors, Poppins, MEC Navy — NO gradients.
+   ================================================================ */
+
+/* ── Outer Wrapper: positioned above WhatsApp + MEC icon dock ── */
+.mec-teaser-wrapper {
+  position: fixed;
+  bottom: 210px;   /* sits above the 138px MEC icon and 74px WA icon + margins */
+  right: 28px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  opacity: 0;
+  transform: translateY(24px) scale(0.94);
+  transition: opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.mec-teaser-wrapper.teaser-enter {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ── Card ─────────────────────────────────────────────────────── */
+.mec-teaser-card {
+  width: 300px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 22px;
+  padding: 18px 20px 16px;
+  box-shadow: 0 16px 48px rgba(15, 61, 145, 0.14), 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative;
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.mec-teaser-card.card-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Dismiss Button ───────────────────────────────────────────── */
+.teaser-dismiss-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  border: none;
+  color: #64748B;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.teaser-dismiss-btn:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+/* ── Header Row ───────────────────────────────────────────────── */
+.teaser-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.teaser-icon-ring {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: #0F3D91;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.teaser-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.teaser-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: 0.06em;
+}
+
+.teaser-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10.5px;
+  color: #64748B;
+}
+
+.teaser-pulse-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22C55E;
+  animation: teaserPulse 2s ease-in-out infinite;
+}
+
+@keyframes teaserPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ── Anniversary Pill ─────────────────────────────────────────── */
+.teaser-anniversary-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0F3D91;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+}
+
+.teaser-anniversary-pill.pill-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Message ──────────────────────────────────────────────────── */
+.teaser-message {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.55;
+  margin: 0 0 14px;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease 0.18s, transform 0.35s ease 0.18s;
+}
+
+.teaser-message.msg-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.teaser-message strong {
+  color: #0F3D91;
+  font-weight: 700;
+}
+
+/* ── Quick Action Chips ───────────────────────────────────────── */
+.teaser-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease 0.25s, transform 0.3s ease 0.25s;
+}
+
+.teaser-actions.actions-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.teaser-action-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0F3D91;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  animation: chipFadeIn 0.3s ease both;
+}
+
+.teaser-action-chip:hover {
+  background: #0F3D91;
+  color: #FFFFFF;
+  border-color: #0F3D91;
+  transform: translateY(-1px);
+}
+
+@keyframes chipFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Open Full Chat Button ────────────────────────────────────── */
+.teaser-open-btn {
+  width: 100%;
+  height: 38px;
+  border-radius: 12px;
+  background: #0F3D91;
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.teaser-open-btn:hover {
+  background: #0B2D6D;
+  transform: translateY(-1px);
+}
+
+/* ── Skip Intro Button (shown in top-left during immersion) ─── */
+.mec-skip-intro-btn {
+  position: fixed;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Poppins', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+
+  opacity: 0;
+  animation: skipBtnAppear 0.6s ease 3.2s both;
+}
+
+.mec-skip-intro-btn:hover {
+  background: rgba(0, 0, 0, 0.6);
+  color: #FFFFFF;
+  transform: translateX(-50%) scale(1.02);
+}
+
+@keyframes skipBtnAppear {
+  from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Mobile Responsive ────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .mec-teaser-wrapper {
+    right: 12px;
+    bottom: 190px;
+  }
+
+  .mec-teaser-card {
+    width: 268px;
+    padding: 16px 16px 14px;
+  }
+
+  .mec-skip-intro-btn {
+    top: 16px;
+    font-size: 11px;
+    padding: 5px 14px;
+  }
+}
+
+/* ── Accessibility: Reduce Motion ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .mec-teaser-wrapper,
+  .mec-teaser-card,
+  .teaser-anniversary-pill,
+  .teaser-message,
+  .teaser-actions,
+  .teaser-action-chip,
+  .mec-skip-intro-btn {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

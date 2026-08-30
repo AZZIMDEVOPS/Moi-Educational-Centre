@@ -5,8 +5,8 @@
 @import url('./design-tokens.css');
 
 .resources-page-v2 {
-  background: #050816;
-  color: #fff;
+  background: #ffffff;
+  color: #0f172a;
   overflow-x: hidden;
   min-height: 100vh;
 }
@@ -47,8 +47,10 @@
 /* ─── 2. Search & Filter Bar (Sticky) ────────────────────── */
 .res-toolbar {
   position: sticky; top: var(--header-h, 80px); z-index: 50;
-  background: rgba(5, 8, 22, 0.85);  
-  border-bottom: 1px solid rgba(255,255,255,0.05); padding: 24px var(--padding-x);
+  background: rgba(255, 255, 255, 0.92);  
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2e8f0; padding: 24px var(--padding-x);
   display: flex; flex-direction: column; gap: 20px;
 }
 .res-search-wrap {
@@ -56,27 +58,27 @@
 }
 .res-search-icon {
   position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
-  color: rgba(255,255,255,0.4); font-size: 18px;
+  color: #94a3b8; font-size: 18px;
 }
 .res-search-input {
-  width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-  padding: 16px 20px 16px 50px; border-radius: 999px; color: #fff; font-size: 16px;
+  width: 100%; background: #f8fafc; border: 1px solid #e2e8f0;
+  padding: 16px 20px 16px 50px; border-radius: 999px; color: #0f172a; font-size: 16px;
   font-family: var(--font-body); outline: none; transition: 0.3s;
 }
 .res-search-input:focus {
-  background: rgba(255,255,255,0.08); border-color: #A855F7; box-shadow: 0 0 20px rgba(168,85,247,0.2);
+  background: #ffffff; border-color: #A855F7; box-shadow: 0 0 20px rgba(168,85,247,0.15);
 }
 .res-categories {
   display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
 }
 .res-cat-btn {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.7); padding: 10px 24px; border-radius: 999px;
+  background: #f1f5f9; border: 1px solid #e2e8f0;
+  color: #64748b; padding: 10px 24px; border-radius: 999px;
   font-size: 14px; font-weight: 500; cursor: pointer; transition: 0.3s;
 }
-.res-cat-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.res-cat-btn:hover { background: #e2e8f0; color: #0f172a; }
 .res-cat-btn.is-active {
-  background: #A855F7; color: #fff; border-color: #A855F7; box-shadow: 0 0 15px rgba(168,85,247,0.4);
+  background: #7C3AED; color: #fff; border-color: #7C3AED; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
 }
 
 /* ─── 3. Main Content Area ──────────────────────────────── */
@@ -84,7 +86,7 @@
   padding: 80px var(--padding-x); max-width: var(--max-width); margin: 0 auto;
 }
 .res-section-title {
-  font-family: 'Poppins', sans-serif; font-size: 32px; color: #fff; margin-bottom: 32px;
+  font-family: 'Poppins', sans-serif; font-size: 32px; color: #0f172a; margin-bottom: 32px;
 }
 
 /* ─── 4. Resource Cards Grid ────────────────────────────── */
@@ -92,24 +94,25 @@
   display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
 }
 .res-card {
-  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+  background: #ffffff; border: 1px solid #e2e8f0;
   border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 20px;
   transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
 }
 .res-card:hover {
-  transform: translateY(-5px); border-color: rgba(168,85,247,0.4); background: rgba(255,255,255,0.04);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transform: translateY(-5px); border-color: rgba(168,85,247,0.4); background: #ffffff;
+  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.1);
 }
 .res-card-top { display: flex; gap: 16px; align-items: flex-start; }
 .res-file-icon {
   width: 48px; height: 48px; background: rgba(239, 68, 68, 0.1); border-radius: 12px;
   display: flex; align-items: center; justify-content: center; color: #EF4444; font-size: 24px; flex-shrink: 0;
 }
-.res-card-info h4 { font-size: 18px; color: #fff; margin: 0 0 8px; line-height: 1.4; }
-.res-meta { display: flex; gap: 12px; font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 500; }
+.res-card-info h4 { font-size: 18px; color: #0f172a; margin: 0 0 8px; line-height: 1.4; }
+.res-meta { display: flex; gap: 12px; font-size: 13px; color: #94a3b8; font-weight: 500; }
 .res-meta span { display: flex; align-items: center; gap: 4px; }
 .res-card-actions {
-  display: flex; gap: 12px; margin-top: auto; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex; gap: 12px; margin-top: auto; padding-top: 20px; border-top: 1px solid #e2e8f0;
 }
 .res-btn {
   flex: 1; padding: 12px; border-radius: 12px; font-size: 14px; font-weight: 600;
@@ -117,13 +120,13 @@
   text-decoration: none; border: none;
 }
 .res-btn-preview {
-  background: rgba(255,255,255,0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1);
+  background: #f1f5f9; color: #0f172a; border: 1px solid #e2e8f0;
 }
-.res-btn-preview:hover { background: rgba(255,255,255,0.1); }
+.res-btn-preview:hover { background: #e2e8f0; }
 .res-btn-download {
-  background: rgba(168,85,247,0.15); color: #D8B4FE; border: 1px solid rgba(168,85,247,0.3);
+  background: rgba(168,85,247,0.1); color: #7C3AED; border: 1px solid rgba(168,85,247,0.25);
 }
-.res-btn-download:hover { background: #A855F7; color: #fff; }
+.res-btn-download:hover { background: #7C3AED; color: #fff; }
 
 /* ─── 5. Empty State ────────────────────────────────────── */
 .res-empty-state {

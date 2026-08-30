@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { FaPlus, FaMinus, FaCompress, FaGlobeAfrica, FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaCompress, FaTimes } from 'react-icons/fa';
 import 'leaflet/dist/leaflet.css';
 import '../../css/global-connections.css';
 
 // ─── Geographic Connections Data ─────────────────────────────
-export const GLOBAL_CONNECTIONS = [
+const GLOBAL_CONNECTIONS = [
   {
     id: "nairobi",
     city: "Nairobi",
@@ -16,7 +16,31 @@ export const GLOBAL_CONNECTIONS = [
     title: "Moi Educational Centre",
     subTitle: "Nairobi, Kenya",
     tag: "MEC Global Hub",
-    description: "Primary MEC Headquarters & flagship campus driving academic excellence, innovation, and global learning pathways."
+    description: "Primary MEC Headquarters & flagship campus driving academic excellence, innovation, music & arts, and global pathways."
+  },
+  {
+    id: "vienna",
+    city: "Vienna",
+    country: "Austria",
+    coordinates: [48.2082, 16.3738],
+    type: "partner",
+    title: "Vienna Music Academy & Europe Tour 2026",
+    subTitle: "Vienna, Austria",
+    tag: "MEC Europe Tour 2026",
+    image: "/assets/music-tour-2026/vienna-cathedral-interior.jpg",
+    description: "MEC Music Academy landmark Europe Tour 2026 — international cathedral choral performances at St. Stephen's Cathedral (Stephansdom), Austrian conservatory masterclasses, and classical music heritage."
+  },
+  {
+    id: "salzburg",
+    city: "Salzburg",
+    country: "Austria",
+    coordinates: [47.8095, 13.0550],
+    type: "partner",
+    title: "Mozarteum Music & Arts Network",
+    subTitle: "Salzburg, Austria",
+    tag: "Mozart Music Heritage",
+    image: "/assets/music-tour-2026/vienna-stephansplatz-student.jpg",
+    description: "Youth orchestral workshops, European music festival exchanges, and masterclasses across Austria."
   },
   {
     id: "london",
@@ -24,10 +48,76 @@ export const GLOBAL_CONNECTIONS = [
     country: "United Kingdom",
     coordinates: [51.5074, -0.1278],
     type: "partner",
-    title: "Cambridge & Pearson Network",
+    title: "Royal Schools of Music (ABRSM) & Cambridge",
     subTitle: "London, UK",
-    tag: "International Connection",
-    description: "Direct academic progression to Cambridge Assessment International Education & Pearson Edexcel qualifications."
+    tag: "ABRSM Music & Cambridge",
+    description: "Associated Board of the Royal Schools of Music (ABRSM) international certifications & Cambridge qualifications."
+  },
+  {
+    id: "berlin",
+    city: "Berlin",
+    country: "Germany",
+    coordinates: [52.5200, 13.4050],
+    type: "network",
+    title: "German Orchestral & Music Academy",
+    subTitle: "Berlin, Germany",
+    tag: "Symphonic Music Network",
+    description: "Symphonic brass and woodwind workshops, Bach musical heritage, and European youth orchestra exchanges."
+  },
+  {
+    id: "milan",
+    city: "Milan",
+    country: "Italy",
+    coordinates: [45.4642, 9.1900],
+    type: "network",
+    title: "Italian Conservatory & Vocal Arts",
+    subTitle: "Milan, Italy",
+    tag: "Opera & Performing Arts",
+    description: "Classical vocal masterclasses, string instruments training, and Mediterranean performing arts exchange."
+  },
+  {
+    id: "paris",
+    city: "Paris",
+    country: "France",
+    coordinates: [48.8566, 2.3522],
+    type: "network",
+    title: "Paris Music & Fine Arts Exchange",
+    subTitle: "Paris, France",
+    tag: "French Cultural & Music Link",
+    description: "Chamber music festivals, piano masterclasses, and international fine arts progression."
+  },
+  {
+    id: "kualalumpur",
+    city: "Kuala Lumpur",
+    country: "Malaysia",
+    coordinates: [3.1390, 101.6869],
+    type: "partner",
+    title: "World Scholar's Cup & SE Asia Link",
+    subTitle: "Kuala Lumpur, Malaysia",
+    tag: "Global Round & Exchange",
+    description: "MEC Scholars international debate, World Scholar's Cup Global Round, and British International School exchange."
+  },
+  {
+    id: "connecticut",
+    city: "Connecticut",
+    country: "United States",
+    coordinates: [41.6032, -73.0877],
+    type: "network",
+    title: "Connecticut Academic & Arts Hub",
+    subTitle: "Connecticut, USA",
+    tag: "US Ivy & Music Link",
+    description: "North American university pathways, Ivy League academic links, and youth orchestral exchange."
+  },
+  {
+    id: "kampala",
+    city: "Kampala",
+    country: "Uganda",
+    coordinates: [0.3476, 32.5825],
+    type: "network",
+    title: "East African Schools & Music Alliance",
+    subTitle: "Kampala, Uganda",
+    tag: "East African Cultural Hub",
+    description: "Cross-border music festivals, regional choral competitions, East Africa Model UN, and sports championships."
   },
   {
     id: "dubai",
@@ -35,21 +125,10 @@ export const GLOBAL_CONNECTIONS = [
     country: "United Arab Emirates",
     coordinates: [25.2048, 55.2708],
     type: "network",
-    title: "Middle East Education Hub",
+    title: "Middle East Education & Innovation",
     subTitle: "Dubai, UAE",
-    tag: "Regional Network",
-    description: "Global student exchange, sports academies, and international school network connections."
-  },
-  {
-    id: "kualalumpur",
-    city: "Kuala Lumpur",
-    country: "Malaysia",
-    coordinates: [3.1390, 101.6869],
-    type: "network",
-    title: "Asia-Pacific Academic Link",
-    subTitle: "Kuala Lumpur, Malaysia",
-    tag: "Global Network",
-    description: "International learning partnerships and global university pathway programs."
+    tag: "Middle East Network",
+    description: "Global student leadership conferences, STEM competitions, and international school network connections."
   },
   {
     id: "johannesburg",
@@ -57,21 +136,10 @@ export const GLOBAL_CONNECTIONS = [
     country: "South Africa",
     coordinates: [-26.2041, 28.0473],
     type: "network",
-    title: "African Leadership Network",
+    title: "All-Africa Youth & Music Summit",
     subTitle: "Johannesburg, South Africa",
-    tag: "Continental Network",
-    description: "Regional educational alliances and intra-African youth leadership exchanges."
-  },
-  {
-    id: "newyork",
-    city: "New York",
-    country: "United States",
-    coordinates: [40.7128, -74.0060],
-    type: "network",
-    title: "North America University Link",
-    subTitle: "New York, USA",
-    tag: "University Pathway",
-    description: "Global university placement network connecting MEC alumni to North American institutions."
+    tag: "Continental Arts Link",
+    description: "Pan-African youth summits, African choral music showcases, and athletic tournaments."
   }
 ];
 
@@ -244,10 +312,10 @@ const GlobalConnections = () => {
               </div>
 
               <div className="gc-metric-pill" onClick={() => handleSelectLocation(GLOBAL_CONNECTIONS[1])}>
-                <div className="gc-metric-tag">[ 06+ ]</div>
+                <div className="gc-metric-tag">[ 12+ ]</div>
                 <div className="gc-metric-info">
                   <span className="gc-metric-title">Global Connections</span>
-                  <span className="gc-metric-sub">Connecting learners worldwide</span>
+                  <span className="gc-metric-sub">Europe, Americas, Asia & Africa</span>
                 </div>
               </div>
             </div>
@@ -267,6 +335,13 @@ const GlobalConnections = () => {
                     <FaTimes />
                   </button>
                 </div>
+
+                {selectedConnection.image && (
+                  <div className="gc-card-img-wrap">
+                    <img src={selectedConnection.image} alt={selectedConnection.title} className="gc-card-img" />
+                    <span className="gc-card-img-badge">Europe Tour 2026</span>
+                  </div>
+                )}
 
                 <h3 className="gc-card-title">{selectedConnection.title}</h3>
                 <div className="gc-card-city">{selectedConnection.subTitle}</div>
@@ -405,6 +480,11 @@ const GlobalConnections = () => {
                   >
                     <Popup className="gc-custom-popup" closeButton={false}>
                       <div className="gc-popup-content" onClick={() => handleSelectLocation(conn)}>
+                        {conn.image && (
+                          <div className="gc-popup-img-wrap">
+                            <img src={conn.image} alt={conn.title} className="gc-popup-img" />
+                          </div>
+                        )}
                         <div className="gc-popup-city">{conn.city}, {conn.country}</div>
                         <div className="gc-popup-title">{conn.title}</div>
                         <span className="gc-popup-badge">{conn.tag}</span>

@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaChevronDown, FaArrowRight } from "react-icons/fa";
+import { FaChevronDown, FaArrowRight, FaStar } from "react-icons/fa";
 import Navbar from "../components/common/navigation/Navbar";
 import Footer from "../components/common/Footer";
 import SEO from "../components/common/SEO";
@@ -75,8 +75,8 @@ const EducationLanding = () => {
           <div className="edu-hero-overlay" />
           
           <div className="edu-hero-content">
-            <div style={{ display: 'inline-flex', padding: '8px 20px', background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', borderRadius: '999px', fontSize: '13px', fontWeight: 'bold', color: '#D8B4FE', marginBottom: '24px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-              🌟 40 Years of Excellence
+            <div className="edu-badge">
+              <FaStar style={{ color: '#f59e0b', marginRight: 6 }} /> 40 Years of Excellence
             </div>
             <h1 className="edu-hero-title">Learning Pathways at<br/>Moi Educational Centre</h1>
             <p className="edu-hero-sub">
@@ -84,23 +84,18 @@ const EducationLanding = () => {
             </p>
             
             <div className="edu-hero-btns">
-              <button onClick={scrollToPathway} className="nav-apply-btn" style={{ height: '54px', fontSize: '15px' }}>
+              <button onClick={scrollToPathway} className="edu-btn-primary">
                 Explore Programmes <FaChevronDown />
               </button>
-              <Link to="/contact" className="nav-apply-btn" style={{ height: '54px', fontSize: '15px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.3)', boxShadow: 'none' }}>
+              <Link to="/contact" className="edu-btn-secondary">
                 Book a School Tour
               </Link>
             </div>
           </div>
-
-          <div className="edu-scroll-indicator">
-            Scroll to Explore
-            <FaChevronDown />
-          </div>
         </section>
 
         {/* 2. Interactive Pathway & Showcase */}
-        <section className="edu-showcase-container" ref={containerRef}>
+        <section className="edu-showcase-container" id="learning-pathway" ref={containerRef}>
           <div className="edu-pathway-line">
             <div className="edu-pathway-fill" ref={fillRef} />
           </div>
@@ -108,6 +103,7 @@ const EducationLanding = () => {
           {cbc.map((stage, index) => (
             <div 
               key={stage.id} 
+              id={stage.id ? `pathway-${stage.id}` : `pathway-stage-${index}`}
               className="edu-level-section"
               ref={el => sectionsRef.current[index] = el}
             >

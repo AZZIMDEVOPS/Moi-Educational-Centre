@@ -5,6 +5,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
+import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import '../../css/enhanced-gallery.css';
 
 const EnhancedImageGallery = ({
@@ -190,7 +191,7 @@ const EnhancedImageGallery = ({
               onClick={() => setSelectedImage(null)}
               aria-label="Close lightbox"
             >
-              ✕
+              <FaTimes />
             </button>
 
             <button
@@ -198,7 +199,7 @@ const EnhancedImageGallery = ({
               onClick={handlePrevImage}
               aria-label="Previous image"
             >
-              ‹
+              <FaChevronLeft />
             </button>
 
             <img
@@ -213,7 +214,7 @@ const EnhancedImageGallery = ({
               onClick={handleNextImage}
               aria-label="Next image"
             >
-              ›
+              <FaChevronRight />
             </button>
 
             {selectedImage.title && (

@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { cbc } from "../../data/education";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FaGraduationCap, FaChevronRight, FaAtom, FaUsers, FaLaptopCode, FaCheckCircle, FaBookOpen } from "react-icons/fa";
+import { FaGraduationCap, FaChevronRight, FaAtom, FaUsers, FaLaptopCode, FaCheckCircle, FaBookOpen, FaStar } from "react-icons/fa";
 import Navbar from "../common/navigation/Navbar";
 import Footer from "../common/Footer";
 import SEO from "../common/SEO";
@@ -30,7 +30,7 @@ const ProgrammeHero = ({ stage }) => {
       
       <div className="prog-hero-content">
         <div className="prog-hero-badge">
-          🌟 {stage.grade}
+          <FaStar style={{ color: '#f59e0b', marginRight: 6 }} /> {stage.grade}
         </div>
         <h1 className="prog-hero-title">{stage.title}</h1>
         <p className="prog-hero-sub">

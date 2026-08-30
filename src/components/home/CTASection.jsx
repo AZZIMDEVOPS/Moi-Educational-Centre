@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaTrophy, FaGraduationCap, FaCheckCircle, FaGlobeAmericas } from 'react-icons/fa';
 import '../../css/cta-section.css';
 
 const CTASection = () => (
@@ -16,7 +17,7 @@ const CTASection = () => (
 
     <div className="cta-inner">
       <div className="cta-eyebrow">
-        <span>🏆</span>
+        <FaTrophy style={{ color: '#fbbf24', fontSize: '13px', marginRight: '6px' }} />
         Celebrating 40 Years of Excellence
       </div>
 
@@ -49,13 +50,15 @@ const CTASection = () => (
       {/* Trust badges */}
       <div className="cta-trust">
         {[
-          { icon: '🎓', text: '40+ Years of Excellence' },
-          { icon: '✅', text: 'CBC & Cambridge Accredited' },
-          { icon: '🏆', text: '98% University Placement' },
-          { icon: '🌍', text: 'Global Community' },
+          { Icon: FaGraduationCap, text: '40+ Years of Excellence' },
+          { Icon: FaCheckCircle, text: 'CBC & Cambridge Accredited' },
+          { Icon: FaTrophy, text: '98% University Placement' },
+          { Icon: FaGlobeAmericas, text: 'Global Community' },
         ].map(b => (
           <div className="cta-trust-badge" key={b.text}>
-            <span className="cta-trust-icon" aria-hidden="true">{b.icon}</span>
+            <span className="cta-trust-icon" aria-hidden="true">
+              <b.Icon style={{ fontSize: '13px', color: '#38bdf8' }} />
+            </span>
             {b.text}
           </div>
         ))}

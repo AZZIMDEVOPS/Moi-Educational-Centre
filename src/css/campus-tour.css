@@ -7,7 +7,7 @@
 
 .campus-tour-section {
   padding: 50px 0 100px;
-  background: var(--mec-dark);
+  background: #ffffff;
   position: relative;
   overflow: hidden;
 }
@@ -21,7 +21,7 @@
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(15, 61, 145, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(15, 61, 145, 0.04) 0%, transparent 60%);
   filter: blur(80px);
   pointer-events: none;
 }
@@ -33,8 +33,8 @@
   z-index: 2;
 }
 
-.campus-tour-header .section-heading { color: #fff; }
-.campus-tour-header .section-sub { margin: 0 auto; color: rgba(255,255,255,0.7); }
+.campus-tour-header .section-heading { color: #0f172a; }
+.campus-tour-header .section-sub { margin: 0 auto; color: #64748b; }
 
 /* ─── Main Cinematic Drone Feature ────────────────────────── */
 .campus-tour-main {
@@ -43,7 +43,7 @@
   height: 600px;
   border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.15);
   margin-bottom: 32px;
   background: #000;
   cursor: pointer;

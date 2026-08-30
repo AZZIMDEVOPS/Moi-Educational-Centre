@@ -48,7 +48,7 @@ const WhatsAppButton = () => {
       <style>{`
         .wa-float-container {
           position: fixed;
-          bottom: 24px;
+          bottom: 74px;
           right: 28px;
           z-index: 900;
           display: flex;
@@ -112,7 +112,7 @@ const WhatsAppButton = () => {
         }
 
         @media (max-width: 640px) {
-          .wa-float-container { bottom: 16px; right: 16px; }
+          .wa-float-container { bottom: 70px; right: 16px; }
           .wa-float-btn { width: 46px; height: 46px; }
           .wa-float-btn svg { width: 22px; height: 22px; }
         }

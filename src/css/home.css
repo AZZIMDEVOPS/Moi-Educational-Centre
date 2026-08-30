@@ -20,7 +20,7 @@ h1, h2, h3 { font-family: var(--font-body); }
 /* ─── Home Page Container ─────────────────────────────────── */
 .home-page {
   overflow-x: hidden;
-  background: #050816;
+  background: #ffffff;
   position: relative;
 }
 
@@ -151,11 +151,10 @@ h1, h2, h3 { font-family: var(--font-body); }
 
 /* ─── Glass Card ──────────────────────────────────────────── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.08);
-    
-  
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 
@@ -441,7 +440,7 @@ h1, h2, h3 { font-family: var(--font-body); }
 .badge-dot {
   width: 8px;
   height: 8px;
-  background: linear-gradient(135deg, #c77dff, #60a5fa);
+  background: #3B82F6;
   border-radius: 50%;
   animation: pulseDot 2s infinite;
   flex-shrink: 0;
@@ -450,7 +449,7 @@ h1, h2, h3 { font-family: var(--font-body); }
 .hero-title-v3 {
   font-size: clamp(42px, 7vw, 84px);
   font-weight: 800;
-  color: #fff;
+  color: #ffffff;
   line-height: 1.05;
   margin-bottom: 24px;
   letter-spacing: -1.4px;
@@ -459,7 +458,11 @@ h1, h2, h3 { font-family: var(--font-body); }
 
 .hero-rotating-word {
   display: inline-block;
-  color: #c77dff;
+  color: #ffffff;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: #ffffff;
   margin-top: 8px;
 }
 
@@ -1122,7 +1125,11 @@ h1, h2, h3 { font-family: var(--font-body); }
 }
 
 .hero-rotating-word {
-      color: #c77dff;
+      color: #ffffff;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      -webkit-text-fill-color: #ffffff;
       display: inline-flex;
       align-items: center;
       min-width: 2ch;

@@ -2,14 +2,11 @@ import React from 'react';
 import Navbar from '../../../components/common/navigation/Navbar';
 import Footer from '../../../components/common/Footer';
 import SEO from '../../../components/common/SEO';
-import { useLanguage } from '../../../context/LanguageContext';
 import { FaDesktop, FaChalkboardTeacher, FaFileUpload, FaTasks, FaChevronLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../../../css/portal.css';
 
 const FacultyLMS = () => {
-    const { t } = useLanguage();
-
     return (
         <>
             <SEO title="Faculty LMS - Moi Educational Centre" description="Manage your virtual classrooms, assignments, and digital resources." />

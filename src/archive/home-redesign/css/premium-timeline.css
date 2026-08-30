@@ -217,7 +217,7 @@
 }
 
 .achievements li::before {
-  content: '✓';
+  content: '\2713';
   position: absolute;
   left: 0;
   color: #d946ef;

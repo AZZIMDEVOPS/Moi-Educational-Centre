@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { FaSearch, FaLinkedin, FaCalendar, FaBriefcase, FaHeart, FaUsers, FaTrophy, FaHandshake, FaEnvelope } from 'react-icons/fa';
+import { 
+  FaSearch, FaLinkedin, FaCalendar, FaBriefcase, FaHeart, FaUsers, 
+  FaTrophy, FaHandshake, FaEnvelope, FaUserMd, FaLaptopCode, FaVideo, 
+  FaGlobeAmericas, FaMapMarkerAlt 
+} from 'react-icons/fa';
 import Navbar from '../components/common/navigation/Navbar';
 import Footer from '../components/common/Footer';
 import '../css/alumni.css';
@@ -15,7 +19,7 @@ const Alumni = () => {
       gradYear: '2010',
       title: 'Pediatrician & Medical Researcher',
       story: 'From MEC classrooms to Johns Hopkins University, Amina now leads groundbreaking research in child health across East Africa.',
-      image: '👩‍⚕️',
+      Icon: FaUserMd,
     },
     {
       id: 2,
@@ -23,7 +27,7 @@ const Alumni = () => {
       gradYear: '2012',
       title: 'Tech Entrepreneur',
       story: 'Founded a digital payment startup that now serves 500K+ users. Started coding in our computer lab!',
-      image: '💻',
+      Icon: FaLaptopCode,
     },
     {
       id: 3,
@@ -31,7 +35,7 @@ const Alumni = () => {
       gradYear: '2011',
       title: 'Documentary Filmmaker',
       story: 'Her award-winning documentary premiered at Cannes. Creative confidence built at MEC arts programs.',
-      image: '🎬',
+      Icon: FaVideo,
     },
     {
       id: 4,
@@ -39,7 +43,7 @@ const Alumni = () => {
       gradYear: '2008',
       title: 'Environmental Scientist',
       story: 'Published 40+ papers, working on climate resilience. Environmental club at MEC sparked the passion.',
-      image: '🌍',
+      Icon: FaGlobeAmericas,
     },
   ];
 
@@ -159,15 +163,43 @@ const Alumni = () => {
           </div>
         </section>
 
-        {/* Success Stories */}
+        {/* Success Stories & Ambassador Video */}
         {activeTab === 'stories' && (
           <section className="alumni-content stories-section">
             <div className="alumni-container">
+              {/* Ambassador Video Feature */}
+              <div style={{ background: '#0F3D91', borderRadius: '16px', padding: '24px', color: '#fff', marginBottom: '40px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', alignItems: 'center' }}>
+                  <div>
+                    <span style={{ background: '#38BDF8', color: '#0F3D91', padding: '4px 12px', borderRadius: '999px', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase' }}>
+                      Ambassador Spotlight
+                    </span>
+                    <h3 style={{ fontSize: '24px', fontWeight: '700', margin: '12px 0 8px', color: '#fff' }}>Meet Natalie Juma — The MEC Journey</h3>
+                    <p style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.85)', lineHeight: '1.6', margin: 0 }}>
+                      From academic excellence and campus leadership to shaping community initiatives — discover how MEC nurtures confident, globally competitive leaders.
+                    </p>
+                  </div>
+                  <div>
+                    <video
+                      controls
+                      playsInline
+                      poster="/assets/gallery/DSC_4345.JPG"
+                      style={{ width: '100%', borderRadius: '12px', background: '#000', maxHeight: '280px', display: 'block' }}
+                    >
+                      <source src="/assets/videos/Meet Natalie Juma .mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+
               <h2>Alumni Success Stories</h2>
               <div className="stories-grid">
                 {successStories.map((story) => (
                   <div key={story.id} className="story-card">
-                    <div className="story-image">{story.image}</div>
+                    <div className="story-image" style={{ fontSize: '32px', color: '#38bdf8', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <story.Icon />
+                    </div>
                     <div className="story-content">
                       <h3>{story.name}</h3>
                       <p className="story-title">{story.title}</p>
@@ -182,7 +214,7 @@ const Alumni = () => {
           </section>
         )}
 
-        {/* Events & Reunions */}
+        {/* Events & Reunions with Photo Gallery */}
         {activeTab === 'events' && (
           <section className="alumni-content events-section">
             <div className="alumni-container">
@@ -196,12 +228,31 @@ const Alumni = () => {
                     <div className="event-details">
                       <h3>{event.title}</h3>
                       <p className="event-date">{event.date}</p>
-                      <p className="event-location">📍 {event.location}</p>
+                      <p className="event-location"><FaMapMarkerAlt style={{ marginRight: 4, color: '#ef4444' }} /> {event.location}</p>
                       <span className="event-badge">{event.category}</span>
                     </div>
                     <button className="btn btn-sm btn-primary">Register</button>
                   </div>
                 ))}
+              </div>
+
+              {/* Class of '98 Reunion Gallery */}
+              <div style={{ marginTop: '48px' }}>
+                <h3 style={{ fontSize: '20px', fontWeight: '700', color: '#0F172A', marginBottom: '16px' }}>Reunion Highlights — Class of 1998</h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+                  <div style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
+                    <img src="/assets/gallery/Alumni 11 - Class of 98.jpg" alt="MEC Class of 98 Reunion" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
+                    <div style={{ padding: '12px 16px', background: '#F8FAFC', fontSize: '13px', fontWeight: '600', color: '#334155' }}>
+                      Class of '98 Silver Jubilee Alumni Gathering
+                    </div>
+                  </div>
+                  <div style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}>
+                    <img src="/assets/gallery/Alumni 12 - Class of 98.jpg" alt="MEC Alumni Networking" style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }} />
+                    <div style={{ padding: '12px 16px', background: '#F8FAFC', fontSize: '13px', fontWeight: '600', color: '#334155' }}>
+                      MEC Alumni Mentorship & Professional Network
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

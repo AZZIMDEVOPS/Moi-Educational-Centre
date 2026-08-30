@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaPhone, FaEnvelope, FaClock, FaDownload, FaBus, FaCalendar, FaWhatsapp, FaChevronDown } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaClock, FaDownload, FaBus, FaCalendar, FaWhatsapp, FaChevronDown, FaMobileAlt, FaUniversity, FaCreditCard } from 'react-icons/fa';
 import Navbar from '../components/common/navigation/Navbar';
 import Footer from '../components/common/Footer';
 import '../css/parents-hub.css';
@@ -81,17 +81,6 @@ const ParentsHub = () => {
           </div>
         </section>
 
-        {/* Portal Access */}
-        <section className="parents-section portal-access">
-          <div className="parents-container">
-            <div className="portal-card">
-              <h2>Access Student Portal</h2>
-              <p>Check your child's academic progress, attendance, and school activities in real-time.</p>
-              <button className="btn btn-primary">Login to Portal</button>
-            </div>
-          </div>
-        </section>
-
         {/* Announcements */}
         <section className="parents-section announcements-section">
           <div className="parents-container">
@@ -160,15 +149,15 @@ const ParentsHub = () => {
               <h3>Payment Options</h3>
               <div className="payment-methods">
                 <div className="payment-method">
-                  <h4>🔐 M-Pesa</h4>
+                  <h4><FaMobileAlt style={{ color: '#10b981', marginRight: 6 }} /> M-Pesa</h4>
                   <p>Dial *384*1# or upload receipt in portal</p>
                 </div>
                 <div className="payment-method">
-                  <h4>🏦 Bank Transfer</h4>
+                  <h4><FaUniversity style={{ color: '#3b82f6', marginRight: 6 }} /> Bank Transfer</h4>
                   <p>Account details available in parent portal</p>
                 </div>
                 <div className="payment-method">
-                  <h4>💳 Card Payment</h4>
+                  <h4><FaCreditCard style={{ color: '#8b5cf6', marginRight: 6 }} /> Card Payment</h4>
                   <p>Pay securely through parent portal</p>
                 </div>
               </div>

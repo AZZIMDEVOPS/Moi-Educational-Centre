@@ -17,7 +17,6 @@ import {
   SCHOOL_EVENTS,
   SCHOOL_DOCUMENTS,
   LIBRARY_BOOKS,
-  TEACHERS_LIST,
   LEARNING_RESOURCES,
   UPCOMING_EXAMS,
   STUDENT_ACHIEVEMENTS,
@@ -49,7 +48,6 @@ const StudentPortal = () => {
   const timetable = TIMETABLE_DATA[student.id] || [];
   const assignments = ASSIGNMENTS[student.id] || [];
   const libraryBooks = LIBRARY_BOOKS[student.id] || [];
-  const teachers = TEACHERS_LIST[student.id] || [];
 
   /* Interactive States */
   const [activeDay, setActiveDay] = useState('Monday');
@@ -58,7 +56,6 @@ const StudentPortal = () => {
 
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [selectedAsg, setSelectedAsg] = useState(null);
-  const [submitFile, setSubmitFile] = useState(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const heroSlides = [
@@ -111,47 +108,47 @@ const StudentPortal = () => {
         <ul className="portal-submenu">
           <li className="portal-submenu-item">
             <button className={activeTab === 'overview' ? 'active' : ''} onClick={() => setActiveTab('overview')}>
-              📊 Overview
+              <FaLayerGroup style={{ marginRight: 6 }} /> Overview
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'academics' ? 'active' : ''} onClick={() => setActiveTab('academics')}>
-              🎓 Academics & Grades
+              <FaGraduationCap style={{ marginRight: 6 }} /> Academics & Grades
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'assignments' ? 'active' : ''} onClick={() => setActiveTab('assignments')}>
-              📝 Homework & Projects
+              <FaClipboardList style={{ marginRight: 6 }} /> Homework & Projects
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'timetable' ? 'active' : ''} onClick={() => setActiveTab('timetable')}>
-              📅 Class Timetable
+              <FaCalendarAlt style={{ marginRight: 6 }} /> Class Timetable
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'exams' ? 'active' : ''} onClick={() => setActiveTab('exams')}>
-              📋 Exams & CATs
+              <FaFileAlt style={{ marginRight: 6 }} /> Exams & CATs
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'resources' ? 'active' : ''} onClick={() => setActiveTab('resources')}>
-              📚 Learning Hub
+              <FaDesktop style={{ marginRight: 6 }} /> Learning Hub
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'library' ? 'active' : ''} onClick={() => setActiveTab('library')}>
-              📖 Digital Library
+              <FaBookOpen style={{ marginRight: 6 }} /> Digital Library
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'activities' ? 'active' : ''} onClick={() => setActiveTab('activities')}>
-              🏆 Clubs & Sports
+              <FaTrophy style={{ marginRight: 6 }} /> Clubs & Sports
             </button>
           </li>
           <li className="portal-submenu-item">
             <button className={activeTab === 'achievements' ? 'active' : ''} onClick={() => setActiveTab('achievements')}>
-              🌟 Achievements Wall
+              <FaStar style={{ marginRight: 6 }} /> Achievements Wall
             </button>
           </li>
         </ul>
@@ -165,15 +162,15 @@ const StudentPortal = () => {
             <div className="student-profile-strip">
               <img src={student.avatar} alt={student.name} className="student-avatar-lg" />
               <div className="student-profile-meta">
-                <h1>Welcome Back, {student.name}! 👋</h1>
+                <h1>Welcome Back, {student.name}!</h1>
                 <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: 14 }}>
                   Moi Educational Centre Student Portal · Admission No: <strong>{student.admNo}</strong>
                 </p>
                 <div className="student-meta-badges">
-                  <span className="student-badge-pill">🏫 {student.grade} - Stream {student.stream}</span>
-                  <span className="student-badge-pill">📜 {student.curriculum}</span>
-                  <span className="student-badge-pill">🏠 House: {student.house}</span>
-                  <span className="student-badge-pill">📅 Term 1, Academic Year 2026</span>
+                  <span className="student-badge-pill"><FaSchool style={{ marginRight: 6 }} /> {student.grade} - Stream {student.stream}</span>
+                  <span className="student-badge-pill"><FaFileAlt style={{ marginRight: 6 }} /> {student.curriculum}</span>
+                  <span className="student-badge-pill"><FaBuilding style={{ marginRight: 6 }} /> House: {student.house}</span>
+                  <span className="student-badge-pill"><FaCalendarAlt style={{ marginRight: 6 }} /> Term 1, Academic Year 2026</span>
                 </div>
               </div>
             </div>
@@ -223,29 +220,29 @@ const StudentPortal = () => {
               {/* Quick Actions Bar */}
               <div className="student-quick-actions-bar">
                 <button className="student-action-btn" onClick={() => setActiveTab('timetable')}>
-                  📅 View Timetable
+                  <FaCalendarAlt style={{ marginRight: 6 }} /> View Timetable
                 </button>
                 <button className="student-action-btn" onClick={() => setActiveTab('assignments')}>
-                  📝 View Assignments
+                  <FaClipboardList style={{ marginRight: 6 }} /> View Assignments
                 </button>
                 <button className="student-action-btn" onClick={() => setActiveTab('academics')}>
-                  🎓 View Results
+                  <FaGraduationCap style={{ marginRight: 6 }} /> View Results
                 </button>
                 <button className="student-action-btn" onClick={() => { setSelectedAsg(assignments[0]); setShowSubmitModal(true); }}>
-                  📤 Submit Homework
+                  <FaUpload style={{ marginRight: 6 }} /> Submit Homework
                 </button>
                 <button className="student-action-btn" onClick={() => setActiveTab('resources')}>
-                  📚 Open Learning Hub
+                  <FaDesktop style={{ marginRight: 6 }} /> Open Learning Hub
                 </button>
                 <button className="student-action-btn" onClick={() => setActiveTab('library')}>
-                  📖 Browse Library
+                  <FaBookOpen style={{ marginRight: 6 }} /> Browse Library
                 </button>
               </div>
 
               {/* Current Lesson Banner */}
               <div className="current-lesson-box">
                 <div>
-                  <span className="current-lesson-tag">⚡ Current Lesson in Session</span>
+                  <span className="current-lesson-tag">Active Lesson in Session</span>
                   <h3 style={{ fontSize: 20, fontWeight: 800, color: '#fff', margin: '4px 0' }}>
                     Mathematics & Numeracy · Room 6E
                   </h3>
@@ -392,7 +389,7 @@ const StudentPortal = () => {
 
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span style={{ fontSize: 12, color: '#64748B', fontWeight: 600 }}>
-                        📅 Due Date: <strong style={{ color: '#DC2626' }}>{asg.dueDate}</strong>
+                        <FaCalendarAlt style={{ marginRight: 4 }} /> Due Date: <strong style={{ color: '#DC2626' }}>{asg.dueDate}</strong>
                       </span>
 
                       {asg.status !== 'Submitted' && asg.status !== 'Completed' && (
@@ -470,7 +467,7 @@ const StudentPortal = () => {
                       <span className="badge-status urgent">{ex.duration}</span>
                     </div>
                     <div style={{ fontSize: 13, color: '#475569', marginBottom: 8 }}>
-                      📅 Date: <strong>{ex.date}</strong> ({ex.time}) · Venue: <strong>{ex.venue}</strong>
+                      <FaCalendarAlt style={{ marginRight: 4 }} /> Date: <strong>{ex.date}</strong> ({ex.time}) · Venue: <strong>{ex.venue}</strong>
                     </div>
                     <div style={{ fontSize: 12, color: '#64748B', background: '#FFFFFF', padding: 10, borderRadius: 8, border: '1px solid #E2E8F0' }}>
                       <strong>Regulations:</strong> {ex.instructions}
@@ -598,7 +595,7 @@ const StudentPortal = () => {
                     <h3 style={{ fontSize: 16, fontWeight: 800, color: '#0F172A', marginTop: 4 }}>{cl.name}</h3>
                     <p style={{ fontSize: 12, color: '#64748B' }}>Patron / Coach: {cl.patron}</p>
                     <div style={{ fontSize: 12, color: '#334155', marginTop: 10 }}>
-                      🕒 Meeting: <strong>{cl.meeting}</strong> ({cl.venue})
+                      <FaClock style={{ marginRight: 4 }} /> Meeting: <strong>{cl.meeting}</strong> ({cl.venue})
                     </div>
                     <div style={{ marginTop: 12, textAlign: 'right' }}>
                       <span style={{ fontSize: 11, fontWeight: 800, color: '#7720E9', background: '#F3E8FF', padding: '4px 10px', borderRadius: 999 }}>
@@ -616,7 +613,7 @@ const StudentPortal = () => {
             <div className="student-section-card">
               <div className="student-section-header">
                 <div className="student-section-title-group">
-                  <FaStar className="student-section-icon" style={{ color: '#F59E0B' }} />
+                  <FaStar className="student-section-icon" style={{ color: '#0F3D91' }} />
                   <div>
                     <div className="student-section-title">Student Achievements & Awards Gallery</div>
                     <div className="student-section-sub">Academic, music, sports, and leadership accolades</div>
@@ -664,7 +661,7 @@ const StudentPortal = () => {
 
                 <div className="portal-form-group">
                   <label className="portal-form-label">Upload Homework File (PDF, DOCX, PNG)</label>
-                  <input type="file" className="portal-form-input" onChange={e => setSubmitFile(e.target.files[0])} required />
+                  <input type="file" className="portal-form-input" required />
                 </div>
 
                 <button type="submit" className="portal-pay-btn" style={{ width: '100%', justifyContent: 'center', height: 46 }}>

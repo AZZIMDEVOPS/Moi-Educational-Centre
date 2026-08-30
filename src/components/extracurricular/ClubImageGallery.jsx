@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { FaTimes } from 'react-icons/fa';
 
 const ClubImageGallery = ({ images, clubName, gridColumns = 3 }) => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -43,7 +44,7 @@ const ClubImageGallery = ({ images, clubName, gridColumns = 3 }) => {
                         className="lightbox-close"
                         onClick={() => setSelectedImage(null)}
                     >
-                        ✕
+                        <FaTimes />
                     </button>
                     <img 
                         src={selectedImage} 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from '../components/common/navigation/Navbar';
 import Footer from '../components/common/Footer';
-import { useLanguage } from '../context/LanguageContext';
 import {
   LINKED_CHILDREN,
   PARENT_PROFILE,
@@ -14,7 +13,6 @@ import {
   MESSAGES_INBOX,
   SCHOOL_EVENTS,
   SCHOOL_DOCUMENTS,
-  LIBRARY_BOOKS,
   REQUEST_FORMS,
   TEACHERS_LIST
 } from '../data/portalData';
@@ -25,14 +23,12 @@ import {
   FaFilePdf, FaClipboardList, FaChalkboardTeacher, FaUserCog, FaQuestionCircle,
   FaTrophy, FaHeartbeat, FaCheckCircle, FaExclamationTriangle, FaDownload,
   FaPrint, FaPlus, FaTimes, FaSearch, FaPaperPlane, FaChevronRight, FaBars,
-  FaPhone, FaShieldAlt, FaAward
+  FaPhone, FaShieldAlt, FaAward, FaSchool, FaFileAlt, FaBuilding
 } from 'react-icons/fa';
 
 import '../css/dashboard.css';
 
 const ParentDashboard = () => {
-  const { language } = useLanguage();
-
   /* ─── State ────────────────────────────────────────────── */
   const [selectedChildId, setSelectedChildId] = useState('brian-g6');
   const [activeModule, setActiveModule] = useState('overview');
@@ -58,11 +54,7 @@ const ParentDashboard = () => {
   const [reqNotes, setReqNotes] = useState('');
   const [reqSentNotice, setReqSentNotice] = useState(false);
 
-  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
   const [activeTimetableDay, setActiveTimetableDay] = useState('Monday');
-  const [assignmentFilter, setAssignmentFilter] = useState('All');
-  const [faqSearch, setFaqSearch] = useState('');
-  const [openFaqIndex, setOpenFaqIndex] = useState(null);
 
   /* ─── Helpers ─────────────────────────────────────────── */
   const isAllChildren = selectedChildId === 'all';
@@ -75,7 +67,6 @@ const ParentDashboard = () => {
   const currentAttendance = ATTENDANCE_DATA[currentChild.id] || { rate: 100, present: 50, absent: 0, recentLog: [] };
   const currentTimetable = TIMETABLE_DATA[currentChild.id] || [];
   const currentAssignments = ASSIGNMENTS[currentChild.id] || [];
-  const currentLibrary = LIBRARY_BOOKS[currentChild.id] || [];
   const currentTeachers = TEACHERS_LIST[currentChild.id] || TEACHERS_LIST['brian-g6'];
 
   /* Payment Processor Simulation */
@@ -375,7 +366,7 @@ const ParentDashboard = () => {
                 <div className="portal-welcome-hero">
                   <div className="portal-welcome-top">
                     <div>
-                      <h1 className="portal-welcome-title">Good Morning, {PARENT_PROFILE.name} 👋</h1>
+                      <h1 className="portal-welcome-title">Good Morning, {PARENT_PROFILE.name}</h1>
                       <p className="portal-welcome-sub">
                         Here is your real-time snapshot for Moi Educational Centre. Track performance, fee balances, bus location, and teacher communications.
                       </p>
@@ -396,10 +387,10 @@ const ParentDashboard = () => {
                     <div className="learner-strip-details">
                       <div className="learner-strip-name">{currentChild.name} ({currentChild.admNo})</div>
                       <div className="learner-strip-pills">
-                        <span className="learner-pill">🏫 {currentChild.grade} - Stream {currentChild.stream}</span>
-                        <span className="learner-pill">📜 {currentChild.curriculum}</span>
-                        <span className="learner-pill">🏠 House: {currentChild.house}</span>
-                        <span className="learner-pill">👩‍🏫 Teacher: {currentChild.classTeacher}</span>
+                        <span className="learner-pill"><FaSchool style={{ marginRight: 4 }} /> {currentChild.grade} - Stream {currentChild.stream}</span>
+                        <span className="learner-pill"><FaFileAlt style={{ marginRight: 4 }} /> {currentChild.curriculum}</span>
+                        <span className="learner-pill"><FaBuilding style={{ marginRight: 4 }} /> House: {currentChild.house}</span>
+                        <span className="learner-pill"><FaChalkboardTeacher style={{ marginRight: 4 }} /> Teacher: {currentChild.classTeacher}</span>
                       </div>
                     </div>
                   </div>
@@ -502,22 +493,22 @@ const ParentDashboard = () => {
                 {/* Quick Actions Bar */}
                 <div className="portal-quick-actions">
                   <button className="action-pill" onClick={() => setShowPayModal(true)}>
-                    💳 Pay Fees (M-Pesa)
+                    <FaCreditCard style={{ marginRight: 6 }} /> Pay Fees (M-Pesa)
                   </button>
                   <button className="action-pill" onClick={() => setActiveModule('reports')}>
-                    📜 Download Report Card
+                    <FaFilePdf style={{ marginRight: 6 }} /> Download Report Card
                   </button>
                   <button className="action-pill" onClick={() => setShowComposeModal(true)}>
-                    ✉️ Message Class Teacher
+                    <FaEnvelope style={{ marginRight: 6 }} /> Message Class Teacher
                   </button>
                   <button className="action-pill" onClick={() => setActiveModule('timetable')}>
-                    📅 View Timetable
+                    <FaCalendarAlt style={{ marginRight: 6 }} /> View Timetable
                   </button>
                   <button className="action-pill" onClick={() => setActiveModule('transport')}>
-                    🚌 Live Bus Tracker
+                    <FaBus style={{ marginRight: 6 }} /> Live Bus Tracker
                   </button>
                   <button className="action-pill" onClick={() => setShowRequestModal(true)}>
-                    📝 Submit Leave Request
+                    <FaClipboardList style={{ marginRight: 6 }} /> Submit Leave Request
                   </button>
                 </div>
 
@@ -811,7 +802,7 @@ const ParentDashboard = () => {
                       </p>
 
                       <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, color: '#64748B', fontWeight: 600 }}>
-                        <span>📅 Due Date: <strong style={{ color: '#DC2626' }}>{asg.dueDate}</strong></span>
+                        <span><FaCalendarAlt style={{ marginRight: 4 }} /> Due Date: <strong style={{ color: '#DC2626' }}>{asg.dueDate}</strong></span>
                         {asg.gradeAwarded && <span>Grade: <strong style={{ color: '#16A34A' }}>{asg.gradeAwarded}</strong></span>}
                       </div>
                     </div>
@@ -892,9 +883,9 @@ const ParentDashboard = () => {
                   {/* Route Stepper Bar */}
                   <h4 style={{ fontSize: 14, fontWeight: 800, marginBottom: 12 }}>Route Progress Stepper (Morning Route)</h4>
                   <div style={{ display: 'flex', justifyContent: 'space-between', background: '#FFFFFF', padding: 16, borderRadius: 12, border: '1px solid #CBD5E1', fontSize: 12, fontWeight: 700 }}>
-                    <div style={{ color: '#16A34A' }}>✓ 06:40 AM Departed Depot</div>
-                    <div style={{ color: '#16A34A' }}>✓ 07:05 AM Pickup Mai Mahiu Rd</div>
-                    <div style={{ color: '#7720E9' }}>➔ 07:22 AM Arrived at MEC</div>
+                    <div style={{ color: '#16A34A' }}><FaCheckCircle style={{ marginRight: 4 }} /> 06:40 AM Departed Depot</div>
+                    <div style={{ color: '#16A34A' }}><FaCheckCircle style={{ marginRight: 4 }} /> 07:05 AM Pickup Mai Mahiu Rd</div>
+                    <div style={{ color: '#7720E9' }}><FaChevronRight style={{ marginRight: 4 }} /> 07:22 AM Arrived at MEC</div>
                   </div>
                 </div>
               </div>

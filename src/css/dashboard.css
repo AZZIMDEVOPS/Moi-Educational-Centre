@@ -503,9 +503,9 @@
 }
 
 .portal-alert-card.warning {
-  background: #FFFBEB;
-  border-left-color: #F59E0B;
-  color: #92400E;
+  background: #F5F3FF;
+  border-left-color: #6D28D9;
+  color: #4C1D95;
 }
 
 .portal-alert-card.info {
@@ -589,7 +589,7 @@
 .metric-card-icon-wrap.purple { background: #F3E8FF; color: #7720E9; }
 .metric-card-icon-wrap.emerald { background: #D1FAE5; color: #10B981; }
 .metric-card-icon-wrap.blue { background: #DBEAFE; color: #2563EB; }
-.metric-card-icon-wrap.amber { background: #FEF3C7; color: #D97706; }
+.metric-card-icon-wrap.amber { background: #EFF6FF; color: #0F3D91; }
 .metric-card-icon-wrap.rose { background: #FFE4E6; color: #E11D48; }
 
 .metric-card-title {
@@ -763,8 +763,8 @@
 }
 
 .badge-status.billed, .badge-status.pending {
-  background: #FEF3C7;
-  color: #B45309;
+  background: #EFF6FF;
+  color: #0F3D91;
 }
 
 .badge-status.urgent, .badge-status.overdue {

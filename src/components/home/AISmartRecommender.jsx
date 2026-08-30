@@ -10,14 +10,14 @@ const AISmartRecommender = () => {
     const [recommendation, setRecommendation] = useState(null);
 
     const t = language === 'en' ? {
-        title: "🎯 AI-Powered Program Finder",
+        title: "AI-Powered Program Finder",
         subtitle: "Discover your perfect program in 60 seconds",
         startBtn: "Start Quiz",
         resetBtn: "Start Over",
         matchedProgram: "Your Perfect Match",
         viewMore: "Learn More"
     } : {
-        title: "🎯 AI Kipenzi cha Programu",
+        title: "AI Kipenzi cha Programu",
         subtitle: "Gundua programu yako bora katika sekunde 60",
         startBtn: "Anza Mtihani",
         resetBtn: "Anza Tena",
