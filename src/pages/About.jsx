@@ -309,20 +309,44 @@ const WhyChooseMecBento = () => {
   );
 };
 
-/* ─── 7. Campus Gallery (Masonry) ───────────────────────── */
+/* ─── 7. Campus Gallery ─────────────────────────────────── */
 const CampusGallery = () => {
-  const images = [imgSwimming, imgLibrary, imgUpper, imgKids, imgAcademic, imgInnovation];
+  const images = [
+    { img: imgSwimming, title: "Semi-Olympic Swimming Arena", category: "Sports & Aquatics" },
+    { img: imgLibrary, title: "Modern Discovery Library", category: "Academic Resources" },
+    { img: imgUpper, title: "Smart CBC Learning Suites", category: "Classroom Learning" },
+    { img: imgKids, title: "Early Years Play & Discovery Center", category: "Pre-Primary" },
+    { img: imgAcademic, title: "Advanced Science & Research Labs", category: "STEM & Science" },
+    { img: imgInnovation, title: "VEX Robotics & Innovation Hub", category: "Technology & AI" }
+  ];
+
   return (
     <section className="abt-gallery">
-      <div className="abt-sec-header">
-        <h2 className="abt-sec-title">Campus Experience</h2>
-      </div>
-      <div className="abt-masonry">
-        {images.map((img, i) => (
-          <div className="abt-masonry-item" key={i}>
-            <img src={img} alt={`Campus ${i}`} />
+      <div className="abt-gallery-container">
+        
+        <div className="abt-gallery-header">
+          <div className="abt-gallery-eyebrow">
+            Campus & Facilities
           </div>
-        ))}
+          <h2 className="abt-gallery-title">Campus Experience</h2>
+          <p className="abt-gallery-subtitle">
+            A state-of-the-art learning environment designed to nurture intellectual curiosity, athletic excellence, and creative discovery.
+          </p>
+        </div>
+
+        <div className="abt-gallery-grid">
+          {images.map((item, i) => (
+            <div className="abt-gallery-card" key={i}>
+              <img src={item.img} alt={item.title} className="abt-gallery-img" />
+              <div className="abt-gallery-overlay" />
+              <div className="abt-gallery-info">
+                <span className="abt-gallery-cat">{item.category}</span>
+                <h4 className="abt-gallery-card-title">{item.title}</h4>
+              </div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
@@ -332,11 +356,25 @@ const CampusGallery = () => {
 const AchievementsStats = () => {
   return (
     <section className="abt-stats">
-      <div className="abt-stats-inner">
-        <div><div className="abt-stat-num">40+</div><div className="abt-stat-label">Years of Legacy</div></div>
-        <div><div className="abt-stat-num">2500</div><div className="abt-stat-label">Active Students</div></div>
-        <div><div className="abt-stat-num">100+</div><div className="abt-stat-label">Expert Educators</div></div>
-        <div><div className="abt-stat-num">98%</div><div className="abt-stat-label">Parent Satisfaction</div></div>
+      <div className="abt-stats-container">
+        <div className="abt-stats-grid">
+          <div className="abt-stat-box">
+            <div className="abt-stat-num">40+</div>
+            <div className="abt-stat-label">Years of Legacy</div>
+          </div>
+          <div className="abt-stat-box">
+            <div className="abt-stat-num">2500+</div>
+            <div className="abt-stat-label">Active Students</div>
+          </div>
+          <div className="abt-stat-box">
+            <div className="abt-stat-num">100+</div>
+            <div className="abt-stat-label">Expert Educators</div>
+          </div>
+          <div className="abt-stat-box">
+            <div className="abt-stat-num">98%</div>
+            <div className="abt-stat-label">Parent Satisfaction</div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -387,24 +425,39 @@ const StudentLifeShowcase = () => {
 const TestimonialsCarousel = () => {
   return (
     <section className="abt-testimonials">
-      <div className="abt-sec-header">
-        <h2 className="abt-sec-title">What Parents Say</h2>
-      </div>
-      <div className="abt-test-grid">
-        <div className="abt-test-card">
-          <div style={{ color: '#f59e0b', fontSize: '16px', marginBottom: '16px', display: 'flex', gap: '4px' }}>
-            {[...Array(5)].map((_, i) => <FaStar key={i} />)}
+      <div className="abt-testimonials-container">
+        
+        <div className="abt-testimonials-header">
+          <div className="abt-testimonials-eyebrow">
+            Testimonials & Trust
           </div>
-          <p className="abt-test-quote">"MEC has transformed my child. The teachers are incredibly supportive and the facilities are world-class."</p>
-          <div className="abt-test-author">— Sarah W., Parent</div>
+          <h2 className="abt-testimonials-title">What Parents & Alumni Say</h2>
+          <p className="abt-testimonials-subtitle">
+            Hear from families whose children have grown, thrived, and succeeded within our school community.
+          </p>
         </div>
-        <div className="abt-test-card">
-          <div style={{ color: '#f59e0b', fontSize: '16px', marginBottom: '16px', display: 'flex', gap: '4px' }}>
-            {[...Array(5)].map((_, i) => <FaStar key={i} />)}
+
+        <div className="abt-test-grid">
+          <div className="abt-test-card">
+            <div className="abt-test-stars">
+              {[...Array(5)].map((_, i) => <FaStar key={i} />)}
+            </div>
+            <p className="abt-test-quote">
+              "MEC has transformed my child into a confident, curious, and disciplined learner. The teachers are incredibly dedicated and the facilities are world-class."
+            </p>
+            <div className="abt-test-author">— Sarah W., Parent</div>
           </div>
-          <p className="abt-test-quote">"The balance between academic rigor and co-curricular activities here is unmatched in Nairobi."</p>
-          <div className="abt-test-author">— James K., Alumni</div>
+          <div className="abt-test-card">
+            <div className="abt-test-stars">
+              {[...Array(5)].map((_, i) => <FaStar key={i} />)}
+            </div>
+            <p className="abt-test-quote">
+              "The holistic balance between rigorous academics, competitive sports, and the vibrant music academy at MEC is truly unmatched in Nairobi."
+            </p>
+            <div className="abt-test-author">— James K., Alumni</div>
+          </div>
         </div>
+
       </div>
     </section>
   );

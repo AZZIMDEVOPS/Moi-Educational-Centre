@@ -491,19 +491,219 @@
 }
 
 
-/* ─── 7. Campus Gallery (Masonry) ───────────────────────── */
-.abt-gallery { padding: 120px var(--padding-x); background: #ffffff; }
-.abt-masonry { max-width: var(--max-width); margin: 0 auto; columns: 3 300px; column-gap: 24px; }
-.abt-masonry-item { position: relative; margin-bottom: 24px; border-radius: 20px; overflow: hidden; break-inside: avoid; }
-.abt-masonry-item img { width: 100%; display: block; transition: transform 0.5s; }
-.abt-masonry-item:hover img { transform: scale(1.05); }
+/* ─── 7. Campus Gallery (Controlled Grid) ───────────────── */
+.abt-gallery {
+  padding: 100px 0;
+  background: #FFFFFF;
+}
+
+.abt-gallery-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.abt-gallery-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.abt-gallery-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(108, 43, 217, 0.08);
+  border: 1px solid rgba(108, 43, 217, 0.25);
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #6C2BD9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.abt-gallery-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.abt-gallery-subtitle {
+  font-size: 16px;
+  color: #64748B;
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.abt-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.abt-gallery-card {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+  min-height: 250px;
+  background: #0F172A;
+  box-shadow: 0 8px 24px rgba(15, 61, 145, 0.08);
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.abt-gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(108, 43, 217, 0.18);
+}
+
+.abt-gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.abt-gallery-card:hover .abt-gallery-img {
+  transform: scale(1.06);
+}
+
+.abt-gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 12, 30, 0) 35%, rgba(8, 12, 30, 0.88) 100%);
+  transition: opacity 0.35s ease;
+}
+
+.abt-gallery-card:hover .abt-gallery-overlay {
+  background: linear-gradient(180deg, rgba(8, 12, 30, 0.1) 20%, rgba(8, 12, 30, 0.94) 100%);
+}
+
+.abt-gallery-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 20px;
+  z-index: 2;
+  transition: transform 0.35s ease;
+}
+
+.abt-gallery-card:hover .abt-gallery-info {
+  transform: translateY(-3px);
+}
+
+.abt-gallery-cat {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #D8B4FE;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.abt-gallery-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 17.5px;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  margin: 0;
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .abt-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .abt-gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
 
 
-/* ─── 8. Stats & Accreditations ─────────────────────────── */
-.abt-stats { padding: 120px var(--padding-x); background: #f8fafc; }
-.abt-stats-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; }
-.abt-stat-num { font-family: 'Poppins', sans-serif; font-size: 64px; font-weight: 800; background: linear-gradient(135deg, #A855F7, #3B82F6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
-.abt-stat-label { font-size: 15px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; }
+/* ─── 8. Stats & Accreditations (Controlled Grid) ───────── */
+.abt-stats {
+  padding: 80px 0;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.abt-stats-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.abt-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+
+.abt-stat-box {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 32px 20px;
+  box-shadow: 0 4px 16px rgba(15, 61, 145, 0.04);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.abt-stat-box:hover {
+  transform: translateY(-4px);
+  border-color: #6C2BD9;
+}
+
+.abt-stat-num {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(38px, 4vw, 56px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #6C2BD9, #0F3D91);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.abt-stat-label {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .abt-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .abt-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 /* ─── 9. Student Life Showcase (Controlled Grid) ────────── */
@@ -651,12 +851,107 @@
 }
 
 
-/* ─── 10. Testimonials Carousel ─────────────────────────── */
-.abt-testimonials { padding: 120px var(--padding-x); background: #f8fafc; text-align: center; }
-.abt-test-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-.abt-test-card { background: #ffffff; padding: 40px; border-radius: 24px; border: 1px solid #e2e8f0; box-shadow: 0 4px 16px rgba(0,0,0,0.04); }
-.abt-test-quote { font-style: italic; color: #64748b; margin-bottom: 24px; line-height: 1.7; }
-.abt-test-author { font-weight: 700; color: #0f172a; }
+/* ─── 10. Testimonials Carousel (Controlled Grid) ───────── */
+.abt-testimonials {
+  padding: 100px 0;
+  background: #F8FAFC;
+}
+
+.abt-testimonials-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.abt-testimonials-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.abt-testimonials-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(108, 43, 217, 0.08);
+  border: 1px solid rgba(108, 43, 217, 0.25);
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #6C2BD9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.abt-testimonials-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+
+.abt-testimonials-subtitle {
+  font-size: 16px;
+  color: #64748B;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+.abt-test-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.abt-test-card {
+  background: #FFFFFF;
+  padding: 36px 32px;
+  border-radius: 22px;
+  border: 1.5px solid #E2E8F0;
+  box-shadow: 0 4px 20px rgba(15, 61, 145, 0.04);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  text-align: left;
+}
+
+.abt-test-card:hover {
+  transform: translateY(-4px);
+  border-color: #6C2BD9;
+}
+
+.abt-test-stars {
+  color: #F59E0B;
+  font-size: 15px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 4px;
+}
+
+.abt-test-quote {
+  font-size: 15px;
+  font-style: italic;
+  color: #334155;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.abt-test-author {
+  font-weight: 700;
+  color: #0F172A;
+  font-size: 14.5px;
+}
+
+@media (max-width: 768px) {
+  .abt-test-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 
 /* ─── 11. FAQ Accordion (Centered) ──────────────────────── */
