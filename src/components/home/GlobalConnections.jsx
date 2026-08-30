@@ -428,12 +428,19 @@ const GlobalConnections = () => {
             >
               <MapController centerPoint={mapCenter} zoomLevel={mapZoom} />
 
-              {/* CartoDB Dark Matter Tile Layer (Open-Access, Sleek Dark Theme, No API Key Required) */}
+              {/* ESRI World Dark Gray Canvas Tile Layer (Open-Access, No API Key Required, High Contrast) */}
               <TileLayer
-                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+                attribution='&copy; <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, &copy; OpenStreetMap contributors'
                 maxZoom={12}
                 minZoom={2}
+              />
+              <TileLayer
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}"
+                attribution=""
+                maxZoom={12}
+                minZoom={2}
+                opacity={0.7}
               />
 
               {/* Primary Nairobi -> London Curved Route */}

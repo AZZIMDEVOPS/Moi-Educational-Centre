@@ -1,29 +1,30 @@
 /* =============================================================
    MEC GLOBAL CONNECTIONS — Interactive Real Leaflet Map
    MEC Branding: Deep Navy (#050816), Purple (#A855F7), Royal Blue (#3B82F6)
+   High-Contrast, Premium Design System
    ============================================================= */
 
 @import url('./design-tokens.css');
 
 .global-connections-section {
   position: relative;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   padding: 100px 0;
-  color: #0f172a;
+  color: #0F172A;
   font-family: 'Poppins', sans-serif;
   overflow: hidden;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
 }
 
 .gc-ambient-glow-purple {
   position: absolute;
   top: 20%;
-  left: 10%;
+  left: 5%;
   width: 500px;
   height: 400px;
-  background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
-  filter: blur(120px);
+  background: radial-gradient(circle, rgba(108, 43, 217, 0.08) 0%, transparent 70%);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 1;
 }
@@ -31,17 +32,17 @@
 .gc-ambient-glow-blue {
   position: absolute;
   bottom: 10%;
-  right: 15%;
+  right: 10%;
   width: 550px;
   height: 450px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
-  filter: blur(120px);
+  background: radial-gradient(circle, rgba(15, 61, 145, 0.08) 0%, transparent 70%);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 1;
 }
 
 .gc-container {
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
@@ -51,15 +52,16 @@
 /* ─── Desktop Layout ────────────────────────────────────── */
 .gc-layout {
   display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 36px;
-  align-items: start;
+  grid-template-columns: 440px 1fr;
+  gap: 40px;
+  align-items: stretch;
 }
 
 /* ─── Left Info Panel ───────────────────────────────────── */
 .gc-info-panel {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .gc-eyebrow {
@@ -67,38 +69,38 @@
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: rgba(168, 85, 247, 0.08);
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  background: rgba(108, 43, 217, 0.08);
+  border: 1px solid rgba(108, 43, 217, 0.25);
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 700;
-  color: #7C3AED;
-  letter-spacing: 0.12em;
+  color: #6C2BD9;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 16px;
   align-self: flex-start;
 }
 
 .gc-eyebrow-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background-color: #A855F7;
-  box-shadow: 0 0 8px #A855F7;
+  background-color: #6C2BD9;
+  box-shadow: 0 0 8px #6C2BD9;
 }
 
 .gc-heading {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(34px, 3.8vw, 52px);
+  font-size: clamp(34px, 3.6vw, 48px);
   font-weight: 800;
-  line-height: 1.1;
-  color: #0f172a;
+  line-height: 1.15;
+  color: #0F172A;
   margin: 0 0 16px;
   letter-spacing: -0.02em;
 }
 
 .gc-gradient-text {
-  background: linear-gradient(135deg, #A855F7 0%, #3B82F6 100%);
+  background: linear-gradient(135deg, #6C2BD9 0%, #0F3D91 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -106,9 +108,10 @@
 
 .gc-subtext {
   font-size: 15px;
-  line-height: 1.65;
-  color: #64748b;
-  margin-bottom: 28px;
+  line-height: 1.7;
+  color: #334155;
+  margin-bottom: 24px;
+  font-weight: 500;
 }
 
 /* Metric Pills */
@@ -116,25 +119,26 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .gc-metric-pill {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 14px 20px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
+  padding: 16px 20px;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
   border-radius: 18px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gc-metric-pill:hover {
-  background: #ffffff;
-  border-color: rgba(168, 85, 247, 0.4);
-  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.1);
+  background: #FAF5FF;
+  border-color: #6C2BD9;
+  box-shadow: 0 8px 24px rgba(108, 43, 217, 0.12);
   transform: translateX(4px);
 }
 
@@ -142,41 +146,45 @@
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-weight: 800;
-  color: #A855F7;
+  color: #6C2BD9;
   flex-shrink: 0;
+  background: rgba(108, 43, 217, 0.08);
+  padding: 4px 10px;
+  border-radius: 8px;
 }
 
 .gc-metric-info {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .gc-metric-title {
   font-size: 15px;
   font-weight: 700;
-  color: #0f172a;
+  color: #0F172A;
 }
 
 .gc-metric-sub {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #475569;
 }
 
 /* Location Card */
 .gc-location-card {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.12) 0%, rgba(15, 61, 145, 0.15) 100%);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  background: linear-gradient(145deg, #0A0F2D 0%, #170A33 100%);
+  border: 1px solid rgba(168, 85, 247, 0.4);
   border-radius: 24px;
   padding: 24px;
   margin-bottom: 24px;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-  animation: gcCardFadeIn 0.4s ease-out;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.25);
+  animation: gcCardFadeIn 0.35s ease-out;
+  color: #FFFFFF;
 }
 
 @keyframes gcCardFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -184,7 +192,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .gc-card-type-badge {
@@ -197,29 +205,35 @@
 }
 
 .gc-card-type-badge.hub {
-  background: rgba(168, 85, 247, 0.25);
-  color: #D8B4FE;
-  border: 1px solid rgba(168, 85, 247, 0.4);
+  background: rgba(168, 85, 247, 0.3);
+  color: #E9D5FF;
+  border: 1px solid rgba(168, 85, 247, 0.5);
 }
 
 .gc-card-type-badge.partner,
 .gc-card-type-badge.network {
-  background: rgba(59, 130, 246, 0.25);
-  color: #93C5FD;
-  border: 1px solid rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.3);
+  color: #BFDBFE;
+  border: 1px solid rgba(59, 130, 246, 0.5);
 }
 
 .gc-card-close-btn {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
   cursor: pointer;
-  padding: 4px;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .gc-card-close-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
   color: #FFFFFF;
 }
 
@@ -250,54 +264,36 @@
   position: absolute;
   bottom: 8px;
   left: 8px;
-  background: rgba(15, 23, 42, 0.88);
+  background: rgba(15, 23, 42, 0.9);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  color: #60A5FA;
+  color: #93C5FD;
   font-size: 11px;
   font-weight: 700;
   padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(96, 165, 250, 0.4);
-  letter-spacing: 0.05em;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.gc-popup-img-wrap {
-  width: 100%;
-  height: 85px;
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 8px;
-  border: 1px solid rgba(168, 85, 247, 0.3);
-}
-
-.gc-popup-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  border: 1px solid rgba(147, 197, 253, 0.4);
 }
 
 .gc-card-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 800;
   color: #FFFFFF;
   margin: 0 0 4px;
 }
 
 .gc-card-city {
   font-size: 13px;
-  font-weight: 600;
-  color: #3B82F6;
-  margin-bottom: 12px;
+  font-weight: 700;
+  color: #60A5FA;
+  margin-bottom: 10px;
 }
 
 .gc-card-desc {
   font-size: 13.5px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 16px;
 }
 
@@ -306,41 +302,41 @@
   align-items: center;
   justify-content: space-between;
   padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .gc-card-coords {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   font-family: monospace;
 }
 
 .gc-card-focus-btn {
-  background: rgba(255, 255, 255, 0.1);
+  background: #6C2BD9;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
   color: #FFFFFF;
   font-size: 12px;
-  font-weight: 600;
-  padding: 6px 14px;
+  font-weight: 700;
+  padding: 6px 16px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .gc-card-focus-btn:hover {
-  background: #6C2BD9;
-  border-color: #6C2BD9;
+  background: #581C87;
 }
 
 /* Selector Pills */
 .gc-selector-pills {
   margin-top: auto;
+  padding-top: 12px;
 }
 
 .gc-selector-label {
   font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  color: #334155;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 10px;
@@ -355,32 +351,35 @@
 
 .gc-pill-item {
   padding: 6px 14px;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
   border-radius: 999px;
-  color: #64748b;
+  color: #1E293B;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .gc-pill-item:hover,
 .gc-pill-item.active {
-  background: rgba(168, 85, 247, 0.15);
-  border-color: rgba(168, 85, 247, 0.4);
-  color: #7C3AED;
+  background: #6C2BD9;
+  border-color: #6C2BD9;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(108, 43, 217, 0.25);
 }
-
 
 /* ─── Right Interactive Map Area ────────────────────────── */
 .gc-map-wrapper {
   position: relative;
   border-radius: 28px;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-  background: #ffffff;
+  border: 2px solid #E2E8F0;
+  box-shadow: 0 16px 50px rgba(15, 23, 42, 0.12);
+  background: #0B1120;
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
 }
 
 .gc-map-hint-pill {
@@ -389,17 +388,17 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  padding: 8px 20px;
-  background: rgba(15, 21, 53, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 22px;
+  background: rgba(10, 15, 45, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   border-radius: 999px;
   font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.85);
+  font-weight: 700;
+  color: #FFFFFF;
   pointer-events: none;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
 .gc-floating-controls {
@@ -413,11 +412,11 @@
 }
 
 .gc-ctrl-btn {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
-  background: rgba(15, 21, 53, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(10, 15, 45, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -426,20 +425,20 @@
   cursor: pointer;
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
 .gc-ctrl-btn:hover {
-  background: rgba(108, 43, 217, 0.8);
-  border-color: rgba(168, 85, 247, 0.5);
-  transform: scale(1.05);
+  background: #6C2BD9;
+  border-color: #6C2BD9;
+  transform: scale(1.06);
 }
 
 .gc-leaflet-container {
   width: 100%;
-  height: 560px;
-  background: #050816 !important;
+  height: 600px;
+  background: #0B1120 !important;
   z-index: 1;
 }
 
@@ -528,8 +527,8 @@
 }
 
 .traveling-light-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   background: #FFFFFF;
   box-shadow: 0 0 12px #FFFFFF, 0 0 20px #A855F7, 0 0 30px #3B82F6;
@@ -538,36 +537,36 @@
 
 /* Custom Leaflet Popup Styling */
 .gc-custom-popup .leaflet-popup-content-wrapper {
-  background: rgba(15, 21, 53, 0.92) !important;
-  border: 1px solid rgba(168, 85, 247, 0.4) !important;
+  background: rgba(10, 15, 45, 0.95) !important;
+  border: 1px solid rgba(168, 85, 247, 0.5) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   backdrop-filter: blur(12px) !important;
   border-radius: 16px !important;
   color: #FFFFFF !important;
   padding: 4px !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5) !important;
 }
 
 .gc-custom-popup .leaflet-popup-tip {
-  background: rgba(15, 21, 53, 0.92) !important;
+  background: rgba(10, 15, 45, 0.95) !important;
 }
 
 .gc-popup-content {
-  padding: 10px 14px;
+  padding: 12px 16px;
   cursor: pointer;
 }
 
 .gc-popup-city {
   font-size: 11px;
-  font-weight: 700;
-  color: #3B82F6;
+  font-weight: 800;
+  color: #60A5FA;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
 
 .gc-popup-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 700;
   color: #FFFFFF;
   margin: 2px 0 6px;
@@ -575,10 +574,10 @@
 
 .gc-popup-badge {
   display: inline-block;
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 700;
-  color: #D8B4FE;
-  background: rgba(168, 85, 247, 0.2);
+  color: #E9D5FF;
+  background: rgba(168, 85, 247, 0.3);
   padding: 2px 8px;
   border-radius: 999px;
 }
@@ -587,21 +586,21 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 14px 24px;
+  background: #060A14;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 11px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #E2E8F0;
   letter-spacing: 0.1em;
 }
 
 .gc-footer-beacon {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #A855F7;
-  box-shadow: 0 0 8px #A855F7;
+  box-shadow: 0 0 10px #A855F7;
 }
 
 /* ─── Responsive Breakpoints ────────────────────────────── */
@@ -611,7 +610,7 @@
     gap: 32px;
   }
   .gc-leaflet-container {
-    height: 440px;
+    height: 460px;
   }
 }
 
@@ -620,10 +619,10 @@
     padding: 60px 0;
   }
   .gc-leaflet-container {
-    height: 360px;
+    height: 380px;
   }
   .gc-map-hint-pill {
-    font-size: 10px;
+    font-size: 10.5px;
     padding: 6px 14px;
   }
 }
