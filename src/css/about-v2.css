@@ -533,10 +533,10 @@
 
 
 /* ─── 12. Admissions CTA ────────────────────────────────── */
-.abt-cta { padding: 120px var(--padding-x); background: linear-gradient(135deg, #2D086A 0%, #082259 100%); text-align: center; }
+.abt-cta { padding: 100px var(--padding-x); background: linear-gradient(135deg, #180538 0%, #0A1B44 100%); text-align: center; color: #FFFFFF; }
 .abt-cta-inner { max-width: 800px; margin: 0 auto; }
-.abt-cta-title { font-family: 'Poppins', sans-serif; font-size: 48px; font-weight: 800; margin-bottom: 24px; }
-.abt-cta-desc { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 40px; }
+.abt-cta-title { font-family: 'Poppins', sans-serif; font-size: clamp(32px, 4.5vw, 52px); font-weight: 800; color: #FFFFFF !important; margin-bottom: 20px; line-height: 1.15; letter-spacing: -0.02em; }
+.abt-cta-desc { font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 36px; line-height: 1.6; }
 
 
 /* ─── Responsive Adjustments ────────────────────────────── */

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaRobot, FaLaptopCode, FaBrain, FaSparkles } from "react-icons/fa";
+import { FaRobot, FaLaptopCode, FaBrain } from "react-icons/fa";
 import { useLanguage } from "../../context/LanguageContext";
 
 const HEADLINES = {
