@@ -2016,30 +2016,124 @@ h1, h2, h3 { font-family: var(--font-body); }
 
 .future-header {
       text-align: center;
-      margin-bottom: 70px;
+      margin-bottom: 60px;
       position: relative;
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 }
 
-.future-header h2 {
-      font-size: clamp(32px, 4.5vw, 56px);
-      color: #fff;
+.future-tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      background: rgba(199, 125, 255, 0.12);
+      border: 1px solid rgba(199, 125, 255, 0.35);
+      border-radius: 999px;
+      font-size: 11.5px;
       font-weight: 700;
+      color: #E0AAFF;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.future-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #C77DFF;
+      box-shadow: 0 0 8px #C77DFF, 0 0 16px #C77DFF;
+}
+
+.future-headline-rotator {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+}
+
+.future-header h2.future-headline-item {
+      font-size: clamp(32px, 4.5vw, 56px);
+      color: #FFFFFF;
+      font-weight: 800;
       line-height: 1.15;
-      letter-spacing: -1.5px;
+      letter-spacing: -1.2px;
+      margin: 0;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
 }
 
-.future-header h2 span {
-      color: #c77dff;
+.future-highlight-word {
+      background: linear-gradient(135deg, #F0ABFC 0%, #C084FC 45%, #60A5FA 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline-block;
+      filter: drop-shadow(0 0 20px rgba(192, 132, 252, 0.45));
 }
 
-.future-header p {
-      font-size: 18px;
-      color: rgba(255, 255, 255, 0.65);
-      font-weight: 300;
-      max-width: 600px;
-      margin: 20px auto 0;
-      line-height: 1.65;
+.future-subtext-anim {
+      font-size: 17.5px;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 400;
+      max-width: 680px;
+      margin: 18px auto 0;
+      line-height: 1.7;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      will-change: opacity, transform;
+}
+
+/* Animation States */
+.future-anim-active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+}
+
+.future-anim-exiting {
+      opacity: 0;
+      transform: translateY(-14px) scale(0.98);
+}
+
+.future-anim-entering {
+      opacity: 0;
+      transform: translateY(14px) scale(0.98);
+}
+
+/* 4-Item Indicator Bars */
+.future-headline-indicators {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+}
+
+.headline-indicator-dot {
+      width: 24px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headline-indicator-dot:hover {
+      background: rgba(255, 255, 255, 0.45);
+}
+
+.headline-indicator-dot.active {
+      width: 44px;
+      background: linear-gradient(90deg, #C77DFF 0%, #60A5FA 100%);
+      box-shadow: 0 0 14px rgba(199, 125, 255, 0.7);
 }
 
 .future-cards {
