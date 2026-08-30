@@ -345,25 +345,39 @@ const AchievementsStats = () => {
 /* ─── 9. Student Life Showcase ──────────────────────────── */
 const StudentLifeShowcase = () => {
   const cards = [
-    { title: "Academics", img: imgAcademic },
-    { title: "Sports", img: imgSwimming },
-    { title: "Robotics", img: imgInnovation },
-    { title: "Music & Arts", img: imgLibrary },
-    { title: "Leadership", img: imgSenior },
+    { title: "Academics", img: imgAcademic, link: "/education" },
+    { title: "Sports", img: imgSwimming, link: "/student-life/sports" },
+    { title: "Robotics", img: imgInnovation, link: "/student-life/robotics" },
+    { title: "Music & Arts", img: imgLibrary, link: "/student-life/music-academy" },
+    { title: "Leadership", img: imgSenior, link: "/about-MEC/leadership" },
   ];
+
   return (
     <section className="abt-life">
-      <div className="abt-sec-header">
-        <h2 className="abt-sec-title">Life at MEC</h2>
-      </div>
-      <div className="abt-life-track">
-        {cards.map((c, i) => (
-          <div className="abt-life-card" key={i}>
-            <img src={c.img} alt={c.title} />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)' }} />
-            <h3>{c.title}</h3>
+      <div className="abt-life-container">
+        
+        <div className="abt-life-header">
+          <div className="abt-life-eyebrow">
+            Experience & Community
           </div>
-        ))}
+          <h2 className="abt-life-title">Life at MEC</h2>
+          <p className="abt-life-subtitle">
+            Discover the experiences, activities and opportunities that make life at MEC unique.
+          </p>
+        </div>
+
+        <div className="abt-life-grid">
+          {cards.map((c, i) => (
+            <Link to={c.link} className="abt-life-card" key={i} aria-label={`Explore ${c.title}`}>
+              <img src={c.img} alt={c.title} className="abt-life-card-img" />
+              <div className="abt-life-card-overlay" />
+              <div className="abt-life-card-content">
+                <h3 className="abt-life-card-title">{c.title}</h3>
+              </div>
+            </Link>
+          ))}
+        </div>
+
       </div>
     </section>
   );
