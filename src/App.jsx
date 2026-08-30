@@ -128,6 +128,13 @@ function App() {
         <Route path='/admissions/fees-structure' element={<SchoolFees />} />
         <Route path='/education' element={<EducationLanding />} />
         <Route path='/education/CBC/:name' element={<SingeEducationPage />} />
+        <Route path='/education/cbc/:name' element={<SingeEducationPage />} />
+        <Route path='/education/pre-school' element={<SingeEducationPage />} />
+        <Route path='/education/pre-primary' element={<SingeEducationPage />} />
+        <Route path='/education/lower-primary' element={<SingeEducationPage />} />
+        <Route path='/education/upper-primary' element={<SingeEducationPage />} />
+        <Route path='/education/junior-school' element={<SingeEducationPage />} />
+        <Route path='/education/senior-school' element={<SingeEducationPage />} />
         <Route path='/about-MEC/leadership' element={<Leadership />} />
         <Route path='/about-MEC/word-from-our-chairman' element={<WordFromChairman />} />
         <Route path='/education/cambridge-system' element={<CambridgePage />} />
