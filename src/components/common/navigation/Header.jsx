@@ -4,20 +4,24 @@ import {
   FaUserCircle, FaMoon, FaSun, FaSearch, FaTimes, FaChevronDown, 
   FaInfoCircle, FaUsers, FaQuoteLeft, FaBriefcase, FaCalendarAlt,
   FaChild, FaBookOpen, FaBrain, FaLaptopCode, FaGraduationCap,
-  FaFileAlt, FaMoneyBillWave, FaFolderOpen, FaQuestionCircle, FaStar 
+  FaFileAlt, FaMoneyBillWave, FaFolderOpen, FaQuestionCircle, FaStar,
+  FaGlobe, FaCheck
 } from "react-icons/fa";
 import { CgMenu } from "react-icons/cg";
 import logo from "../../../assets/logo.png";
 import imgKids from "../../../assets/kids.jpg";
 import imgSenior from "../../../assets/senior.jpg";
 import { useHeroIntro } from "../../../context/HeroIntroContext";
+import { useLanguage } from "../../../context/LanguageContext";
 import "../../../css/navbar.css";
 
 const Header = () => {
+  const { language, setLanguage, toggleLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
   const [mobOpenSection, setMobOpenSection] = useState(null);
   const [hoveredProgram, setHoveredProgram] = useState('pre');
   
@@ -28,6 +32,7 @@ const Header = () => {
 
   // Navigation Accessibility Refs
   const navRef = useRef(null);
+  const langDropdownRef = useRef(null);
   const aboutTriggerRef = useRef(null);
   const eduTriggerRef = useRef(null);
   const admTriggerRef = useRef(null);
@@ -36,6 +41,7 @@ const Header = () => {
   useEffect(() => {
     setSidebarOpen(false);
     setSearchOpen(false);
+    setLangOpen(false);
     setOpenDropdown(null);
   }, [pathname]);
 
@@ -56,11 +62,14 @@ const Header = () => {
     }
   }, []);
 
-  // Click Outside Listener (Closes active dropdown when clicking anywhere outside navRef)
+  // Click Outside Listener (Closes active dropdown and language dropdown when clicking anywhere outside)
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
         setOpenDropdown(null);
+      }
+      if (langDropdownRef.current && !langDropdownRef.current.contains(e.target)) {
+        setLangOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -74,17 +83,20 @@ const Header = () => {
   // Keyboard Listener (Escape key closes active dropdown & returns focus to trigger)
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "Escape" && openDropdown) {
-        const current = openDropdown;
-        setOpenDropdown(null);
-        if (current === 'about' && aboutTriggerRef.current) aboutTriggerRef.current.focus();
-        if (current === 'education' && eduTriggerRef.current) eduTriggerRef.current.focus();
-        if (current === 'admissions' && admTriggerRef.current) admTriggerRef.current.focus();
+      if (e.key === "Escape") {
+        if (langOpen) setLangOpen(false);
+        if (openDropdown) {
+          const current = openDropdown;
+          setOpenDropdown(null);
+          if (current === 'about' && aboutTriggerRef.current) aboutTriggerRef.current.focus();
+          if (current === 'education' && eduTriggerRef.current) eduTriggerRef.current.focus();
+          if (current === 'admissions' && admTriggerRef.current) admTriggerRef.current.focus();
+        }
       }
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [openDropdown]);
+  }, [openDropdown, langOpen]);
 
   const toggleDark = () => {
     const next = !darkMode;
@@ -386,21 +398,61 @@ const Header = () => {
                 </button>
               </div>
 
-              <div className="lang-dropdown">
-                <button className="lang-toggle">EN ▼</button>
+              <div className="lang-dropdown" ref={langDropdownRef}>
+                <button 
+                  className="lang-toggle"
+                  onClick={() => setLangOpen(!langOpen)}
+                  aria-expanded={langOpen}
+                  aria-haspopup="true"
+                  title="Switch Language / Badilisha Lugha"
+                  aria-label="Switch Language / Badilisha Lugha"
+                >
+                  <span className="lang-flag">{language === 'sw' ? '🇰🇪' : '🇬🇧'}</span>
+                  <span className="lang-code">{language === 'sw' ? 'SW' : 'EN'}</span>
+                  <FaChevronDown 
+                    size={9} 
+                    className="lang-chevron" 
+                    style={{ transform: langOpen ? 'rotate(180deg)' : 'none' }} 
+                  />
+                </button>
+
+                {langOpen && (
+                  <div className="lang-menu" role="menu">
+                    <button 
+                      type="button"
+                      className={`lang-option ${language === 'en' ? 'active' : ''}`}
+                      onClick={() => { setLanguage('en'); setLangOpen(false); }}
+                      role="menuitem"
+                    >
+                      <span className="lang-opt-flag">🇬🇧</span>
+                      <span className="lang-opt-name">English</span>
+                      {language === 'en' && <FaCheck className="lang-opt-check" size={10} />}
+                    </button>
+                    <button 
+                      type="button"
+                      className={`lang-option ${language === 'sw' ? 'active' : ''}`}
+                      onClick={() => { setLanguage('sw'); setLangOpen(false); }}
+                      role="menuitem"
+                    >
+                      <span className="lang-opt-flag">🇰🇪</span>
+                      <span className="lang-opt-name">Kiswahili</span>
+                      {language === 'sw' && <FaCheck className="lang-opt-check" size={10} />}
+                    </button>
+                  </div>
+                )}
               </div>
 
               <button className="mec-icon-btn" onClick={toggleDark} aria-label="Toggle theme">
                 {darkMode ? <FaSun size={15} /> : <FaMoon size={15} />}
               </button>
 
-              <Link to="/parent-dashboard" className="mec-icon-btn" aria-label="Parent Dashboard">
+              <Link to="/parent-dashboard" className="mec-icon-btn" aria-label="Parent Dashboard" title={t.parentPortal || "Parent Portal"}>
                 <FaUserCircle size={17} />
               </Link>
             </div>
 
             <Link to="/admissions/admission-process" className="nav-apply-btn" onClick={closeDropdown}>
-              Apply Now
+              {t.applyNow || "Apply Now"}
             </Link>
 
             <button className="mec-mobile-toggle" onClick={() => setSidebarOpen(true)} aria-label="Open navigation menu">
@@ -425,23 +477,42 @@ const Header = () => {
           </button>
         </div>
 
+        {/* Mobile Language Switcher */}
+        <div className="mobile-lang-bar">
+          <span className="mobile-lang-title">Language / Lugha:</span>
+          <div className="mobile-lang-pills">
+            <button 
+              className={`mobile-lang-pill ${language === 'en' ? 'active' : ''}`}
+              onClick={() => setLanguage('en')}
+            >
+              🇬🇧 English
+            </button>
+            <button 
+              className={`mobile-lang-pill ${language === 'sw' ? 'active' : ''}`}
+              onClick={() => setLanguage('sw')}
+            >
+              🇰🇪 Kiswahili
+            </button>
+          </div>
+        </div>
+
         <div className="mobile-nav">
           <div className={`mob-nav-item ${mobOpenSection === 'about' ? 'open' : ''}`}>
             <button className="mob-nav-btn" onClick={() => setMobOpenSection(mobOpenSection === 'about' ? null : 'about')}>
-              About <FaChevronDown size={14} style={{ opacity: 0.5, transform: mobOpenSection === 'about' ? 'rotate(180deg)' : 'none' }} />
+              {t.nav.about || "About MEC"} <FaChevronDown size={14} style={{ opacity: 0.5, transform: mobOpenSection === 'about' ? 'rotate(180deg)' : 'none' }} />
             </button>
             <div className="mob-sub-menu">
-              <Link to="/about-MEC" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>About MEC</Link>
-              <Link to="/about-MEC/leadership" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>Our Leadership</Link>
-              <Link to="/about-MEC/word-from-our-chairman" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>Word from our Chairman</Link>
-              <Link to="/about-MEC/vacancies" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>Vacancies</Link>
-              <Link to="/about-MEC/school-events" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>School Events</Link>
+              <Link to="/about-MEC" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>{t.nav.about || "About MEC"}</Link>
+              <Link to="/about-MEC/leadership" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>{t.nav.leadership || "Our Leadership"}</Link>
+              <Link to="/about-MEC/word-from-our-chairman" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>{t.nav.chairman || "Word from our Chairman"}</Link>
+              <Link to="/about-MEC/vacancies" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>{t.nav.vacancies || "Vacancies"}</Link>
+              <Link to="/about-MEC/school-events" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>{t.nav.schoolEvents || "School Events"}</Link>
             </div>
           </div>
 
           <div className={`mob-nav-item ${mobOpenSection === 'edu' ? 'open' : ''}`}>
             <button className="mob-nav-btn" onClick={() => setMobOpenSection(mobOpenSection === 'edu' ? null : 'edu')}>
-              Education <FaChevronDown size={14} style={{ opacity: 0.5, transform: mobOpenSection === 'edu' ? 'rotate(180deg)' : 'none' }} />
+              {t.nav.education || "Education"} <FaChevronDown size={14} style={{ opacity: 0.5, transform: mobOpenSection === 'edu' ? 'rotate(180deg)' : 'none' }} />
             </button>
             <div className="mob-sub-menu">
               <Link to="/education/CBC/pre-primary" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>Pre-Primary</Link>
@@ -454,22 +525,32 @@ const Header = () => {
 
           <div className={`mob-nav-item ${mobOpenSection === 'adm' ? 'open' : ''}`}>
             <button className="mob-nav-btn" onClick={() => setMobOpenSection(mobOpenSection === 'adm' ? null : 'adm')}>
-              Admissions <FaChevronDown size={14} style={{ opacity: 0.5, transform: mobOpenSection === 'adm' ? 'rotate(180deg)' : 'none' }} />
+              {t.nav.admissions || "Admissions"} <FaChevronDown size={14} style={{ opacity: 0.5, transform: mobOpenSection === 'adm' ? 'rotate(180deg)' : 'none' }} />
             </button>
             <div className="mob-sub-menu">
-              <Link to="/admissions/admission-process" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>Apply Online</Link>
-              <Link to="/admissions/frequently-asked-questions" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>FAQs</Link>
+              <Link to="/admissions/admission-process" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>{t.nav.applicationProcess || "Application Process"}</Link>
+              <Link to="/admissions/fees" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>{t.nav.feeStructure || "Fee Structure"}</Link>
+              <Link to="/admissions/resources" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>{t.nav.resourcesForms || "Resources & Forms"}</Link>
+              <Link to="/admissions/frequently-asked-questions" className="mob-sub-link" onClick={() => setSidebarOpen(false)}>{t.nav.faq || "FAQs"}</Link>
             </div>
           </div>
           
           <div className="mob-nav-item">
-            <Link to="/extra-curricular" className="mob-nav-btn" onClick={() => setSidebarOpen(false)} style={{ textDecoration: 'none' }}>Student Life</Link>
+            <Link to="/extra-curricular" className="mob-nav-btn" onClick={() => setSidebarOpen(false)} style={{ textDecoration: 'none' }}>
+              {t.nav.studentLife || "Student Life"}
+            </Link>
+          </div>
+
+          <div className="mob-nav-item">
+            <Link to="/contact" className="mob-nav-btn" onClick={() => setSidebarOpen(false)} style={{ textDecoration: 'none' }}>
+              {t.nav.contact || "Contact Us"}
+            </Link>
           </div>
         </div>
 
         <div className="mobile-footer">
           <Link to="/admissions/admission-process" className="mobile-apply" onClick={() => setSidebarOpen(false)}>
-            Apply Now
+            {t.applyNow || "Apply Now"}
           </Link>
         </div>
       </div>
