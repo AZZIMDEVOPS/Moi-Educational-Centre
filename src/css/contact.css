@@ -835,11 +835,11 @@
     font-weight: 340;
     border: none;
     background: rgb(255, 255, 255);
-    border-radius: 7px;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
     -ms-border-radius: 7px;
     -o-border-radius: 7px;
+    border-radius: 7px;
     border: 1px solid rgba(246, 195, 246, 0.3);
 }
 select.form-control{
@@ -858,23 +858,23 @@ textarea::placeholder{
     font-size: 17px;
     font-weight: 340;
     border: none;
-   background: rgb(255, 255, 255);
-    border-radius: 10px;
+    background: rgb(255, 255, 255);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-        border: 1px solid rgba(246, 195, 246, 0.3);
+    border-radius: 10px;
+    border: 1px solid rgba(246, 195, 246, 0.3);
 }
 
 .form-btn button{
      width: 200px;
      height: 55px;
-     border-radius: 55px;
      -webkit-border-radius: 55px;
      -moz-border-radius: 55px;
      -ms-border-radius: 55px;
      -o-border-radius: 55px;
+     border-radius: 55px;
      background: var(--main-color);
      color: white;
      border: none;

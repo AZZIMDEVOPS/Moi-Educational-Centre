@@ -447,7 +447,6 @@
   align-items: center;
   gap: 8px;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   padding: 4px 0;
 }
