@@ -124,10 +124,11 @@
   --transition-slow:   0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* ─── Layout & Spacing ──────────────────────────────────────── */
-  --max-width:         1440px;
-  --padding-x:         120px;
-  --section-gap:       120px;
+  /* ─── Layout & Spacing (Fluid Widescreen Scaling) ────────────── */
+  --max-width:         min(1560px, 94vw);
+  --max-width-wide:    min(1680px, 96vw);
+  --padding-x:         clamp(24px, 4vw, 64px);
+  --section-gap:       clamp(64px, 7vw, 120px);
   
   --space-1:           8px;
   --space-2:           16px;
@@ -145,15 +146,15 @@
 
 @media (max-width: 1024px) {
   :root {
-    --padding-x:       64px;
-    --section-gap:     80px;
+    --padding-x:       clamp(20px, 3.5vw, 40px);
+    --section-gap:     64px;
   }
 }
 
 @media (max-width: 640px) {
   :root {
-    --padding-x:       24px;
-    --section-gap:     64px;
+    --padding-x:       18px;
+    --section-gap:     48px;
   }
 }
 

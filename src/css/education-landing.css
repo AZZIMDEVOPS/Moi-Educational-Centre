@@ -177,7 +177,7 @@
 .edu-level-section {
   position: relative; 
   z-index: 2; 
-  max-width: 1200px; 
+  max-width: var(--max-width); 
   margin: 0 auto 120px;
   display: grid; 
   grid-template-columns: 1fr 1fr; 

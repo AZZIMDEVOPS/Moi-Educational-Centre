@@ -37,7 +37,7 @@ const Footer = () => {
       }} />
 
       {/* Main footer content */}
-      <div style={{ maxWidth: 1240, margin: '0 auto', padding: '64px 24px 32px' }}>
+      <div style={{ maxWidth: 'min(1560px, 94vw)', margin: '0 auto', padding: '64px clamp(24px, 4vw, 64px) 32px' }}>
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1.5fr 1fr 1fr 1.1fr',

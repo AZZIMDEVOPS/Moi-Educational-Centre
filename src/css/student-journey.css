@@ -189,10 +189,10 @@
 /* ─── Timeline Container ─────────────────────────────────── */
 .journey-timeline-container {
   position: relative;
-  max-width: 1240px;
+  max-width: var(--max-width);
   margin: 0 auto;
   z-index: 10;
-  padding: 40px 0 60px;
+  padding: 40px var(--padding-x) 60px;
 }
 
 /* Central Real-time SVG Track */

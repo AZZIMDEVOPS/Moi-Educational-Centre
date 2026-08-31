@@ -22,7 +22,7 @@
 .header-inner {
   pointer-events: auto;
   width: 94%; 
-  max-width: 1440px;
+  max-width: min(1560px, 94vw);
   height: 72px;
   background: rgba(255, 255, 255, 0.95);
   -webkit-backdrop-filter: blur(24px);

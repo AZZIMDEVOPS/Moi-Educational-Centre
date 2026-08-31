@@ -43,8 +43,9 @@
 
 /* ─── Content Container ─────────────────────────────────────── */
 .gr-container {
-  max-width: 1400px;
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--padding-x);
   position: relative;
   z-index: 2;
 }

@@ -533,7 +533,7 @@
 .contact-form {
   display: block !important;
   width: 100%;
-  max-width: 900px;
+  max-width: min(1080px, 94vw);
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.85);
     

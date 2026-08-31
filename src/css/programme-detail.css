@@ -124,8 +124,9 @@
 }
 
 .prog-overview-container {
-  max-width: 1240px;
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--padding-x);
   display: grid;
   grid-template-columns: 1fr 420px;
   gap: 64px;
@@ -271,8 +272,9 @@
 }
 
 .prog-container {
-  max-width: 1240px;
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding: 0 var(--padding-x);
 }
 
 .prog-hl-list {
