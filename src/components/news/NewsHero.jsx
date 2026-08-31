@@ -1,54 +1,76 @@
-import { HiChevronRight } from "react-icons/hi2";
-import { Link } from "react-router-dom"
-import { useArticlesFetch } from "../../hooks/articleshook";
+import React from "react";
+import { FaRobot, FaTrophy, FaCalendarCheck, FaGlobe, FaAward } from "react-icons/fa";
+import { BsStars } from "react-icons/bs";
+import { useHeroIntro } from "../../context/HeroIntroContext";
 
 const NewsHero = () => {
-  const { posts } = useArticlesFetch();
-  const articles = localStorage.getItem("MEC Articles") ? JSON.parse(localStorage.getItem("MEC Articles")) : posts;
+  const { triggerAssistantAction } = useHeroIntro() || {};
+
+  const handleOpenAi = () => {
+    if (typeof triggerAssistantAction === "function") {
+      triggerAssistantAction("What are the most recent news stories and achievements at Moi Educational Centre?");
+    }
+  };
 
   return (
-    <div className="news-hero">
-            <div className="inner-row">
-                      <div className="news-hero-content">
-                                  <div className="news-intro">
-                                           <h1>Latest News & Updates</h1>
-                                           <p>Stay up to date with what's happening at MEC! Read our Blog and browser our events.</p>
-                                  </div>
+    <section className="nr-hero-section" aria-label="Digital Newsroom Header">
+      <div className="nr-hero-mesh-1" />
+      <div className="nr-hero-mesh-2" />
 
-                                  <div className="news-body-strip">
-                                             <div className="purple-strip"></div>
-                                             <div className="news-body-row">
-                                                           <div className="news-body-header">
-                                                                     <h3>All News</h3>
-                                                                     <select>
-                                                                             <option value="">Filter by</option>
-                                                                     </select>
-                                                           </div>
-                                                         { articles && articles.length > 0 ?
-                                                                <div className="news-body-group">
-                                                                          { articles.map(item => 
-                                                                                <Link to={`/news-and-updates/${item.slug}`} className="blog-moja" key={item.id}>
-                                                                                        <img src={item._embedded["wp:featuredmedia"] ?  item._embedded["wp:featuredmedia"][0].source_url: ''} alt="item.slug" />
-
-                                                                                        <div className="blog-texts">
-                                                                                                <h3>{item._embedded['wp:term'][0][0].name.replace(/&amp;/g, '&' )}</h3>
-                                                                                                <h2>{item.title.rendered}</h2>
-                                                                                                <Link to={`/news-and-updates/${item.slug}`}>Read more <span><HiChevronRight /></span></Link>
-                                                                                        </div>
-                                                                                </Link>
-                                                                          )}
-                                                                </div>
-                                                          :
-                                                               <div className="loader-box">
-                                                                        <div className="spin-loader"></div>
-                                                               </div>
-                                                          }
-                                             </div>
-                                  </div>
-                      </div>
+      <div className="newsroom-container">
+        
+        <div className="nr-hero-header-row">
+          <div className="nr-hero-copy">
+            <div className="nr-eyebrow">
+              <span className="nr-eyebrow-pulse" />
+              <span>DIGITAL NEWSROOM · MOI EDUCATIONAL CENTRE</span>
             </div>
-    </div>
-  )
-}
 
-export default NewsHero
+            <h1 className="nr-hero-title">
+              What's Happening at <span className="nr-title-accent">MEC</span>
+            </h1>
+
+            <p className="nr-hero-subtitle">
+              Discover authentic student achievements, global performance tours, sports championships, academic insights, and celebrations across 40 years of excellence.
+            </p>
+          </div>
+
+          <div>
+            <button
+              type="button"
+              className="nr-ai-concierge-chip"
+              onClick={handleOpenAi}
+              title="Ask MEC AI Assistant about news and stories"
+            >
+              <FaRobot className="nr-ai-chip-sparkle" size={16} />
+              <span>Ask MEC Assistant</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Quick Stats Pill Strip */}
+        <div className="nr-stats-strip">
+          <div className="nr-stat-pill">
+            <FaAward style={{ color: "#7720E9" }} />
+            <span><strong>40 Years</strong> of Heritage</span>
+          </div>
+          <div className="nr-stat-pill">
+            <FaGlobe style={{ color: "#0F3D91" }} />
+            <span><strong>Vienna & Edinburgh</strong> Global Tours 2026</span>
+          </div>
+          <div className="nr-stat-pill">
+            <FaTrophy style={{ color: "#F59E0B" }} />
+            <span><strong>24+ Medals</strong> Aquatics & Soccer</span>
+          </div>
+          <div className="nr-stat-pill">
+            <FaCalendarCheck style={{ color: "#2563EB" }} />
+            <span><strong>100+</strong> Annual School Events</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default NewsHero;

@@ -215,12 +215,17 @@ export const SITE_NAVIGATION_REGISTRY = {
   },
 
   news: {
-    title: "News & Media Updates",
+    title: "News & Updates — Digital Newsroom",
     path: "/news-and-updates",
     category: "News & Events",
-    keywords: ["news", "updates", "articles", "press", "announcements"],
+    keywords: [
+      "news", "updates", "articles", "press", "announcements", "digital newsroom", "stories",
+      "sports news", "achievements", "vienna tour", "edinburgh cup", "vex robotics", "swimming gala",
+      "cambridge news", "cbc insights", "career day", "alumni reunion", "40 years", "music conservatory"
+    ],
     sections: {
-      articles: { id: "news-articles", title: "Latest News", description: "Recent stories, achievements, and campus updates" }
+      articles: { id: "news-articles", title: "Latest Stories", description: "Recent stories, student achievements, global tours, and campus updates" },
+      featured: { id: "featured-story", title: "Featured Story Spotlight", description: "Top featured story from the MEC community" }
     }
   },
 

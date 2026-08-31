@@ -125,7 +125,9 @@ function App() {
         <Route path='/about-MEC' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/news-and-updates' element={<News />} />
-        <Route path="/admissions/admission-process" element={<AdmissionProcess />} />
+        <Route path='/news-and-updates/:title' element={<SingleArticlePage />} />
+        <Route path='/news-and-updates/article/:slug' element={<SingleArticlePage />} />
+        <Route path='/news/:title' element={<SingleArticlePage />} />
         <Route path='/admissions/frequently-asked-questions' element={<FAQs />} />
         <Route path='/admissions/faqs' element={<FAQs />} />
         <Route path='/about-MEC/faqs' element={<FAQs />} />
