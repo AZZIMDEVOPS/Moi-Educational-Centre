@@ -172,7 +172,7 @@ const Sidebar = () => {
                                                                <li><NavLink to={"/portal/faculty"}>{t.faculty}</NavLink></li>
                                                                <li><NavLink to={"/portal/students"}>{t.students}</NavLink></li>
                                                                <li><NavLink to={"/portal/alumni"}>{t.alumni}</NavLink></li>
-                                                               <li className="parent-portal-link"><NavLink to={"/parent-dashboard"}>{language === 'en' ? 'Parent Portal' : 'Tovuti ya Wazazi'}</NavLink></li>
+                                                               <li className="parent-portal-link"><NavLink to={"/parents-hub"}>{language === 'en' ? 'Parents Hub' : 'Tovuti ya Wazazi'}</NavLink></li>
                                                         </ul>
                                                  </div>
                                           </div>

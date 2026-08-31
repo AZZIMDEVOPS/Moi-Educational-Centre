@@ -1,7 +1,7 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { 
-  FaUserCircle, FaMoon, FaSun, FaSearch, FaTimes, FaChevronDown, 
+  FaMoon, FaSun, FaSearch, FaTimes, FaChevronDown, 
   FaInfoCircle, FaUsers, FaQuoteLeft, FaBriefcase, FaCalendarAlt,
   FaChild, FaBookOpen, FaBrain, FaLaptopCode, FaGraduationCap,
   FaFileAlt, FaMoneyBillWave, FaFolderOpen, FaQuestionCircle, FaStar,
@@ -445,10 +445,6 @@ const Header = () => {
               <button className="mec-icon-btn" onClick={toggleDark} aria-label="Toggle theme">
                 {darkMode ? <FaSun size={15} /> : <FaMoon size={15} />}
               </button>
-
-              <Link to="/parent-dashboard" className="mec-icon-btn" aria-label="Parent Dashboard" title={t.parentPortal || "Parent Portal"}>
-                <FaUserCircle size={17} />
-              </Link>
             </div>
 
             <Link to="/admissions/admission-process" className="nav-apply-btn" onClick={closeDropdown}>

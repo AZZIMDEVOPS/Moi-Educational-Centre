@@ -63,7 +63,6 @@ import GirlGuides from './pages/activities/movements/GirlGuides'
 import Scouts from './pages/activities/movements/Scouts'
 import StJohnAmbulance from './pages/activities/movements/StJohnAmbulance'
 
-import ParentDashboard from './pages/ParentDashboard'
 import AIChatbot from './components/common/AIChatbot'
 import WhatsAppButton from './components/common/WhatsAppButton'
 import SplashScreen from './components/common/SplashScreen'
@@ -123,7 +122,6 @@ function App() {
       )}
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path="/parent-dashboard" element={<ParentDashboard />} />
         <Route path='/about-MEC' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/news-and-updates' element={<News />} />
